@@ -1,7 +1,9 @@
 // components/Layout.jsx
 import { AnimatePresence } from "framer-motion";
 import Loading from "./loading";
-import Header from "./Header";
+import dynamic from "next/dynamic";
+
+const Header = dynamic(() => import('./Header'), { ssr: false }); // Footer likely not critical for SSR
 
 export default function Layout({ children, loading }) {
   return (

@@ -1,11 +1,15 @@
 import Head from 'next/head';
-import Hero from '../components/Hero';
-import Section from '../components/Section';
-import ProjectCard from '../components/ProjectCard';
-import Footer from '../components/Footer';
-import { projects } from '../data/project'; // Fixed typo: 'project' → 'projects'
-import { FaSearch } from 'react-icons/fa';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { projects } from '@/data/project'; // Assuming typo fixed
+
+// Dynamically import non-critical components
+const Hero = dynamic(() => import('../components/Hero'), { ssr: true });
+const Section = dynamic(() => import('../components/Section'), { ssr: true });
+const ProjectCard = dynamic(() => import('../components/ProjectCard'), { ssr: true });
+const Footer = dynamic(() => import('../components/Footer'), { ssr: false }); // Footer likely not critical for SSR
+// Import only the specific icon needed
+import { FaSearch } from 'react-icons/fa';
 export default function Home() {
   const featuredProject = projects[0];
 

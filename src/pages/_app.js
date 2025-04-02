@@ -2,7 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
 import "../styles/globals.css";
-import { Provider } from 'react-redux';
+import dynamic from "next/dynamic";
+
+const Provider = dynamic(
+  () => import('react-redux').then(mod => mod.Provider),
+  { ssr: false }
+);
 import { store } from '../lib/store';
 export default function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);

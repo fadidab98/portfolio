@@ -1,9 +1,13 @@
 // components/Layout.jsx
-import { AnimatePresence } from "framer-motion";
-import Loading from "./loading";
 import dynamic from "next/dynamic";
 
+const AnimatePresence = dynamic(
+  () => import('framer-motion').then(mod => mod.AnimatePresence),
+  { ssr: false }
+);import Loading from "./loading";
+
 const Header = dynamic(() => import('./Header'), { ssr: false }); // Footer likely not critical for SSR
+const Footer = dynamic(() => import('./Footer'), { ssr: false }); // Footer likely not critical for SSR
 
 export default function Layout({ children, loading }) {
   return (
@@ -15,6 +19,7 @@ export default function Layout({ children, loading }) {
         </AnimatePresence>
         {children}
       </div>
+      <Footer/>
     </div>
   );
 }

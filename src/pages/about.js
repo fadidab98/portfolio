@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+
 
 export default function About() {
   return (
@@ -9,7 +8,7 @@ export default function About() {
         <title>FadiLogic</title>
         <meta name="description" content="Learn more about my skills and experience." />
       </Head>
-      <Header />
+     
       <section className="py-16 px-4 max-w-2xl mx-auto">
         <h2 className="text-3xl mb-6 text-center">About Me</h2>
         <p className="text-lg">
@@ -18,7 +17,7 @@ export default function About() {
           problem-solving, delivering experiences that stand out.
         </p>
       </section>
-      <Footer />
+      
     </div>
   );
 }

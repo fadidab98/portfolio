@@ -1,113 +1,69 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
+import Head from 'next/head';
+import Hero from '../components/Hero';
+import Section from '../components/Section';
+import ProjectCard from '../components/ProjectCard';
+import Footer from '../components/Footer';
+import { projects } from '../data/project'; // Fixed typo: 'project' → 'projects'
+import { FaSearch } from 'react-icons/fa';
+import Link from 'next/link';
 export default function Home() {
+  const featuredProject = projects[0];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <div>
+      <Head>
+        <title>FadiLogic</title>
+        <meta name="description" content="Portfolio of a Machine Learning Engineer and Frontend Developer." />
+        <meta name="keywords" content="machine learning, frontend, next.js, portfolio" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Fadi Dabboura', // Updated to your name
+              jobTitle: 'Machine Learning Engineer & Frontend Developer',
+              email: 'mailto:your.email@example.com', // Update with your email
+            }),
+          }}
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/pages/index.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      </Head>
+      <Hero />
+      <Section id="scan-service" className="bg-secondary overflow-hidden ">
+      <div className="relative max-w-4xl mx-auto text-center ">
+      <div className="absolute -top-40 -left-40 w-[30rem] h-full max-sm:w-[20rem] max-sm:h-[20rem]     bg-accent rounded-full opacity-20 z-[8] "></div>
+      <div className="absolute -bottom-40 -right-40 w-[15rem] h-[15rem] bg-accent rounded-full opacity-20 z-[8] "></div>
+
+        <div className="mb-6">
+          <FaSearch className="text-accent text-5xl mx-auto" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <h2 className="text-3xl font-bold mb-4 text-white">Website Scan Service</h2>
+        <p className="text-lg mb-8 text-gray-300 leading-relaxed">
+          Our <strong>Website Scan Service</strong> delivers a thorough and detailed evaluation of your website’s performance, designed to uncover potential issues that may hinder its functionality, user experience, or visibility on search engines. Leveraging cutting-edge diagnostic tools, we analyze critical aspects such as page load speeds, broken links, security vulnerabilities, and overall site optimization. This comprehensive approach ensures that no stone is left unturned, providing you with actionable insights to enhance your online presence. Should any significant concerns arise, our dedicated team of experts is readily available to offer personalized guidance and solutions tailored to your specific needs. Elevate your website’s performance and reliability—begin your journey to a seamless digital experience by initiating your scan today.
+        </p>
+        <Link
+          href="/website-scan"
+          className="inline-block bg-accent text-background py-3 px-6 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition duration-300"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          Start Scan Now
+        </Link>
+      </div>
+    </Section>
+      <Section id="projects">
+        <h2 className="text-4xl mb-8 text-center">Featured Project</h2>
+        <div className="max-w-lg mx-auto">
+          <ProjectCard project={featuredProject} />
+        </div>
+        <h2 className="text-4xl mt-12 mb-8 text-center">Other Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.slice(1).map((project, index) => (
+            <ProjectCard key={index} project={project} />
+          ))}
+        </div>
+      </Section>
+
+      
+      <Footer />
     </div>
   );
 }

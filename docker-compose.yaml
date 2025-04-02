@@ -6,10 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3003:3000"  # Map host port 3003 to container port 3000
-    environment:
-      - NODE_ENV=production  # Set environment to production
+      - "3003:3000"
+
     volumes:
-      - .:/app  # Optional: for development hot-reloading
-      - /app/node_modules  # Avoid overriding node_modules
+      - .:/app
+      - /app/node_modules
     restart: unless-stopped

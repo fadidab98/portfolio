@@ -1,12 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useScanWebsiteMutation } from '@/lib/scanApi';
-
+import { motion } from 'framer-motion';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
-const motion = dynamic(
-  () => import('framer-motion').then(mod => mod.motion),
-  { ssr: false }
-)
+
 export default function Home() {
   const [url, setUrl] = useState('');
   const [triggerScan, { data, isLoading, isError, error }] = useScanWebsiteMutation();

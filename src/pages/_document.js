@@ -13,7 +13,7 @@ export default function Document() {
       <link rel="preload" href="/fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
       <link rel="preload" href="/fonts/Inter-Bold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
       <link rel="preload" href="/fonts/PlayfairDisplay-Bold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
-      {/* Existing schema scrpt */}
+      {/* Existing schema script */}
     </Head>
       </Head>
       <body>

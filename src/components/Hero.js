@@ -77,7 +77,7 @@ export default function Hero() {
             Software Engineer & Web Developer
           </p>
           <p className="text-base sm:text-lg text-gray-300 mb-6">
-            I am Fadi Dabboura, a dedicated DevOps engineer, data scientist, and web developer...
+            I am Fadi Dabboura, a dedicated DevOps engineer, data scientist, and web developer with a passion for building efficient, scalable, and data-driven solutions. Currently, I am pursuing a Master’s degree in Informatics at Ostfalia , where I am deepening my expertise in Software engineering. With a strong foundation in  full-stack development, machine learning, and Devops. I thrive on solving complex challenges and collaborating on innovative ideas. Explore my portfolio to see my work, or feel free to reach out to discuss potential opportunities!
           </p>
           <Link
             href="/contact"

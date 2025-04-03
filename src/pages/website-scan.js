@@ -168,7 +168,7 @@ export default function Home() {
             {data.results.errors.length > 0 ? (
               <ul className="space-y-6">
                 {data.results.errors.map((error, index) => (
-                  <li key={index} className="bg-secondary p-4 rounded-lg shadow-sm">
+                  <li key={index} className="bg-secondary p-4 rounded-lg shadow-sm break-all">
                     <h4 className="text-lg font-semibold text-text font-playfair">{error.title}</h4>
                     <p className="text-text">{error.description}</p>
                     <p className="text-text">
@@ -198,7 +198,7 @@ export default function Home() {
             {data.results.alerts.length > 0 ? (
               <ul className="space-y-6">
                 {data.results.alerts.map((alert, index) => (
-                  <li key={index} className="bg-secondary p-4 rounded-lg shadow-sm">
+                  <li key={index} className="bg-secondary p-4 rounded-lg shadow-sm break-all">
                     <h4 className="text-lg font-semibold text-text font-playfair">{alert.title}</h4>
                     <p className="text-text">{alert.description}</p>
                     <p className="text-text">

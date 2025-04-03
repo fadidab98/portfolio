@@ -24,13 +24,31 @@ export default function Home({ projects }) {
   return (
     <>
       <Head>
-        <title>FadiLogic</title>
-        <meta name="description" content="Portfolio of a Machine Learning Engineer and Frontend Developer." />
-        <meta name="keywords" content="machine learning, frontend, next.js, portfolio" />
+        <title>FadiLogic - Machine Learning & full-stack Portfolio</title>
+        <meta
+          name="description"
+          content="Explore FadiLogic's portfolio showcasing machine learning projects and full-stack development expertise using Next.js."
+        />
+        <meta
+          name="keywords"
+          content="machine learning, full-stack development, next.js, portfolio, web development"
+        />
+        <meta name="author" content="Fadi Dabboura" />
+        <link rel="canonical" href="https://fadilogic.serp24.online/" />
+        {/* Preload links are fine, keep them */}
         <link rel="preload" href="/images/project1.webp" as="image" />
         <link rel="preload" href="/icons/email.svg" as="image" />
         <link rel="preload" href="/icons/github.svg" as="image" />
         <link rel="preload" href="/icons/linkedin.svg" as="image" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Fadi Dabboura",
+            "jobTitle": "Machine Learning Engineer & full-stack Developer & devops",
+            "url": "https://fadilogic.serp24.online",
+          })}
+  </script>
       </Head>
       <Hero />
       <ScanServiceSection />

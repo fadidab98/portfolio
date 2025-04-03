@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useScanWebsiteMutation } from '@/lib/scanApi';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function Home() {
   const [url, setUrl] = useState('');
@@ -37,11 +38,24 @@ export default function Home() {
   }, [data]);
 
   return (
+    <>
+    <Head>
+  <title>FadiLogic - Website Performance Scan Tool</title>
+  <meta
+    name="description"
+    content="Scan your website for performance, errors, and alerts with FadiLogic's free tool built with Next.js."
+  />
+  <meta
+    name="keywords"
+    content="website scan, performance tool, next.js, web optimization, full-stack"
+  />
+  <meta name="author" content="Fadi Dabboura" />
+  <link rel="canonical" href="https://fadilogic.serp24.online/webscan" />
+</Head>
     <div className="min-h-screen bg-background text-text font-inter p-6">
       {/* Introductory Text */}
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-accent font-playfair">Website Scan Service</h1>
-        <p className="mt-4 text-lg">
+      <h2 className="text-3xl font-bold mb-4 text-white">Scan Your Website Now</h2>        <p className="mt-4 text-lg">
           Welcome to our Website Scan Service! Enter your website URL below to scan it for
           performance metrics, errors, and alerts. We’ll analyze your site and provide detailed
           insights to help you optimize it. If you run into any issues or need assistance, feel
@@ -214,5 +228,6 @@ export default function Home() {
         </div>
       )}
     </div>
+    </>
   );
 }

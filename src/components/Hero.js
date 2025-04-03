@@ -8,8 +8,9 @@ export default function Hero() {
   const isMobile = useSelector(state => state.setting.setting.isMobile);
   console.log('Hero - isMobile:', isMobile); // Debug log
 
-  return !isMobile ? (
-    <section
+  return (
+    <>
+    { isMobile ? (<section
       id="home"
       className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto"
     >
@@ -47,9 +48,7 @@ export default function Hero() {
           </Link>
         </div>
       </div>
-    </section>
-  ) : (
-    <motion.section
+    </section>):(<motion.section
       id="home"
       className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto"
       initial={{ opacity: 0, y: 20 }}
@@ -91,5 +90,7 @@ export default function Hero() {
         </div>
       </div>
     </motion.section>
+  )}
+      </>
   );
 }

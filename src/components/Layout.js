@@ -26,7 +26,7 @@ console.log(isMobile)
 
 
   return (
-    < >
+    <main >
       <Header />
       
         <AnimatePresence>
@@ -35,6 +35,6 @@ console.log(isMobile)
         {children}
      
       <Footer/>
-    </>
+    </main>
   );
 }

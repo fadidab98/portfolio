@@ -12,14 +12,10 @@ module.exports = {
         accent: '#d4af37',     // Gold
         secondary: '#2d2d2d',  // Slightly lighter gray for cards
       },
-      fontFamily: {
-        inter: ['Inter', 'sans-serif'],
-      },
+
     },
     // Define base styles for elements
-    fontFamily: {
-      sans: ['Inter', 'sans-serif'], // Default font for body
-    },
+
   },
   plugins: [
     function ({ addBase }) {
@@ -27,13 +23,11 @@ module.exports = {
         body: {
           backgroundColor: '#1a1a1a', // background
           color: '#ffffff',           // text
-          fontFamily: 'Inter, sans-serif',
           margin: 0,
           padding: 0,
         },
         'h1, h2, h3': {
           color: '#d4af37',           // accent
-          fontFamily: 'Inter',
           fontWeight: '700',
         },
         a: {

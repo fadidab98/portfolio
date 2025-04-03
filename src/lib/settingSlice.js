@@ -13,7 +13,7 @@ export const settingSlice = createSlice({
   reducers: {
 
     changeIsMobile: (state, action) => {
-      state.setting.toggle = action.payload;
+      state.setting.isMobile = action.payload;
     }
   },
 });

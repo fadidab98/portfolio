@@ -68,7 +68,7 @@ export default function Home() {
       </div>
 
       {/* Form */}
-      <div className="bg-secondary container min-h-60 text-center p-14">
+      <div className="bg-secondary container min-h-60 text-center p-14 max-md:p-4">
         <h2 className="text-3xl font-bold mb-4 text-white">Enter Your Website URL</h2>
         <form
           onSubmit={handleSubmit}
@@ -122,7 +122,7 @@ export default function Home() {
       {data && (
         <div className="max-w-4xl mx-auto mt-10">
           {/* Performance Score Counter with Circular Progress */}
-          <div className="bg-secondary m-auto mb-4 p-6 rounded-lg shadow-md text-center border border-accent w-1/2 sm:w-full h-48">
+          <div className="bg-secondary m-auto mb-4 p-6 rounded-lg shadow-md text-center border border-accent w-1/2 max-sm:w-full  h-48">
             <h2 className="text-xl font-bold text-text font-playfair">Performance</h2>
             <br/>
            

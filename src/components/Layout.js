@@ -11,15 +11,15 @@ const Footer = dynamic(() => import('./Footer'), { ssr: false }); // Footer like
 
 export default function Layout({ children, loading }) {
   return (
-    <div className="min-h-screen flex flex-col">
+    < >
       <Header />
-      <div className="relative flex-1">
+      
         <AnimatePresence>
           {loading && <Loading />}
         </AnimatePresence>
         {children}
-      </div>
+     
       <Footer/>
-    </div>
+    </>
   );
 }

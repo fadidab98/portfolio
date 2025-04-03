@@ -19,19 +19,20 @@ export default function Hero() {
       >
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
-            <div className="relative transform ">
-              <Image
-                src="/images/project1.webp"
-                alt="Fadi Dabboura"
-                width={300}
-                height={300}
-                priority
-                placeholder="blur"
-                className="rounded-full border-4 border-accent shadow-lg   object-cover"
-              />
-              <div className="absolute -top-6 -left-6 w-28 h-28 bg-accent rounded-full opacity-20 z-[-1]"></div>
-              <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent rounded-full opacity-20 z-[-1]"></div>
-            </div>
+          <div className="relative">
+          <Image
+            src="/images/project1.webp"
+            alt="Fadi Dabboura"
+            width={300}
+            height={300}
+            priority
+            placeholder="blur"
+            className="rounded-full border-4 border-accent shadow-lg object-cover"
+            sizes="(max-width: 640px) 256px, (max-width: 768px) 288px, 320px"
+          />
+          <div className="absolute -top-6 -left-6 w-28 h-28 bg-accent rounded-full opacity-20 z-[-1]"></div>
+          <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent rounded-full opacity-20 z-[-1]"></div>
+        </div>
           </div>
           <div className="w-full md:w-1/2 text-center md:text-left">
             <h1 className="text-4xl sm:text-5xl md:text-6xl mb-4">Fadi Dabboura</h1>

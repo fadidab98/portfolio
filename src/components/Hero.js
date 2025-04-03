@@ -10,10 +10,8 @@ export default function Hero() {
 
   return (
     <>
-    { isMobile ? (<section
-      id="home"
-      className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto"
-    >
+    { isMobile ? (
+
       <div className="flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
           <div className="relative aspect-[250/350] w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px]">
@@ -48,7 +46,7 @@ export default function Hero() {
           </Link>
         </div>
       </div>
-    </section>):(<motion.section
+    ):(<motion.section
       id="home"
       className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto"
       initial={{ opacity: 0, y: 20 }}

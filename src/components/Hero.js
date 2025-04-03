@@ -19,7 +19,7 @@ export default function Hero() {
       >
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
-          <div className="relative">
+          <div className="relative" >
           <Image
             src="/images/project1.webp"
             alt="Fadi Dabboura"

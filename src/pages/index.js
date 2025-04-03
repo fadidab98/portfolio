@@ -21,7 +21,7 @@ export default function Home({ projects }) {
   const featuredProject = projects[0];
 
   return (
-    <div>
+    <>
       <Head>
         <title>FadiLogic</title>
         <meta name="description" content="Portfolio of a Machine Learning Engineer and Frontend Developer." />
@@ -61,7 +61,7 @@ export default function Home({ projects }) {
           ))}
         </div>
       </Section>
-    </div>
+    </>
   );
 }
 

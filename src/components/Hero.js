@@ -19,13 +19,15 @@ export default function Hero() {
       >
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
-            <div className="relative transform translate-y-[-20px]">
+            <div className="relative transform ">
               <Image
-                src="/images/project1.jpg"
+                src="/images/project1.webp"
                 alt="Fadi Dabboura"
                 width={300}
                 height={300}
-                className="rounded-full border-4 border-accent shadow-lg w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 object-cover"
+                priority
+                placeholder="blur"
+                className="rounded-full border-4 border-accent shadow-lg   object-cover"
               />
               <div className="absolute -top-6 -left-6 w-28 h-28 bg-accent rounded-full opacity-20 z-[-1]"></div>
               <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent rounded-full opacity-20 z-[-1]"></div>
@@ -37,7 +39,7 @@ export default function Hero() {
               Software Engineer & Web Developer
             </p>
             <p className="text-base sm:text-lg text-gray-300 mb-6">
-            I am Fadi Dabboura, a dedicated DevOps engineer, data scientist, and web developer with a passion for building efficient, scalable, and data-driven solutions. Currently, I am pursuing a Master’s degree in Informatics at Ostfalia , where I am deepening my expertise in Software engineering. With a strong foundation in  full-stack development, machine learning, and Devops. I thrive on solving complex challenges and collaborating on innovative ideas. Explore my portfolio to see my work, or feel free to reach out to discuss potential opportunities!
+            I am Fadi Dabboura, a dedicated DevOps engineer, data scientist, and web developer with a passion for building efficient, scalable, and data-driven solutions. Currently, I am pursuing a Master’s degree in Informatics at Ostfalia , where I am deepening my expertise in Software engineering....
             </p>
             <div className="flex justify-center md:justify-start space-x-4 sm:space-x-6 mb-6">
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">

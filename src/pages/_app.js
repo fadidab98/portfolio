@@ -3,6 +3,10 @@ import { useRouter } from "next/router";
 import Layout from "@/components/Layout";
 import "../styles/globals.css";
 import dynamic from "next/dynamic";
+import { Inter } from 'next/font/google';
+
+
+const inter = Inter({ subsets: ['latin'], weights: [400, 700], display: 'swap' });
 
 const Provider = dynamic(
   () => import('react-redux').then(mod => mod.Provider),
@@ -78,7 +82,7 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-        <Layout loading={loading}>
+        <Layout loading={loading} className={`${inter.className} `}>
       {loading ? null : <Component {...pageProps} key={pageKey} />}
     </Layout>
   </Provider>

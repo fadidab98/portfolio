@@ -1,6 +1,9 @@
 // In _document.js or Home.js
 import { Html, Head, Main, NextScript } from 'next/document';
 
+import Script from 'next/script';
+
+
 export default function Document() {
   return (
     <Html lang="en">
@@ -13,12 +16,15 @@ export default function Document() {
       <link rel="preload" href="/fonts/Inter-Regular.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
       <link rel="preload" href="/fonts/Inter-Bold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
       <link rel="preload" href="/fonts/PlayfairDisplay-Bold.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+    
       {/* Existing schema script */}
     </Head>
       </Head>
       <body>
         <Main />
+
         <NextScript />
+ 
       </body>
     </Html>
   );

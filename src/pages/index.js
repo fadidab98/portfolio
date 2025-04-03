@@ -26,6 +26,8 @@ export default function Home({ projects }) {
         <title>FadiLogic</title>
         <meta name="description" content="Portfolio of a Machine Learning Engineer and Frontend Developer." />
         <meta name="keywords" content="machine learning, frontend, next.js, portfolio" />
+        <link rel="preload" href="/images/project1.webp" as="image" />
+
       </Head>
       <Hero />
       <Section id="scan-service" className="bg-secondary overflow-hidden">
@@ -68,5 +70,6 @@ export async function getStaticProps() {
     props: {
       projects,
     },
+    revalidate: 3600,
   };
 }

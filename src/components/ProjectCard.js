@@ -14,6 +14,7 @@ export default function ProjectCard({ project }) {
         alt={project.title}
         width={300}
         height={200}
+        priority
         className="w-full h-48 object-cover rounded-md mb-4"
       />
       <h3 className="text-2xl mb-2">{project.title}</h3>

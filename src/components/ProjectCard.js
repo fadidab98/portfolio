@@ -2,19 +2,22 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, isMobile }) {
+  const motionProps = isMobile ? {} : {
+    whileHover: { scale: 1.05, boxShadow: '0px 10px 20px rgba(0,0,0,0.2)' },
+    transition: { duration: 0.3 },
+  };
+
   return (
     <motion.div
       className="bg-secondary p-6 rounded-lg shadow-md"
-      whileHover={{ scale: 1.05, boxShadow: '0px 10px 20px rgba(0,0,0,0.2)' }}
-      transition={{ duration: 0.3 }}
+      {...motionProps}
     >
       <Image
         src={project.image}
         alt={project.title}
         width={300}
         height={200}
-        priority
         className="w-full h-48 object-cover rounded-md mb-4"
       />
       <h3 className="text-2xl mb-2">{project.title}</h3>

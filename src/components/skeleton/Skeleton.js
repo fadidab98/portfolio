@@ -1,7 +1,7 @@
 // components/Skeleton.jsx
 export function SkeletonProjectCard() {
     return (
-      <div className="bg-gray-800 p-6 rounded-lg shadow-md animate-pulse">
+      <div className="bg-gray-800 p-6 rounded-lg shadow-md ">
         {/* Image placeholder */}
         <div className="w-full h-48 bg-gray-700 rounded-md mb-4"></div>
         {/* Title placeholder */}
@@ -24,7 +24,7 @@ export function SkeletonProjectCard() {
 
   export function SkeletonHero() {
     return (
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto animate-pulse">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto ">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Image Section */}
           <div className="w-full md:w-1/2 flex justify-center md:justify-start">

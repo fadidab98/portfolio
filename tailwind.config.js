@@ -14,7 +14,6 @@ module.exports = {
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
-        playfair: ['Playfair Display', 'serif'],
       },
     },
     // Define base styles for elements
@@ -34,7 +33,7 @@ module.exports = {
         },
         'h1, h2, h3': {
           color: '#d4af37',           // accent
-          fontFamily: 'Playfair Display, serif',
+          fontFamily: 'Inter',
           fontWeight: '700',
         },
         a: {

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useScanWebsiteMutation } from '@/lib/scanApi';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 export default function Home() {
@@ -84,14 +83,7 @@ export default function Home() {
             {/* Spinner */}
             <div className="w-16 h-16 border-4 border-t-accent border-gray-300 rounded-full animate-spin"></div>
             {/* Animated Text */}
-            <motion.p
-              className="absolute text-lg text-text"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
-            >
-              
-            </motion.p>
+
           </div>
           Scanning your website...
         </div>
@@ -121,28 +113,10 @@ export default function Home() {
                   stroke="currentColor"
                   strokeWidth="2"
                 />
-                <motion.path
-                  className="text-accent"
-                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeDasharray="100"
-                  strokeDashoffset={100 - (data.results?.performance?.performanceScore || 0)}
-                  initial={{ strokeDashoffset: 100 }}
-                  animate={{ strokeDashoffset: 100 - (data.results?.performance?.performanceScore || 0) }}
-                  transition={{ duration: 1.5, ease: 'easeInOut' }}
-                />
+
               </svg>
               <div className="relative z-10">
-                <motion.div
-                  className="text-2xl font-semibold text-accent"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {displayScore}%
-                </motion.div>
+
               </div>
             </div>
           </div>

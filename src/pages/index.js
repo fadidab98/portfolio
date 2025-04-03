@@ -1,25 +1,30 @@
-// pages/index.jsx
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { FaSearch } from 'react-icons/fa';
 import { SkeletonProjectCard, SkeletonHero } from '../components/skeleton/Skeleton';
 import { projects } from '@/data/project';
+import { useSelector } from 'react-redux';
 
-// Dynamically import components with skeletons
+
 const Hero = dynamic(() => import('../components/Hero'), {
   ssr: true,
   loading: () => <SkeletonHero />,
 });
 const Section = dynamic(() => import('../components/Section'), { ssr: true });
+const FeaturedProjectCard = dynamic(() => import('../components/ProjectCard'), {
+  ssr: true,
+  loading: () => <SkeletonProjectCard />,
+});
 const ProjectCard = dynamic(() => import('../components/ProjectCard'), {
   ssr: false,
   loading: () => <SkeletonProjectCard />,
 });
 
 export default function Home({ projects }) {
+  const isMobile = useSelector((state) => state.setting.setting.isMobile);
   const featuredProject = projects[0];
-
+  console.log('Home - isMobile:', isMobile);
   return (
     <>
       <Head>
@@ -27,11 +32,19 @@ export default function Home({ projects }) {
         <meta name="description" content="Portfolio of a Machine Learning Engineer and Frontend Developer." />
         <meta name="keywords" content="machine learning, frontend, next.js, portfolio" />
         <link rel="preload" href="/images/project1.webp" as="image" />
+        <link rel="preload" href="/images/project1.webp" as="image" />
 
+        <link rel="preload" href="/icons/email.svg" as="image" />
+
+        <link rel="preload" href="/icons/github.svg" as="image" />
+
+        <link rel="preload" href="/icons/linkedin.svg" as="image" />
+
+   
       </Head>
       <Hero />
       <Section id="scan-service" className="bg-secondary overflow-hidden">
-        <div className="relative max-w-4xl mx-auto text-center">
+        <div className="relative max-w-4xl mx-auto text-center min-h-[400px]">
           <div className="absolute -top-40 -left-40 w-[30rem] h-full max-sm:w-[20rem] max-sm:h-[20rem] bg-accent rounded-full opacity-20 z-[8]"></div>
           <div className="absolute -bottom-40 -right-40 w-[15rem] h-[15rem] bg-accent rounded-full opacity-20 z-[8]"></div>
           <div className="mb-6">
@@ -52,7 +65,7 @@ export default function Home({ projects }) {
       <Section id="projects">
         <h2 className="text-4xl mb-8 text-center">Featured Project</h2>
         <div className="max-w-lg mx-auto">
-          <ProjectCard project={featuredProject} />
+          <FeaturedProjectCard project={featuredProject} />
         </div>
         <h2 className="text-4xl mt-12 mb-8 text-center">Other Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

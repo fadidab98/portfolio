@@ -4,7 +4,7 @@ function generateSitemap() {
   const baseUrl = 'https://fadilogic.serp24.online';
   const pages = [
     { url: '/', lastmod: new Date().toISOString() },
-    { url: '/webscan', lastmod: new Date().toISOString() },
+    { url: '/website-scan', lastmod: new Date().toISOString() },
   ];
 
   return `<?xml version="1.0" encoding="UTF-8"?>

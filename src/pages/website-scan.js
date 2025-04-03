@@ -50,7 +50,7 @@ export default function Home() {
     content="website scan, performance tool, next.js, web optimization, full-stack"
   />
   <meta name="author" content="Fadi Dabboura" />
-  <link rel="canonical" href="https://fadilogic.serp24.online/webscan" />
+  <link rel="canonical" href="https://fadilogic.serp24.online/website-scan" />
 </Head>
     <div className="min-h-screen bg-background text-text font-inter p-6">
       {/* Introductory Text */}

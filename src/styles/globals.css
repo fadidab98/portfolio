@@ -10,3 +10,14 @@ img {
     height: auto;
   }
 
+/* styles/globals.css */
+a {
+  text-decoration: none !important;
+  border: none !important;
+}
+
+a:hover,
+a:focus,
+a:active {
+  border: none !important;
+}

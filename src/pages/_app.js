@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ['latin'], weights: [400, 700], display: 'swap' }
 
 const Provider = dynamic(() => import('react-redux').then((mod) => mod.Provider), { ssr: false });
 import { store } from '../lib/store';
+import Head from 'next/head';
 
 
 export default function MyApp({ Component, pageProps }) {
@@ -70,6 +71,9 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <Layout loading={loading} className={`${inter.className}`}>
         {loading ? null : <Component {...pageProps} key={pageKey} />}
       </Layout>

@@ -108,7 +108,7 @@ export default function Home() {
       {data && (
         <div className="max-w-4xl mx-auto mt-10">
           {/* Performance Score Counter with Circular Progress */}
-          <div className="bg-secondary m-auto mb-4 p-6 rounded-lg shadow-md text-center border border-accent w-1/2 h-48">
+          <div className="bg-secondary m-auto mb-4 p-6 rounded-lg shadow-md text-center border border-accent w-1/2 sm:w-full h-48">
             <h2 className="text-xl font-bold text-text font-playfair">Performance</h2>
             <br/>
            

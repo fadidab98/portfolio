@@ -24,34 +24,20 @@ export function SkeletonProjectCard() {
 
   export function SkeletonHero() {
     return (
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto ">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Image Section */}
           <div className="w-full md:w-1/2 flex justify-center md:justify-start">
-            <div className="relative">
-              <div className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 bg-gray-700 rounded-full"></div>
-            </div>
+            <div className="aspect-[250/350] w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] bg-gray-300 animate-pulse rounded-full"></div>
           </div>
-          {/* Text Section */}
           <div className="w-full md:w-1/2 text-center md:text-left">
-            {/* Heading */}
-            <div className="h-12 sm:h-14 md:h-16 bg-gray-700 rounded w-3/4 mb-4 mx-auto md:mx-0"></div>
-            {/* Subheading */}
-            <div className="h-6 sm:h-7 bg-gray-700 rounded w-2/3 mb-4 mx-auto md:mx-0"></div>
-            {/* Paragraph */}
-            <div className="space-y-2 mb-6">
-              <div className="h-4 bg-gray-700 rounded w-full"></div>
-              <div className="h-4 bg-gray-700 rounded w-full"></div>
-              <div className="h-4 bg-gray-700 rounded w-5/6"></div>
+            <div className="h-10 sm:h-12 md:h-14 bg-gray-300 animate-pulse mb-4 rounded"></div>
+            <div className="h-6 sm:h-8 bg-gray-300 animate-pulse mb-4 rounded"></div>
+            <div className="space-y-4 min-h-[150px] sm:min-h-[180px] md:min-h-[200px]">
+              <div className="h-16 bg-gray-300 animate-pulse rounded"></div>
+              <div className="h-24 bg-gray-300 animate-pulse rounded"></div>
+              <div className="h-12 bg-gray-300 animate-pulse rounded"></div>
             </div>
-            {/* Social Icons */}
-            <div className="flex justify-center md:justify-start space-x-4 sm:space-x-6 mb-6">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-700 rounded-full"></div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-700 rounded-full"></div>
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-700 rounded-full"></div>
-            </div>
-            {/* Button */}
-            <div className="h-10 sm:h-12 bg-gray-700 rounded w-32 mx-auto md:mx-0"></div>
+            <div className="h-10 w-32 bg-gray-300 animate-pulse mt-6 rounded mx-auto md:mx-0"></div>
           </div>
         </div>
       </section>

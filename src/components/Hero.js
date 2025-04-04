@@ -33,20 +33,20 @@ export default function Hero() {
         </p>
         <div className="text-base sm:text-lg text-gray-300 space-y-4 mb-6 min-h-[150px] sm:min-h-[180px] md:min-h-[200px]">
           <p className="leading-relaxed">
-            I am Fadi Dabboura, a dedicated <strong>DevOps engineer</strong>, <strong>data scientist</strong>, and <strong>web developer</strong> with a passion for building efficient, scalable, and data-driven solutions.
+            I am Fadi Dabboura, a committed professional specializing in <strong>DevOps engineering</strong>, <strong>data science</strong>, and <strong>web development</strong>. My expertise lies in designing and implementing efficient, scalable, and technology-driven solutions that meet complex business needs.
+          </p>
+          <p className="leading-relaxed text-sm sm:text-base">
+            Currently pursuing a Master’s degree in Informatics at Ostfalia University, I am enhancing my proficiency in software engineering and related disciplines. With extensive experience in full-stack development, DevOps methodologies, and data-driven technologies, I excel at addressing intricate challenges and delivering impactful results in collaborative environments.
           </p>
           <p className="leading-relaxed">
-            Currently, I am pursuing a Master’s degree in Informatics at Ostfalia, where I am deepening my expertise in software engineering. With a strong foundation in full-stack development, machine learning, and DevOps, I thrive on solving complex challenges and collaborating on innovative ideas.
-          </p>
-          <p className="leading-relaxed">
-            Explore my portfolio to see my work, or feel free to reach out to discuss potential opportunities!
+            I invite you to review my portfolio to explore my projects and accomplishments. Please feel free to contact me to discuss potential collaborations or professional opportunities.
           </p>
         </div>
         <Link
           href="/contact"
           className="inline-block bg-accent text-background py-2 px-4 sm:py-3 sm:px-6 rounded-lg text-base sm:text-lg hover:bg-yellow-600 hover:scale-105 transition duration-300 shadow-md"
         >
-          Get in Touch
+          Contact Me
         </Link>
       </div>
     </div>

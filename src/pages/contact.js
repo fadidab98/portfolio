@@ -34,10 +34,9 @@ export default function Contact() {
           </button>
         </form>
         <p className="mt-4 text-center">
-          Or email me at: <a href="mailto:your.email@example.com">your.email@example.com</a>
+          Or email me at: <a href="mailto:fadi@serp24.online">fadi@serp24.online</a>
         </p>
       </section>
-      <Footer />
     </div>
   );
 }

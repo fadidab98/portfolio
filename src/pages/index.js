@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { projects } from '@/data/project';
-import { useSelector } from 'react-redux';
 import ScanServiceSection from '../components/ScanServiceSection';
 import { SkeletonHero, SkeletonProjectCard } from '@/components/skeleton/Skeleton';
+import { NextSeo } from 'next-seo';
 
 const Hero = dynamic(() => import('../components/Hero'), {
   ssr: true,
@@ -23,16 +23,36 @@ export default function Home({ projects }) {
   const featuredProject = projects[0];
   return (
     <>
+    <NextSeo
+        title="Fadi Dabboura - FadiLogic Portfolio"
+        description="Fadi Dabboura’s FadiLogic: Official portfolio showcasing machine learning and frontend projects."
+        canonical="https://fadilogic.serp24.online/"
+        openGraph={{
+          url: 'https://fadilogic.serp24.online/',
+          title: 'Fadi Dabboura - FadiLogic Portfolio',
+          description: 'Fadi Dabboura’s FadiLogic: Official portfolio showcasing Devops and Web projects on GitHub and Facebook.',
+          images: [
+            {
+              url: 'https://fadilogic.serp24.online/images/FadiLogic.webp', // Your .webp image
+              width: 1200,
+              height: 630,
+              alt: 'FadiLogic Portfolio by Fadi Dabboura',
+              type: 'image/webp',
+            },
+          ],
+          siteName: 'FadiLogic',
+        }}
+      />
       <Head>
-        <title>FadiLogic - Machine Learning & full-stack Portfolio</title>
+        <title>Fadi Dabboura - FadiLogic Official Portfolio</title>
         <meta
           name="description"
-          content="Explore FadiLogic's portfolio showcasing machine learning projects and full-stack development expertise using Next.js."
+          content="Fadi Dabboura’s FadiLogic: Official portfolio of a Devops Engineer and Web Developer."
         />
         <meta
-          name="keywords"
-          content="machine learning, full-stack development, next.js, portfolio, web development"
-        />
+            name="keywords"
+            content="Fadi Dabboura, Fadi Dabboura, web scan tool, website performance, web development, frontend development, backend development, devops"
+          />
         <meta name="author" content="Fadi Dabboura" />
         <link rel="canonical" href="https://fadilogic.serp24.online/" />
         {/* Preload links are fine, keep them */}
@@ -45,8 +65,17 @@ export default function Home({ projects }) {
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Fadi Dabboura",
-            "jobTitle": "Machine Learning Engineer & full-stack Developer & devops",
             "url": "https://fadilogic.serp24.online",
+            "sameAs": [
+                "https://www.linkedin.com/in/fadi-dabboura-8300bb211", // Replace with your real LinkedIn URL
+                "https://www.instagram.com/dabbourafadi",
+                "https://www.facebook.com/fadi.dabboura.73"
+              ],
+            "jobTitle": " Devops Engineer & Web Developer & devops",
+            "brand": {
+                "@type": "Brand",
+                "name": "FadiLogic"
+              }
           })}
   </script>
       </Head>

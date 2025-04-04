@@ -7,11 +7,11 @@ export default function Document() {
         <title>FadiLogic</title>
         <meta
           name="description"
-          content="Fadi Dabboura’s portfolio of a Machine Learning Engineer and full-stack Developer."
+          content="Fadi Dabboura’s professional portfolio showcasing expertise as a DevOps Engineer and Full-Stack Developer."
         />
         <meta
           name="keywords"
-          content="machine learning, full-stack, backend, devops, Docker, nginx, reactjs, js, docker-compose, nextjs, portfolio"
+          content="devops, full-stack, backend, software engineering, Docker, nginx, reactjs, javascript, docker-compose, nextjs, portfolio"
         />
         <meta name="author" content="Fadi Dabboura" />
         {/* Add any global favicon or meta tags here */}

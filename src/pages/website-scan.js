@@ -3,12 +3,13 @@ import { useScanWebsiteMutation } from '@/lib/scanApi';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 
 export default function Home() {
   const [url, setUrl] = useState('');
   const [triggerScan, { data, isLoading, isError, error }] = useScanWebsiteMutation();
   const [displayScore, setDisplayScore] = useState(0);
-
+  console.log(data?.results)
   const handleSubmit = (e) => {
     e.preventDefault();
     triggerScan(url);
@@ -40,15 +41,15 @@ export default function Home() {
   return (
     <>
     <Head>
-  <title>FadiLogic - Website Performance Scan Tool</title>
-  <meta
+    <title>FadiLogic Web Scan Tool - Fadi Dabboura</title>
+    <meta
     name="description"
-    content="Scan your website for performance, errors, and alerts with FadiLogic's free tool built with Next.js."
+    content="FadiLogic by Fadi Dabboura: Free web scan tool to analyze website performance and errors."
   />
   <meta
-    name="keywords"
-    content="website scan, performance tool, next.js, web optimization, full-stack"
-  />
+      name="keywords"
+      content="FadiLogic, Fadi Dabboura, web scan tool, website performance, web development, frontend development, backend development, devops"
+    />
   <meta name="author" content="Fadi Dabboura" />
   <link rel="canonical" href="https://fadilogic.serp24.online/website-scan" />
 </Head>
@@ -69,6 +70,26 @@ export default function Home() {
 
       {/* Form */}
       <div className="bg-secondary container min-h-60 text-center p-14 max-md:p-4">
+      <NextSeo
+        title="FadiLogic Web Scan Tool - Fadi Dabboura"
+        description="FadiLogic by Fadi Dabboura: Free tool to scan website performance and errors."
+        canonical="https://fadilogic.serp24.online/webscan"
+        openGraph={{
+          url: 'https://fadilogic.serp24.online/webscan',
+          title: 'FadiLogic Web Scan Tool - Fadi Dabboura',
+          description: 'FadiLogic by Fadi Dabboura: Free tool to scan website performance and errors, shared on GitHub and Facebook.',
+          images: [
+            {
+              url: 'https://fadilogic.serp24.online/images/FadiLogic.webp', // Specific .webp image
+              width: 1200,
+              height: 630,
+              alt: 'FadiLogic Web Scan by Fadi Dabboura',
+              type: 'image/webp',
+            },
+          ],
+          siteName: 'FadiLogic',
+        }}
+      />
         <h2 className="text-3xl font-bold mb-4 text-white">Enter Your Website URL</h2>
         <form
           onSubmit={handleSubmit}

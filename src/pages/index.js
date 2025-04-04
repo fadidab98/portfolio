@@ -41,7 +41,14 @@ export default function Home({ projects }) {
             },
           ],
           siteName: 'FadiLogic',
+          
         }}
+        additionalMetaTags={[
+          {
+            name: 'keywords',
+            content:"Fadi Dabboura, Fadi Dabboura, web scan tool, website performance, web development, frontend development, backend development, devops",
+        }
+      ]}
       />
       <Head>
         <title>Fadi Dabboura - FadiLogic Official Portfolio</title>

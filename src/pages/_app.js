@@ -99,7 +99,14 @@ export default function MyApp({ Component, pageProps }) {
               type: 'image/webp',
             },
           ],
-        }}
+          
+        }
+      }
+      additionalMetaTags={[
+        {
+          name: 'keywords',
+          content: 'Fadi Dabboura, FadiLogic, machine learning, web development, portfolio, website scan, frontend, backend, devops',        },
+      ]}
       />
       <Layout loading={loading} className={`${inter.className}`}>
         {loading ? null : <Component {...pageProps} key={pageKey} />}

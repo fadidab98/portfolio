@@ -73,6 +73,11 @@ export default function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/favicon.ico" /> {/* Basic favicon */}
+        {/* Optional: Add multiple sizes */}
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
       </Head>
       <DefaultSeo
         title="Fadi Dabboura - FadiLogic"

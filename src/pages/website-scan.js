@@ -12,13 +12,13 @@ export default function WebsiteScan() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    triggerScan(url);
+    triggerScan({ url }); // Ensure the API expects { url }
   };
 
   useEffect(() => {
-    if (data?.results?.performance?.performanceScore) {
+    if (data?.success && data.data?.results?.performance?.performanceScore) {
       setDisplayScore(0);
-      const targetScore = data?.results?.performance?.performanceScore;
+      const targetScore = data.data.results.performance.performanceScore;
       const duration = 1500;
       const increment = targetScore / (duration / 50);
       let current = 0;
@@ -41,14 +41,8 @@ export default function WebsiteScan() {
     <>
       <Head>
         <title>FadiLogic Website Scan Tool - Fadi Dabboura</title>
-        <meta
-          name="description"
-          content="FadiLogic by Fadi Dabboura: Free website scan tool to analyze performance, errors, and accessibility."
-        />
-        <meta
-          name="keywords"
-          content="FadiLogic website scan, Fadi Dabboura, website scan tool, web performance, accessibility checker, free scan, web optimization, frontend development"
-        />
+        <meta name="description" content="FadiLogic by Fadi Dabboura: Free website scan tool to analyze performance, errors, and accessibility." />
+        <meta name="keywords" content="FadiLogic website scan, Fadi Dabboura, website scan tool, web performance, accessibility checker, free scan, web optimization, frontend development" />
         <meta name="author" content="Fadi Dabboura" />
         <link rel="canonical" href="https://fadilogic.serp24.online/website-scan" />
       </Head>
@@ -60,59 +54,34 @@ export default function WebsiteScan() {
           openGraph={{
             url: 'https://fadilogic.serp24.online/website-scan',
             title: 'FadiLogic Website Scan Tool - Fadi Dabboura',
-            description: 'FadiLogic by Fadi Dabboura: Free tool to scan website performance, errors, and accessibility, shared on GitHub and Facebook.',
-            images: [
-              {
-                url: 'https://fadilogic.serp24.online/images/FadiLogic.webp',
-                width: 1200,
-                height: 630,
-                alt: 'FadiLogic Website Scan by Fadi Dabboura',
-                type: 'image/webp',
-              },
-            ],
-            siteName: 'FadiLogic',
+            description: 'FadiLogic by Fadi Dabboura: Free tool to scan website performance, errors, and accessibility.',
+            images: [{ url: 'https://fadilogic.serp24.online/images/FadiLogic.webp', width: 1200, height: 630, alt: 'FadiLogic Website Scan' }],
           }}
-          additionalMetaTags={[
-            {
-              name: 'keywords',
-              content:"FadiLogic website scan, Fadi Dabboura, website scan tool, web performance, accessibility checker, free scan, web optimization, frontend development"
-            },
-          ]}
         />
-        {/* Introductory Text */}
         <header className="text-center mb-8">
           <h1 className="text-4xl font-bold text-accent font-playfair">FadiLogic Website Scan Service</h1>
           <p className="mt-4 text-lg">
-            Welcome to FadiLogic by Fadi Dabboura! Use our free website scan tool to check your site’s performance, errors, and accessibility. Optimize your website with detailed insights. Need help?{' '}
-            <Link href="/contact" className="text-accent underline">Contact us</Link> anytime.
+            Welcome to FadiLogic! Scan your website for performance, errors, and accessibility.{' '}
+            <Link href="/contact" className="text-accent underline">Contact us</Link> for support.
           </p>
         </header>
 
-        {/* Form */}
         <main>
-          <section className="bg-secondary container min-h-60 text-center p-14 max-md:p-4" aria-labelledby="scan-form-heading">
-            <h2 id="scan-form-heading" className="text-3xl font-bold mb-4 text-white">Enter Your Website URL</h2>
-            <form
-              onSubmit={handleSubmit}
-              className="mb-8 flex flex-col sm:flex-row gap-4 max-w-4xl mx-auto"
-              aria-label="Website scan form"
-            >
-              <label htmlFor="url-input" className="sr-only">Website URL</label>
+          <section className="bg-secondary container min-h-60 text-center p-14 max-md:p-4">
+            <h2 className="text-3xl font-bold mb-4 text-white">Enter Your Website URL</h2>
+            <form onSubmit={handleSubmit} className="mb-8 flex flex-col sm:flex-row gap-4 max-w-4xl mx-auto">
               <input
-                id="url-input"
                 type="url"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                placeholder="Enter website URL (e.g., https://example.com)"
+                placeholder="e.g., https://example.com"
                 className="flex-1 bg-secondary text-text border border-accent rounded p-2 focus:outline-none focus:ring-2 focus:ring-accent"
                 required
-                aria-required="true"
               />
               <button
                 type="submit"
                 className="bg-accent text-background px-4 py-2 rounded hover:bg-opacity-90 transition disabled:opacity-50"
                 disabled={isLoading}
-                aria-label={isLoading ? 'Scanning in progress' : 'Start website scan'}
               >
                 {isLoading ? 'Scanning...' : 'Scan'}
               </button>
@@ -120,25 +89,25 @@ export default function WebsiteScan() {
           </section>
 
           {isLoading && (
-            <div className="text-center mt-10" role="status" aria-live="polite">
-              <div className="relative flex items-center justify-center">
-                <div className="w-16 h-16 border-4 border-t-accent border-gray-300 rounded-full animate-spin" aria-hidden="true"></div>
-                <p className="mt-4">Scanning your website...</p>
-              </div>
+            <div className="text-center mt-10">
+              <div className="w-16 h-16 border-4 border-t-accent border-gray-300 rounded-full animate-spin mx-auto"></div>
+              <p className="mt-4">Scanning your website...</p>
             </div>
           )}
 
           {isError && (
-            <p className="text-center text-red-400 mt-10" role="alert">
-              Error: {error?.message || 'Something went wrong'}
-            </p>
+            <div className="text-center text-red-400 mt-10">
+              <p><strong>Error:</strong> {error?.data?.error?.message || 'Something went wrong'}</p>
+              {error?.data?.error?.stack && (
+                <pre className="text-left text-sm mt-2">{error.data.error.stack}</pre>
+              )}
+            </div>
           )}
 
-          {data && (
+          {data?.success && (
             <section className="max-w-4xl mx-auto mt-10">
-              <div className="bg-secondary m-auto mb-4 p-6 rounded-lg shadow-md text-center border border-accent w-1/2 max-sm:w-full h-48">
-                <h3 className="text-xl font-bold text-text font-playfair">Performance</h3>
-                <br />
+              <div className="bg-secondary mb-4 p-6 rounded-lg shadow-md text-center border border-accent w-1/2 max-sm:w-full h-48">
+                <h3 className="text-xl font-bold text-text font-playfair">Performance Score</h3>
                 <div className="relative flex items-center justify-center mt-4">
                   <svg className="absolute w-24 h-24" viewBox="0 0 36 36">
                     <path
@@ -155,25 +124,61 @@ export default function WebsiteScan() {
                       stroke="currentColor"
                       strokeWidth="2"
                       strokeDasharray="100"
-                      strokeDashoffset={100 - (data.results?.performance?.performanceScore || 0)}
-                      initial={{ strokeDashoffset: 100 }}
-                      animate={{ strokeDashoffset: 100 - (data.results?.performance?.performanceScore || 0) }}
+                      strokeDashoffset={100 - displayScore}
+                      animate={{ strokeDashoffset: 100 - displayScore }}
                       transition={{ duration: 1.5, ease: 'easeInOut' }}
                     />
                   </svg>
-                  <div className="relative z-10">
-                    <motion.div
-                      className="text-2xl font-semibold text-accent"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      {displayScore}%
-                    </motion.div>
-                  </div>
+                  <motion.div
+                    className="text-2xl font-semibold text-accent"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {displayScore}%
+                  </motion.div>
                 </div>
               </div>
-              {/* Rest of your results section unchanged */}
+
+              {/* Display Metrics */}
+              <div className="bg-secondary p-6 rounded-lg shadow-md mb-4">
+                <h3 className="text-xl font-bold text-text">Performance Metrics</h3>
+                <ul className="mt-4 text-left">
+                  {Object.entries(data.data.results.performance.metrics).map(([key, metric]) => (
+                    <li key={key} className="mb-2">
+                      <strong>{key.replace(/([A-Z])/g, ' $1').trim()}:</strong> {metric.displayValue || `${metric.value.toFixed(2)} s`}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Display Errors */}
+              {data.data.results.errors.length > 0 && (
+                <div className="bg-red-900 p-6 rounded-lg shadow-md mb-4">
+                  <h3 className="text-xl font-bold text-white">Errors ({data.data.results.totalErrors})</h3>
+                  <ul className="mt-4 text-left">
+                    {data.data.results.errors.map((err, index) => (
+                      <li key={index} className="mb-2 text-red-200">
+                        <strong>{err.title}:</strong> {err.description} (Score: {err.score}, Value: {err.displayValue})
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Display Alerts */}
+              {data.data.results.alerts.length > 0 && (
+                <div className="bg-yellow-900 p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-bold text-white">Alerts ({data.data.results.totalAlerts})</h3>
+                  <ul className="mt-4 text-left">
+                    {data.data.results.alerts.map((alert, index) => (
+                      <li key={index} className="mb-2 text-yellow-200">
+                        <strong>{alert.title}:</strong> {alert.description} (Score: {alert.score}, Value: {alert.displayValue})
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </section>
           )}
         </main>

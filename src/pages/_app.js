@@ -76,6 +76,11 @@ export default function MyApp({ Component, pageProps }) {
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
+  <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Fadi Dabboura Website Scan and Portfolio" />
+  <meta property="og:image:type" content="image/webp" />
   <script
     type="application/ld+json"
     dangerouslySetInnerHTML={{

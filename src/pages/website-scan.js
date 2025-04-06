@@ -52,26 +52,13 @@ export default function Webscan() {
     />
   <meta name="author" content="Fadi Dabboura" />
   <link rel="canonical" href="https://fadilogic.serp24.online/website-scan" />
+  <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Fadi Dabboura Website Scan and Portfolio" />
+  <meta property="og:image:type" content="image/webp" />
 </Head>
-    <div className="min-h-screen bg-background text-text font-inter p-6">
-      {/* Introductory Text */}
-      <div className="text-center mb-8">
-      <h2 className="text-3xl font-bold mb-4 text-white">Fadi Dabboura’s Website Scan Tool</h2>   
-          <p className="mt-4 text-lg">
-          Welcome to my Website Scan Service! Enter your website URL below to scan it for
-          performance metrics, errors, and alerts. We’ll analyze your site and provide detailed
-          insights to help you optimize it. If you run into any issues or need assistance, feel
-          free to{' '}
-          <Link href="/contact" className="text-accent underline">
-            contact us
-          </Link>{' '}
-          anytime.
-        </p>
-      </div>
-
-      {/* Form */}
-      <div className="bg-secondary container min-h-60 text-center p-14 max-md:p-4">
-      <NextSeo
+<NextSeo
         title="Fadi Dabboura - Website Scan Tool | FadiLogic"
         description="Fadi Dabboura's free website scan tool to analyze your site's performance and identify errors."
         canonical="https://fadilogic.serp24.online/website-scan"
@@ -101,6 +88,25 @@ export default function Webscan() {
           },
         ]}
       />
+    <div className="min-h-screen bg-background text-text font-inter p-6">
+      {/* Introductory Text */}
+      <div className="text-center mb-8">
+      <h2 className="text-3xl font-bold mb-4 text-white">Fadi Dabboura’s Website Scan Tool</h2>   
+          <p className="mt-4 text-lg">
+          Welcome to my Website Scan Service! Enter your website URL below to scan it for
+          performance metrics, errors, and alerts. We’ll analyze your site and provide detailed
+          insights to help you optimize it. If you run into any issues or need assistance, feel
+          free to{' '}
+          <Link href="/contact" className="text-accent underline">
+            contact us
+          </Link>{' '}
+          anytime.
+        </p>
+      </div>
+
+      {/* Form */}
+      <div className="bg-secondary container min-h-60 text-center p-14 max-md:p-4">
+      
         <h2 className="text-3xl font-bold mb-4 text-white">Enter Your Website URL</h2>
         <form
           onSubmit={handleSubmit}

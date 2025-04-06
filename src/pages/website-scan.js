@@ -56,8 +56,9 @@ export default function Webscan() {
     <div className="min-h-screen bg-background text-text font-inter p-6">
       {/* Introductory Text */}
       <div className="text-center mb-8">
-      <h2 className="text-3xl font-bold mb-4 text-white">Scan Your Website Now</h2>        <p className="mt-4 text-lg">
-          Welcome to our Website Scan Service! Enter your website URL below to scan it for
+      <h2 className="text-3xl font-bold mb-4 text-white">Fadi Dabboura’s Website Scan Tool</h2>   
+          <p className="mt-4 text-lg">
+          Welcome to my Website Scan Service! Enter your website URL below to scan it for
           performance metrics, errors, and alerts. We’ll analyze your site and provide detailed
           insights to help you optimize it. If you run into any issues or need assistance, feel
           free to{' '}
@@ -71,24 +72,34 @@ export default function Webscan() {
       {/* Form */}
       <div className="bg-secondary container min-h-60 text-center p-14 max-md:p-4">
       <NextSeo
-        title="FadiLogic Web Scan Tool - Fadi Dabboura"
-        description="FadiLogic by Fadi Dabboura: Free tool to scan website performance and errors."
-        canonical="https://fadilogic.serp24.online/webscan"
+        title="Fadi Dabboura - Website Scan Tool | FadiLogic"
+        description="Fadi Dabboura's free website scan tool to analyze your site's performance and identify errors."
+        canonical="https://fadilogic.serp24.online/website-scan"
         openGraph={{
-          url: 'https://fadilogic.serp24.online/webscan',
-          title: 'FadiLogic Web Scan Tool - Fadi Dabboura',
-          description: 'FadiLogic by Fadi Dabboura: Free tool to scan website performance and errors, shared on GitHub and Facebook.',
+          url: "https://fadilogic.serp24.online/website-scan",
+          title: "Fadi Dabboura - Website Scan Tool | FadiLogic",
+          description: "Fadi Dabboura's FadiLogic: Free website scan tool to check performance and errors.",
           images: [
             {
-              url: 'https://fadilogic.serp24.online/images/FadiLogic.webp', // Specific .webp image
+              url: "/images/FadiLogic.webp",
               width: 1200,
               height: 630,
-              alt: 'FadiLogic Web Scan by Fadi Dabboura',
-              type: 'image/webp',
+              alt: "Fadi Dabboura Website Scan Tool",
+              type: "image/webp",
             },
           ],
-          siteName: 'FadiLogic',
+          siteName: "FadiLogic",
         }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: "fadi, dabboura, website scan, webscan, web scan tool, website performance, web development, devops",
+          },
+          {
+            name: "author",
+            content: "Fadi Dabboura",
+          },
+        ]}
       />
         <h2 className="text-3xl font-bold mb-4 text-white">Enter Your Website URL</h2>
         <form

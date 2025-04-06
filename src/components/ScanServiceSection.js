@@ -13,7 +13,7 @@ export default function ScanServiceSection() {
         <div className="mb-6 flex justify-center items-center h-16 w-16 mx-auto">
           <FaSearch className="text-accent text-5xl" />
         </div>
-        <h2 className="text-4xl font-bold mb-4 text-white">Website Scan Service</h2>
+        <h2 className="text-4xl font-bold mb-4 text-white">Fadi Dabboura’s Website Scan Service</h2>
         <div className="text-lg text-gray-300 space-y-4 mb-8 min-h-[250px] sm:min-h-[300px]">
           <p className="leading-relaxed">
             Our <strong>Website Scan Service</strong> delivers a thorough and detailed evaluation of your website’s performance, designed to uncover potential issues that may hinder its functionality, user experience, or visibility on search engines.
@@ -29,7 +29,7 @@ export default function ScanServiceSection() {
           href="/website-scan"
           className="inline-block bg-accent text-background py-3 px-6 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition duration-300 shadow-md"
         >
-          Start Scan Now
+          Start Website Scan Now
         </Link>
       </div>
     </section>

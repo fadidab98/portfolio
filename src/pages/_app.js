@@ -70,42 +70,65 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/favicon.ico" /> {/* Basic favicon */}
-        {/* Optional: Add multiple sizes */}
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
-      </Head>
+<Head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Fadi Dabboura",
+        url: "https://fadilogic.serp24.online",
+        sameAs: [
+          "https://www.linkedin.com/in/fadi-dabboura-8300bb211",
+          "https://www.facebook.com/fadi.dabboura.73",
+          "https://www.instagram.com/dabbourafadi", // Optional: Keep if relevant
+        ],
+        jobTitle: "DevOps Engineer & Web Developer",
+        brand: { "@type": "Brand", name: "FadiLogic" },
+        description: "Fadi Dabboura’s FadiLogic offers a free website scan tool and showcases DevOps and web development projects.",
+      }),
+    }}
+  />
+</Head>
       <DefaultSeo
-        title="Fadi Dabboura - FadiLogic"
-        description="Fadi Dabboura’s FadiLogic: Official portfolio and web scan tool by a DevOps Engineer."
+        title="Fadi Dabboura - Portfolio & Website Scan | FadiLogic"
+        description="Fadi Dabboura’s FadiLogic: Official site featuring a free website scan tool and DevOps portfolio."
         canonical="https://fadilogic.serp24.online/"
         openGraph={{
-          type: 'website',
-          locale: 'en_US',
-          url: 'https://fadilogic.serp24.online/',
-          siteName: 'FadiLogic',
-          title: 'Fadi Dabboura - FadiLogic Official Site',
-          description: 'Explore Fadi Dabboura’s FadiLogic portfolio and free web scan tool on GitHub, LinkedIn, and more as a DevOps Engineer.',
+          type: "website",
+          locale: "en_US",
+          url: "https://fadilogic.serp24.online/",
+          siteName: "FadiLogic",
+          title: "Fadi Dabboura - Portfolio & Website Scan | FadiLogic",
+          description:
+            "Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps projects shared on LinkedIn and Facebook.",
           images: [
             {
-              url: 'https://fadilogic.serp24.online/images/FadiLogic.webp',
+              url: "/images/FadiLogic.webp",
               width: 1200,
               height: 630,
-              alt: 'FadiLogic by Fadi Dabboura',
-              type: 'image/webp',
+              alt: "Fadi Dabboura Website Scan and Portfolio",
+              type: "image/webp",
             },
           ],
-          
-        }
-      }
-      additionalMetaTags={[
-        {
-          name: 'keywords',
-          content: 'Fadi Dabboura, FadiLogic, machine learning, web development, portfolio, website scan, frontend, backend, devops',        },
-      ]}
+        }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: "fadi, dabboura, website scan, webscan, FadiLogic, web scan tool, website performance, web development, devops",
+          },
+          {
+            name: "author",
+            content: "Fadi Dabboura",
+          },
+        ]}
+
       />
       <Layout loading={loading} >
         {loading ? null : <Component {...pageProps} key={pageKey} />}

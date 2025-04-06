@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 
-export default function Home() {
+export default function Webscan() {
   const [url, setUrl] = useState('');
   const [triggerScan, { data, isLoading, isError, error }] = useScanWebsiteMutation();
   const [displayScore, setDisplayScore] = useState(0);

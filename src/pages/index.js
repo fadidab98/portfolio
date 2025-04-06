@@ -23,7 +23,7 @@ export default function Home({ projects }) {
   const featuredProject = projects[0];
   return (
     <>
-    <NextSeo
+      <NextSeo
         title="Fadi Dabboura - FadiLogic Portfolio"
         description="Fadi Dabboura’s FadiLogic: Official portfolio showcasing machine learning and frontend projects."
         canonical="https://fadilogic.serp24.online/"
@@ -33,7 +33,7 @@ export default function Home({ projects }) {
           description: 'Fadi Dabboura’s FadiLogic: Official portfolio showcasing Devops and Web projects on GitHub and Facebook.',
           images: [
             {
-              url: 'https://fadilogic.serp24.online/images/FadiLogic.webp', // Your .webp image
+              url: 'https://fadilogic.serp24.online/images/FadiLogic.webp',
               width: 1200,
               height: 630,
               alt: 'FadiLogic Portfolio by Fadi Dabboura',
@@ -41,14 +41,13 @@ export default function Home({ projects }) {
             },
           ],
           siteName: 'FadiLogic',
-          
         }}
         additionalMetaTags={[
           {
             name: 'keywords',
-            content:"Fadi Dabboura, Fadi Dabboura, web scan tool, website performance, web development, frontend development, backend development, devops",
-        }
-      ]}
+            content: 'Fadi Dabboura, web scan tool, website performance, web development, frontend development, backend development, devops',
+          },
+        ]}
       />
       <Head>
         <title>Fadi Dabboura - FadiLogic Official Portfolio</title>
@@ -57,34 +56,36 @@ export default function Home({ projects }) {
           content="Fadi Dabboura’s FadiLogic: Official portfolio of a Devops Engineer and Web Developer."
         />
         <meta
-            name="keywords"
-            content="Fadi Dabboura, Fadi Dabboura, web scan tool, website performance, web development, frontend development, backend development, devops"
-          />
+          name="keywords"
+          content="Fadi Dabboura, web scan tool, website performance, web development, frontend development, backend development, devops"
+        />
         <meta name="author" content="Fadi Dabboura" />
         <link rel="canonical" href="https://fadilogic.serp24.online/" />
-        {/* Preload links are fine, keep them */}
         <link rel="preload" href="/images/project1.webp" as="image" />
         <link rel="preload" href="/icons/email.svg" as="image" />
         <link rel="preload" href="/icons/github.svg" as="image" />
         <link rel="preload" href="/icons/linkedin.svg" as="image" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Fadi Dabboura",
-            "url": "https://fadilogic.serp24.online",
-            "sameAs": [
-                "https://www.linkedin.com/in/fadi-dabboura-8300bb211", // Replace with your real LinkedIn URL
-                "https://www.instagram.com/dabbourafadi",
-                "https://www.facebook.com/fadi.dabboura.73"
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              'name': 'Fadi Dabboura',
+              'url': 'https://fadilogic.serp24.online',
+              'sameAs': [
+                'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+                'https://www.instagram.com/dabbourafadi',
+                'https://www.facebook.com/fadi.dabboura.73',
               ],
-            "jobTitle": " Devops Engineer & Web Developer & devops",
-            "brand": {
-                "@type": "Brand",
-                "name": "FadiLogic"
-              }
-          })}
-  </script>
+              'jobTitle': 'Devops Engineer & Web Developer',
+              'brand': {
+                '@type': 'Brand',
+                'name': 'FadiLogic',
+              },
+            }),
+          }}
+        />
       </Head>
       <Hero />
       <ScanServiceSection />

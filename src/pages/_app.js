@@ -83,7 +83,7 @@ export default function MyApp({ Component, pageProps }) {
           description: "Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps projects shared on LinkedIn and Facebook.",
           images: [
             {
-              url: "/images/FadiLogic.webp", // Ensure this resolves correctly
+              url: "https://fadilogic.serp24.online/images/FadiLogic.webp", // Ensure this resolves correctly
               width: 1200,
               height: 630,
               alt: "Fadi Dabboura Website Scan and Portfolio",

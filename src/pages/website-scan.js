@@ -52,7 +52,7 @@ export default function Webscan() {
     />
   <meta name="author" content="Fadi Dabboura" />
   <link rel="canonical" href="https://fadilogic.serp24.online/website-scan" />
-  <meta property="og:image" content="/images/FadiLogic.webp" />
+  <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Fadi Dabboura Website Scan and Portfolio" />
@@ -68,7 +68,7 @@ export default function Webscan() {
           description: "Fadi Dabboura's FadiLogic: Free website scan tool to check performance and errors.",
           images: [
             {
-              url: "/images/FadiLogic.webp",
+              url: "https://fadilogic.serp24.online/images/FadiLogic.webp",
               width: 1200,
               height: 630,
               alt: "Fadi Dabboura Website Scan Tool",

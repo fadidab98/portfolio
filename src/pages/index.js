@@ -33,7 +33,7 @@ export default function Home({ projects }) {
     description: "Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps projects shared on LinkedIn and Facebook.",
     images: [
       {
-        url: "/images/FadiLogic.webp", // Or absolute URL if needed
+        url: "https://fadilogic.serp24.online/images/FadiLogic.webp", // Or absolute URL if needed
         width: 1200,
         height: 630,
         alt: "Fadi Dabboura Website Scan and Portfolio",
@@ -47,6 +47,35 @@ export default function Home({ projects }) {
       name: "keywords",
       content: "fadi, dabboura, website scan, webscan, web scan tool, website performance, web development, devops",
     },
+    {
+      property: "og:image", // Explicitly add og:image
+      content: "https://fadilogic.serp24.online/images/FadiLogic.webp",
+    },
+    {
+      property: "og:image:width",
+      content: "1200",
+    },
+    {
+      property: "og:image:height",
+      content: "630",
+    },
+    {
+      property: "og:image:alt",
+      content: "Fadi Dabboura Website Scan and Portfolio",
+    },
+    {
+      property: "og:image:type",
+      content: "image/webp",
+    },
+    {
+      name: "keywords",
+      content: "fadi, dabboura, website scan, webscan, FadiLogic, web scan tool, website performance, web development, devops",
+    },
+    {
+      name: "author",
+      content: "Fadi Dabboura",
+    },
+  
   ]}
 />
 <Head>
@@ -55,6 +84,11 @@ export default function Home({ projects }) {
   <link rel="preload" href="/icons/email.svg" as="image" />
   <link rel="preload" href="/icons/github.svg" as="image" />
   <link rel="preload" href="/icons/linkedin.svg" as="image" />
+  <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Fadi Dabboura Website Scan and Portfolio" />
+  <meta property="og:image:type" content="image/webp" />
   
 </Head>
       <Hero />

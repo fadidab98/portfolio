@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import '../styles/globals.css';
 import dynamic from 'next/dynamic';
-import { Inter } from 'next/font/google';
 
 
 const Provider = dynamic(() => import('react-redux').then((mod) => mod.Provider), { ssr: false });

@@ -49,11 +49,11 @@ export default function Webscan() {
         {/* Override OG Tags for Webscan Page */}
         <meta property="og:title" content="Fadi Dabboura - Website Scan Tool | FadiLogic" />
         <meta property="og:description" content="Fadi Dabboura’s FadiLogic: Free webscan tool to check website performance and errors." />
-        <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.webp" />
+        <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Fadi Dabboura Website Scan Tool" />
-        <meta property="og:image:type" content="image/webp" />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:url" content="https://fadilogic.serp24.online/website-scan" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="FadiLogic" />

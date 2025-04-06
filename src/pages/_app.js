@@ -79,11 +79,11 @@ export default function MyApp({ Component, pageProps }) {
         {/* Open Graph Meta Tags */}
         <meta property="og:title" content="Fadi Dabboura - Portfolio & Website Scan | FadiLogic" />
         <meta property="og:description" content="Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps projects shared on LinkedIn and Facebook." />
-        <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.webp" />
+        <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Fadi Dabboura Website Scan and Portfolio" />
-        <meta property="og:image:type" content="image/webp" />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:url" content="https://fadilogic.serp24.online/" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="FadiLogic" />

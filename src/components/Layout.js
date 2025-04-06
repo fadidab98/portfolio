@@ -28,7 +28,7 @@ console.log(isMobile)
 
 
   return (
-    <main className={`${inter.className}`} >
+    <main className={inter.className} >
       <Header />
       
         <AnimatePresence>

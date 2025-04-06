@@ -8,7 +8,7 @@ export default function Hero() {
 
   // Define the common content to avoid duplication
   const heroContent = (
-    <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
+    <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[250px] sm:min-h-[450px] md:min-h-[500px]">
       <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
         <div className="relative aspect-[250/350] w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] ">
           <Image

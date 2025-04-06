@@ -31,7 +31,7 @@ export default function Hero() {
         <p className="text-xl sm:text-2xl text-white mb-4 leading-relaxed">
           Software Engineer & Web Developer
         </p>
-        <div className="text-base sm:text-lg text-gray-300 space-y-4 mb-6 min-h-[300px] sm:min-h-[180px] md:min-h-[200px]">
+        <div className="text-base sm:text-lg text-gray-300 space-y-4 mb-6 min-h-[220px] sm:min-h-[180px] md:min-h-[200px]">
           <p className="leading-relaxed">
             I am Fadi Dabboura, a committed professional specializing in <strong>DevOps engineering</strong>, <strong>data science</strong>, and <strong>web development</strong>. My expertise lies in designing and implementing efficient, scalable, and technology-driven solutions that meet complex business needs.
           </p>

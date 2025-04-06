@@ -36,7 +36,7 @@ export default function Home({ projects }) {
               url: 'https://fadilogic.serp24.online/images/FadiLogic.webp',
               width: 1200,
               height: 630,
-              alt: 'FadiLogic Portfolio by Fadi Dabboura',
+              alt: 'FadiLogic Portfolio by Fações Dabboura',
               type: 'image/webp',
             },
           ],
@@ -71,18 +71,15 @@ export default function Home({ projects }) {
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Person',
-              'name': 'Fadi Dabboura',
-              'url': 'https://fadilogic.serp24.online',
-              'sameAs': [
+              name: 'Fadi Dabboura',
+              url: 'https://fadilogic.serp24.online',
+              sameAs: [
                 'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
                 'https://www.instagram.com/dabbourafadi',
                 'https://www.facebook.com/fadi.dabboura.73',
               ],
-              'jobTitle': 'Devops Engineer & Web Developer',
-              'brand': {
-                '@type': 'Brand',
-                'name': 'FadiLogic',
-              },
+              jobTitle: 'Devops Engineer & Web Developer',
+              brand: { '@type': 'Brand', name: 'FadiLogic' },
             }),
           }}
         />
@@ -106,9 +103,10 @@ export default function Home({ projects }) {
 }
 
 export async function getStaticProps() {
+  const projectsData = projects; // Ensure projects is static
   return {
     props: {
-      projects,
+      projects: projectsData,
     },
     revalidate: 3600,
   };

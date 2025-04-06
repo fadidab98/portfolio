@@ -25,15 +25,15 @@ export default function Home({ projects }) {
     <>
 <NextSeo
   title="Fadi Dabboura - Portfolio & Website Scan | FadiLogic"
-  description="Fadi Dabboura's FadiLogic: Explore my website scan tool and portfolio of DevOps and web development projects."
+  description="Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps projects shared on LinkedIn and Facebook."
   canonical="https://fadilogic.serp24.online/"
   openGraph={{
     url: "https://fadilogic.serp24.online/",
     title: "Fadi Dabboura - Portfolio & Website Scan | FadiLogic",
-    description: "Fadi Dabboura's FadiLogic: Free website scan tool and portfolio showcasing DevOps and web projects on GitHub and Facebook.",
+    description: "Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps projects shared on LinkedIn and Facebook.",
     images: [
       {
-        url: "/images/FadiLogic.webp",
+        url: "/images/FadiLogic.webp", // Or absolute URL if needed
         width: 1200,
         height: 630,
         alt: "Fadi Dabboura Website Scan and Portfolio",
@@ -55,29 +55,7 @@ export default function Home({ projects }) {
   <link rel="preload" href="/icons/email.svg" as="image" />
   <link rel="preload" href="/icons/github.svg" as="image" />
   <link rel="preload" href="/icons/linkedin.svg" as="image" />
-  <meta property="og:image" content="/images/FadiLogic.webp" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Fadi Dabboura Website Scan and Portfolio" />
-  <meta property="og:image:type" content="image/webp" />
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Person",
-        name: "Fadi Dabboura",
-        url: "https://fadilogic.serp24.online",
-        sameAs: [
-          "https://www.linkedin.com/in/fadi-dabboura-8300bb211",
-          "https://www.instagram.com/dabbourafadi",
-          "https://www.facebook.com/fadi.dabboura.73",
-        ],
-        jobTitle: "DevOps Engineer & Web Developer",
-        brand: { "@type": "Brand", name: "FadiLogic" },
-      }),
-    }}
-  />
+  
 </Head>
       <Hero />
       <ScanServiceSection />

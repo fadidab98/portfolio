@@ -70,37 +70,6 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-<Head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
-  <meta property="og:image" content="/images/FadiLogic.webp" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Fadi Dabboura Website Scan and Portfolio" />
-  <meta property="og:image:type" content="image/webp" />
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Person",
-        name: "Fadi Dabboura",
-        url: "https://fadilogic.serp24.online",
-        sameAs: [
-          "https://www.linkedin.com/in/fadi-dabboura-8300bb211",
-          "https://www.facebook.com/fadi.dabboura.73",
-          "https://www.instagram.com/dabbourafadi", // Optional: Keep if relevant
-        ],
-        jobTitle: "DevOps Engineer & Web Developer",
-        brand: { "@type": "Brand", name: "FadiLogic" },
-        description: "Fadi Dabboura’s FadiLogic offers a free website scan tool and showcases DevOps and web development projects.",
-      }),
-    }}
-  />
-</Head>
       <DefaultSeo
         title="Fadi Dabboura - Portfolio & Website Scan | FadiLogic"
         description="Fadi Dabboura’s FadiLogic: Official site featuring a free website scan tool and DevOps portfolio."
@@ -111,11 +80,10 @@ export default function MyApp({ Component, pageProps }) {
           url: "https://fadilogic.serp24.online/",
           siteName: "FadiLogic",
           title: "Fadi Dabboura - Portfolio & Website Scan | FadiLogic",
-          description:
-            "Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps projects shared on LinkedIn and Facebook.",
+          description: "Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps projects shared on LinkedIn and Facebook.",
           images: [
             {
-              url: "/images/FadiLogic.webp",
+              url: "/images/FadiLogic.webp", // Ensure this resolves correctly
               width: 1200,
               height: 630,
               alt: "Fadi Dabboura Website Scan and Portfolio",
@@ -124,6 +92,26 @@ export default function MyApp({ Component, pageProps }) {
           ],
         }}
         additionalMetaTags={[
+          {
+            property: "og:image", // Explicitly add og:image
+            content: "https://fadilogic.serp24.online/images/FadiLogic.webp",
+          },
+          {
+            property: "og:image:width",
+            content: "1200",
+          },
+          {
+            property: "og:image:height",
+            content: "630",
+          },
+          {
+            property: "og:image:alt",
+            content: "Fadi Dabboura Website Scan and Portfolio",
+          },
+          {
+            property: "og:image:type",
+            content: "image/webp",
+          },
           {
             name: "keywords",
             content: "fadi, dabboura, website scan, webscan, FadiLogic, web scan tool, website performance, web development, devops",

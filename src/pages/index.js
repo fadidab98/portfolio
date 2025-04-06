@@ -55,7 +55,7 @@ export default function Home({ projects }) {
   <link rel="preload" href="/icons/email.svg" as="image" />
   <link rel="preload" href="/icons/github.svg" as="image" />
   <link rel="preload" href="/icons/linkedin.svg" as="image" />
-  <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.webp" />
+  <meta property="og:image" content="/images/FadiLogic.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Fadi Dabboura Website Scan and Portfolio" />

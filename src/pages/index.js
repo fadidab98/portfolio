@@ -25,15 +25,15 @@ export default function Home({ projects }) {
     <>
 <NextSeo
   title="Fadi Dabboura - Portfolio & Website Scan | FadiLogic"
-  description="Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps projects shared on LinkedIn and Facebook."
+  description="Fadi Dabboura's FadiLogic: Explore my website scan tool and portfolio of DevOps and web development projects."
   canonical="https://fadilogic.serp24.online/"
   openGraph={{
     url: "https://fadilogic.serp24.online/",
     title: "Fadi Dabboura - Portfolio & Website Scan | FadiLogic",
-    description: "Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps projects shared on LinkedIn and Facebook.",
+    description: "Fadi Dabboura's FadiLogic: Free website scan tool and portfolio showcasing DevOps and web projects on GitHub and Facebook.",
     images: [
       {
-        url: "https://fadilogic.serp24.online/images/FadiLogic.webp", // Or absolute URL if needed
+        url: "/images/FadiLogic.webp",
         width: 1200,
         height: 630,
         alt: "Fadi Dabboura Website Scan and Portfolio",
@@ -47,49 +47,44 @@ export default function Home({ projects }) {
       name: "keywords",
       content: "fadi, dabboura, website scan, webscan, web scan tool, website performance, web development, devops",
     },
-    {
-      property: "og:image", // Explicitly add og:image
-      content: "https://fadilogic.serp24.online/images/FadiLogic.webp",
-    },
-    {
-      property: "og:image:width",
-      content: "1200",
-    },
-    {
-      property: "og:image:height",
-      content: "630",
-    },
-    {
-      property: "og:image:alt",
-      content: "Fadi Dabboura Website Scan and Portfolio",
-    },
-    {
-      property: "og:image:type",
-      content: "image/webp",
-    },
-    {
-      name: "keywords",
-      content: "fadi, dabboura, website scan, webscan, FadiLogic, web scan tool, website performance, web development, devops",
-    },
-    {
-      name: "author",
-      content: "Fadi Dabboura",
-    },
-  
   ]}
 />
 <Head>
-  <link rel="canonical" href="https://fadilogic.serp24.online/" />
-  <link rel="preload" href="/images/project1.webp" as="image" />
-  <link rel="preload" href="/icons/email.svg" as="image" />
-  <link rel="preload" href="/icons/github.svg" as="image" />
-  <link rel="preload" href="/icons/linkedin.svg" as="image" />
-  <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.webp" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Fadi Dabboura Website Scan and Portfolio" />
-  <meta property="og:image:type" content="image/webp" />
-  
+        {/* Override OG Tags for Homepage */}
+        <meta property="og:title" content="Fadi Dabboura - Portfolio & Website Scan | FadiLogic" />
+        <meta property="og:description" content="Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps projects shared on LinkedIn and Facebook." />
+        <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.webp" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Fadi Dabboura Website Scan and Portfolio" />
+        <meta property="og:image:type" content="image/webp" />
+        <meta property="og:url" content="https://fadilogic.serp24.online/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="FadiLogic" />
+        <meta property="og:locale" content="en_US" />
+        <link rel="canonical" href="https://fadilogic.serp24.online/" />
+        <link rel="preload" href="/images/project1.webp" as="image" />
+        <link rel="preload" href="/icons/email.svg" as="image" />
+        <link rel="preload" href="/icons/github.svg" as="image" />
+        <link rel="preload" href="/icons/linkedin.svg" as="image" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Fadi Dabboura",
+              url: "https://fadilogic.serp24.online",
+              sameAs: [
+                "https://www.linkedin.com/in/fadi-dabboura-8300bb211",
+                "https://www.instagram.com/dabbourafadi",
+                "https://www.facebook.com/fadi.dabboura.73",
+              ],
+              jobTitle: "DevOps Engineer & Web Developer",
+              brand: { "@type": "Brand", name: "FadiLogic" },
+            }),
+          }}
+        />
 </Head>
       <Hero />
       <ScanServiceSection />

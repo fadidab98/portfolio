@@ -40,54 +40,25 @@ export default function Webscan() {
 
   return (
     <>
-    <Head>
-    <title>FadiLogic Web Scan Tool - Fadi Dabboura</title>
-    <meta
-    name="description"
-    content="FadiLogic by Fadi Dabboura: Free web scan tool to analyze website performance and errors."
-  />
-  <meta
-      name="keywords"
-      content="FadiLogic, Fadi Dabboura, web scan tool, website performance, web development, frontend development, backend development, devops"
-    />
-  <meta name="author" content="Fadi Dabboura" />
-  <link rel="canonical" href="https://fadilogic.serp24.online/website-scan" />
-  <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.webp" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Fadi Dabboura Website Scan and Portfolio" />
-  <meta property="og:image:type" content="image/webp" />
-</Head>
 <NextSeo
         title="Fadi Dabboura - Website Scan Tool | FadiLogic"
-        description="Fadi Dabboura's free website scan tool to analyze your site's performance and identify errors."
+        description="Fadi Dabboura’s free website scan tool to analyze your site's performance and identify errors."
         canonical="https://fadilogic.serp24.online/website-scan"
-        openGraph={{
-          url: "https://fadilogic.serp24.online/website-scan",
-          title: "Fadi Dabboura - Website Scan Tool | FadiLogic",
-          description: "Fadi Dabboura's FadiLogic: Free website scan tool to check performance and errors.",
-          images: [
-            {
-              url: "https://fadilogic.serp24.online/images/FadiLogic.webp",
-              width: 1200,
-              height: 630,
-              alt: "Fadi Dabboura Website Scan Tool",
-              type: "image/webp",
-            },
-          ],
-          siteName: "FadiLogic",
-        }}
-        additionalMetaTags={[
-          {
-            name: "keywords",
-            content: "fadi, dabboura, website scan, webscan, web scan tool, website performance, web development, devops",
-          },
-          {
-            name: "author",
-            content: "Fadi Dabboura",
-          },
-        ]}
       />
+      <Head>
+        {/* Override OG Tags for Webscan Page */}
+        <meta property="og:title" content="Fadi Dabboura - Website Scan Tool | FadiLogic" />
+        <meta property="og:description" content="Fadi Dabboura’s FadiLogic: Free webscan tool to check website performance and errors." />
+        <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.webp" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Fadi Dabboura Website Scan Tool" />
+        <meta property="og:image:type" content="image/webp" />
+        <meta property="og:url" content="https://fadilogic.serp24.online/website-scan" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="FadiLogic" />
+        <meta property="og:locale" content="en_US" />
+      </Head>
     <div className="min-h-screen bg-background text-text font-inter p-6">
       {/* Introductory Text */}
       <div className="text-center mb-8">

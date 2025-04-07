@@ -28,6 +28,7 @@ export default function Home({ projects }) {
         <meta name="description" content="Fadi Dabboura's FadiLogic: Explore my website scan tool and portfolio of DevOps and web development projects." />
         <meta name="keywords" content="fadi, dabboura, fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops" />
         <meta name="author" content="Fadi Dabboura" />
+        <link rel="canonical" href="https://fadilogic.serp24.online/" />
         <meta property="og:title" content="Fadi Dabboura - Portfolio & Website Scan | FadiLogic" />
         <meta property="og:description" content="Fadi Dabboura's FadiLogic: Free website scan tool and portfolio showcasing DevOps and web projects on GitHub and Facebook." />
         <meta property="og:url" content="https://fadilogic.serp24.online/" />
@@ -44,7 +45,7 @@ export default function Home({ projects }) {
         <link rel="preload" href="/icons/email.svg" as="image" />
         <link rel="preload" href="/icons/github.svg" as="image" />
         <link rel="preload" href="/icons/linkedin.svg" as="image" />
-        <link rel="canonical" href="https://fadilogic.serp24.online/" />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

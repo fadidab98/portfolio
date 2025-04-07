@@ -1,11 +1,32 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 
 export default function Hero() {
   const isMobile = useSelector((state) => state.setting.setting.isMobile);
-
+// Social media links data
+const socialLinks = [
+  {
+    name: 'Facebook',
+    url: 'https://github.com/fadidab98',
+    icon: <FaFacebookF />,
+    color: 'hover:text-[#1877F2]'
+  },
+  {
+    name: 'GitHub',
+    url: 'https://www.facebook.com/fadi.dabboura.73',
+    icon: <FaGithub />,
+    color: 'hover:text-[#333]'
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+    icon: <FaLinkedinIn />,
+    color: 'hover:text-[#0A66C2]'
+  }
+];
   // Define the common content to avoid duplication
   const heroContent = (
     <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[250px] sm:min-h-[450px] md:min-h-[500px]">
@@ -40,6 +61,20 @@ export default function Hero() {
           <p className="leading-relaxed">
             I invite you to review my portfolio to explore my projects and accomplishments. Please feel free to contact me to discuss potential collaborations or professional opportunities.
           </p>
+        </div>
+        <div className="flex justify-center md:justify-start gap-4 mb-6">
+          {socialLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-gray-300 ${link.color} transition-colors duration-300 transform hover:scale-110`}
+              aria-label={link.name}
+            >
+              <span className="text-2xl">{link.icon}</span>
+            </Link>
+          ))}
         </div>
         <Link
           href="/contact"

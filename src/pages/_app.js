@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic';
 const Provider = dynamic(() => import('react-redux').then((mod) => mod.Provider), { ssr: false });
 import { store } from '../lib/store';
 import Head from 'next/head';
-import { DefaultSeo } from 'next-seo';
+
 
 export default function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);

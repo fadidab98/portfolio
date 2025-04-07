@@ -3,7 +3,7 @@ import { useScanWebsiteMutation } from '@/lib/scanApi';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Head from 'next/head';
-import { NextSeo } from 'next-seo';
+
 
 export default function Webscan() {
   const [url, setUrl] = useState('');
@@ -46,6 +46,8 @@ export default function Webscan() {
         <title>Fadi Dabboura - Website Scan Tool | FadiLogic</title>
         <meta name="description" content="Fadi Dabboura’s free website scan tool to analyze your site's performance and identify errors." />
         <meta name="keywords" content="fadi, dabboura, fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops" />
+        <meta name="author" content="Fadi Dabboura" />
+
         <meta property="og:title" content="Fadi Dabboura - Website Scan Tool | FadiLogic" />
         <link rel="canonical" href="https://fadilogic.serp24.online/website-scan" />
         <meta property="og:description" content="Fadi Dabboura’s FadiLogic: Free webscan tool to check website performance and errors." />
@@ -54,10 +56,11 @@ export default function Webscan() {
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Fadi Dabboura Website Scan Tool" />
         <meta property="og:image:type" content="image/png" />
-        <meta property="og:url" content="https://fadilogic.serp24.online/website-scan" />
+
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="FadiLogic" />
         <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content="https://fadilogic.serp24.online/website-scan" />
       </Head>
     <div className="min-h-screen bg-background text-text font-inter p-6">
       {/* Introductory Text */}

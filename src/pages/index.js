@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { projects } from '@/data/project';
 import ScanServiceSection from '../components/ScanServiceSection';
 import { SkeletonHero, SkeletonProjectCard } from '@/components/skeleton/Skeleton';
-import { NextSeo } from 'next-seo';
+
 
 const Hero = dynamic(() => import('../components/Hero'), {
   ssr: true,
@@ -39,11 +39,12 @@ export default function Home({ projects }) {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="FadiLogic" />
         <meta property="og:locale" content="en_US" />
-        <link rel="canonical" href="https://fadilogic.serp24.online/" />
+        
         <link rel="preload" href="/images/project1.webp" as="image" />
         <link rel="preload" href="/icons/email.svg" as="image" />
         <link rel="preload" href="/icons/github.svg" as="image" />
         <link rel="preload" href="/icons/linkedin.svg" as="image" />
+        <link rel="canonical" href="https://fadilogic.serp24.online/" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

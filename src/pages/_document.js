@@ -10,7 +10,8 @@ export default function Document() {
         <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="keywords" content="fadi, dabboura, fadi dabboura, fadi website scan, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio" />      </Head>
+        <meta name="keywords" content="fadi, dabboura, fadi dabboura, fadi website scan, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio, fadilogic" />     
+         </Head>
       <body>
         <Main />
         <NextScript />

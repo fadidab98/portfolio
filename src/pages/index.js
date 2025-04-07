@@ -25,12 +25,13 @@ export default function Home({ projects }) {
     <>
       <Head>
    
-      <title>Fadi Dabboura | DevOps & Web Dev</title>
-      <meta name="description" content="Fadi Dabboura, DevOps & Web Developer. Explore my portfolio and website scan tool at FadiLogic now!" />        <meta name="keywords" content="fadi, dabboura, fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio" />
+      <title>Fadi Dabboura | FadiLogic</title>
+      <meta name="description" content="Fadi Dabboura, DevOps & Web Developer. Explore my portfolio and website scan tool at FadiLogic now!" /> 
+      <meta name="keywords" content="fadi, dabboura, fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio" />
         
         <meta name="author" content="Fadi Dabboura" />
         <link rel="canonical" href="https://fadilogic.serp24.online/" />
-        <meta property="og:title" content="Fadi Dabboura - Portfolio & Website Scan | FadiLogic" />
+        <meta property="og:title" content="Fadi Dabboura - Portfolio & Website Scan | " />
         <meta property="og:description" content="Fadi Dabboura's FadiLogic: Free website scan tool and portfolio showcasing DevOps and web projects on GitHub and Facebook." />
         <meta property="og:url" content="https://fadilogic.serp24.online/" />
         <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.png" />

@@ -40,14 +40,14 @@ export default function Webscan() {
 
   return (
     <>
-<NextSeo
-        title="Fadi Dabboura - Website Scan Tool | FadiLogic"
-        description="Fadi Dabboura’s free website scan tool to analyze your site's performance and identify errors."
-        canonical="https://fadilogic.serp24.online/website-scan"
-      />
+
       <Head>
         {/* Override OG Tags for Webscan Page */}
+        <title>Fadi Dabboura - Website Scan Tool | FadiLogic</title>
+        <meta name="description" content="Fadi Dabboura’s free website scan tool to analyze your site's performance and identify errors." />
+        <meta name="keywords" content="fadi, dabboura, fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops" />
         <meta property="og:title" content="Fadi Dabboura - Website Scan Tool | FadiLogic" />
+        <link rel="canonical" href="https://fadilogic.serp24.online/website-scan" />
         <meta property="og:description" content="Fadi Dabboura’s FadiLogic: Free webscan tool to check website performance and errors." />
         <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.png" />
         <meta property="og:image:width" content="1200" />

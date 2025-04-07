@@ -9,6 +9,9 @@ export default function Footer() {
           <a href="https://github.com/fadidab98" target="_blank" rel="noopener noreferrer" className="hover:text-accent">
             GitHub
           </a>
+          <a href="https://www.facebook.com/fadi.dabboura.73" target="_blank" rel="noopener noreferrer" className="hover:text-accent">
+            Facebook
+          </a>
         </div>
       </footer>
     );

@@ -69,42 +69,15 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-     <Head>
+      <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64x64.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="Fadi Dabboura - Portfolio & Website Scan | FadiLogic" />
-        <meta property="og:description" content="Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps projects shared on LinkedIn and Facebook." />
-        <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Fadi Dabboura Website Scan and Portfolio" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:url" content="https://fadilogic.serp24.online/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="FadiLogic" />
-        <meta property="og:locale" content="en_US" />
+        
       </Head>
-      <DefaultSeo
-        title="Fadi Dabboura - Portfolio & Website Scan | FadiLogic"
-        description="Fadi Dabboura’s FadiLogic: Official site featuring a free website scan tool and DevOps portfolio."
-        canonical="https://fadilogic.serp24.online/"
-        additionalMetaTags={[
-          {
-            name: "keywords",
-            content: "fadi, dabboura, website scan, webscan, FadiLogic, web scan tool, website performance, web development, devops",
-          },
-          {
-            name: "author",
-            content: "Fadi Dabboura",
-          },
-        ]}
-
-      />
       <Layout loading={loading} >
         {loading ? null : <Component {...pageProps} key={pageKey} />}
       </Layout>

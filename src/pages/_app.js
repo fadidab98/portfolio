@@ -71,7 +71,7 @@ export default function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
+        <meta name="robots" content="index, follow" />
       </Head>
       <Layout loading={loading} >
         {loading ? null : <Component {...pageProps} key={pageKey} />}

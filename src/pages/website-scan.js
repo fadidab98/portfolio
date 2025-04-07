@@ -43,9 +43,8 @@ export default function Webscan() {
 
       <Head>
         {/* Override OG Tags for Webscan Page */}
-        <title>Fadi Dabboura - Website Scan Tool | FadiLogic</title>
-        <meta name="description" content="Fadi Dabboura’s free website scan tool to analyze your site's performance and identify errors." />
-        <meta name="keywords" content="fadi, dabboura, fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops" />
+        <title>Fadi Dabboura | Website Scan Tool</title>
+        <meta name="description" content="Fadi Dabboura’s free website scan tool. Analyze your site’s performance and errors today!" />        <meta name="keywords" content="fadi, dabboura, fadi dabboura, fadi website scan, website scan, webscan, web scan tool, website performance, web development, devops" />
         <meta name="author" content="Fadi Dabboura" />
         <link rel="canonical" href="https://fadilogic.serp24.online/website-scan" />
 
@@ -67,7 +66,7 @@ export default function Webscan() {
       <div className="text-center mb-8">
       <h1 className="text-3xl font-bold mb-4 text-white">Fadi Dabboura’s Website Scan Tool</h1>   
           <p className="mt-4 text-lg">
-          Welcome to my Website Scan Service! Enter your website URL below to scan it for
+          Welcome to Fadi Dabboura’s Website Scan Service! Enter your website URL below to scan it for
           performance metrics, errors, and alerts. We’ll analyze your site and provide detailed
           insights to help you optimize it. If you run into any issues or need assistance, feel
           free to{' '}

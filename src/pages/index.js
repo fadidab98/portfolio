@@ -24,9 +24,10 @@ export default function Home({ projects }) {
   return (
     <>
       <Head>
-        <title>Fadi Dabboura - Portfolio & Website Scan | FadiLogic</title>
-        <meta name="description" content="Fadi Dabboura's FadiLogic: Explore my website scan tool and portfolio of DevOps and web development projects." />
-        <meta name="keywords" content="fadi, dabboura, fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops" />
+   
+      <title>Fadi Dabboura | DevOps & Web Dev</title>
+      <meta name="description" content="Fadi Dabboura, DevOps & Web Developer. Explore my portfolio and website scan tool at FadiLogic now!" />        <meta name="keywords" content="fadi, dabboura, fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio" />
+        
         <meta name="author" content="Fadi Dabboura" />
         <link rel="canonical" href="https://fadilogic.serp24.online/" />
         <meta property="og:title" content="Fadi Dabboura - Portfolio & Website Scan | FadiLogic" />
@@ -68,7 +69,7 @@ export default function Home({ projects }) {
       <Hero />
       <ScanServiceSection />
       <Section id="projects">
-        <h2 className="text-4xl mb-8 text-center">Featured Project</h2>
+        <h2 className="text-4xl mb-8 text-center">Featured Project by Fadi Dabboura</h2>
         <div className="max-w-2xl mx-auto">
           <FeaturedProjectCard project={featuredProject} />
         </div>

@@ -8,15 +8,15 @@ export default function Hero() {
   const isMobile = useSelector((state) => state.setting.setting.isMobile);
 // Social media links data
 const socialLinks = [
-  {
+{
     name: 'Facebook',
-    url: 'https://github.com/fadidab98',
+    url: 'https://www.facebook.com/fadi.dabboura.73',
     icon: <FaFacebookF />,
     color: 'hover:text-[#1877F2]'
   },
   {
     name: 'GitHub',
-    url: 'https://www.facebook.com/fadi.dabboura.73',
+    url: 'https://github.com/fadidab98',
     icon: <FaGithub />,
     color: 'hover:text-[#333]'
   },

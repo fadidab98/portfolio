@@ -65,7 +65,7 @@ export default function Webscan() {
     <div className="min-h-screen bg-background text-text font-inter p-6">
       {/* Introductory Text */}
       <div className="text-center mb-8">
-      <h2 className="text-3xl font-bold mb-4 text-white">Fadi Dabboura’s Website Scan Tool</h2>   
+      <h1 className="text-3xl font-bold mb-4 text-white">Fadi Dabboura’s Website Scan Tool</h1>   
           <p className="mt-4 text-lg">
           Welcome to my Website Scan Service! Enter your website URL below to scan it for
           performance metrics, errors, and alerts. We’ll analyze your site and provide detailed

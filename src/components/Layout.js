@@ -11,7 +11,7 @@ const AnimatePresence = dynamic(
   { ssr: false }
 );
 const Header = dynamic(() => import('./Header'), { ssr: false });
-const Footer = dynamic(() => import('./Footer'), { ssr: false });
+const Footer = dynamic(() => import('./Footer'), { ssr: true });
 const Loading = dynamic(() => import('./loading'), { ssr: false });
 const inter = Inter({ subsets: ['latin'], weights: [400, 700], display: 'swap' });
 

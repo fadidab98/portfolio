@@ -15,7 +15,7 @@ const FeaturedProjectCard = dynamic(() => import('../components/ProjectCard'), {
   loading: () => <SkeletonProjectCard />,
 });
 const ProjectCard = dynamic(() => import('../components/ProjectCard'), {
-  ssr: false,
+  ssr: true,
   loading: () => <SkeletonProjectCard />,
 });
 

@@ -5,20 +5,19 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3003:3000" # Your app listens on port 3000 internally
+      - "3003:3000" # Expose app on 3003 externally, 3000 internally
     environment:
       - NODE_ENV=production
     restart: unless-stopped
 
-  nginx:
-    image: nginx:latest
-    ports:
-      - "80:80"    # HTTP
-      - "443:443"  # HTTPS
+  nginx-config:
+    image: alpine:latest # Lightweight image for copying files
     volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/fadilogic.serp24.online.conf # Mount custom NGINX config
-      - /etc/ssl/certs:/etc/ssl/certs                      # Mount erver's SSL certs directory
-      - /etc/ssl/private:/etc/ssl/private                  # Mount server's private key directory
-    depends_on:
-      - app
-    restart: unless-stopped
+      - ./nginx.conf:/nginx.conf # Mount the config file from your project
+      - /etc/nginx/sites-available:/sites-available # Mount server's sites-available
+      - /etc/nginx/sites-enabled:/sites-enabled # Mount server's sites-enabled
+    command: >
+      sh -c "cp /nginx.conf /sites-available/fadilogic.serp24.online &&
+             ln -sf /sites-available/fadilogic.serp24.online /sites-enabled/fadilogic.serp24.online &&
+             nginx -t && systemctl reload nginx"
+    # This service runs once and exits

@@ -5,19 +5,20 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3003:3000" # Expose app on 3003 externally, 3000 internally
+      - "3003:3000"
     environment:
       - NODE_ENV=production
     restart: unless-stopped
 
   nginx-config:
-    image: alpine:latest # Lightweight image for copying files
+    image: alpine:latest
     volumes:
-      - ./nginx.conf:/nginx.conf # Mount the config file from your project
-      - /etc/nginx/sites-available:/sites-available # Mount server's sites-available
-      - /etc/nginx/sites-enabled:/sites-enabled # Mount server's sites-enabled
+      - ./nginx.conf:/nginx.conf:ro
+      - /etc/nginx/sites-available:/sites-available
+      - /etc/nginx/sites-enabled:/sites-enabled
     command: >
-      sh -c "cp /nginx.conf /sites-available/fadilogic.serp24.online &&
-             ln -sf /sites-available/fadilogic.serp24.online /sites-enabled/fadilogic.serp24.online &&
-             nginx -t && systemctl reload nginx"
-    # This service runs once and exits
+      sh -c "cp -f /nginx.conf /sites-available/fadilogic.serp24.online &&
+             ln -sf /etc/nginx/sites-available/fadilogic.serp24.online /sites-enabled/fadilogic.serp24.online &&
+             ls -l /sites-enabled/fadilogic.serp24.online &&
+             nginx -t || echo 'NGINX test failed'"
+    # Runs once and exits

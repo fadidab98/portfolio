@@ -5,7 +5,20 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3003:3000"
+      - "3003:3000" # Your app listens on port 3000 internally
     environment:
       - NODE_ENV=production
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"    # HTTP
+      - "443:443"  # HTTPS
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/fadilogic.serp24.online.conf # Mount custom NGINX config
+      - /etc/ssl/certs:/etc/ssl/certs                      # Mount server's SSL certs directory
+      - /etc/ssl/private:/etc/ssl/private                  # Mount server's private key directory
+    depends_on:
+      - app
     restart: unless-stopped

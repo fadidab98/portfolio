@@ -1,11 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
-import '../styles/globals.css';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-
-const Provider = dynamic(() => import('react-redux').then((mod) => mod.Provider), { ssr: false });
+import { Provider } from 'react-redux';
 import { store } from '../lib/store';
 
 export default function MyApp({ Component, pageProps }) {
@@ -56,7 +54,6 @@ export default function MyApp({ Component, pageProps }) {
     };
   }, [router]);
 
-  // Always render the Component during SSG, but show loading UI on client-side navigation
   return (
     <Provider store={store}>
       <Head>
@@ -75,7 +72,6 @@ export default function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Layout loading={loading}>
-        {/* Always render Component for SSG; hide content with CSS when loading */}
         <div style={{ display: loading ? 'none' : 'block' }}>
           <Component {...pageProps} key={pageKey} />
         </div>

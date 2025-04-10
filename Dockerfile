@@ -1,21 +1,23 @@
-# Build stage
-FROM node:20 AS builder
+# Use official Node.js runtime as the base image
+FROM node:20
+
+# Set working directory inside the container
 WORKDIR /app
+
+# Copy package.json and package-lock.json to install dependencies
 COPY package*.json ./
+
+# Install dependencies
 RUN npm install
+
+# Copy the rest of your application code
 COPY . .
+
+# Build the Next.js app
 RUN npm run build
 
-# Production stage
-FROM node:20-slim
-WORKDIR /app
-COPY package*.json ./
-RUN npm install --production
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/server.js ./server.js  
-COPY --from=builder /app/package.json ./
-RUN npm install compression
-
+# Expose port 3003 (we'll map it in docker-compose)
 EXPOSE 3000
+
+# Start the app
 CMD ["npm", "start"]

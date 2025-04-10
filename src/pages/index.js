@@ -83,17 +83,7 @@ export default function Home({ projects }) {
       </Head>
       <Hero />
       <ScanServiceSection />
-      <Section id="skills">
-        <h2 className="text-4xl mb-8 text-center">My Skills</h2>
-        <p className="text-center max-w-2xl mx-auto">
-          Expertise in <strong>DevOps</strong>, <strong>web development</strong>, and{' '}
-          <strong>data science</strong>. I build efficient, scalable solutions and tools like my{' '}
-          <a href="/website-scan" className="text-accent">
-            free website scan service
-          </a>{' '}
-          to optimize your site’s performance.
-        </p>
-      </Section>
+
       <Section id="projects">
         <h2 className="text-4xl mb-8 text-center">Featured Project by Fadi Dabboura</h2>
         <div className="max-w-2xl mx-auto">

@@ -52,7 +52,12 @@ export default function Home({ projects }) {
         <meta name="twitter:title" content="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic" />
         <meta name="twitter:description" content="Check out Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps and web projects!" />
         <meta name="twitter:image" content="https://fadilogic.serp24.online/images/FadiLogic.png" />
-        <link rel="preload" href="/images/project1.webp" as="image" />
+        <link
+          rel="preload"
+          href="/images/project1.webp"
+          as="image"
+          fetchPriority="high"
+        />
         <link rel="preload" href="/icons/email.svg" as="image" />
         <link rel="preload" href="/icons/github.svg" as="image" />
         <link rel="preload" href="/icons/linkedin.svg" as="image" />

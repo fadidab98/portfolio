@@ -14,6 +14,7 @@ export default function Hero() {
     const img = new Image(); // Now uses the native Image constructor
     img.src = '/images/project1.webp';
     img.onload = () => setIsLoading(false);
+    img.onerror = () => setIsLoading(false); // Handle errors to avoid infinite loading
   }, []);
 
   const socialLinks = [
@@ -41,7 +42,7 @@ export default function Hero() {
     <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
       <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
         <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] h-[210px] sm:h-[280px] md:h-[350px] lg:h-[420px]">
-          <NextImage // Use the renamed import
+          <Image
             src="/images/project1.webp"
             alt="Fadi Dabboura"
             width={250}
@@ -92,11 +93,9 @@ export default function Hero() {
     </div>
   );
 
-  return isLoading ? (
-    <SkeletonHero />
-  ) : isMobile ? (
+  return isMobile ? (
     <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
-      {heroContent}
+      {isLoading ? <SkeletonHero /> : heroContent}
     </section>
   ) : (
     <motion.section
@@ -106,7 +105,7 @@ export default function Hero() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
-      {heroContent}
+      {isLoading ? <SkeletonHero /> : heroContent}
     </motion.section>
   );
 }

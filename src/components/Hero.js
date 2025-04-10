@@ -30,21 +30,20 @@ export default function Hero() {
   const heroContent = (
     <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
       <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
-      <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] min-h-[210px] sm:min-h-[280px] md:min-h-[350px] lg:min-h-[420px]">
-      <Image
-        src="/images/project1.webp"
-        alt="Fadi Dabboura"
-        width={250}
-        height={350}
-        priority
-        placeholder="blur"
-        blurDataURL="data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoBAAEAAQAcJaACdLoB+AA/an7gAAA="
-        className="rounded-full border-4 border-accent shadow-lg object-cover"
-        sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, (max-width: 1024px) 250px, 300px)"
-      />
-      <div className="absolute -top-6 -left-6 w-28 h-28 bg-accent rounded-full opacity-20 z-[-1]"></div>
-      <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent rounded-full opacity-20 z-[-1]"></div>
-    </div>
+      <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] min-h-[210px] sm:min-h-[280px] md:min-h-[350px] lg:min-h-[420px]">          <Image
+            src="/images/project1.webp"
+            alt="Fadi Dabboura"
+            width={250}
+            height={350}
+            priority
+            placeholder="blur"
+            blurDataURL="data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoBAAEAAQAcJaACdLoB+AA/an7gAAA="
+            className="rounded-full border-4 border-accent shadow-lg object-cover"
+            sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, (max-width: 1024px) 250px, 300px)"
+          />
+          <div className="absolute -top-6 -left-6 w-28 h-28 bg-accent rounded-full opacity-20 z-[-1]"></div>
+          <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent rounded-full opacity-20 z-[-1]"></div>
+        </div>
       </div>
       <div className="w-full md:w-1/2 text-center md:text-left">
         <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4">Fadi Dabboura</h1>

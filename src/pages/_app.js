@@ -1,12 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
-import Head from 'next/head';
+import '../styles/globals.css';
 import { Provider } from 'react-redux';
 import { store } from '../lib/store';
-import '../styles/globals.css';
-import { Inter } from 'next/font/google';
-const inter = Inter({ subsets: ['latin'], weights: [400, 700], display: 'swap' });
+import Head from 'next/head';
 
 export default function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
@@ -61,7 +59,11 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"></script>
+        <script
+          async
+          defer // Add defer to avoid blocking
+          src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
+        ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `

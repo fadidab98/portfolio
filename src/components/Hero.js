@@ -54,9 +54,7 @@ export default function Hero() {
           <p className="leading-relaxed">
             I am Fadi Dabboura, a committed professional specializing in <strong>DevOps engineering</strong> and <strong>web development</strong>. Check out my <strong>website scan tool</strong> to optimize your site’s performance.
           </p>
-          <p className="leading-relaxed text-sm sm:text-base">
-            Pursuing a Master’s in Informatics at Ostfalia University. Skilled in full-stack, DevOps, and more.
-          </p>
+          <p className="leading-relaxed text-sm sm:text-base">Pursuing a Master’s in Informatics at Ostfalia University. Skilled in full-stack, DevOps, and more.</p>
           <p className="leading-relaxed">
             I invite you to review my portfolio to explore my projects and accomplishments. Please feel free to contact me to discuss potential collaborations or exciting professional opportunities ahead.
           </p>

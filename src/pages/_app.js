@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { store } from '../lib/store';
 import Head from 'next/head';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'], weights: [400, 700], display: 'swap' });
 
@@ -62,11 +63,10 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
-        <script
-          async
-          defer // Add defer to avoid blocking
-          src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
-        ></script>
+        <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
+      />
         <script
           dangerouslySetInnerHTML={{
             __html: `

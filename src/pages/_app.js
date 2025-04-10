@@ -11,15 +11,11 @@ const inter = Inter({ subsets: ['latin'], weights: [400, 700], display: 'swap' }
 
 export default function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
-  const [pageKey, setPageKey] = useState(0);
   const router = useRouter();
   const MIN_LOADING_DURATION = 500;
   const timeoutIdRef = useRef(null);
-  const isMountedRef = useRef(true);
 
   useEffect(() => {
-    isMountedRef.current = true;
-
     const handleStart = () => {
       if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
       setLoading(true);
@@ -27,33 +23,20 @@ export default function MyApp({ Component, pageProps }) {
 
     const handleComplete = () => {
       const startTime = Date.now();
-      const elapsed = () => Date.now() - startTime;
-      if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
       timeoutIdRef.current = setTimeout(() => {
-        if (isMountedRef.current) {
-          setLoading(false);
-          setPageKey((prev) => prev + 1);
-        }
-      }, Math.max(0, MIN_LOADING_DURATION - elapsed()));
-    };
-
-    const handleError = () => {
-      if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
-      if (isMountedRef.current) {
         setLoading(false);
-        setPageKey((prev) => prev + 1);
-      }
+      }, Math.max(0, MIN_LOADING_DURATION - (Date.now() - startTime)));
     };
 
     router.events.on('routeChangeStart', handleStart);
     router.events.on('routeChangeComplete', handleComplete);
-    router.events.on('routeChangeError', handleError);
+    router.events.on('routeChangeError', handleComplete);
 
     return () => {
-      isMountedRef.current = false;
+      clearTimeout(timeoutIdRef.current);
       router.events.off('routeChangeStart', handleStart);
       router.events.off('routeChangeComplete', handleComplete);
-      router.events.off('routeChangeError', handleError);
+      router.events.off('routeChangeError', handleComplete);
     };
   }, [router]);
 
@@ -62,11 +45,7 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
-        <script
-          async
-          defer // Add defer to avoid blocking
-          src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
-        ></script>
+        <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -79,10 +58,8 @@ export default function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Layout loading={loading}>
-      <main style={{ display: loading ? 'none' : 'block' }} className={inter.className} >
-
-       
-          <Component {...pageProps} key={pageKey} />
+        <main className={inter.className}>
+          <Component {...pageProps} />
         </main>
       </Layout>
     </Provider>

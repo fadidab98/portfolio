@@ -56,6 +56,12 @@ export default function Home({ projects }) {
         <link rel="preload" href="/icons/email.svg" as="image" />
         <link rel="preload" href="/icons/github.svg" as="image" />
         <link rel="preload" href="/icons/linkedin.svg" as="image" />
+        <link
+    rel="preload"
+    href="/_next/image?url=%2Fimages%2Fproject1.webp&w=384&q=75"
+    as="image"
+    fetchPriority="high"
+  />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

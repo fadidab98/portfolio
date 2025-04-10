@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-import NextImage from 'next/image';
+import Image from 'next/image';
 export default function Hero() {
   const isMobile = useSelector((state) => state.setting.setting.isMobile);
   const [isImageLoading, setIsImageLoading] = useState(true);
@@ -43,7 +43,7 @@ export default function Hero() {
           <div className="aspect-[250/350] w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] bg-gray-300 animate-pulse rounded-full"></div>
         ) : (
           <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] h-[210px] sm:h-[280px] md:h-[350px] lg:h-[420px]">
-            <NextImage
+            <Image
               src="/images/project1.webp"
               alt="Fadi Dabboura"
               width={250}

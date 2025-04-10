@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import '../styles/globals.css';
@@ -28,6 +28,22 @@ export default function MyApp({ Component, pageProps }) {
       }, Math.max(0, MIN_LOADING_DURATION - (Date.now() - startTime)));
     };
 
+    // Defer GTM loading
+    const loadGTM = () => {
+      const script = document.createElement('script');
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5';
+      script.async = true;
+      document.body.appendChild(script);
+
+      script.onload = () => {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-FZDKPTV5X5', { send_page_view: false });
+      };
+    };
+    loadGTM();
+
     router.events.on('routeChangeStart', handleStart);
     router.events.on('routeChangeComplete', handleComplete);
     router.events.on('routeChangeError', handleComplete);
@@ -45,17 +61,6 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
-        <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-FZDKPTV5X5');
-            `,
-          }}
-        />
       </Head>
       <Layout loading={loading}>
         <main className={inter.className}>

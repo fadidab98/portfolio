@@ -1,41 +1,30 @@
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
-import { SkeletonHero } from '@/components/skeleton/Skeleton';
 
 export default function Hero() {
   const isMobile = useSelector((state) => state.setting.setting.isMobile);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Preload the image and switch to loaded state when ready
-  useEffect(() => {
-    const img = new Image();
-    img.src = '/images/project1.webp';
-    img.onload = () => setIsLoading(false);
-  }, []);
-
   const socialLinks = [
     {
       name: 'Facebook',
       url: 'https://www.facebook.com/fadi.dabboura.73',
       icon: <FaFacebookF />,
-      color: 'hover:text-[#1877F2]',
+      color: 'hover:text-[#1877F2]'
     },
     {
       name: 'GitHub',
       url: 'https://github.com/fadidab98',
       icon: <FaGithub />,
-      color: 'hover:text-[#333]',
+      color: 'hover:text-[#333]'
     },
     {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
       icon: <FaLinkedinIn />,
-      color: 'hover:text-[#0A66C2]',
-    },
+      color: 'hover:text-[#0A66C2]'
+    }
   ];
 
   const heroContent = (
@@ -93,11 +82,8 @@ export default function Hero() {
     </div>
   );
 
-  return isLoading ? (
-    <SkeletonHero />
-  ) : isMobile ? (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
-      {heroContent}
+  return isMobile ? (
+<section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">      {heroContent}
     </section>
   ) : (
     <motion.section

@@ -1,10 +1,9 @@
 // components/Layout.jsx
 import dynamic from 'next/dynamic';
 import { useMediaQuery } from 'react-responsive';
-import { cloneElement, useEffect } from 'react';
+import {  useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeIsMobile } from '@/lib/settingSlice';
-import { Inter } from 'next/font/google';
 
 const AnimatePresence = dynamic(
   () => import('framer-motion').then((mod) => mod.AnimatePresence),

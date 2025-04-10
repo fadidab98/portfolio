@@ -1,37 +1,47 @@
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import NextImage from 'next/image'; // Rename the import
 import Link from 'next/link';
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import { SkeletonHero } from '@/components/skeleton/Skeleton';
+import { useState, useEffect } from 'react';
 
 export default function Hero() {
   const isMobile = useSelector((state) => state.setting.setting.isMobile);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const img = new Image(); // Now uses the native Image constructor
+    img.src = '/images/project1.webp';
+    img.onload = () => setIsLoading(false);
+  }, []);
+
   const socialLinks = [
     {
       name: 'Facebook',
       url: 'https://www.facebook.com/fadi.dabboura.73',
       icon: <FaFacebookF />,
-      color: 'hover:text-[#1877F2]'
+      color: 'hover:text-[#1877F2]',
     },
     {
       name: 'GitHub',
       url: 'https://github.com/fadidab98',
       icon: <FaGithub />,
-      color: 'hover:text-[#333]'
+      color: 'hover:text-[#333]',
     },
     {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
       icon: <FaLinkedinIn />,
-      color: 'hover:text-[#0A66C2]'
-    }
+      color: 'hover:text-[#0A66C2]',
+    },
   ];
 
   const heroContent = (
     <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
       <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
         <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] h-[210px] sm:h-[280px] md:h-[350px] lg:h-[420px]">
-          <Image
+          <NextImage // Use the renamed import
             src="/images/project1.webp"
             alt="Fadi Dabboura"
             width={250}
@@ -82,8 +92,11 @@ export default function Hero() {
     </div>
   );
 
-  return isMobile ? (
-<section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">      {heroContent}
+  return isLoading ? (
+    <SkeletonHero />
+  ) : isMobile ? (
+    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
+      {heroContent}
     </section>
   ) : (
     <motion.section

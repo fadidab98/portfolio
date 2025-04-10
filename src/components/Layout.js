@@ -9,7 +9,7 @@ const AnimatePresence = dynamic(
   () => import('framer-motion').then((mod) => mod.AnimatePresence),
   { ssr: false }
 );
-const Header = dynamic(() => import('./Header'), { ssr: false });
+const Header = dynamic(() => import('./Header'), { ssr: true });
 const Footer = dynamic(() => import('./Footer'), { ssr: true });
 const Loading = dynamic(() => import('./loading'), { ssr: false });
 

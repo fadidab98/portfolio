@@ -1,4 +1,4 @@
-import { useScanWebsiteMutation } from '@/lib/scanApi';
+import { useSubmitContactFormMutation } from '@/lib/contactApi';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -11,7 +11,7 @@ export default function Contact() {
 
   });
   const [status, setStatus] = useState('');
-  const [sendContact, { isLoading, error }] = useScanWebsiteMutation();
+  const [sendContact, { isLoading, error }] = useSubmitContactFormMutation();
 
   // Handle input changes
   const handleChange = (e) => {

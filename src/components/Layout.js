@@ -13,7 +13,6 @@ const AnimatePresence = dynamic(
 const Header = dynamic(() => import('./Header'), { ssr: false });
 const Footer = dynamic(() => import('./Footer'), { ssr: true });
 const Loading = dynamic(() => import('./loading'), { ssr: false });
-const inter = Inter({ subsets: ['latin'], weights: [400, 700], display: 'swap' });
 
 export default function Layout({ children,loading }) {
  
@@ -27,8 +26,7 @@ console.log(isMobile)
 
 
 
-  return (
-    <main className={inter.className} >
+  return (<>
       <Header />
       
         <AnimatePresence>
@@ -37,6 +35,6 @@ console.log(isMobile)
         {children}
      
       <Footer/>
-    </main>
+      </>
   );
 }

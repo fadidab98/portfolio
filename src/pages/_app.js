@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
-import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
 import { store } from '../lib/store';
 import '../styles/globals.css';
+const inter = Inter({ subsets: ['latin'], weights: [400, 700], display: 'swap' });
 
 export default function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
@@ -73,9 +73,11 @@ export default function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Layout loading={loading}>
-        <div style={{ display: loading ? 'none' : 'block' }}>
+      <main style={{ display: loading ? 'none' : 'block' }} className={inter.className} >
+
+       
           <Component {...pageProps} key={pageKey} />
-        </div>
+        </main>
       </Layout>
     </Provider>
   );

@@ -4,7 +4,6 @@ import { projects } from '@/data/project';
 import ScanServiceSection from '../components/ScanServiceSection';
 import { SkeletonHero, SkeletonProjectCard } from '@/components/skeleton/Skeleton';
 
-
 const Hero = dynamic(() => import('../components/Hero'), {
   ssr: true,
   loading: () => <SkeletonHero />,
@@ -24,15 +23,22 @@ export default function Home({ projects }) {
   return (
     <>
       <Head>
-   
-      <title>Fadi Dabboura | FadiLogic</title>
-      <meta name="description" content="Fadi Dabboura, DevOps & Web Developer. Explore my portfolio and website scan tool at FadiLogic now!" /> 
-      <meta name="keywords" content="fadi, dabboura, fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio" />
-        
+        <title>Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic</title>
+        <meta
+          name="description"
+          content="Discover Fadi Dabboura’s portfolio: Expert DevOps, web development, and a free website scan tool to optimize your site at FadiLogic."
+        />
+        <meta
+          name="keywords"
+          content="fadi, dabboura, fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio"
+        />
         <meta name="author" content="Fadi Dabboura" />
         <link rel="canonical" href="https://fadilogic.serp24.online/" />
-        <meta property="og:title" content="Fadi Dabboura - Portfolio & Website Scan | " />
-        <meta property="og:description" content="Fadi Dabboura's FadiLogic: Free website scan tool and portfolio showcasing DevOps and web projects on GitHub and Facebook." />
+        <meta property="og:title" content="Fadi Dabboura - Portfolio & Website Scan | FadiLogic" />
+        <meta
+          property="og:description"
+          content="Check out Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps and web projects!"
+        />
         <meta property="og:url" content="https://fadilogic.serp24.online/" />
         <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.png" />
         <meta property="og:image:width" content="1200" />
@@ -42,12 +48,15 @@ export default function Home({ projects }) {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="FadiLogic" />
         <meta property="og:locale" content="en_US" />
-        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic" />
+        <meta name="twitter:description" content="Check out Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps and web projects!" />
+        <meta name="twitter:image" content="https://fadilogic.serp24.online/images/FadiLogic.png" />
         <link rel="preload" href="/images/project1.webp" as="image" />
         <link rel="preload" href="/icons/email.svg" as="image" />
         <link rel="preload" href="/icons/github.svg" as="image" />
         <link rel="preload" href="/icons/linkedin.svg" as="image" />
-        
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -69,6 +78,17 @@ export default function Home({ projects }) {
       </Head>
       <Hero />
       <ScanServiceSection />
+      <Section id="skills">
+        <h2 className="text-4xl mb-8 text-center">My Skills</h2>
+        <p className="text-center max-w-2xl mx-auto">
+          Expertise in <strong>DevOps</strong>, <strong>web development</strong>, and{' '}
+          <strong>data science</strong>. I build efficient, scalable solutions and tools like my{' '}
+          <a href="/website-scan" className="text-accent">
+            free website scan service
+          </a>{' '}
+          to optimize your site’s performance.
+        </p>
+      </Section>
       <Section id="projects">
         <h2 className="text-4xl mb-8 text-center">Featured Project by Fadi Dabboura</h2>
         <div className="max-w-2xl mx-auto">

@@ -3,8 +3,9 @@ import { projects } from '@/data/project';
 function generateSitemap() {
   const baseUrl = 'https://fadilogic.serp24.online';
   const pages = [
-    { url: '/', lastmod: new Date().toISOString() },
-    { url: '/website-scan', lastmod: new Date().toISOString() },
+    { url: '/', lastmod: new Date().toISOString(), priority: '1.0' },
+    { url: '/website-scan', lastmod: new Date().toISOString(), priority: '0.9' },
+    { url: '/contact', lastmod: new Date().toISOString(), priority: '0.8' },
   ];
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -16,7 +17,7 @@ function generateSitemap() {
               <loc>${baseUrl}${page.url}</loc>
               <lastmod>${page.lastmod}</lastmod>
               <changefreq>weekly</changefreq>
-              <priority>0.8</priority>
+              <priority>${page.priority}</priority>
             </url>
           `
         )
@@ -35,5 +36,5 @@ export async function getServerSideProps({ res }) {
 }
 
 export default function Sitemap() {
-  return null; // This page doesn’t render anything
+  return null;
 }

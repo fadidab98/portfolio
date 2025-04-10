@@ -20,5 +20,5 @@ services:
       sh -c "cp -f /nginx.conf /sites-available/fadilogic.serp24.online &&
              ln -sf /etc/nginx/sites-available/fadilogic.serp24.online /sites-enabled/fadilogic.serp24.online &&
              ls -l /sites-enabled/fadilogic.serp24.online &&
-             nginx -t || echo 'NGINX test failed'"
+             nginx -t && systemctl restart nginx|| echo 'NGINX test failed'"
     # Runs once and exits

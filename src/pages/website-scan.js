@@ -3,25 +3,24 @@ import { useScanWebsiteMutation } from '@/lib/scanApi';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Head from 'next/head';
-
+import { TwitterShareButton, FacebookShareButton } from 'react-share';
 
 export default function Webscan() {
   const [url, setUrl] = useState('');
   const [triggerScan, { data, isLoading, isError, error }] = useScanWebsiteMutation();
   const [displayScore, setDisplayScore] = useState(0);
-  console.log(data?.results)
+
   const handleSubmit = (e) => {
     e.preventDefault();
     triggerScan(url);
   };
 
-  // Animate the performance score when data changes
   useEffect(() => {
     if (data?.results?.performance?.performanceScore) {
-      setDisplayScore(0); // Reset to 0 before counting up
-      const targetScore = data?.results?.performance?.performanceScore;
-      const duration = 1500; // Animation duration in milliseconds (1.5s)
-      const increment = targetScore / (duration / 50); // Update every 50ms
+      setDisplayScore(0);
+      const targetScore = data.results.performance.performanceScore;
+      const duration = 1500;
+      const increment = targetScore / (duration / 50);
       let current = 0;
 
       const timer = setInterval(() => {
@@ -34,211 +33,238 @@ export default function Webscan() {
         }
       }, 50);
 
-      return () => clearInterval(timer); // Cleanup
+      return () => clearInterval(timer);
     }
   }, [data]);
 
   return (
     <>
-
       <Head>
-        {/* Override OG Tags for Webscan Page */}
-        <title>Fadi Dabboura | Website Scan Tool</title>
-        <meta name="description" content="Fadi Dabboura’s free website scan tool. Analyze your site’s performance and errors today!" />        <meta name="keywords" content="fadi, dabboura, fadi dabboura, fadi website scan, website scan, webscan, web scan tool, website performance, web development, devops" />
+        <title>Fadi Dabboura | Website Scan Tool - FadiLogic</title>
+        <meta
+          name="description"
+          content="Fadi Dabboura’s free website scan tool. Analyze your site’s performance and errors today!"
+        />
+        <meta
+          name="keywords"
+          content="fadi, dabboura, fadi dabboura, fadi website scan, website scan, webscan, web scan tool, website performance, web development, devops"
+        />
         <meta name="author" content="Fadi Dabboura" />
         <link rel="canonical" href="https://fadilogic.serp24.online/website-scan" />
-
         <meta property="og:title" content="Fadi Dabboura - Website Scan Tool | FadiLogic" />
-        <meta property="og:description" content="Fadi Dabboura’s FadiLogic: Free webscan tool to check website performance and errors." />
+        <meta
+          property="og:description"
+          content="Fadi Dabboura’s FadiLogic: Free webscan tool to check website performance and errors."
+        />
         <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Fadi Dabboura Website Scan Tool" />
         <meta property="og:image:type" content="image/png" />
-
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="FadiLogic" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:url" content="https://fadilogic.serp24.online/website-scan" />
+        <meta name="twitter:title" content="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic" />
+        <meta name="twitter:description" content="Check out Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps and web projects!" />
+        <meta name="twitter:image" content="https://fadilogic.serp24.online/images/FadiLogic.png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "FadiLogic Website Scan Tool",
+              "description": "A free tool to analyze website performance and errors.",
+              "url": "https://fadilogic.serp24.online/website-scan",
+              "author": {
+                "@type": "Person",
+                "name": "Fadi Dabboura",
+                "sameAs": [
+                  "https://www.linkedin.com/in/fadi-dabboura-8300bb211",
+                  "https://www.facebook.com/fadi.dabboura.73",
+                  "https://github.com/fadidab98"
+                ]
+              }
+            }),
+          }}
+        />
       </Head>
-    <div className="min-h-screen bg-background text-text font-inter p-6">
-      {/* Introductory Text */}
-      <div className="text-center mb-8">
-      <h1 className="text-3xl font-bold mb-4 text-white">Fadi Dabboura’s Website Scan Tool</h1>   
+      <div className="min-h-screen bg-background text-text font-inter p-6">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold mb-4 text-white">Fadi Dabboura’s Website Scan Tool</h1>
           <p className="mt-4 text-lg">
-          Welcome to Fadi Dabboura’s Website Scan Service! Enter your website URL below to scan it for
-          performance metrics, errors, and alerts. We’ll analyze your site and provide detailed
-          insights to help you optimize it. If you run into any issues or need assistance, feel
-          free to{' '}
-          <Link href="/contact" className="text-accent underline">
-            contact us
-          </Link>{' '}
-          anytime.
-        </p>
-      </div>
-
-      {/* Form */}
-      <div className="bg-secondary container min-h-60 text-center p-14 max-md:p-4">
-      
-        <h2 className="text-3xl font-bold mb-4 text-white">Enter Your Website URL</h2>
-        <form
-          onSubmit={handleSubmit}
-          className="mb-8 flex flex-col sm:flex-row gap-4 max-w-4xl mx-auto"
-        >
-          <input
-            type="text"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            placeholder="Enter website URL (e.g., https://example.com)"
-            className="flex-1 bg-secondary text-text border border-accent rounded p-2 focus:outline-none focus:ring-2 focus:ring-accent"
-          />
-          <button
-            type="submit"
-            className="bg-accent text-background px-4 py-2 rounded hover:bg-opacity-90 transition disabled:opacity-50"
-            disabled={isLoading}
-          >
-            {isLoading ? 'Scanning...' : 'Scan'}
-          </button>
-        </form>
-      </div>
-
-      {/* Loading State with Spinner and Animated Text */}
-      {isLoading && (
-        <div className="text-center mt-10">
-          <div className="relative flex items-center justify-center">
-            {/* Spinner */}
-            <div className="w-16 h-16 border-4 border-t-accent border-gray-300 rounded-full animate-spin"></div>
-            {/* Animated Text */}
-            <motion.p
-              className="absolute text-lg text-text"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
-            >
-              
-            </motion.p>
-          </div>
-          Scanning your website...
+            Welcome to my Website Scan Service! Analyze your site’s performance and errors below.{' '}
+            <Link href="/" className="text-accent underline">
+              Back to portfolio
+            </Link>.
+          </p>
         </div>
-      )}
 
-      {/* Error State */}
-      {isError && (
-        <p className="text-center text-red-400 mt-10">
-          Error: {error?.message || 'Something went wrong'}
-        </p>
-      )}
+        <div className="bg-secondary container min-h-60 text-center p-14 max-md:p-4">
+          <h2 className="text-3xl font-bold mb-4 text-white">Enter Your Website URL</h2>
+          <form
+            onSubmit={handleSubmit}
+            className="mb-8 flex flex-col sm:flex-row gap-4 max-w-4xl mx-auto"
+          >
+            <input
+              type="text"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              placeholder="Enter website URL (e.g., https://example.com)"
+              className="flex-1 bg-secondary text-text border border-accent rounded p-2 focus:outline-none focus:ring-2 focus:ring-accent"
+            />
+            <button
+              type="submit"
+              className="bg-accent text-background px-4 py-2 rounded hover:bg-opacity-90 transition disabled:opacity-50"
+              disabled={isLoading}
+            >
+              {isLoading ? 'Scanning...' : 'Scan'}
+            </button>
+          </form>
+        </div>
 
-      {/* Results */}
-      {data && (
-        <div className="max-w-4xl mx-auto mt-10">
-          {/* Performance Score Counter with Circular Progress */}
-          <div className="bg-secondary m-auto mb-4 p-6 rounded-lg shadow-md text-center border border-accent w-1/2 max-sm:w-full  h-48">
-            <h2 className="text-xl font-bold text-text font-playfair">Performance</h2>
-            <br/>
-           
-            <div className="relative flex items-center justify-center mt-4">
-              <svg className="absolute w-24 h-24" viewBox="0 0 36 36">
-                <path
-                  className="text-[#3a3a3a]"
-                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <motion.path
-                  className="text-accent"
-                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeDasharray="100"
-                  strokeDashoffset={100 - (data.results?.performance?.performanceScore || 0)}
-                  initial={{ strokeDashoffset: 100 }}
-                  animate={{ strokeDashoffset: 100 - (data.results?.performance?.performanceScore || 0) }}
-                  transition={{ duration: 1.5, ease: 'easeInOut' }}
-                />
-              </svg>
-              <div className="relative z-10">
-                <motion.div
-                  className="text-2xl font-semibold text-accent"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  {displayScore}%
-                </motion.div>
+        {isLoading && (
+          <div className="text-center mt-10">
+            <div className="relative flex items-center justify-center">
+              <div className="w-16 h-16 border-4 border-t-accent border-gray-300 rounded-full animate-spin"></div>
+              <motion.p
+                className="absolute text-lg text-text"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, repeat: Infinityknife, repeatType: 'reverse' }}
+              >
+                Scanning...
+              </motion.p>
+            </div>
+          </div>
+        )}
+
+        {isError && (
+          <p className="text-center text-red-400 mt-10">
+            Error: {error?.message || 'Something went wrong'}
+          </p>
+        )}
+
+        {data && (
+          <div className="max-w-4xl mx-auto mt-10">
+            <div className="bg-secondary m-auto mb-4 p-6 rounded-lg shadow-md text-center border border-accent w-1/2 max-sm:w-full h-48">
+              <h2 className="text-xl font-bold text-text font-playfair">Performance</h2>
+              <br />
+              <div className="relative flex items-center justify-center mt-4">
+                <svg className="absolute w-24 h-24" viewBox="0 0 36 36">
+                  <path
+                    className="text-[#3a3a3a]"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <motion.path
+                    className="text-accent"
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeDasharray="100"
+                    strokeDashoffset={100 - (data.results?.performance?.performanceScore || 0)}
+                    initial={{ strokeDashoffset: 100 }}
+                    animate={{ strokeDashoffset: 100 - (data.results?.performance?.performanceScore || 0) }}
+                    transition={{ duration: 1.5, ease: 'easeInOut' }}
+                  />
+                </svg>
+                <div className="relative z-10">
+                  <motion.div
+                    className="text-2xl font-semibold text-accent"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {displayScore}%
+                  </motion.div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Cards for Totals */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-            {/* Errors Card */}
-            <div className="bg-secondary p-6 rounded-lg shadow-md text-center border border-accent">
-              <h2 className="text-xl font-bold text-text font-playfair">Errors</h2>
-              <p className="text-4xl font-semibold text-accent">{data.results.totalErrors}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+              <div className="bg-secondary p-6 rounded-lg shadow-md text-center border border-accent">
+                <h2 className="text-xl font-bold text-text font-playfair">Errors</h2>
+                <p className="text-4xl font-semibold text-accent">{data.results.totalErrors}</p>
+              </div>
+              <div className="bg-secondary p-6 rounded-lg shadow-md text-center border border-accent">
+                <h2 className="text-xl font-bold text-text font-playfair">Alerts</h2>
+                <p className="text-4xl font-semibold text-accent">{data.results.totalAlerts}</p>
+              </div>
             </div>
 
-            {/* Alerts Card */}
-            <div className="bg-secondary p-6 rounded-lg shadow-md text-center border border-accent">
-              <h2 className="text-xl font-bold text-text font-playfair">Alerts</h2>
-              <p className="text-4xl font-semibold text-accent">{data.results.totalAlerts}</p>
+            <div className="mb-10">
+              <h3 className="text-2xl font-bold text-accent mb-4 font-playfair">Share Your Results</h3>
+              <div className="flex gap-4 justify-center">
+                <TwitterShareButton
+                  url="https://fadilogic.serp24.online/website-scan"
+                  title={`I scanned my site with Fadi Dabboura’s tool and got a ${displayScore}% performance score!`}
+                >
+                  <button className="bg-blue-400 text-white px-4 py-2 rounded">Share on Twitter</button>
+                </TwitterShareButton>
+                <FacebookShareButton
+                  url="https://fadilogic.serp24.online/website-scan"
+                  quote={`My website scored ${displayScore}% on Fadi Dabboura’s free scan tool!`}
+                >
+                  <button className="bg-blue-600 text-white px-4 py-2 rounded">Share on Facebook</button>
+                </FacebookShareButton>
+              </div>
+            </div>
+
+            <div className="mb-10">
+              <h3 className="text-2xl font-bold text-accent mb-4 font-playfair">Error Details</h3>
+              {data.results.errors.length > 0 ? (
+                <ul className="space-y-6">
+                  {data.results.errors.map((error, index) => (
+                    <li key={index} className="bg-secondary p-4 rounded-lg shadow-sm break-all">
+                      <h4 className="text-lg font-semibold text-text font-playfair">{error.title}</h4>
+                      <p className="text-text">{error.description}</p>
+                      <p className="text-text">
+                        <strong>Suggestion:</strong> {error.suggestion}
+                      </p>
+                      {error.element && (
+                        <div className="mt-2">
+                          <p className="text-text">
+                            <strong>Element Selector:</strong> {error.element.selector}
+                          </p>
+                          <pre className="bg-[#3a3a3a] p-2 rounded mt-1 text-sm text-text font-mono overflow-x-auto">
+                            {error.element.snippet}
+                          </pre>
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-text">No errors found.</p>
+              )}
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-accent mb-4 font-playfair">Alert Details</h3>
+              {data.results.alerts.length > 0 ? (
+                <ul className="space-y-6">
+                  {data.results.alerts.map((alert, index) => (
+                    <li key={index} className="bg-secondary p-4 rounded-lg shadow-sm break-all">
+                      <h4 className="text-lg font-semibold text-text font-playfair">{alert.title}</h4>
+                      <p className="text-text">{alert.description}</p>
+                      <p className="text-text">
+                        <strong>Suggestion:</strong> {alert.suggestion}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-text">No alerts found.</p>
+              )}
             </div>
           </div>
-
-          {/* Error Details */}
-          <div className="mb-10">
-            <h3 className="text-2xl font-bold text-accent mb-4 font-playfair">Error Details</h3>
-            {data.results.errors.length > 0 ? (
-              <ul className="space-y-6">
-                {data.results.errors.map((error, index) => (
-                  <li key={index} className="bg-secondary p-4 rounded-lg shadow-sm break-all">
-                    <h4 className="text-lg font-semibold text-text font-playfair">{error.title}</h4>
-                    <p className="text-text">{error.description}</p>
-                    <p className="text-text">
-                      <strong>Suggestion:</strong> {error.suggestion}
-                    </p>
-                    {error.element && (
-                      <div className="mt-2">
-                        <p className="text-text">
-                          <strong>Element Selector:</strong> {error.element.selector}
-                        </p>
-                        <pre className="bg-[#3a3a3a] p-2 rounded mt-1 text-sm text-text font-mono overflow-x-auto">
-                          {error.element.snippet}
-                        </pre>
-                      </div>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="text-text">No errors found.</p>
-            )}
-          </div>
-
-          {/* Alert Details */}
-          <div>
-            <h3 className="text-2xl font-bold text-accent mb-4 font-playfair">Alert Details</h3>
-            {data.results.alerts.length > 0 ? (
-              <ul className="space-y-6">
-                {data.results.alerts.map((alert, index) => (
-                  <li key={index} className="bg-secondary p-4 rounded-lg shadow-sm break-all">
-                    <h4 className="text-lg font-semibold text-text font-playfair">{alert.title}</h4>
-                    <p className="text-text">{alert.description}</p>
-                    <p className="text-text">
-                      <strong>Suggestion:</strong> {alert.suggestion}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="text-text">No alerts found.</p>
-            )}
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
     </>
   );
 }

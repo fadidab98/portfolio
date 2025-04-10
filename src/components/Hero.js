@@ -6,35 +6,19 @@ import { useSelector } from 'react-redux';
 
 export default function Hero() {
   const isMobile = useSelector((state) => state.setting.setting.isMobile);
-// Social media links data
-const socialLinks = [
-{
-    name: 'Facebook',
-    url: 'https://www.facebook.com/fadi.dabboura.73',
-    icon: <FaFacebookF />,
-    color: 'hover:text-[#1877F2]'
-  },
-  {
-    name: 'GitHub',
-    url: 'https://github.com/fadidab98',
-    icon: <FaGithub />,
-    color: 'hover:text-[#333]'
-  },
-  {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-    icon: <FaLinkedinIn />,
-    color: 'hover:text-[#0A66C2]'
-  }
-];
-  // Define the common content to avoid duplication
+  const socialLinks = [
+    { name: 'Facebook', url: 'https://www.facebook.com/fadi.dabboura.73', icon: <FaFacebookF />, color: 'hover:text-[#1877F2]' },
+    { name: 'GitHub', url: 'https://github.com/fadidab98', icon: <FaGithub />, color: 'hover:text-[#333]' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/fadi-dabboura-8300bb211', icon: <FaLinkedinIn />, color: 'hover:text-[#0A66C2]' },
+  ];
+
   const heroContent = (
     <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[250px] sm:min-h-[450px] md:min-h-[500px]">
       <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
         <div className="relative aspect-[250/350] w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] ">
           <Image
             src="/images/project1.webp"
-            alt="Fadi Dabboura"
+            alt="Fadi Dabboura working on a DevOps project"
             width={250}
             height={350}
             priority
@@ -54,12 +38,16 @@ const socialLinks = [
         </p>
         <div className="text-base sm:text-lg text-gray-300 space-y-4 mb-6 min-h-[220px] sm:min-h-[180px] md:min-h-[200px]">
           <p className="leading-relaxed">
-          I am Fadi Dabboura, a committed professional specializing in <strong>DevOps engineering</strong>, <strong>data science</strong>, and <strong>web development</strong>. Check out my <strong>website scan tool</strong> to optimize your site’s performance.          </p>
+            I’m Fadi Dabboura, specializing in <strong>DevOps</strong>, <strong>data science</strong>, and{' '}
+            <strong>web development</strong>. Try my{' '}
+            <Link href="/website-scan" className="text-accent">free website scan tool</Link> to optimize your site.
+          </p>
           <p className="leading-relaxed text-sm sm:text-base">
-            Currently pursuing a Master’s degree in Informatics at Ostfalia University, I am enhancing my proficiency in software engineering and related disciplines. With extensive experience in full-stack development, DevOps methodologies, and data-driven technologies, I excel at addressing intricate challenges and delivering impactful results in collaborative environments.
+            Currently pursuing a Master’s in Informatics at Ostfalia University, I’m sharpening my skills in software engineering. With experience in full-stack development and DevOps, I deliver impactful solutions.
           </p>
           <p className="leading-relaxed">
-            I invite you to review my portfolio to explore my projects and accomplishments. Please feel free to contact me to discuss potential collaborations or professional opportunities.
+            Explore my <Link href="#projects" className="text-accent">portfolio</Link> below or{' '}
+            <Link href="/contact" className="text-accent">contact me</Link> for collaborations.
           </p>
         </div>
         <div className="flex justify-center md:justify-start gap-4 mb-6">

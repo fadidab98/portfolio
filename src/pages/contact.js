@@ -1,17 +1,16 @@
+import { useScanWebsiteMutation } from '@/lib/scanApi';
 import Head from 'next/head';
-import { useState } from 'react'; // Import useState for form handling
+import { useState } from 'react';
 
 export default function Contact() {
-  // State to manage form data
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: '',
-    consent: false,
-  });
 
-  // State to manage submission status (e.g., success or error message)
+  });
   const [status, setStatus] = useState('');
+  const [sendContact, { isLoading, error }] = useScanWebsiteMutation();
 
   // Handle input changes
   const handleChange = (e) => {
@@ -26,42 +25,83 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate consent
-    if (!formData.consent) {
-      setStatus('Please agree to receive emails.');
-      return;
-    }
 
     setStatus('Sending...');
 
     try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (res.ok) {
-        setStatus('Message sent successfully! We’ll get back to you soon.');
-        setFormData({ name: '', email: '', message: '', consent: false }); // Reset form
-      } else {
-        const errorData = await res.json();
-        setStatus(errorData.message || 'Failed to send message. Please try again.');
-      }
-    } catch (error) {
-      setStatus('An error occurred. Please try again later.');
+      const response = await sendContact(formData).unwrap(); // Unwrap to get the response data
+      setStatus(response.message || 'Message sent successfully! We’ll get back to you soon.');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (err) {
+      setStatus(
+        err?.data?.message || 'Failed to send message. Please try again later.'
+      );
     }
   };
 
   return (
-    <div>
+<div className="min-h-screen bg-background text-text font-inter">
       <Head>
-        <title>FadiLogic</title>
-        <meta name="description" content="Get in touch with me." />
+        <title>Fadi Dabboura | Contact Me - FadiLogic</title>
+        <meta
+          name="description"
+          content="Contact Fadi Dabboura for collaborations, inquiries, or to discuss DevOps and web development projects at FadiLogic."
+        />
+        <meta
+          name="keywords"
+          content="fadi dabboura, contact, devops, web development, website scan, fadilogic"
+        />
+        <meta name="author" content="Fadi Dabboura" />
+        <link rel="canonical" href="https://fadilogic.serp24.online/contact" />
+        <meta property="og:title" content="Fadi Dabboura - Contact | FadiLogic" />
+        <meta
+          property="og:description"
+          content="Get in touch with Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic."
+        />
+        <meta property="og:url" content="https://fadilogic.serp24.online/contact" />
+        <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Fadi Dabboura Contact Page" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="FadiLogic" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:title" content="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic" />
+        <meta name="twitter:description" content="Check out Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps and web projects!" />
+        <meta name="twitter:image" content="https://fadilogic.serp24.online/images/FadiLogic.png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ContactPage",
+              "name": "Contact Fadi Dabboura",
+              "url": "https://fadilogic.serp24.online/contact",
+              "description": "Get in touch with Fadi Dabboura for DevOps and web development inquiries.",
+              "mainEntity": {
+                "@type": "Person",
+                "name": "Fadi Dabboura",
+                "email": "mailto:fadi@serp24.online",
+                "sameAs": [
+                  "https://www.linkedin.com/in/fadi-dabboura-8300bb211",
+                  "https://www.facebook.com/fadi.dabboura.73",
+                  "https://github.com/fadidab98"
+                ]
+              }
+            }),
+          }}
+        />
       </Head>
 
       <section className="py-16 px-4 max-w-lg mx-auto">
-        <h2 className="text-3xl mb-6 text-center">Get in Touch</h2>
+        <h2 className="text-3xl mb-6 text-center text-white">Get in Touch</h2>
+        <p className="text-center mb-8">
+          Have a question or want to collaborate? Fill out the form below or return to my{' '}
+          <Link href="/" className="text-accent underline">
+            portfolio
+          </Link>.
+        </p>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -69,7 +109,7 @@ export default function Contact() {
             placeholder="Name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full p-2 bg-background border border-accent rounded text-text focus:outline-none focus:ring-2 focus:ring-accent"
+            className="w-full p-2 bg-secondary border border-accent rounded text-text focus:outline-none focus:ring-2 focus:ring-accent"
             required
           />
           <input
@@ -78,7 +118,7 @@ export default function Contact() {
             placeholder="Email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-2 bg-background border border-accent rounded text-text focus:outline-none focus:ring-2 focus:ring-accent"
+            className="w-full p-2 bg-secondary border border-accent rounded text-text focus:outline-none focus:ring-2 focus:ring-accent"
             required
           />
           <textarea
@@ -86,32 +126,23 @@ export default function Contact() {
             placeholder="Message"
             value={formData.message}
             onChange={handleChange}
-            className="w-full p-2 bg-background border border-accent rounded text-text h-32 focus:outline-none focus:ring-2 focus:ring-accent"
+            className="w-full p-2 bg-secondary border border-accent rounded text-text h-32 focus:outline-none focus:ring-2 focus:ring-accent"
             required
           />
-          <div className="flex items-center space-x-2">
-            <input
-              type="checkbox"
-              name="consent"
-              checked={formData.consent}
-              onChange={handleChange}
-              className="h-4 w-4 text-accent border-accent rounded focus:ring-accent"
-              required
-            />
-            <label htmlFor="consent" className="text-text">
-              I agree to receive emails from FADILOGIC DEV.
-            </label>
-          </div>
           <button
             type="submit"
-            className="w-full p-2 bg-accent text-background rounded hover:bg-opacity-80 transition duration-300"
+            disabled={isLoading}
+            className="w-full p-2 bg-accent text-background rounded hover:bg-opacity-80 transition duration-300 disabled:opacity-50"
           >
-            Send
+            {isLoading ? 'Sending...' : 'Send'}
           </button>
         </form>
         {status && <p className="mt-4 text-center text-text">{status}</p>}
-        <p className="mt-4 text-center">
-          Or email me at: <a href="mailto:fadi@serp24.online">fadi@serp24.online</a>
+        <p className="mt-4 text-center text-gray-300">
+          Or email me directly at:{' '}
+          <a href="mailto:fadi@serp24.online" className="text-accent">
+            fadi@serp24.online
+          </a>
         </p>
       </section>
     </div>

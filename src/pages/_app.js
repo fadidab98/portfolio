@@ -1,15 +1,12 @@
-// pages/_app.jsx
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import '../styles/globals.css';
 import dynamic from 'next/dynamic';
-
+import Head from 'next/head';
 
 const Provider = dynamic(() => import('react-redux').then((mod) => mod.Provider), { ssr: false });
 import { store } from '../lib/store';
-import Head from 'next/head';
-
 
 export default function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
@@ -23,18 +20,15 @@ export default function MyApp({ Component, pageProps }) {
     isMountedRef.current = true;
 
     const handleStart = () => {
-      console.log('Route change started');
       if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
       setLoading(true);
     };
 
     const handleComplete = () => {
-      console.log('Route change completed');
       const startTime = Date.now();
       const elapsed = () => Date.now() - startTime;
       if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
       timeoutIdRef.current = setTimeout(() => {
-        console.log('Turning off loading after delay');
         if (isMountedRef.current) {
           setLoading(false);
           setPageKey((prev) => prev + 1);
@@ -43,7 +37,6 @@ export default function MyApp({ Component, pageProps }) {
     };
 
     const handleError = () => {
-      console.log('Route change error');
       if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
       if (isMountedRef.current) {
         setLoading(false);
@@ -51,13 +44,11 @@ export default function MyApp({ Component, pageProps }) {
       }
     };
 
-    console.log('Registering router events');
     router.events.on('routeChangeStart', handleStart);
     router.events.on('routeChangeComplete', handleComplete);
     router.events.on('routeChangeError', handleError);
 
     return () => {
-      console.log('Cleaning up router events');
       isMountedRef.current = false;
       router.events.off('routeChangeStart', handleStart);
       router.events.off('routeChangeComplete', handleComplete);
@@ -65,15 +56,28 @@ export default function MyApp({ Component, pageProps }) {
     };
   }, [router]);
 
-  console.log('Loading state in _app:', loading);
-
   return (
     <Provider store={store}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
+        {/* Google Analytics */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-FZDKPTV5X5');
+            `,
+          }}
+        />
       </Head>
-      <Layout loading={loading} >
+      <Layout loading={loading}>
         {loading ? null : <Component {...pageProps} key={pageKey} />}
       </Layout>
     </Provider>

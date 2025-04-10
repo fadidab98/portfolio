@@ -1,18 +1,18 @@
 import { motion } from 'framer-motion';
-import NextImage from 'next/image'; // Rename the import
 import Link from 'next/link';
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { SkeletonHero } from '@/components/skeleton/Skeleton';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Hero() {
   const isMobile = useSelector((state) => state.setting.setting.isMobile);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const img = new Image(); // Now uses the native Image constructor
-    img.src = '/images/project1.webp';
+    const img = new window.Image(); // Fixed naming conflict
+        img.src = '/images/project1.webp';
     img.onload = () => setIsLoading(false);
     img.onerror = () => setIsLoading(false); // Handle errors to avoid infinite loading
   }, []);

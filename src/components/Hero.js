@@ -6,32 +6,31 @@ import { useSelector } from 'react-redux';
 
 export default function Hero() {
   const isMobile = useSelector((state) => state.setting.setting.isMobile);
-// Social media links data
-const socialLinks = [
-{
-    name: 'Facebook',
-    url: 'https://www.facebook.com/fadi.dabboura.73',
-    icon: <FaFacebookF />,
-    color: 'hover:text-[#1877F2]'
-  },
-  {
-    name: 'GitHub',
-    url: 'https://github.com/fadidab98',
-    icon: <FaGithub />,
-    color: 'hover:text-[#333]'
-  },
-  {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-    icon: <FaLinkedinIn />,
-    color: 'hover:text-[#0A66C2]'
-  }
-];
-  // Define the common content to avoid duplication
+  const socialLinks = [
+    {
+      name: 'Facebook',
+      url: 'https://www.facebook.com/fadi.dabboura.73',
+      icon: <FaFacebookF />,
+      color: 'hover:text-[#1877F2]'
+    },
+    {
+      name: 'GitHub',
+      url: 'https://github.com/fadidab98',
+      icon: <FaGithub />,
+      color: 'hover:text-[#333]'
+    },
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+      icon: <FaLinkedinIn />,
+      color: 'hover:text-[#0A66C2]'
+    }
+  ];
+
   const heroContent = (
-    <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[250px] sm:min-h-[450px] md:min-h-[500px]">
+    <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
       <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
-        <div className="relative aspect-[250/350] w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] ">
+        <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] aspect-[250/350]">
           <Image
             src="/images/project1.webp"
             alt="Fadi Dabboura"
@@ -40,8 +39,8 @@ const socialLinks = [
             priority
             placeholder="blur"
             blurDataURL="data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoBAAEAAQAcJaACdLoB+AA/an7gAAA="
-            className="rounded-full border-4 border-accent shadow-lg object-cover w-full h-full"
-            sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, (max-width: 1024px) 250px, 300px"
+            className="rounded-full border-4 border-accent shadow-lg object-cover"
+            sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, (max-width: 1024px) 250px, 300px)"
           />
           <div className="absolute -top-6 -left-6 w-28 h-28 bg-accent rounded-full opacity-20 z-[-1]"></div>
           <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent rounded-full opacity-20 z-[-1]"></div>
@@ -54,13 +53,14 @@ const socialLinks = [
         </p>
         <div className="text-base sm:text-lg text-gray-300 space-y-4 mb-6 min-h-[220px] sm:min-h-[180px] md:min-h-[200px]">
           <p className="leading-relaxed">
-          I am Fadi Dabboura, a committed professional specializing in <strong>DevOps engineering</strong> and <strong>web development</strong>. Check out my <strong>website scan tool</strong> to optimize your site’s performance.          </p>
+            I am Fadi Dabboura, a committed professional specializing in <strong>DevOps engineering</strong> and <strong>web development</strong>. Check out my <strong>website scan tool</strong> to optimize your site’s performance.
+          </p>
           <p className="leading-relaxed text-sm sm:text-base">
             Pursuing a Master’s in Informatics at Ostfalia University. Skilled in full-stack, DevOps, and more.
           </p>
           <p className="leading-relaxed">
-          I invite you to review my portfolio to explore my projects and accomplishments. Please feel free to contact me to discuss potential collaborations or exciting professional opportunities.
-        </p>
+            I invite you to review my portfolio to explore my projects and accomplishments. Please feel free to contact me to discuss potential collaborations or exciting professional opportunities ahead.
+          </p>
         </div>
         <div className="flex justify-center md:justify-start gap-4 mb-6">
           {socialLinks.map((link) => (
@@ -87,13 +87,13 @@ const socialLinks = [
   );
 
   return isMobile ? (
-    <section id="home" className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto md:pb-10">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
       {heroContent}
     </section>
   ) : (
     <motion.section
       id="home"
-      className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto md:pb-10"
+      className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px] sm:min-h-[450px] md:min-h-[500px]"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}

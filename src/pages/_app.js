@@ -5,6 +5,7 @@ import '../styles/globals.css';
 import { Provider } from 'react-redux';
 import { store } from '../lib/store';
 import Head from 'next/head';
+const inter = Inter({ subsets: ['latin'], weights: [400, 700], display: 'swap' });
 
 export default function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);

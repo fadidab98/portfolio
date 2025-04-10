@@ -56,8 +56,8 @@ const socialLinks = [
           <p className="leading-relaxed">
           I am Fadi Dabboura, a committed professional specializing in <strong>DevOps engineering</strong>, <strong>data science</strong>, and <strong>web development</strong>. Check out my <strong>website scan tool</strong> to optimize your site’s performance.          </p>
           <p className="leading-relaxed text-sm sm:text-base">
-            Currently pursuing a Master’s degree in Informatics at Ostfalia University, I am enhancing my proficiency in software engineering and related disciplines. With extensive experience in full-stack development, DevOps methodologies, and data-driven technologies, I excel at addressing intricate challenges and delivering impactful results in collaborative environments.
-          </p>
+          Pursuing a Master’s in Informatics at Ostfalia University. Skilled in full-stack, DevOps, and more.
+        </p>
           <p className="leading-relaxed">
             I invite you to review my portfolio to explore my projects and accomplishments. Please feel free to contact me to discuss potential collaborations or professional opportunities.
           </p>

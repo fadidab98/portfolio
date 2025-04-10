@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import Head from 'next/head';
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
@@ -80,9 +79,7 @@ export default function Hero() {
 
   return (
     <>
-      <Head>
-        <link rel="preload" href="/images/project1.webp" as="image" fetchPriority="high" />
-      </Head>
+     
       {isLoading ? (
         <SkeletonHero />
       ) : isMobile ? (

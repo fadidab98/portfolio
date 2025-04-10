@@ -1,85 +1,104 @@
-import { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
-import Layout from '@/components/Layout';
-import '../styles/globals.css';
-import dynamic from 'next/dynamic';
-import Head from 'next/head';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
-const Provider = dynamic(() => import('react-redux').then((mod) => mod.Provider), { ssr: false });
-import { store } from '../lib/store';
+export default function Hero() {
+  const isMobile = useSelector((state) => state.setting.setting.isMobile);
+// Social media links data
+const socialLinks = [
+{
+    name: 'Facebook',
+    url: 'https://www.facebook.com/fadi.dabboura.73',
+    icon: <FaFacebookF />,
+    color: 'hover:text-[#1877F2]'
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/fadidab98',
+    icon: <FaGithub />,
+    color: 'hover:text-[#333]'
+  },
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+    icon: <FaLinkedinIn />,
+    color: 'hover:text-[#0A66C2]'
+  }
+];
+  // Define the common content to avoid duplication
+  const heroContent = (
+    <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[250px] sm:min-h-[450px] md:min-h-[500px]">
+      <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
+        <div className="relative aspect-[250/350] w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] ">
+          <Image
+            src="/images/project1.webp"
+            alt="Fadi Dabboura"
+            width={250}
+            height={350}
+            priority
+            placeholder="blur"
+            blurDataURL="data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoBAAEAAQAcJaACdLoB+AA/an7gAAA="
+            className="rounded-full border-4 border-accent shadow-lg object-cover w-full h-full"
+            sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, (max-width: 1024px) 250px, 300px"
+          />
+          <div className="absolute -top-6 -left-6 w-28 h-28 bg-accent rounded-full opacity-20 z-[-1]"></div>
+          <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent rounded-full opacity-20 z-[-1]"></div>
+        </div>
+      </div>
+      <div className="w-full md:w-1/2 text-center md:text-left">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4">Fadi Dabboura</h1>
+        <p className="text-xl sm:text-2xl text-white mb-4 leading-relaxed">
+          Software Engineer & Web Developer
+        </p>
+        <div className="text-base sm:text-lg text-gray-300 space-y-4 mb-6 min-h-[220px] sm:min-h-[180px] md:min-h-[200px]">
+          <p className="leading-relaxed">
+          I am Fadi Dabboura, a committed professional specializing in <strong>DevOps engineering</strong>, <strong>data science</strong>, and <strong>web development</strong>. Check out my <strong>website scan tool</strong> to optimize your site’s performance.          </p>
+          <p className="leading-relaxed text-sm sm:text-base">
+            Currently pursuing a Master’s degree in Informatics at Ostfalia University, I am enhancing my proficiency in software engineering and related disciplines. With extensive experience in full-stack development, DevOps methodologies, and data-driven technologies, I excel at addressing intricate challenges and delivering impactful results in collaborative environments.
+          </p>
+          <p className="leading-relaxed">
+            I invite you to review my portfolio to explore my projects and accomplishments. Please feel free to contact me to discuss potential collaborations or professional opportunities.
+          </p>
+        </div>
+        <div className="flex justify-center md:justify-start gap-4 mb-6">
+          {socialLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-gray-300 ${link.color} transition-colors duration-300 transform hover:scale-110`}
+              aria-label={link.name}
+            >
+              <span className="text-2xl">{link.icon}</span>
+            </Link>
+          ))}
+        </div>
+        <Link
+          href="/contact"
+          className="inline-block bg-accent text-background py-2 px-4 sm:py-3 sm:px-6 rounded-lg text-base sm:text-lg hover:bg-yellow-600 hover:scale-105 transition duration-300 shadow-md"
+        >
+          Contact Me
+        </Link>
+      </div>
+    </div>
+  );
 
-export default function MyApp({ Component, pageProps }) {
-  const [loading, setLoading] = useState(false);
-  const [pageKey, setPageKey] = useState(0);
-  const router = useRouter();
-  const MIN_LOADING_DURATION = 500;
-  const timeoutIdRef = useRef(null);
-  const isMountedRef = useRef(true);
-
-  useEffect(() => {
-    isMountedRef.current = true;
-
-    const handleStart = () => {
-      if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
-      setLoading(true);
-    };
-
-    const handleComplete = () => {
-      const startTime = Date.now();
-      const elapsed = () => Date.now() - startTime;
-      if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
-      timeoutIdRef.current = setTimeout(() => {
-        if (isMountedRef.current) {
-          setLoading(false);
-          setPageKey((prev) => prev + 1);
-        }
-      }, Math.max(0, MIN_LOADING_DURATION - elapsed()));
-    };
-
-    const handleError = () => {
-      if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
-      if (isMountedRef.current) {
-        setLoading(false);
-        setPageKey((prev) => prev + 1);
-      }
-    };
-
-    router.events.on('routeChangeStart', handleStart);
-    router.events.on('routeChangeComplete', handleComplete);
-    router.events.on('routeChangeError', handleError);
-
-    return () => {
-      isMountedRef.current = false;
-      router.events.off('routeChangeStart', handleStart);
-      router.events.off('routeChangeComplete', handleComplete);
-      router.events.off('routeChangeError', handleError);
-    };
-  }, [router]);
-
-  return (
-    <Provider store={store}>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="robots" content="index, follow" />
-        {/* Google Analytics */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-FZDKPTV5X5');
-            `,
-          }}
-        />
-      </Head>
-      <Layout loading={loading}>
-        {loading ? null : <Component {...pageProps} key={pageKey} />}
-      </Layout>
-    </Provider>
+  return isMobile ? (
+    <section id="home" className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto md:pb-10">
+      {heroContent}
+    </section>
+  ) : (
+    <motion.section
+      id="home"
+      className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto md:pb-10"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      {heroContent}
+    </motion.section>
   );
 }

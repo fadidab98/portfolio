@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
 import { store } from '../lib/store';
+import '../styles/globals.css';
 
 export default function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);

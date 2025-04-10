@@ -54,9 +54,9 @@ const socialLinks = [
         </p>
         <div className="text-base sm:text-lg text-gray-300 space-y-4 mb-6 min-h-[220px] sm:min-h-[180px] md:min-h-[200px]">
           <p className="leading-relaxed">
-          I am Fadi Dabboura, a committed professional specializing in <strong>DevOps engineering</strong>, <strong>data science</strong>, and <strong>web development</strong>. Check out my <strong>website scan tool</strong> to optimize your site’s performance.          </p>
+          I am Fadi Dabboura, a committed professional specializing in <strong>DevOps engineering</strong> and <strong>web development</strong>. Check out my <strong>website scan tool</strong> to optimize your site’s performance.          </p>
           <p className="leading-relaxed text-sm sm:text-base">
-            Currently pursuing a Master’s degree in Informatics at Ostfalia University, I am enhancing my proficiency in software engineering and related disciplines. With extensive experience in full-stack development, DevOps methodologies, and data-driven technologies, I excel at addressing intricate challenges and delivering impactful results in collaborative environments.
+            Pursuing a Master’s in Informatics at Ostfalia University. Skilled in full-stack, DevOps, and more.
           </p>
           <p className="leading-relaxed">
           I invite you to review my portfolio to explore my projects and accomplishments. Please feel free to contact me to discuss potential collaborations or exciting professional opportunities.

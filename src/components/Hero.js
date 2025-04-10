@@ -15,7 +15,7 @@ export default function Hero() {
   const heroContent = (
     <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[250px] sm:min-h-[450px] md:min-h-[500px]">
       <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
-        <div className="relative aspect-[250/350] w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] ">
+        <div className="relative aspect-[250/350] w-[150px] sm:w-[240px] md:w-[250px] lg:w-[300px] ">
           <Image
             src="/images/project1.webp"
             alt="Fadi Dabboura working on a DevOps project"
@@ -38,12 +38,12 @@ export default function Hero() {
         </p>
         <div className="text-base sm:text-lg text-gray-300 space-y-4 mb-6 min-h-[220px] sm:min-h-[180px] md:min-h-[200px]">
           <p className="leading-relaxed">
-            I’m Fadi Dabboura, specializing in <strong>DevOps</strong>, <strong>data science</strong>, and{' '}
+            I’m Fadi Dabboura, specializing in <strong>DevOps</strong> and{' '}
             <strong>web development</strong>. Try my{' '}
             <Link href="/website-scan" className="text-accent">free website scan tool</Link> to optimize your site.
           </p>
           <p className="leading-relaxed text-sm sm:text-base">
-            Currently pursuing a Master’s in Informatics at Ostfalia University, I’m sharpening my skills in software engineering. With experience in full-stack development and DevOps, I deliver impactful solutions.
+            Pursuing a Master’s in Informatics at Ostfalia University. Experienced in full-stack and DevOps.
           </p>
           <p className="leading-relaxed">
             Explore my <Link href="#projects" className="text-accent">portfolio</Link> below or{' '}

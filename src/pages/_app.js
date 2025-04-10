@@ -56,12 +56,12 @@ export default function MyApp({ Component, pageProps }) {
     };
   }, [router]);
 
+  // Always render the Component during SSG, but show loading UI on client-side navigation
   return (
     <Provider store={store}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
-        {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -75,7 +75,10 @@ export default function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Layout loading={loading}>
-        {loading ? null : <Component {...pageProps} key={pageKey} />}
+        {/* Always render Component for SSG; hide content with CSS when loading */}
+        <div style={{ display: loading ? 'none' : 'block' }}>
+          <Component {...pageProps} key={pageKey} />
+        </div>
       </Layout>
     </Provider>
   );

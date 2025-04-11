@@ -5,8 +5,8 @@ import ScanServiceSection from '../components/ScanServiceSection';
 import { SkeletonHero, SkeletonProjectCard } from '@/components/skeleton/Skeleton';
 
 const Hero = dynamic(() => import('../components/Hero'), {
-  ssr: true,
-  loading: () => <SkeletonHero />,
+  ssr: true
+  
 });
 const Section = dynamic(() => import('../components/Section'), { ssr: true });
 const FeaturedProjectCard = dynamic(() => import('../components/ProjectCard'), {

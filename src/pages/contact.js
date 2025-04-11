@@ -41,8 +41,8 @@ export default function Contact() {
   };
 
   return (
-<div className="min-h-screen bg-background text-text font-inter">
-      <Head>
+<div className="min-h-screen bg-background text-text font-inter flex items-center justify-center py-20 px-4">
+        <Head>
         <title>Fadi Dabboura | Contact Me - FadiLogic</title>
         <meta
           name="description"
@@ -57,7 +57,7 @@ export default function Contact() {
         <meta property="og:title" content="Fadi Dabboura - Contact | FadiLogic" />
         <meta
           property="og:description"
-          content="Get in touch with Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic."
+          content="Contact with Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic."
         />
         <meta property="og:url" content="https://fadilogic.serp24.online/contact" />
         <meta property="og:image" content="https://fadilogic.serp24.online/images/FadiLogic.png" />
@@ -79,7 +79,7 @@ export default function Contact() {
               "@type": "ContactPage",
               "name": "Contact Fadi Dabboura",
               "url": "https://fadilogic.serp24.online/contact",
-              "description": "Get in touch with Fadi Dabboura for DevOps and web development inquiries.",
+              "description": "Contact with Fadi Dabboura for DevOps and web development inquiries.",
               "mainEntity": {
                 "@type": "Person",
                 "name": "Fadi Dabboura",
@@ -95,13 +95,14 @@ export default function Contact() {
         />
       </Head>
 
-      <section className="py-16 px-4 max-w-lg mx-auto">
-        <h2 className="text-3xl mb-6 text-center text-white">Get in Touch</h2>
-        <p className="text-center mb-8">
-          Have a question or want to collaborate? Fill out the form below or return to my{' '}
-          <Link href="/" className="text-accent underline">
+      <section className="w-full max-w-2xl bg-background rounded-3xl shadow-xl p-12 max-sm:p-2 max-sm:py-12 border border-accent/20">
+        <h1 className="text-3xl mb-6 text-center text-white">Contact with <span className="text-accent">Fadi Dabboura</span></h1>
+        <p className="text-text/80 text-sm my-3 mb-6 text-center ">
+          Whether you have a question, a project idea, or seek to collaborate on innovative DevOps and web development solutions, I’m here to help. Fill out the form below to start our conversation, or explore my{' '}
+          <Link href="/" className="text-accent underline hover:text-accent/80 transition">
             portfolio
-          </Link>.
+          </Link>{' '}
+          to learn more about my work.
         </p>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <input

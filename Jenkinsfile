@@ -67,20 +67,25 @@ pipeline {
             steps {
                 timeout(time: 5, unit: 'MINUTES') {
                     sshagent(credentials: ['jenkins-key']) {
-                        script {
-                            sh """
-                                scp -o StrictHostKeyChecking=no nginx.conf docker-compose.yaml \
-                                ${env.SERVER_USER}@${env.SERVER_HOST}:${env.REMOTE_DIR}/
-                            """
-                            sh """
-                                ssh -o StrictHostKeyChecking=no ${env.SERVER_USER}@${env.SERVER_HOST} \
-                                "mkdir -p ${env.REMOTE_DIR} && \
-                                 cd ${env.REMOTE_DIR} && \
-                                 echo ${CR_PAT} | docker login ghcr.io -u fadidab98 --password-stdin^C
-                                 docker-compose -f docker-compose.yaml down && \
-                                 docker-compose -f docker-compose.yaml up -d && \
-                                 echo 'Deployment completed'"
-                            """
+                        withCredentials([usernamePassword(credentialsId: 'CR_PAT', usernameVariable: 'CR_USER', passwordVariable: 'CR_PASS')]) {
+                            script {
+                                sh 'ls -la nginx.conf docker-compose.yaml || echo "Files missing"'
+                                sh """
+                                    scp -o StrictHostKeyChecking=no nginx.conf docker-compose.yaml \
+                                    ${env.SERVER_USER}@${env.SERVER_HOST}:${env.REMOTE_DIR}/
+                                """
+                                sh """
+                                    ssh -o StrictHostKeyChecking=no ${env.SERVER_USER}@${env.SERVER_HOST} \
+                                    "groups; \
+                                     ls -l /var/run/docker.sock; \
+                                     mkdir -p ${env.REMOTE_DIR} && \
+                                     cd ${env.REMOTE_DIR} && \
+                                     echo '${CR_PASS}' | docker login ghcr.io -u '${CR_USER}' --password-stdin && \
+                                     docker-compose -f docker-compose.yaml down || true && \
+                                     docker-compose -f docker-compose.yaml up -d && \
+                                     echo 'Deployment completed'"
+                                """
+                            }
                         }
                     }
                 }

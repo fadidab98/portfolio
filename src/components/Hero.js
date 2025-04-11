@@ -68,10 +68,10 @@ export default function Hero() {
           I’m Fadi Dabboura, a <strong>DevOps engineer</strong> and <strong>web developer</strong>. Try my <strong>website scan tool</strong> to boost your site’s performance.
         </p>
         <p className="leading-relaxed text-sm">
-          Master’s student in Informatics at Ostfalia University. Skilled in Full-Stack and DevOps.
+          Master’s student in Informatics at Ostfalia University. Skilled in full-stack and DevOps.
         </p>
         <p className="leading-relaxed">
-          Check my portfolio for projects and reach out for collaboration or opportunities.
+          Check my portfolio for projects and reach out for collaboration or opportunities
         </p>
       </div>
         <div className="flex justify-center md:justify-start gap-4 mb-6">

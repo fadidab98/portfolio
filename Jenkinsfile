@@ -76,6 +76,7 @@ pipeline {
                                 ssh -o StrictHostKeyChecking=no ${env.SERVER_USER}@${env.SERVER_HOST} \
                                 "mkdir -p ${env.REMOTE_DIR} && \
                                  cd ${env.REMOTE_DIR} && \
+                                 $  echo ${CR_PAT} | docker login ghcr.io -u fadidab98 --password-stdin^C
                                  docker-compose -f docker-compose.yaml down && \
                                  docker-compose -f docker-compose.yaml up -d && \
                                  echo 'Deployment completed'"

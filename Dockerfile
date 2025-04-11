@@ -1,23 +1,17 @@
-# Use official Node.js runtime as the base image
-FROM node:20
-
-# Set working directory inside the container
+# Stage 1: Build the app
+FROM node:20-alpine AS builder
 WORKDIR /app
-
-# Copy package.json and package-lock.json to install dependencies
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
-
-# Copy the rest of your application code
 COPY . .
-
-# Build the Next.js app
 RUN npm run build
 
-# Expose port 3003 (we'll map it in docker-compose)
+# Stage 2: Create the production image
+FROM node:20-alpine
+WORKDIR /app
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package*.json ./
+RUN npm install --production
 EXPOSE 3000
-
-# Start the app
 CMD ["npm", "start"]

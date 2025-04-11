@@ -10,7 +10,7 @@ module.exports = {
         background: '#1a1a1a', // Dark gray (softer than pure black)
         text: '#ffffff',       // White
         accent: '#d4af37',     // Gold
-        secondary: '#2d2d2d',  // Slightly lighter gray for cards
+        secondary: '#2d2d2d',  // Slighty lighter gray for cards
       },
 
     },

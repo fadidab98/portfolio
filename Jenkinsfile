@@ -1,5 +1,5 @@
 pipeline {
-    agent none // No global agent; specify per stage
+    agent none
     environment {
         IMAGE_NAMESPACE = "fadidab98"
         IMAGE_NAME = "portfolio"
@@ -8,15 +8,22 @@ pipeline {
         IMAGE_TAG = "latest"
         SERVER_USER = "jenkins_user"
         SERVER_HOST = "217.154.21.206"
-        REMOTE_DIR = "/projects/portfolio" // Adjust to your desired server path
+        REMOTE_DIR = "/projects/portfolio"
     }
     stages {
         stage('Checkout') {
-            agent any // Use built-in node
+            agent any
             steps {
                 timeout(time: 5, unit: 'MINUTES') {
                     git branch: 'master', credentialsId: 'jenkins', url: 'https://github.com/fadidab98/portfolio.git'
                 }
+            }
+        }
+
+        stage('Debug Workspace') {
+            agent any
+            steps {
+                sh 'ls -la'
             }
         }
 
@@ -56,22 +63,21 @@ pipeline {
         }
 
         stage('Deploy to Server') {
-            agent any // Use built-in node for SSH
+            agent any
             steps {
                 timeout(time: 5, unit: 'MINUTES') {
                     sshagent(credentials: ['jenkins-key']) {
                         script {
-                            // Transfer nginx and docker-compose.yml to server
                             sh """
-                                scp -o StrictHostKeyChecking=no nginx.conf docker-compose.yml \
+                                scp -o StrictHostKeyChecking=no nginx.conf docker-compose.yaml \
                                 ${env.SERVER_USER}@${env.SERVER_HOST}:${env.REMOTE_DIR}/
                             """
-                            // SSH to server, create dir if needed, and run docker-compose
                             sh """
                                 ssh -o StrictHostKeyChecking=no ${env.SERVER_USER}@${env.SERVER_HOST} \
-                                "cd ${env.REMOTE_DIR} && \
-                                 docker-compose down && \
-                                 docker-compose up -d && \
+                                "mkdir -p ${env.REMOTE_DIR} && \
+                                 cd ${env.REMOTE_DIR} && \
+                                 docker-compose -f docker-compose.yaml down && \
+                                 docker-compose -f docker-compose.yaml up -d && \
                                  echo 'Deployment completed'"
                             """
                         }

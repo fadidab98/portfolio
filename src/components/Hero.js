@@ -61,7 +61,7 @@ export default function Hero() {
         )}
       </div>
       <div className="w-full md:w-1/2 text-center md:text-left">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4">Fadi Dabboura</h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4">Fdi Dabboura</h1>
         <p className="text-xl sm:text-2xl text-white mb-4 leading-relaxed">Software Engineer & Web Developer</p>
         <div className="text-base text-gray-300 space-y-3 mb-6 min-h-[150px]">
         <p className="leading-relaxed">

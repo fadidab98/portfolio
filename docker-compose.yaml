@@ -18,7 +18,7 @@ services:
           cpus: "0.5"  # Reserve at least 0.5 CPU cores
           memory: "512M"  # Reserve at least 512MB of RAM
 
-  nginx-config:
+  nginx-config-fadilogic:
     image: alpine:latest
     volumes:
       - ./nginx.conf:/nginx.conf:ro

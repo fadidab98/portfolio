@@ -5,7 +5,10 @@ pipeline {
         IMAGE_NAME = "portfolio"
         GITHUB_CRED = credentials('jenkins')
         CR_PAT = credentials('CR_PAT')
-     IMAGE_TAG= "latest"
+        IMAGE_TAG = "latest"
+        SERVER_USER = "jenkins_user"
+        SERVER_HOST = "217.154.21.206"
+        REMOTE_DIR = "/projects/portfolio" // Adjust to your desired server path
     }
     stages {
         stage('Checkout') {
@@ -37,6 +40,7 @@ pipeline {
                 }
             }
         }
+
         stage('Cleanup') {
             agent {
                 docker {
@@ -48,6 +52,31 @@ pipeline {
                 sh "docker rmi ${env.IMAGE_NAME}:${env.IMAGE_TAG} || true"
                 sh "docker rmi ghcr.io/${env.IMAGE_NAMESPACE}/${env.IMAGE_NAME}:${env.IMAGE_TAG} || true"
                 sh "docker rmi ghcr.io/${env.IMAGE_NAMESPACE}/${env.IMAGE_NAME}:latest || true"
+            }
+        }
+
+        stage('Deploy to Server') {
+            agent any // Use built-in node for SSH
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    sshagent(credentials: ['jenkins-key']) {
+                        script {
+                            // Transfer nginx and docker-compose.yml to server
+                            sh """
+                                scp -o StrictHostKeyChecking=no nginx.conf docker-compose.yml \
+                                ${env.SERVER_USER}@${env.SERVER_HOST}:${env.REMOTE_DIR}/
+                            """
+                            // SSH to server, create dir if needed, and run docker-compose
+                            sh """
+                                ssh -o StrictHostKeyChecking=no ${env.SERVER_USER}@${env.SERVER_HOST} \
+                                "cd ${env.REMOTE_DIR} && \
+                                 docker-compose down && \
+                                 docker-compose up -d && \
+                                 echo 'Deployment completed'"
+                            """
+                        }
+                    }
+                }
             }
         }
     }

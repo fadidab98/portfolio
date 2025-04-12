@@ -23,7 +23,7 @@ services:
       - /etc/nginx/sites-available:/sites-available
       - /etc/nginx/sites-enabled:/sites-enabled
     command: >
-      sh -c "mkdir -p /sites-available /sites-enabled &&
+      sh -c "mkdir -p /sites-available /sites-enabled && 
              cp -f /nginx.conf /sites-available/fadilogic.serp24.online &&
              ln -sf /etc/nginx/sites-available/fadilogic.serp24.online /sites-enabled/fadilogic.serp24.online &&
              ls -l /sites-available/fadilogic.serp24.online &&

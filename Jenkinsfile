@@ -77,15 +77,15 @@ pipeline {
                                 sh """
                                     ssh -o StrictHostKeyChecking=no ${env.SERVER_USER}@${env.SERVER_HOST} \
                                     "groups; \
-                                     systemctl status nginx;\
+                                     sudo systemctl status nginx;\
                                      ls -l /var/run/docker.sock; \
                                      mkdir -p ${env.REMOTE_DIR} && \
                                      cd ${env.REMOTE_DIR} && \
                                      echo '${CR_PASS}' | docker login ghcr.io -u '${CR_USER}' --password-stdin && \
                                      docker-compose -f docker-compose.yaml down || true && \
                                      docker-compose -f docker-compose.yaml up -d && \
-                                     nginx -t && \
-                                     systemctl restart nginx && \
+                                     sudo nginx -t && \
+                                     sudo systemctl restart nginx && \
                                      echo 'Deployment completed'"
                                 """
                             }

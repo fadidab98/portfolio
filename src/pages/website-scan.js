@@ -126,7 +126,7 @@ export default function Webscan() {
         {isLoading && (
          <div className="text-center mt-10">
          <div className="relative flex items-center justify-center">
-           {/* Spinner */}
+           {/* Spiner */}
            <div className="w-16 h-16 border-4 border-t-accent border-gray-300 rounded-full animate-spin"></div>
            {/* Animated Text */}
            <motion.p

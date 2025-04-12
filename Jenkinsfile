@@ -81,16 +81,24 @@ pipeline {
                                     ls -l /var/run/docker.sock; \
                                     mkdir -p ${env.REMOTE_DIR} && \
                                     cd ${env.REMOTE_DIR} && \
+                                    ls -l nginx.conf docker-compose.yaml; \
                                     echo '${CR_PASS}' | docker login ghcr.io -u '${CR_USER}' --password-stdin && \
                                     docker-compose -f docker-compose.yaml down || true && \
                                     docker-compose -f docker-compose.yaml up -d && \
                                     sleep 5 && \
+                                    docker-compose logs nginx-config-fadilogic; \
                                     ls -l /etc/nginx/sites-available/ || echo 'sites-available empty'; \
                                     ls -l /etc/nginx/sites-enabled/ || echo 'sites-enabled empty'; \
                                     readlink /etc/nginx/sites-enabled/fadilogic.serp24.online || echo 'symlink missing'; \
                                     sudo nginx -t && \
                                     sudo systemctl restart nginx && \
-                                    echo 'Deployment completed'"
+                                    echo 'Deployment completed' || \
+                                    { echo 'Nginx test failed, attempting direct copy'; \
+                                    sudo cp nginx.conf /etc/nginx/sites-available/fadilogic.serp24.online && \
+                                    sudo ln -sf /etc/nginx/sites-available/fadilogic.serp24.online /etc/nginx/sites-enabled/fadilogic.serp24.online && \
+                                    sudo nginx -t && \
+                                    sudo systemctl restart nginx && \
+                                    echo 'Direct copy succeeded'; }"
                                 """
                             }
                         }

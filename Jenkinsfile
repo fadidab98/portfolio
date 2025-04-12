@@ -77,16 +77,20 @@ pipeline {
                                 sh """
                                     ssh -o StrictHostKeyChecking=no ${env.SERVER_USER}@${env.SERVER_HOST} \
                                     "groups; \
-                                     sudo systemctl status nginx;\
-                                     ls -l /var/run/docker.sock; \
-                                     mkdir -p ${env.REMOTE_DIR} && \
-                                     cd ${env.REMOTE_DIR} && \
-                                     echo '${CR_PASS}' | docker login ghcr.io -u '${CR_USER}' --password-stdin && \
-                                     docker-compose -f docker-compose.yaml down || true && \
-                                     docker-compose -f docker-compose.yaml up -d && \
-                                     sudo nginx -t && \
-                                     sudo systemctl restart nginx && \
-                                     echo 'Deployment completed'"
+                                    sudo systemctl status nginx; \
+                                    ls -l /var/run/docker.sock; \
+                                    mkdir -p ${env.REMOTE_DIR} && \
+                                    cd ${env.REMOTE_DIR} && \
+                                    echo '${CR_PASS}' | docker login ghcr.io -u '${CR_USER}' --password-stdin && \
+                                    docker-compose -f docker-compose.yaml down || true && \
+                                    docker-compose -f docker-compose.yaml up -d && \
+                                    sleep 5 && \
+                                    ls -l /etc/nginx/sites-available/ || echo 'sites-available empty'; \
+                                    ls -l /etc/nginx/sites-enabled/ || echo 'sites-enabled empty'; \
+                                    readlink /etc/nginx/sites-enabled/fadilogic.serp24.online || echo 'symlink missing'; \
+                                    sudo nginx -t && \
+                                    sudo systemctl restart nginx && \
+                                    echo 'Deployment completed'"
                                 """
                             }
                         }

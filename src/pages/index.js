@@ -98,7 +98,7 @@ export default function Home({ projects }) {
         />
       </Head>
       <Hero />
-      <Section id="projects">
+      <Section id="welcome">
         <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
           Welcome to <span className="text-accent">FadiLogic</span>
         </h2>

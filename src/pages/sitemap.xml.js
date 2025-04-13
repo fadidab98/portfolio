@@ -1,6 +1,6 @@
 function generateSitemap() {
   const baseUrl = 'https://fadilogic.serp24.online';
-  const lastModified = '2025-04-13T00:00:00.000Z'; // Set to the last major update date
+  const lastModified = '2025-04-13T00:00:00.000Z'; // Set to the last major update dte
   const pages = [
     { url: '/', lastmod: lastModified, priority: '1.0' },
     { url: '/website-scan', lastmod: lastModified, priority: '1.0' },

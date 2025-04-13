@@ -1,9 +1,10 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { projects } from '@/data/project';
-import ScanServiceSection from '../components/ScanServiceSection';
+
 import { SkeletonProjectCard } from '@/components/skeleton/Skeleton';
 import Hero from '../components/Hero';
+import ScanServiceSection from '@/components/ScanServiceSection';
 import Link from 'next/link';
 
 const Section = dynamic(() => import('../components/Section'), { ssr: true });
@@ -76,95 +77,66 @@ export default function Home({ projects }) {
           as="image"
           fetchPriority="high"
         />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                '@context': 'https://schema.org',
-                '@type': 'Person',
-                name: 'Fadi Dabboura',
-                url: 'https://fadilogic.serp24.online',
-                sameAs: [
-                  'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-                  'https://www.instagram.com/dabbourafadi',
-                  'https://www.facebook.com/fadi.dabboura.73',
-                ],
-                jobTitle: 'DevOps Engineer & Web Developer',
-                brand: { '@type': 'Brand', name: 'FadiLogic' },
-              },
-              {
-                '@context': 'https://schema.org',
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  {
-                    '@type': 'ListItem',
-                    position: 1,
-                    name: 'Home',
-                    item: 'https://fadilogic.serp24.online',
-                  },
-                ],
-              },
-              {
-                '@context': 'https://schema.org',
-                '@type': 'Organization',
-                name: 'FadiLogic',
-                url: 'https://fadilogic.serp24.online',
-                sameAs: [
-                  'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-                  'https://www.instagram.com/dabbourafadi',
-                  'https://www.facebook.com/fadi.dabboura.73',
-                ],
-              },
-            ]),
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Fadi Dabboura',
+              url: 'https://fadilogic.serp24.online',
+              sameAs: [
+                'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+                'https://www.instagram.com/dabbourafadi',
+                'https://www.facebook.com/fadi.dabboura.73',
+              ],
+              jobTitle: 'DevOps Engineer & Web Developer',
+              brand: { '@type': 'Brand', name: 'FadiLogic' },
+            }),
           }}
         />
       </Head>
-      <div className="bg-background">
-        <section className="max-w-4xl mx-auto pt-20 px-4">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-white text-center tracking-tight">
-            Welcome to <span className="text-accent">FadiLogic</span>
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-12 text-center">
-            I’m Fadi Dabboura, a passionate DevOps Engineer and Web Developer
-            dedicated to building high-performance, scalable web solutions. At
-            FadiLogic, you can explore my portfolio of projects, try my{' '}
-            <Link
-              href="/website-scan"
-              className="text-accent underline hover:text-accent/80 transition"
-            >
-              free website scan tool
-            </Link>{' '}
-            to optimize your site, or{' '}
-            <Link
-              href="/contact"
-              className="text-accent underline hover:text-accent/80 transition"
-            >
-              get in touch
-            </Link>{' '}
-            to collaborate on your next project.
-          </p>
-        </section>
-
-        <Hero />
-        <ScanServiceSection />
-        <Section id="projects">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-12 text-center text-white tracking-tight">
-            Featured Project by Fadi Dabboura
-          </h2>
-          <div className="max-w-2xl mx-auto mb-16">
-            <FeaturedProjectCard project={featuredProject} />
-          </div>
-          <h2 className="text-4xl sm:text-5xl font-bold mb-12 text-center text-white tracking-tight">
-            Other Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {projects.slice(1).map((project, index) => (
-              <ProjectCard key={index} project={project} />
-            ))}
-          </div>
-        </Section>
-      </div>
+      <Hero />
+      <Section id="projects">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
+          Welcome to <span className="text-accent">FadiLogic</span>
+        </h2>
+        <p className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center">
+          I’m Fadi Dabboura, a passionate DevOps Engineer and Web Developer
+          dedicated to building high-performance, scalable web solutions.
+          Explore my portfolio below, try my{' '}
+          <Link
+            href="/website-scan"
+            className="text-accent underline hover:text-accent/80 transition"
+          >
+            free website scan tool
+          </Link>{' '}
+          to optimize your site, or{' '}
+          <Link
+            href="/contact"
+            className="text-accent underline hover:text-accent/80 transition"
+          >
+            get in touch
+          </Link>{' '}
+          to collaborate on your next project.
+        </p>
+      </Section>
+      <ScanServiceSection />
+      <Section id="projects">
+        <h2 className="text-4xl mb-8 text-center">
+          Featured Project by Fadi Dabboura
+        </h2>
+        <div className="max-w-2xl mx-auto">
+          <FeaturedProjectCard project={featuredProject} />
+        </div>
+        <h2 className="text-4xl mt-12 mb-8 text-center">Other Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.slice(1).map((project, index) => (
+            <ProjectCard key={index} project={project} />
+          ))}
+        </div>
+      </Section>
     </>
   );
 }

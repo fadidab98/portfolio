@@ -1,9 +1,10 @@
 import { FaSearch } from 'react-icons/fa';
 import Link from 'next/link';
+import Section from './Section';
 
 export default function ScanServiceSection() {
   return (
-    <section
+    <Section
       id="scan-service"
       className="bg-secondary overflow-hidden py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[600px] sm:min-h-[650px]"
     >
@@ -45,6 +46,6 @@ export default function ScanServiceSection() {
           Start Website Scan Now
         </Link>
       </div>
-    </section>
+    </Section>
   );
 }

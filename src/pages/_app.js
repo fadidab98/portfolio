@@ -8,7 +8,11 @@ import Head from 'next/head';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
 
-const inter = Inter({ subsets: ['latin'], weights: [400, 700], display: 'swap' });
+const inter = Inter({
+  subsets: ['latin'],
+  weights: [400, 700],
+  display: 'swap',
+});
 
 export default function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
@@ -30,12 +34,15 @@ export default function MyApp({ Component, pageProps }) {
       const startTime = Date.now();
       const elapsed = () => Date.now() - startTime;
       if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
-      timeoutIdRef.current = setTimeout(() => {
-        if (isMountedRef.current) {
-          setLoading(false);
-          setPageKey((prev) => prev + 1);
-        }
-      }, Math.max(0, MIN_LOADING_DURATION - elapsed()));
+      timeoutIdRef.current = setTimeout(
+        () => {
+          if (isMountedRef.current) {
+            setLoading(false);
+            setPageKey((prev) => prev + 1);
+          }
+        },
+        Math.max(0, MIN_LOADING_DURATION - elapsed())
+      );
     };
 
     const handleError = () => {
@@ -64,9 +71,9 @@ export default function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
         <Script
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
-      />
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -79,9 +86,10 @@ export default function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Layout loading={loading}>
-      <main style={{ display: loading ? 'none' : 'block' }} className={inter.className} >
-
-       
+        <main
+          style={{ display: loading ? 'none' : 'block' }}
+          className={inter.className}
+        >
           <Component {...pageProps} key={pageKey} />
         </main>
       </Layout>

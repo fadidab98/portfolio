@@ -3,10 +3,12 @@ import Image from 'next/image';
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
 export default function ProjectCard({ project, isMobile }) {
-  const motionProps = isMobile ? {} : {
-    whileHover: { scale: 1.05, boxShadow: '0px 10px 20px rgba(0,0,0,0.2)' },
-    transition: { duration: 0.3 },
-  };
+  const motionProps = isMobile
+    ? {}
+    : {
+        whileHover: { scale: 1.05, boxShadow: '0px 10px 20px rgba(0,0,0,0.2)' },
+        transition: { duration: 0.3 },
+      };
 
   return (
     <motion.div
@@ -24,7 +26,10 @@ export default function ProjectCard({ project, isMobile }) {
       <p className="text-white mb-4 leading-relaxed">{project.description}</p>
       <div className="flex flex-wrap gap-2 mb-4">
         {project.technologies.map((tech, index) => (
-          <span key={index} className="bg-accent text-background px-2 py-1 rounded-full text-sm">
+          <span
+            key={index}
+            className="bg-accent text-background px-2 py-1 rounded-full text-sm"
+          >
             {tech}
           </span>
         ))}

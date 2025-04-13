@@ -1,10 +1,12 @@
-import { projects } from '@/data/project';
-
 function generateSitemap() {
   const baseUrl = 'https://fadilogic.serp24.online';
   const pages = [
     { url: '/', lastmod: new Date().toISOString(), priority: '1.0' },
-    { url: '/website-scan', lastmod: new Date().toISOString(), priority: '0.9' },
+    {
+      url: '/website-scan',
+      lastmod: new Date().toISOString(),
+      priority: '0.9',
+    },
     { url: '/contact', lastmod: new Date().toISOString(), priority: '0.8' },
   ];
 

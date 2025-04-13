@@ -2,13 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-  /* Ensure images are responsive */
+/* Ensure images are responsive */
 img {
-    max-width: 100%;
-    height: auto;
-  }
+  max-width: 100%;
+  height: auto;
+}
 
 /* styles/globals.css */
 a {

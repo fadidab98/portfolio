@@ -3,7 +3,7 @@ services:
   app:
     image: ghcr.io/fadidab98/portfolio:latest
     ports:
-      - "3003:3000"
+      - '3003:3000'
     environment:
       - NODE_ENV=production
     restart: unless-stopped
@@ -11,7 +11,7 @@ services:
     mem_reservation: 512M
     cpus: 1.0
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      test: ['CMD', 'curl', '-f', 'http://localhost:3000']
       interval: 10s
       timeout: 5s
       retries: 3

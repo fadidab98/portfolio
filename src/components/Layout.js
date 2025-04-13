@@ -25,9 +25,7 @@ export default function Layout({ children, loading }) {
   return (
     <>
       <Header />
-      <AnimatePresence>
-        {loading && <Loading />}
-      </AnimatePresence>
+      <AnimatePresence>{loading && <Loading />}</AnimatePresence>
       {children}
       <Footer />
     </>

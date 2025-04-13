@@ -9,7 +9,6 @@ export default function Header() {
 
   const isActive = (path) => router.asPath === path;
 
-  // Prevent scrolling when navbar is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -24,20 +23,15 @@ export default function Header() {
   return (
     <header className="relative z-50 bg-secondary text-white shadow-md">
       <div className="max-w-5xl mx-auto flex justify-between items-center py-6 px-4 sm:px-6 lg:px-8 relative z-50">
-        {/* Logo */}
         <h2 className="text-2xl font-bold text-accent">FadiLogic</h2>
-
-        {/* Toggle Button for Mobile */}
         <button
-          className="md:hidden text-accent text-2xl p-2 focus:outline-none  rounded-md"
+          className="md:hidden text-accent text-2xl p-2 focus:outline-none rounded-md"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
-
-        {/* Navigation */}
         <nav
           className={`${
             isOpen

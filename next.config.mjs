@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
@@ -19,6 +18,25 @@ const nextConfig = {
         ],
       },
     ];
+  },
+  webpack(config) {
+    config.optimization.splitChunks = {
+      chunks: 'all',
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+          priority: -10,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
+    };
+    return config;
   },
 };
 

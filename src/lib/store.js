@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { scanApi } from './scanApi';
-import setting from "./settingSlice";
+import setting from './settingSlice';
 import { contactApi } from './contactApi';
 export const store = configureStore({
   reducer: {
@@ -9,5 +9,5 @@ export const store = configureStore({
     setting: setting,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(scanApi.middleware,contactApi.middleware),
+    getDefaultMiddleware().concat(scanApi.middleware, contactApi.middleware),
 });

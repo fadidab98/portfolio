@@ -62,18 +62,24 @@ export default function Hero() {
       </div>
       <div className="w-full md:w-1/2 text-center md:text-left">
         <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4">Fadi Dabboura</h1>
-        <p className="text-xl sm:text-2xl text-white mb-4 leading-relaxed">Software Engineer & Web Developer</p>
+        <p className="text-xl sm:text-2xl text-white mb-4 leading-relaxed">
+          Software Engineer & Web Developer
+        </p>
         <div className="text-base text-gray-300 space-y-3 mb-6 min-h-[150px]">
-        <p className="leading-relaxed">
-          I’m Fadi Dabboura, a <strong>DevOps engineer</strong> and <strong>web developer</strong>. Try my <strong>website scan tool</strong> to boost your site’s performance.
-        </p>
-        <p className="leading-relaxed text-sm">
-          Master’s student in Informatics at Ostfalia University. Skilled in full-stack and DevOps.
-        </p>
-        <p className="leading-relaxed">
-          Check my portfolio for projects and reach out for collaboration or opportunities.
-        </p>
-      </div>
+          <p className="leading-relaxed">
+            I’m Fadi Dabboura, a <strong>DevOps engineer</strong> and{' '}
+            <strong>web developer</strong>. Try my{' '}
+            <strong>website scan tool</strong> to boost your site’s performance.
+          </p>
+          <p className="leading-relaxed text-sm">
+            Master’s student in Informatics at Ostfalia University. Skilled in
+            full-stack and DevOps.
+          </p>
+          <p className="leading-relaxed">
+            Check my portfolio for projects and reach out for collaboration or
+            opportunities.
+          </p>
+        </div>
         <div className="flex justify-center md:justify-start gap-4 mb-6">
           {socialLinks.map((link) => (
             <Link

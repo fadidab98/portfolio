@@ -1,25 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   setting: {
     isMobile: false,
-
   },
 };
 
 export const settingSlice = createSlice({
-  name: "setting",
+  name: 'setting',
   initialState,
   reducers: {
-
     changeIsMobile: (state, action) => {
       state.setting.isMobile = action.payload;
-    }
+    },
   },
 });
 
 const { actions, reducer } = settingSlice;
-export const {
-    changeIsMobile
-} = actions;
+export const { changeIsMobile } = actions;
 export default reducer;

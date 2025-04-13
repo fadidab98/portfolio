@@ -1,13 +1,10 @@
 function generateSitemap() {
   const baseUrl = 'https://fadilogic.serp24.online';
+  const lastModified = '2025-04-13T00:00:00.000Z'; // Set to the last major update date
   const pages = [
-    { url: '/', lastmod: new Date().toISOString(), priority: '1.0' },
-    {
-      url: '/website-scan',
-      lastmod: new Date().toISOString(),
-      priority: '0.9',
-    },
-    { url: '/contact', lastmod: new Date().toISOString(), priority: '0.8' },
+    { url: '/', lastmod: lastModified, priority: '1.0' },
+    { url: '/website-scan', lastmod: lastModified, priority: '1.0' },
+    { url: '/contact', lastmod: lastModified, priority: '0.8' },
   ];
 
   return `<?xml version="1.0" encoding="UTF-8"?>

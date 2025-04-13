@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
@@ -180,17 +179,6 @@ export default function Webscan() {
           </div>
         </section>
         <div className=" container min-h-60 text-center p-14 max-md:p-4 max-md:w-full max-md:m-0 my-12 w-full mx-auto">
-          <h2 className="text-3xl font-bold mb-4 text-white">
-            Enter Your Website URL
-          </h2>
-          <p className="mt-4 text-lg">
-            Welcome to my Website Scan Service! Analyze your site’s performance
-            and errors below.{' '}
-            <Link href="/" className="text-accent underline">
-              Back to portfolio
-            </Link>
-            .
-          </p>
           <WebsiteScanForm />
         </div>
       </div>

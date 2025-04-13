@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useScanWebsiteMutation } from '@/lib/scanApi';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function WebsiteScanForm() {
   const [url, setUrl] = useState('');
@@ -48,7 +49,18 @@ export default function WebsiteScanForm() {
 
   return (
     <>
-      <div className="bg-gradient-to-r bg-secondary container text-center p-8 sm:p-12 my-8 rounded-xl shadow-2xl border border-accent/20 hover:shadow-accent/20 transition-all duration-300">
+      <div className=" bg-secondary container text-center p-8 sm:p-12 my-8 rounded-xl shadow-2xl border border-accent/20 hover:shadow-accent/20 transition-all duration-300">
+        <h2 className="text-3xl font-bold mb-4 text-white">
+          Enter Your Website URL
+        </h2>
+        <p className="my-4 text-lg">
+          Welcome to my Website Scan Service! Analyze your site’s performance
+          and errors below.{' '}
+          <Link href="/" className="text-accent underline">
+            Back to portfolio
+          </Link>
+          .
+        </p>
         <form
           onSubmit={handleSubmit}
           className="mb-8 flex flex-col sm:flex-row gap-4 max-w-4xl mx-auto"

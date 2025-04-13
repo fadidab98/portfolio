@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
-import WebsitescanText from '@/components/websitescanText';
+import WebsitescanText from '@/components/WebsitescanText';
 const WebsiteScanForm = dynamic(() => import('../components/WebsiteScanForm'), {
   ssr: false,
 });

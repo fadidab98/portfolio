@@ -124,6 +124,12 @@ export default function Home({ projects }) {
       </Section>
       <ScanServiceSection />
       <Section id="projects">
+        <div className="mb-8 p-4 bg-yellow-100 text-yellow-800 rounded-lg text-center">
+          <p className="font-semibold">
+            This projects section contains dummy data. Real projects will be
+            showcased soon as the website is under development.
+          </p>
+        </div>
         <h2 className="text-4xl mb-8 text-center">
           Featured Project by Fadi Dabboura
         </h2>

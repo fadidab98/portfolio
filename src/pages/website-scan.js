@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import WebsitescanText from '@/components/WebsitescanText';
+import Link from 'next/link';
+
 const WebsiteScanForm = dynamic(() => import('../components/WebsiteScanForm'), {
   ssr: false,
 });
@@ -117,13 +119,31 @@ export default function Webscan() {
         />
       </Head>
       <div className="min-h-screen bg-background text-text font-inter p-6">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold mb-4 text-white">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-white tracking-tight">
             Fadi Dabboura’s Website Scan Tool
           </h1>
+          <p className="mt-4 text-lg sm:text-xl text-gray-300 leading-relaxed">
+            Welcome to my Website Scan Service! Analyze your site’s performance
+            and errors below.{' '}
+            <Link
+              href="/"
+              className="text-accent underline hover:text-accent/80 transition"
+            >
+              Back to portfolio
+            </Link>{' '}
+            or{' '}
+            <Link
+              href="/contact"
+              className="text-accent underline hover:text-accent/80 transition"
+            >
+              contact me
+            </Link>{' '}
+            for personalized optimization solutions.
+          </p>
         </div>
         <WebsitescanText />
-        <div className=" container min-h-60 text-center p-14 max-md:p-4 max-md:w-full max-md:m-0 my-12 w-full mx-auto">
+        <div className="  container min-h-60 text-center ">
           <WebsiteScanForm />
         </div>
       </div>

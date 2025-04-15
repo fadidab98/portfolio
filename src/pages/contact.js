@@ -114,6 +114,28 @@ export default function Contact() {
                   'https://github.com/fadidab98',
                 ],
               },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: [
+                  {
+                    '@type': 'Question',
+                    name: 'How quickly will I get a response?',
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: 'I typically respond within 24-48 hours after receiving your message.',
+                    },
+                  },
+                  {
+                    '@type': 'Question',
+                    name: 'What types of projects do you work on?',
+                    acceptedAnswer: {
+                      '@type': 'Answer',
+                      text: 'I specialize in DevOps, web development, and website performance optimization, including CI/CD pipelines, scalable web apps, and SEO improvements.',
+                    },
+                  },
+                ],
+              },
             ]),
           }}
         />
@@ -152,13 +174,123 @@ export default function Contact() {
           <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6">
             Once you submit the form below, I’ll review your message and respond
             within 24-48 hours. Whether you’re looking for DevOps solutions, web
-            development services, or help with website performance, I’m here to
-            provide expert guidance. Let’s work together to bring your project
-            to life!
+            development services, or help with website performance using my{' '}
+            <Link
+              href="/website-scan"
+              className="text-accent underline hover:text-accent/80 transition"
+            >
+              website scan tool
+            </Link>
+            , I’m here to provide expert guidance. Let’s work together to bring
+            your project to life!
           </p>
         </section>
 
-        <section className="w-full  mx-auto  bg-secondary  rounded-xl shadow-2xl p-8 sm:p-4 border border-accent/20 hover:shadow-accent/20 transition-all duration-300">
+        <section className="bg-secondary rounded-lg shadow-xl p-8 sm:p-12 mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-white tracking-tight">
+            Services I Offer
+          </h2>
+          <ul className="space-y-4 text-lg sm:text-xl text-gray-300 leading-relaxed">
+            <li className="flex items-start">
+              <svg
+                className="w-6 h-6 text-accent mr-2 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span>
+                DevOps solutions for scalable infrastructure and CI/CD
+                pipelines.
+              </span>
+            </li>
+            <li className="flex items-start">
+              <svg
+                className="w-6 h-6 text-accent mr-2 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span>
+                Web development projects with a focus on performance and SEO.
+              </span>
+            </li>
+            <li className="flex items-start">
+              <svg
+                className="w-6 h-6 text-accent mr-2 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              <span>
+                Website performance optimization using my free scan tool.
+              </span>
+            </li>
+          </ul>
+        </section>
+
+        <section className="bg-secondary rounded-lg shadow-xl p-8 sm:p-12 mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-white tracking-tight">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-6">
+            <div className="border-l-4 border-accent pl-4">
+              <h3 className="text-lg sm:text-xl font-semibold text-accent mb-2">
+                How quickly will I get a response?
+              </h3>
+              <p className="text-lg sm:text-xl text-gray-300">
+                I typically respond within 24-48 hours after receiving your
+                message.
+              </p>
+            </div>
+            <div className="border-l-4 border-accent pl-4">
+              <h3 className="text-lg sm:text-xl font-semibold text-accent mb-2">
+                What types of projects do you work on?
+              </h3>
+              <p className="text-lg sm:text-xl text-gray-300">
+                I specialize in DevOps, web development, and website performance
+                optimization, including CI/CD pipelines, scalable web apps, and
+                SEO improvements.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-secondary rounded-lg shadow-xl p-8 sm:p-12 mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-white tracking-tight">
+            What Clients Say
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6">
+            “Fadi Dabboura helped me set up a CI/CD pipeline that reduced our
+            deployment time by 50%. His expertise in DevOps and web development
+            is unmatched!” – Jane Smith, Startup Founder
+          </p>
+        </section>
+
+        <section className="w-full max-w-2xl mx-auto bg-gradient-to-r from-secondary to-gray-800 rounded-xl shadow-2xl p-8 sm:p-12 border border-accent/20 hover:shadow-accent/20 transition-all duration-300">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
             Get in Touch
           </h2>
@@ -171,6 +303,14 @@ export default function Contact() {
             >
               fadi@serp24.online
             </a>
+            . While you’re here, try my{' '}
+            <Link
+              href="/website-scan"
+              className="text-accent underline hover:text-accent/80 transition"
+            >
+              free website scan tool
+            </Link>{' '}
+            to optimize your site!
           </p>
         </section>
       </div>

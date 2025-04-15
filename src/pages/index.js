@@ -1,10 +1,9 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { projects } from '@/data/project';
-
+import ScanServiceSection from '@/components/ScanServiceSection';
 import { SkeletonProjectCard } from '@/components/skeleton/Skeleton';
 import Hero from '../components/Hero';
-import ScanServiceSection from '@/components/ScanServiceSection';
 import Link from 'next/link';
 
 const Section = dynamic(() => import('../components/Section'), { ssr: true });
@@ -77,72 +76,142 @@ export default function Home({ projects }) {
           as="image"
           fetchPriority="high"
         />
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Fadi Dabboura',
-              url: 'https://fadilogic.serp24.online',
-              sameAs: [
-                'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-                'https://www.instagram.com/dabbourafadi',
-                'https://www.facebook.com/fadi.dabboura.73',
-              ],
-              jobTitle: 'DevOps Engineer & Web Developer',
-              brand: { '@type': 'Brand', name: 'FadiLogic' },
-            }),
+            __html: JSON.stringify([
+              {
+                '@context': 'https://schema.org',
+                '@type': 'Person',
+                name: 'Fadi Dabboura',
+                url: 'https://fadilogic.serp24.online',
+                sameAs: [
+                  'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+                  'https://www.instagram.com/dabbourafadi',
+                  'https://www.facebook.com/fadi.dabboura.73',
+                ],
+                jobTitle: 'DevOps Engineer & Web Developer',
+                brand: { '@type': 'Brand', name: 'FadiLogic' },
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  {
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Home',
+                    item: 'https://fadilogic.serp24.online',
+                  },
+                ],
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'Organization',
+                name: 'FadiLogic',
+                url: 'https://fadilogic.serp24.online',
+                sameAs: [
+                  'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+                  'https://www.instagram.com/dabbourafadi',
+                  'https://www.facebook.com/fadi.dabboura.73',
+                ],
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                url: 'https://fadilogic.serp24.online',
+                name: 'FadiLogic',
+                potentialAction: [
+                  {
+                    '@type': 'SearchAction',
+                    target: 'https://fadilogic.serp24.online/website-scan',
+                    'query-input': 'required name=website_url',
+                    description:
+                      'Scan your website for performance and errors using FadiLogic’s free website scan tool.',
+                  },
+                  {
+                    '@type': 'ContactAction',
+                    target: 'https://fadilogic.serp24.online/contact',
+                    description:
+                      'Contact Fadi Dabboura for DevOps and web development inquiries.',
+                  },
+                ],
+              },
+            ]),
           }}
         />
       </Head>
-      <Hero />
-      <Section id="welcome">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
-          Welcome to <span className="text-accent">FadiLogic</span>
-        </h2>
-        <p className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center">
-          I’m Fadi Dabboura, a passionate DevOps Engineer and Web Developer
-          dedicated to building high-performance, scalable web solutions.
-          Explore my portfolio below, try my{' '}
-          <Link
-            href="/website-scan"
-            className="text-accent underline hover:text-accent/80 transition"
-          >
-            free website scan tool
-          </Link>{' '}
-          to optimize your site, or{' '}
-          <Link
-            href="/contact"
-            className="text-accent underline hover:text-accent/80 transition"
-          >
-            get in touch
-          </Link>{' '}
-          to collaborate on your next project.
-        </p>
-      </Section>
-      <ScanServiceSection />
-      <Section id="projects">
-        <div className="mb-8 p-4 bg-yellow-100 text-yellow-800 rounded-lg text-center">
-          <p className="font-semibold">
-            This projects section contains dummy data. Real projects will be
-            showcased soon as the website is under development.
+      <div className="">
+        <Hero />
+        <Section id="welcome">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
+            Welcome to <span className="text-accent">FadiLogic</span>
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center">
+            I’m Fadi Dabboura, a passionate DevOps Engineer and Web Developer
+            dedicated to building high-performance, scalable web solutions.
+            Explore my portfolio below, try my{' '}
+            <Link
+              href="/website-scan"
+              className="text-accent underline hover:text-accent/80 transition"
+            >
+              free website scan tool
+            </Link>{' '}
+            to optimize your site, or{' '}
+            <Link
+              href="/contact"
+              className="text-accent underline hover:text-accent/80 transition"
+            >
+              get in touch
+            </Link>{' '}
+            to collaborate on your next project.
           </p>
-        </div>
-        <h2 className="text-4xl mb-8 text-center">
-          Featured Project by Fadi Dabboura
-        </h2>
-        <div className="max-w-2xl mx-auto">
-          <FeaturedProjectCard project={featuredProject} />
-        </div>
-        <h2 className="text-4xl mt-12 mb-8 text-center">Other Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.slice(1).map((project, index) => (
-            <ProjectCard key={index} project={project} />
-          ))}
-        </div>
-      </Section>
+        </Section>
+        <ScanServiceSection />
+        <Section id="projects">
+          <div className="mb-8 p-4 bg-yellow-100 text-yellow-800 rounded-lg text-center">
+            <p className="font-semibold">
+              This projects section contains dummy data. Real projects will be
+              showcased soon as the website is under development.
+            </p>
+          </div>
+          <h2 className="text-4xl mb-8 text-center">
+            Featured Project by Fadi Dabboura
+          </h2>
+          <div className="max-w-2xl mx-auto">
+            <FeaturedProjectCard project={featuredProject} />
+          </div>
+          <h2 className="text-4xl mt-12 mb-8 text-center">Other Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.slice(1).map((project, index) => (
+              <ProjectCard key={index} project={project} />
+            ))}
+          </div>
+        </Section>
+        <Section id="cta">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
+            Ready to Optimize Your Site?
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center">
+            Use my{' '}
+            <Link
+              href="/website-scan"
+              className="text-accent underline hover:text-accent/80 transition"
+            >
+              free website scan tool
+            </Link>{' '}
+            to analyze your site’s performance and errors, or{' '}
+            <Link
+              href="/contact"
+              className="text-accent underline hover:text-accent/80 transition"
+            >
+              contact me
+            </Link>{' '}
+            to discuss your DevOps and web development needs. Let’s take your
+            project to the next level!
+          </p>
+        </Section>
+      </div>
     </>
   );
 }

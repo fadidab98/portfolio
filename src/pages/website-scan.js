@@ -2,6 +2,7 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import WebsitescanText from '@/components/WebsitescanText';
 import Link from 'next/link';
+import Section from '@/components/Section';
 
 const WebsiteScanForm = dynamic(() => import('../components/WebsiteScanForm'), {
   ssr: false,
@@ -119,7 +120,7 @@ export default function Webscan() {
         />
       </Head>
       <div className="min-h-screen bg-background text-text font-inter p-6">
-        <div className="text-center mb-12">
+        <Section className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-white tracking-tight">
             Fadi Dabboura’s Website Scan Tool
           </h1>
@@ -141,7 +142,7 @@ export default function Webscan() {
             </Link>{' '}
             for personalized optimization solutions.
           </p>
-        </div>
+        </Section>
         <WebsitescanText />
         <div className="  container min-h-60 text-center ">
           <WebsiteScanForm />

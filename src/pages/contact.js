@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import Section from '@/components/Section';
 
 const ContactForm = dynamic(() => import('../components/ContactForm'), {
   ssr: false,
@@ -290,7 +291,7 @@ export default function Contact() {
           </p>
         </section>
 
-        <section className="w-full max-w-2xl mx-auto bg-gradient-to-r from-secondary to-gray-800 rounded-xl shadow-2xl p-8 sm:p-12 border border-accent/20 hover:shadow-accent/20 transition-all duration-300">
+        <Section className="w-full max-w-2xl mx-auto bg-secondary  rounded-xl shadow-2xl p-8 sm:p-12 border border-accent/20 hover:shadow-accent/20 transition-all duration-300">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
             Get in Touch
           </h2>
@@ -312,7 +313,7 @@ export default function Contact() {
             </Link>{' '}
             to optimize your site!
           </p>
-        </section>
+        </Section>
       </div>
     </div>
   );

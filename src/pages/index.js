@@ -161,7 +161,7 @@ export default function Home({ projects }) {
           }}
         />
       </Head>
-      <div className="bg-background">
+      <div className="">
         <Hero />
         <Section id="welcome">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">

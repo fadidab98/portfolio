@@ -124,24 +124,44 @@ export default function Home({ projects }) {
                 potentialAction: [
                   {
                     '@type': 'SearchAction',
-                    target: 'https://fadilogic.serp24.online/website-scan',
-                    'query-input': 'required name=website_url',
+                    target: {
+                      '@type': 'EntryPoint',
+                      urlTemplate:
+                        'https://fadilogic.serp24.online/website-scan',
+                    },
+                    'query-input': {
+                      '@type': 'PropertyValueSpecification',
+                      valueRequired: true,
+                      valueName: 'website_url',
+                    },
                     description:
                       'Scan your website for performance and errors using FadiLogic’s free website scan tool.',
                   },
-                  {
-                    '@type': 'ContactAction',
-                    target: 'https://fadilogic.serp24.online/contact',
-                    description:
-                      'Contact Fadi Dabboura for DevOps and web development inquiries.',
-                  },
                 ],
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'ContactPage',
+                name: 'Contact Fadi Dabboura',
+                url: 'https://fadilogic.serp24.online/contact',
+                description:
+                  'Contact with Fadi Dabboura for DevOps and web development inquiries.',
+                mainEntity: {
+                  '@type': 'Person',
+                  name: 'Fadi Dabboura',
+                  email: 'mailto:fadi@serp24.online',
+                  sameAs: [
+                    'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+                    'https://www.facebook.com/fadi.dabboura.73',
+                    'https://github.com/fadidab98',
+                  ],
+                },
               },
             ]),
           }}
         />
       </Head>
-      <div className="">
+      <div className="bg-background">
         <Hero />
         <Section id="welcome">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">

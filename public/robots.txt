@@ -1,8 +1,3 @@
-# robots.txt for https://fadilogic.serp24.online
-# Allows all crawlers to access all pages and points to the sitemap for indexing.
-
 User-agent: *
-Disallow: # No pages are blocked; crawlers can access all content.
-# Example: To block non-essential pages in the future, add them here, e.g., Disallow: /admin
-
+Disallow: 
 Sitemap: https://fadilogic.serp24.online/sitemap.xml

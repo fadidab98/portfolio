@@ -69,7 +69,7 @@ export default function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
+
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"

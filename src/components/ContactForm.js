@@ -10,20 +10,17 @@ export default function ContactForm() {
   const [status, setStatus] = useState('');
   const [sendContact, { isLoading, error }] = useSubmitContactFormMutation();
 
-  // Handle input changes
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: value,
     });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('Sending...');
-
     try {
       const response = await sendContact(formData).unwrap();
       setStatus(
@@ -39,35 +36,54 @@ export default function ContactForm() {
       );
     }
   };
+
   return (
     <>
-      <form className="space-y-4" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={formData.name}
-          onChange={handleChange}
-          className="w-full p-2 bg-secondary border border-accent rounded text-text focus:outline-none focus:ring-2 focus:ring-accent"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full p-2 bg-secondary border border-accent rounded text-text focus:outline-none focus:ring-2 focus:ring-accent"
-          required
-        />
-        <textarea
-          name="message"
-          placeholder="Message"
-          value={formData.message}
-          onChange={handleChange}
-          className="w-full p-2 bg-secondary border border-accent rounded text-text h-32 focus:outline-none focus:ring-2 focus:ring-accent"
-          required
-        />
+      <form className="space-y-6" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name" className="block text-lg text-white mb-1">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full p-2 bg-secondary border border-accent rounded text-text focus:outline-none focus:ring-2 focus:ring-accent"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="email" className="block text-lg text-white mb-1">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full p-2 bg-secondary border border-accent rounded text-text focus:outline-none focus:ring-2 focus:ring-accent"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="message" className="block text-lg text-white mb-1">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
+            className="w-full p-2 bg-secondary border border-accent rounded text-text h-32 focus:outline-none focus:ring-2 focus:ring-accent"
+            required
+          />
+        </div>
         <button
           type="submit"
           disabled={isLoading}

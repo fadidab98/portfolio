@@ -17,7 +17,9 @@ export default function ProjectCard({ project, isMobile }) {
     >
       <Image
         src={project.image}
-        alt={project.title}
+        alt={"Image for "+project.title+ " FadiLogic Portfolio"}
+        property
+        fetchPriority="high"
         width={300}
         height={200}
         className="w-full h-48 object-cover rounded-md mb-4"

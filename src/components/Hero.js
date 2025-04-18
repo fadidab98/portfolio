@@ -45,7 +45,7 @@ export default function Hero() {
           <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] h-[210px] sm:h-[280px] md:h-[350px] lg:h-[420px]">
             <Image
               src="/images/project1.webp"
-              alt="Fadi Dabboura"
+              alt="Fadi Dabboura Image"
               width={250}
               height={350}
               priority
@@ -62,9 +62,9 @@ export default function Hero() {
       </div>
       <div className="w-full md:w-1/2 text-center md:text-left">
         <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4">Fadi Dabboura</h1>
-        <p className="text-xl sm:text-2xl text-white mb-4 leading-relaxed">
+        <h2 className="text-xl sm:text-2xl text-white mb-4 leading-relaxed">
           Software Engineer & Web Developer
-        </p>
+        </h2>
         <div className="text-base text-gray-300 space-y-3 mb-6 min-h-[150px]">
           <p className="leading-relaxed">
             I’m Fadi Dabboura, a <strong>DevOps engineer</strong> and{' '}

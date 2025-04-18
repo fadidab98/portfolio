@@ -55,7 +55,7 @@ export default function Header() {
             </li>
             <li className="w-full md:w-auto">
               <Link
-                href="/#about"
+                href="</#abou>t"
                 className={`block py-3 md:py-2 px-4 md:px-6 text-lg md:text-base font-semibold transition duration-300 w-full text-center md:text-left no-underline ${
                   isActive('/#about')
                     ? 'text-accent bg-accent/20 md:rounded-md'

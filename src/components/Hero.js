@@ -1,9 +1,17 @@
-import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+
+// Dynamically import Framer Motion's motion component with ssr: false
+const MotionSection = dynamic(
+  () => import('framer-motion').then((mod) => mod.motion.section),
+  {
+    ssr: false,
+  }
+);
 
 export default function Hero() {
   const isMobile = useSelector((state) => state.setting.setting.isMobile);
@@ -130,7 +138,7 @@ export default function Hero() {
       {heroContent}
     </section>
   ) : (
-    <motion.section
+    <MotionSection
       id="home"
       className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px] sm:min-h-[450px] md:min-h-[500px]"
       initial={{ opacity: 0, y: 20 }}
@@ -138,6 +146,6 @@ export default function Hero() {
       transition={{ duration: 0.8 }}
     >
       {heroContent}
-    </motion.section>
+    </MotionSection>
   );
 }

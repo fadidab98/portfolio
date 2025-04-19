@@ -2,11 +2,21 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import '../styles/globals.css';
-import { Provider } from 'react-redux';
-import { store } from '../lib/store';
+import dynamic from 'next/dynamic';
 import { DefaultSeo } from 'next-seo';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
+
+// Dynamically import Redux Provider with ssr: false
+const Provider = dynamic(
+  () => import('react-redux').then((mod) => mod.Provider),
+  {
+    ssr: false,
+  }
+);
+
+// Import store statically to ensure proper initialization
+import { store } from '../lib/store';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -67,9 +77,8 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      {/* Default SEO settings for all pages */}
       <DefaultSeo
-        titleTemplate="%s | FadiLogic" // Appends "| FadiLogic" to all page titles
+        titleTemplate="%s | FadiLogic"
         defaultTitle="FadiLogic - DevOps & Web Development"
         description="FadiLogic by Fadi Dabboura: Portfolio, free website scan tool, and expert DevOps and web development services."
         canonical="https://fadilogic.serp24.online/"
@@ -104,13 +113,13 @@ export default function MyApp({ Component, pageProps }) {
       />
 
       <Script
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
         data-cache="true"
       />
       <Script
         id="google-analytics"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

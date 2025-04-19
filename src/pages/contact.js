@@ -1,144 +1,146 @@
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Section from '@/components/Section';
 import ContactText from '@/components/contact/ContactText';
+import Head from 'next/head'; // Still needed for JSON-LD structured data
 
 const ContactForm = dynamic(() => import('../components/ContactForm'), {
   ssr: false,
 });
 
 export default function Contact() {
+  // Structured data (JSON-LD) for the contact page
+  const structuredData = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      name: 'Contact Fadi Dabboura',
+      url: 'https://fadilogic.serp24.online/contact',
+      description:
+        'Contact with Fadi Dabboura for DevOps and web development inquiries.',
+      mainEntity: {
+        '@type': 'Person',
+        name: 'Fadi Dabboura',
+        email: 'mailto:fadi@serp24.online',
+        sameAs: [
+          'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+          'https://www.facebook.com/fadi.dabboura.73',
+          'https://github.com/fadidab98',
+        ],
+      },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://fadilogic.serp24.online',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Contact',
+          item: 'https://fadilogic.serp24.online/contact',
+        },
+      ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'FadiLogic',
+      url: 'https://fadilogic.serp24.online',
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          email: 'fadi@serp24.online',
+          contactType: 'Customer Service',
+        },
+      ],
+      sameAs: [
+        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+        'https://www.facebook.com/fadi.dabboura.73',
+        'https://github.com/fadidab98',
+      ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'How quickly will I get a response?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'I typically respond within 24-48 hours after receiving your message.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'What types of projects do you work on?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'I specialize in DevOps, web development, and website performance optimization, including CI/CD pipelines, scalable web apps, and SEO improvements.',
+          },
+        },
+      ],
+    },
+  ];
+
   return (
     <>
+      {/* NextSeo for meta tags, Open Graph, and Twitter cards */}
+      <NextSeo
+        title="Contact Fadi Dabboura - FadiLogic"
+        description="Contact Fadi Dabboura for collaborations, inquiries, or to discuss DevOps and web development projects at FadiLogic."
+        canonical="https://fadilogic.serp24.online/contact"
+        openGraph={{
+          url: 'https://fadilogic.serp24.online/contact',
+          title: 'Fadi Dabboura - Contact | FadiLogic',
+          description:
+            'Contact with Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
+          images: [
+            {
+              url: 'https://fadilogic.serp24.online/images/FadiLogic.png',
+              width: 1200,
+              height: 630,
+              alt: 'Fadi Dabboura Contact Page',
+              type: 'image/png',
+            },
+          ],
+          siteName: 'FadiLogic',
+          locale: 'en_US',
+          type: 'website',
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
+          title: 'Fadi Dabboura - Contact | FadiLogic',
+          description:
+            'Contact with Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
+          image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
+        }}
+        additionalMetaTags={[
+          {
+            name: 'keywords',
+            content:
+              'fadi dabboura, contact, devops, web development, website scan, fadilogic',
+          },
+          {
+            name: 'author',
+            content: 'Fadi Dabboura',
+          },
+        ]}
+      />
+
+      {/* Structured data */}
       <Head>
-        <title>Fadi Dabboura | Contact Me - FadiLogic</title>
-        <meta
-          name="description"
-          content="Contact Fadi Dabboura for collaborations, inquiries, or to discuss DevOps and web development projects at FadiLogic."
-        />
-        <meta
-          name="keywords"
-          content="fadi dabboura, contact, devops, web development, website scan, fadilogic"
-        />
-        <meta name="author" content="Fadi Dabboura" />
-        <link rel="canonical" href="https://fadilogic.serp24.online/contact" />
-        <meta
-          property="og:title"
-          content="Fadi Dabboura - Contact | FadiLogic"
-        />
-        <meta
-          property="og:description"
-          content="Contact with Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic."
-        />
-        <meta
-          property="og:url"
-          content="https://fadilogic.serp24.online/contact"
-        />
-        <meta
-          property="og:image"
-          content="https://fadilogic.serp24.online/images/FadiLogic.png"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="Fadi Dabboura Contact Page" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="FadiLogic" />
-        <meta property="og:locale" content="en_US" />
-        <meta
-          name="twitter:title"
-          content="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic"
-        />
-        <meta
-          name="twitter:description"
-          content="Check out Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps and web projects!"
-        />
-        <meta
-          name="twitter:image"
-          content="https://fadilogic.serp24.online/images/FadiLogic.png"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                '@context': 'https://schema.org',
-                '@type': 'ContactPage',
-                name: 'Contact Fadi Dabboura',
-                url: 'https://fadilogic.serp24.online/contact',
-                description:
-                  'Contact with Fadi Dabboura for DevOps and web development inquiries.',
-                mainEntity: {
-                  '@type': 'Person',
-                  name: 'Fadi Dabboura',
-                  email: 'mailto:fadi@serp24.online',
-                  sameAs: [
-                    'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-                    'https://www.facebook.com/fadi.dabboura.73',
-                    'https://github.com/fadidab98',
-                  ],
-                },
-              },
-              {
-                '@context': 'https://schema.org',
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  {
-                    '@type': 'ListItem',
-                    position: 1,
-                    name: 'Home',
-                    item: 'https://fadilogic.serp24.online',
-                  },
-                  {
-                    '@type': 'ListItem',
-                    position: 2,
-                    name: 'Contact',
-                    item: 'https://fadilogic.serp24.online/contact',
-                  },
-                ],
-              },
-              {
-                '@context': 'https://schema.org',
-                '@type': 'Organization',
-                name: 'FadiLogic',
-                url: 'https://fadilogic.serp24.online',
-                contactPoint: [
-                  {
-                    '@type': 'ContactPoint',
-                    email: 'fadi@serp24.online',
-                    contactType: 'Customer Service',
-                  },
-                ],
-                sameAs: [
-                  'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-                  'https://www.facebook.com/fadi.dabboura.73',
-                  'https://github.com/fadidab98',
-                ],
-              },
-              {
-                '@context': 'https://schema.org',
-                '@type': 'FAQPage',
-                mainEntity: [
-                  {
-                    '@type': 'Question',
-                    name: 'How quickly will I get a response?',
-                    acceptedAnswer: {
-                      '@type': 'Answer',
-                      text: 'I typically respond within 24-48 hours after receiving your message.',
-                    },
-                  },
-                  {
-                    '@type': 'Question',
-                    name: 'What types of projects do you work on?',
-                    acceptedAnswer: {
-                      '@type': 'Answer',
-                      text: 'I specialize in DevOps, web development, and website performance optimization, including CI/CD pipelines, scalable web apps, and SEO improvements.',
-                    },
-                  },
-                ],
-              },
-            ]),
+            __html: JSON.stringify(structuredData),
           }}
         />
       </Head>

@@ -4,7 +4,7 @@ import Layout from '@/components/Layout';
 import '../styles/globals.css';
 import { Provider } from 'react-redux';
 import { store } from '../lib/store';
-import Head from 'next/head';
+import { DefaultSeo } from 'next-seo';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
 
@@ -67,24 +67,59 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      {/* Default SEO settings for all pages */}
+      <DefaultSeo
+        titleTemplate="%s | FadiLogic" // Appends "| FadiLogic" to all page titles
+        defaultTitle="FadiLogic - DevOps & Web Development"
+        description="FadiLogic by Fadi Dabboura: Portfolio, free website scan tool, and expert DevOps and web development services."
+        canonical="https://fadilogic.serp24.online/"
+        openGraph={{
+          type: 'website',
+          locale: 'en_US',
+          url: 'https://fadilogic.serp24.online/',
+          siteName: 'FadiLogic',
+          images: [
+            {
+              url: 'https://fadilogic.serp24.online/images/FadiLogic.png',
+              width: 1200,
+              height: 630,
+              alt: 'FadiLogic by Fadi Dabboura',
+              type: 'image/png',
+            },
+          ],
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
+        }}
+        additionalMetaTags={[
+          {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1.0',
+          },
+          {
+            name: 'author',
+            content: 'Fadi Dabboura',
+          },
+        ]}
+      />
 
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-FZDKPTV5X5');
-            `,
-          }}
-        />
-      </Head>
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
+      />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-FZDKPTV5X5');
+          `,
+        }}
+      />
+
       <Layout loading={loading}>
         <main
           style={{ display: loading ? 'none' : 'block' }}

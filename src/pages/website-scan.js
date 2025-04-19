@@ -16,7 +16,8 @@ export default function Webscan() {
       '@context': 'https://schema.org',
       '@type': 'SoftwareApplication',
       name: 'FadiLogic Website Scan Tool',
-      description: 'A free tool to analyze website performance, speed, and errors.',
+      description:
+        'A free tool to analyze website performance, speed, and errors.',
       url: 'https://fadilogic.serp24.online/website-scan',
       applicationCategory: 'WebApplication', // Satisfies one required property
       operatingSystem: 'Web-based', // Satisfies second required property

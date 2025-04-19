@@ -4,6 +4,7 @@ import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+
 export default function Hero() {
   const isMobile = useSelector((state) => state.setting.setting.isMobile);
   const [isImageLoading, setIsImageLoading] = useState(true);
@@ -45,7 +46,7 @@ export default function Hero() {
           <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] h-[210px] sm:h-[280px] md:h-[350px] lg:h-[420px]">
             <Image
               src="/images/project1.webp"
-              alt="Fadi Dabboura Image"
+              alt="Fadi Dabboura - DevOps Engineer and Web Developer"
               width={250}
               height={350}
               priority
@@ -63,21 +64,41 @@ export default function Hero() {
       <div className="w-full md:w-1/2 text-center md:text-left">
         <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4">Fadi Dabboura</h1>
         <h2 className="text-xl sm:text-2xl text-white mb-4 leading-relaxed">
-          Software Engineer & Web Developer
+          DevOps Engineer & Web Developer
         </h2>
         <div className="text-base text-gray-300 space-y-3 mb-6 min-h-[150px]">
           <p className="leading-relaxed">
-            I’m Fadi Dabboura, a <strong>DevOps engineer</strong> and{' '}
-            <strong>web developer</strong>. Try my{' '}
-            <strong>website scan tool</strong> to boost your site’s performance.
-          </p>
-          <p className="leading-relaxed text-sm">
-            Master’s student in Informatics at Ostfalia University. Skilled in
-            full-stack and DevOps.
+            I’m Fadi Dabboura, a skilled <strong>DevOps Engineer</strong> and{' '}
+            <strong>Web Developer</strong> specializing in CI/CD pipelines,
+            cloud infrastructure, and high-performance web applications.
           </p>
           <p className="leading-relaxed">
-            Check my portfolio for projects and reach out for collaboration or
-            opportunities.
+            Try my{' '}
+            <Link
+              href="/website-scan"
+              className="text-accent underline hover:text-accent/80 transition"
+            >
+              free website scan tool
+            </Link>{' '}
+            to optimize your site’s performance, SEO, and user experience.
+          </p>
+          <p className="leading-relaxed">
+            As a Master’s student in Informatics at Ostfalia University, I bring
+            expertise in full-stack development and DevOps. Explore my{' '}
+            <Link
+              href="#projects"
+              className="text-accent underline hover:text-accent/80 transition"
+            >
+              portfolio
+            </Link>{' '}
+            or{' '}
+            <Link
+              href="/contact"
+              className="text-accent underline hover:text-accent/80 transition"
+            >
+              contact me
+            </Link>{' '}
+            for collaboration opportunities.
           </p>
         </div>
         <div className="flex justify-center md:justify-start gap-4 mb-6">

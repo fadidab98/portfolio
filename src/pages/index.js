@@ -26,10 +26,10 @@ export default function Home({ projects }) {
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: 'Fadi Dabboura',
-      url: 'https://fadilogic.serp24.online', // Website as primary URL
+      url: 'https://fadilogic.serp24.online',
       jobTitle: 'DevOps Engineer & Web Developer',
       sameAs: [
-        'https://www.linkedin.com/in/fadi-dabboura-8300bb211', // LinkedIn first
+        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
         'https://github.com/fadidab98',
         'https://www.facebook.com/fadi.dabboura.73',
         'https://www.instagram.com/dabbourafadi',
@@ -87,13 +87,13 @@ export default function Home({ projects }) {
     <>
       <NextSeo
         title="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic"
-        description="Discover Fadi Dabboura’s portfolio: Expert DevOps, web development, and a free website scan tool to optimize your site at FadiLogic."
+        description="Discover Fadi Dabboura’s portfolio: Expert DevOps, web development, and a free website scan tool to optimize your site’s performance and SEO at FadiLogic."
         canonical="https://fadilogic.serp24.online/"
         openGraph={{
           url: 'https://fadilogic.serp24.online/',
           title: 'Fadi Dabboura - Portfolio & Website Scan | FadiLogic',
           description:
-            'Check out Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps and web projects!',
+            'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
           images: [
             {
               url: 'https://fadilogic.serp24.online/images/FadiLogic.png',
@@ -111,14 +111,14 @@ export default function Home({ projects }) {
           cardType: 'summary_large_image',
           title: 'Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic',
           description:
-            'Check out Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps and web projects!',
+            'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
           image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
         }}
         additionalMetaTags={[
           {
             name: 'keywords',
             content:
-              'fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio',
+              'fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio, devops engineer, full-stack developer',
           },
           {
             name: 'author',
@@ -148,41 +148,61 @@ export default function Home({ projects }) {
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
             Welcome to <span className="text-accent">FadiLogic</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center">
-            I’m Fadi Dabboura, a passionate DevOps Engineer and Web Developer
-            dedicated to building high-performance, scalable web solutions.
-            Explore my portfolio below, try my{' '}
-            <Link
-              href="/website-scan"
-              className="text-accent underline hover:text-accent/80 transition"
-            >
-              free website scan tool
-            </Link>{' '}
-            to optimize your site, or{' '}
-            <Link
-              href="/contact"
-              className="text-accent underline hover:text-accent/80 transition"
-            >
-              get in touch
-            </Link>{' '}
-            to collaborate on your next project.
-          </p>
+          <div className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center space-y-4">
+            <p>
+              I’m Fadi Dabboura, a dedicated <strong>DevOps Engineer</strong>{' '}
+              and <strong>Web Developer</strong> with a passion for building
+              high-performance, scalable web solutions. My expertise spans CI/CD
+              pipelines, cloud infrastructure, full-stack development, and
+              website optimization.
+            </p>
+            <p>
+              Explore my portfolio to see projects showcasing my skills in{' '}
+              <strong>DevOps</strong>, <strong>web development</strong>, and
+              performance tuning. Try my{' '}
+              <Link
+                href="/website-scan"
+                className="text-accent underline hover:text-accent/80 transition"
+              >
+                free website scan tool
+              </Link>{' '}
+              to analyze your site’s speed, SEO, and errors, or{' '}
+              <Link
+                href="/contact"
+                className="text-accent underline hover:text-accent/80 transition"
+              >
+                contact me
+              </Link>{' '}
+              to collaborate on your next project.
+            </p>
+            <p>
+              As a Master’s student in Informatics at Ostfalia University, I
+              bring cutting-edge knowledge to every project, ensuring robust,
+              modern solutions.
+            </p>
+          </div>
         </Section>
         <ScanServiceSection />
         <Section id="projects">
+          <h2 className="text-4xl mb-8 text-center">
+            Projects by Fadi Dabboura
+          </h2>
           <div className="mb-8 p-4 bg-yellow-100 text-yellow-800 rounded-lg text-center">
             <p className="font-semibold">
-              This projects section contains dummy data. Real projects will be
-              showcased soon as the website is under development.
+              Real projects coming soon! Discover my expertise in{' '}
+              <strong>DevOps</strong>, <strong>CI/CD pipelines</strong>,{' '}
+              <strong>cloud infrastructure</strong>, and{' '}
+              <strong>web development</strong>. Stay tuned for detailed case
+              studies and live demos.
             </p>
           </div>
           <h2 className="text-4xl mb-8 text-center">
-            Featured Project by Fadi Dabboura
+            Featured Project Preview
           </h2>
           <div className="max-w-2xl mx-auto">
             <FeaturedProjectCard project={featuredProject} />
           </div>
-          <h2 className="text-4xl mt-12 mb-8 text-center">Other Projects</h2>
+          <h2 className="text-4xl mt-12 mb-8 text-center">More Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.slice(1).map((project, index) => (
               <ProjectCard key={index} project={project} />
@@ -191,26 +211,33 @@ export default function Home({ projects }) {
         </Section>
         <Section id="cta">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
-            Ready to Optimize Your Site?
+            Ready to Elevate Your Project?
           </h2>
-          <p className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center">
-            Use my{' '}
-            <Link
-              href="/website-scan"
-              className="text-accent underline hover:text-accent/80 transition"
-            >
-              free website scan tool
-            </Link>{' '}
-            to analyze your site’s performance and errors, or{' '}
-            <Link
-              href="/contact"
-              className="text-accent underline hover:text-accent/80 transition"
-            >
-              contact me
-            </Link>{' '}
-            to discuss your DevOps and web development needs. Let’s take your
-            project to the next level!
-          </p>
+          <div className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center space-y-4">
+            <p>
+              Optimize your website with my{' '}
+              <Link
+                href="/website-scan"
+                className="text-accent underline hover:text-accent/80 transition"
+              >
+                free website scan tool
+              </Link>{' '}
+              to uncover performance issues, SEO gaps, and errors. Get
+              actionable insights to boost your site’s success.
+            </p>
+            <p>
+              Need custom <strong>DevOps</strong> or{' '}
+              <strong>web development</strong> solutions?{' '}
+              <Link
+                href="/contact"
+                className="text-accent underline hover:text-accent/80 transition"
+              >
+                Contact me
+              </Link>{' '}
+              to discuss your needs, from CI/CD pipelines to scalable web
+              applications. Let’s build something extraordinary together!
+            </p>
+          </div>
         </Section>
       </div>
     </>

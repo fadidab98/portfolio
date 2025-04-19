@@ -10,20 +10,29 @@ const WebsiteScanForm = dynamic(() => import('../components/WebsiteScanForm'), {
 });
 
 export default function Webscan() {
-  // Structured data prioritizing website
+  // Structured data prioritizing website with enhanced SoftwareApplication schema
   const structuredData = [
     {
       '@context': 'https://schema.org',
       '@type': 'SoftwareApplication',
       name: 'FadiLogic Website Scan Tool',
-      description: 'A free tool to analyze website performance and errors.',
+      description: 'A free tool to analyze website performance, speed, and errors.',
       url: 'https://fadilogic.serp24.online/website-scan',
+      applicationCategory: 'WebApplication', // Satisfies one required property
+      operatingSystem: 'Web-based', // Satisfies second required property
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        url: 'https://fadilogic.serp24.online/website-scan',
+      },
       author: {
         '@type': 'Person',
         name: 'Fadi Dabboura',
-        url: 'https://fadilogic.serp24.online', // Website as primary
+        url: 'https://fadilogic.serp24.online',
         sameAs: [
-          'https://www.linkedin.com/in/fadi-dabboura-8300bb211', // LinkedIn first
+          'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
           'https://github.com/fadidab98',
           'https://www.facebook.com/fadi.dabboura.73',
           'https://www.instagram.com/dabbourafadi',
@@ -85,7 +94,7 @@ export default function Webscan() {
           {
             name: 'keywords',
             content:
-              'fadi dabboura, website scan tool, free webscan, website performance tool, web development, devops, site speed test, website error checker',
+              'fadi dabboura, website scan tool, free webscan, website performance tool, web development, devops, site speed test, website error checker, free website scan tool, website performance checker, site speed analyzer',
           },
           {
             name: 'author',

@@ -3,14 +3,14 @@ import dynamic from 'next/dynamic';
 import WebsitescanText from '@/components/WebsitescanText';
 import Link from 'next/link';
 import Section from '@/components/Section';
-import Head from 'next/head'; // Still needed for JSON-LD structured data
+import Head from 'next/head';
 
 const WebsiteScanForm = dynamic(() => import('../components/WebsiteScanForm'), {
   ssr: false,
 });
 
 export default function Webscan() {
-  // Structured data (JSON-LD) for the website scan page
+  // Structured data prioritizing website
   const structuredData = [
     {
       '@context': 'https://schema.org',
@@ -21,24 +21,14 @@ export default function Webscan() {
       author: {
         '@type': 'Person',
         name: 'Fadi Dabboura',
+        url: 'https://fadilogic.serp24.online', // Website as primary
         sameAs: [
-          'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-          'https://www.facebook.com/fadi.dabboura.73',
+          'https://www.linkedin.com/in/fadi-dabboura-8300bb211', // LinkedIn first
           'https://github.com/fadidab98',
+          'https://www.facebook.com/fadi.dabboura.73',
+          'https://www.instagram.com/dabbourafadi',
         ],
       },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: 'Fadi Dabboura',
-      jobTitle: 'DevOps & Web Developer',
-      url: 'https://fadilogic.serp24.online',
-      sameAs: [
-        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-        'https://www.facebook.com/fadi.dabboura.73',
-        'https://github.com/fadidab98',
-      ],
     },
     {
       '@context': 'https://schema.org',
@@ -62,7 +52,6 @@ export default function Webscan() {
 
   return (
     <>
-      {/* NextSeo for meta tags, Open Graph, and Twitter cards */}
       <NextSeo
         title="Fadi Dabboura Website Scan Tool - FadiLogic"
         description="Use Fadi Dabboura’s free website scan tool to analyze your site’s performance, speed, and errors. Optimize your web development today!"
@@ -105,7 +94,6 @@ export default function Webscan() {
         ]}
       />
 
-      {/* Structured data */}
       <Head>
         <script
           type="application/ld+json"

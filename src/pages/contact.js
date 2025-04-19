@@ -3,14 +3,14 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Section from '@/components/Section';
 import ContactText from '@/components/contact/ContactText';
-import Head from 'next/head'; // Still needed for JSON-LD structured data
+import Head from 'next/head';
 
 const ContactForm = dynamic(() => import('../components/ContactForm'), {
   ssr: false,
 });
 
 export default function Contact() {
-  // Structured data (JSON-LD) for the contact page
+  // Structured data prioritizing website
   const structuredData = [
     {
       '@context': 'https://schema.org',
@@ -22,13 +22,34 @@ export default function Contact() {
       mainEntity: {
         '@type': 'Person',
         name: 'Fadi Dabboura',
+        url: 'https://fadilogic.serp24.online', // Website as primary
         email: 'mailto:fadi@serp24.online',
         sameAs: [
-          'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-          'https://www.facebook.com/fadi.dabboura.73',
+          'https://www.linkedin.com/in/fadi-dabboura-8300bb211', // LinkedIn first
           'https://github.com/fadidab98',
+          'https://www.facebook.com/fadi.dabboura.73',
+          'https://www.instagram.com/dabbourafadi',
         ],
       },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'FadiLogic',
+      url: 'https://fadilogic.serp24.online',
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          email: 'fadi@serp24.online',
+          contactType: 'Customer Service',
+        },
+      ],
+      sameAs: [
+        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+        'https://github.com/fadidab98',
+        'https://www.facebook.com/fadi.dabboura.73',
+        'https://www.instagram.com/dabbourafadi',
+      ],
     },
     {
       '@context': 'https://schema.org',
@@ -46,24 +67,6 @@ export default function Contact() {
           name: 'Contact',
           item: 'https://fadilogic.serp24.online/contact',
         },
-      ],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'FadiLogic',
-      url: 'https://fadilogic.serp24.online',
-      contactPoint: [
-        {
-          '@type': 'ContactPoint',
-          email: 'fadi@serp24.online',
-          contactType: 'Customer Service',
-        },
-      ],
-      sameAs: [
-        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-        'https://www.facebook.com/fadi.dabboura.73',
-        'https://github.com/fadidab98',
       ],
     },
     {
@@ -92,7 +95,6 @@ export default function Contact() {
 
   return (
     <>
-      {/* NextSeo for meta tags, Open Graph, and Twitter cards */}
       <NextSeo
         title="Contact Fadi Dabboura - FadiLogic"
         description="Contact Fadi Dabboura for collaborations, inquiries, or to discuss DevOps and web development projects at FadiLogic."
@@ -135,7 +137,6 @@ export default function Contact() {
         ]}
       />
 
-      {/* Structured data */}
       <Head>
         <script
           type="application/ld+json"
@@ -173,7 +174,7 @@ export default function Contact() {
 
         <ContactText />
 
-        <Section className="w-full max-w-2xl mx-auto bg-secondary  rounded-xl shadow-2xl p-8 sm:p-12 border border-accent/20 hover:shadow-accent/20 transition-all duration-300">
+        <Section className="w-full max-w-2xl mx-auto bg-secondary rounded-xl shadow-2xl p-8 sm:p-12 border border-accent/20 hover:shadow-accent/20 transition-all duration-300">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
             Get in Touch
           </h2>

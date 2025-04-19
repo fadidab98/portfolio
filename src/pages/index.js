@@ -5,7 +5,7 @@ import ScanServiceSection from '@/components/ScanServiceSection';
 import { SkeletonProjectCard } from '@/components/skeleton/Skeleton';
 import Hero from '../components/Hero';
 import Link from 'next/link';
-import Head from 'next/head'; // Still needed for JSON-LD or custom tags
+import Head from 'next/head';
 
 const Section = dynamic(() => import('../components/Section'), { ssr: true });
 const FeaturedProjectCard = dynamic(() => import('../components/ProjectCard'), {
@@ -20,31 +20,19 @@ const ProjectCard = dynamic(() => import('../components/ProjectCard'), {
 export default function Home({ projects }) {
   const featuredProject = projects[0];
 
-  // Structured data (JSON-LD) for SEO
+  // Structured data prioritizing website
   const structuredData = [
     {
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: 'Fadi Dabboura',
-      url: 'https://fadilogic.serp24.online',
-      sameAs: [
-        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-        'https://www.instagram.com/dabbourafadi',
-        'https://www.facebook.com/fadi.dabboura.73',
-      ],
+      url: 'https://fadilogic.serp24.online', // Website as primary URL
       jobTitle: 'DevOps Engineer & Web Developer',
-      brand: { '@type': 'Brand', name: 'FadiLogic' },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Home',
-          item: 'https://fadilogic.serp24.online',
-        },
+      sameAs: [
+        'https://www.linkedin.com/in/fadi-dabboura-8300bb211', // LinkedIn first
+        'https://github.com/fadidab98',
+        'https://www.facebook.com/fadi.dabboura.73',
+        'https://www.instagram.com/dabbourafadi',
       ],
     },
     {
@@ -54,8 +42,9 @@ export default function Home({ projects }) {
       url: 'https://fadilogic.serp24.online',
       sameAs: [
         'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-        'https://www.instagram.com/dabbourafadi',
+        'https://github.com/fadidab98',
         'https://www.facebook.com/fadi.dabboura.73',
+        'https://www.instagram.com/dabbourafadi',
       ],
     },
     {
@@ -82,27 +71,20 @@ export default function Home({ projects }) {
     },
     {
       '@context': 'https://schema.org',
-      '@type': 'ContactPage',
-      name: 'Contact Fadi Dabboura',
-      url: 'https://fadilogic.serp24.online/contact',
-      description:
-        'Contact with Fadi Dabboura for DevOps and web development inquiries.',
-      mainEntity: {
-        '@type': 'Person',
-        name: 'Fadi Dabboura',
-        email: 'mailto:fadi@serp24.online',
-        sameAs: [
-          'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-          'https://www.facebook.com/fadi.dabboura.73',
-          'https://github.com/fadidab98',
-        ],
-      },
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://fadilogic.serp24.online',
+        },
+      ],
     },
   ];
 
   return (
     <>
-      {/* NextSeo for meta tags, Open Graph, and Twitter cards */}
       <NextSeo
         title="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic"
         description="Discover Fadi Dabboura’s portfolio: Expert DevOps, web development, and a free website scan tool to optimize your site at FadiLogic."
@@ -136,7 +118,7 @@ export default function Home({ projects }) {
           {
             name: 'keywords',
             content:
-              'fadi, dabboura, fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio',
+              'fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio',
           },
           {
             name: 'author',
@@ -145,7 +127,6 @@ export default function Home({ projects }) {
         ]}
       />
 
-      {/* Structured data and preload link */}
       <Head>
         <script
           type="application/ld+json"

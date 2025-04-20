@@ -149,12 +149,6 @@ export default function Home({ projects }) {
           as="image"
           fetchPriority="high"
         />
-
-        <link
-          rel="preload"
-          href="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
-          as="script"
-        />
       </Head>
 
       <div className="">

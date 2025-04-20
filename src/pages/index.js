@@ -6,9 +6,9 @@ import {
   SkeletonProjectCard,
   SkeletonScanServiceSection,
 } from '@/components/skeleton/Skeleton';
+import Hero from '../components/Hero';
 import Link from 'next/link';
 import Head from 'next/head';
-import Hero from '@/components/Hero';
 const ScanServiceSection = dynamic(
   () => import('@/components/ScanServiceSection'),
   {
@@ -16,21 +16,16 @@ const ScanServiceSection = dynamic(
     loading: () => <SkeletonScanServiceSection />,
   }
 );
-const Section = dynamic(() => import('../components/Section'), { ssr: false });
+const Section = dynamic(() => import('../components/Section'), { ssr: true });
 const FeaturedProjectCard = dynamic(() => import('../components/ProjectCard'), {
-  ssr: false,
+  ssr: true,
   loading: () => <SkeletonProjectCard />,
 });
 const ProjectCard = dynamic(() => import('../components/ProjectCard'), {
-  ssr: false,
+  ssr: true,
   loading: () => <SkeletonProjectCard />,
 });
-const WelcomeSection = dynamic(() => import('@/components/WelcomeSection'), {
-  ssr: false,
-});
-/* const Hero = dynamic(() => import('../components/Hero'), {
-  ssr: false,
-}); */
+
 export default function Home({ projects }) {
   const featuredProject = projects[0];
 
@@ -156,61 +151,104 @@ export default function Home({ projects }) {
         />
       </Head>
 
-      <Hero />
-      <WelcomeSection />
-      <ScanServiceSection />
-      <Section id="projects">
-        <h2 className="text-4xl mb-8 text-center">Projects by Fadi Dabboura</h2>
-        <div className="mb-8 p-4 bg-yellow-100 text-yellow-800 rounded-lg text-center">
-          <p className="font-semibold">
-            Real projects coming soon! Discover my expertise in{' '}
-            <strong>DevOps</strong>, <strong>CI/CD pipelines</strong>,{' '}
-            <strong>cloud infrastructure</strong>, and{' '}
-            <strong>web development</strong>. Stay tuned for detailed case
-            studies and live demos.
-          </p>
-        </div>
-        <h2 className="text-4xl mb-8 text-center">Featured Project Preview</h2>
-        <div className="max-w-2xl mx-auto">
-          <FeaturedProjectCard project={featuredProject} />
-        </div>
-        <h2 className="text-4xl mt-12 mb-8 text-center">More Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.slice(1).map((project, index) => (
-            <ProjectCard key={index} project={project} />
-          ))}
-        </div>
-      </Section>
-      <Section id="cta">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
-          Ready to Elevate Your Project?
-        </h2>
-        <div className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center space-y-4">
-          <p>
-            Optimize your website with my{' '}
-            <Link
-              href="/website-scan"
-              className="text-accent underline hover:text-accent/80 transition"
-            >
-              free website scan tool
-            </Link>{' '}
-            to uncover performance issues, SEO gaps, and errors. Get actionable
-            insights to boost your site’s success.
-          </p>
-          <p>
-            Need custom <strong>DevOps</strong> or{' '}
-            <strong>web development</strong> solutions?{' '}
-            <Link
-              href="/contact"
-              className="text-accent underline hover:text-accent/80 transition"
-            >
-              Contact me
-            </Link>{' '}
-            to discuss your needs, from CI/CD pipelines to scalable web
-            applications. Let’s build something extraordinary together!
-          </p>
-        </div>
-      </Section>
+      <div className="">
+        <Hero />
+        <Section id="welcome">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
+            Welcome to <span className="text-accent">FadiLogic</span>
+          </h2>
+          <div className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center space-y-4">
+            <p>
+              I’m Fadi Dabboura, a dedicated <strong>DevOps Engineer</strong>{' '}
+              and <strong>Web Developer</strong> with a passion for building
+              high-performance, scalable web solutions. My expertise spans CI/CD
+              pipelines, cloud infrastructure, full-stack development, and
+              website optimization.
+            </p>
+            <p>
+              Explore my portfolio to see projects showcasing my skills in{' '}
+              <strong>DevOps</strong>, <strong>web development</strong>, and
+              performance tuning. Try my{' '}
+              <Link
+                href="/website-scan"
+                className="text-accent underline hover:text-accent/80 transition"
+              >
+                free website scan tool
+              </Link>{' '}
+              to analyze your site’s speed, SEO, and errors, or{' '}
+              <Link
+                href="/contact"
+                className="text-accent underline hover:text-accent/80 transition"
+              >
+                contact me
+              </Link>{' '}
+              to collaborate on your next project.
+            </p>
+            <p>
+              As a Master’s student in Informatics at Ostfalia University, I
+              bring cutting-edge knowledge to every project, ensuring robust,
+              modern solutions.
+            </p>
+          </div>
+        </Section>
+        <ScanServiceSection />
+        <Section id="projects">
+          <h2 className="text-4xl mb-8 text-center">
+            Projects by Fadi Dabboura
+          </h2>
+          <div className="mb-8 p-4 bg-yellow-100 text-yellow-800 rounded-lg text-center">
+            <p className="font-semibold">
+              Real projects coming soon! Discover my expertise in{' '}
+              <strong>DevOps</strong>, <strong>CI/CD pipelines</strong>,{' '}
+              <strong>cloud infrastructure</strong>, and{' '}
+              <strong>web development</strong>. Stay tuned for detailed case
+              studies and live demos.
+            </p>
+          </div>
+          <h2 className="text-4xl mb-8 text-center">
+            Featured Project Preview
+          </h2>
+          <div className="max-w-2xl mx-auto">
+            <FeaturedProjectCard project={featuredProject} />
+          </div>
+          <h2 className="text-4xl mt-12 mb-8 text-center">More Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.slice(1).map((project, index) => (
+              <ProjectCard key={index} project={project} />
+            ))}
+          </div>
+        </Section>
+        <Section id="cta">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
+            Ready to Elevate Your Project?
+          </h2>
+          <div className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center space-y-4">
+            <p>
+              Optimize your website with my{' '}
+              <Link
+                href="/website-scan"
+                className="text-accent underline hover:text-accent/80 transition"
+              >
+                free website scan tool
+              </Link>{' '}
+              to uncover performance issues, SEO gaps, and errors. Get
+              actionable insights to boost your site’s success.
+            </p>
+            <p>
+              Need custom <strong>DevOps</strong> or{' '}
+              <strong>web development</strong> solutions?{' '}
+              <Link
+                href="/contact"
+                className="text-accent underline hover:text-accent/80 transition"
+              >
+                Contact me
+              </Link>{' '}
+              to discuss your needs, from CI/CD pipelines to scalable web
+              applications. Let’s build something extraordinary together!
+            </p>
+          </div>
+        </Section>
+      </div>
     </>
   );
 }

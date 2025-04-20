@@ -54,23 +54,21 @@ export default function Hero() {
         {isImageLoading ? (
           <div className="aspect-[250/350] w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] bg-gray-300 animate-pulse rounded-full"></div>
         ) : (
-          <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
-            <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] h-[210px] sm:h-[280px] md:h-[350px] lg:h-[420px]">
-              <Image
-                src="/images/project1.webp"
-                alt="Fadi Dabboura - DevOps Engineer and Web Developer"
-                width={250}
-                height={350}
-                priority
-                fetchPriority="high"
-                placeholder="blur"
-                blurDataURL="data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoBAAEAAQAcJaACdLoB+AA/an7gAAA="
-                className="rounded-full border-4 border-accent shadow-lg object-cover"
-                sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, (max-width: 1024px) 250px, 300px"
-              />
-              <div className="absolute -top-6 -left-6 w-28 h-28 bg-accent rounded-full opacity-20 z-[-1]"></div>
-              <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent rounded-full opacity-20 z-[-1]"></div>
-            </div>
+          <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] h-[210px] sm:h-[280px] md:h-[350px] lg:h-[420px]">
+            <Image
+              src="/images/project1.webp"
+              alt="Fadi Dabboura - DevOps Engineer and Web Developer"
+              width={250}
+              height={350}
+              priority
+              fetchPriority="high"
+              placeholder="blur"
+              blurDataURL="data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoBAAEAAQAcJaACdLoB+AA/an7gAAA="
+              className="rounded-full border-4 border-accent shadow-lg object-cover"
+              sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, (max-width: 1024px) 250px, 300px"
+            />
+            <div className="absolute -top-6 -left-6 w-28 h-28 bg-accent rounded-full opacity-20 z-[-1]"></div>
+            <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent rounded-full opacity-20 z-[-1]"></div>
           </div>
         )}
       </div>

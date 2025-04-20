@@ -1,71 +1,64 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import '../styles/globals.css';
-import { store } from '../lib/store';
-import { Inter } from 'next/font/google';
-import { DefaultSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
+import { DefaultSeo } from 'next-seo';
+import { Inter } from 'next/font/google';
+import Script from 'next/script';
+import Head from 'next/head';
 
-const inter = Inter({
-  subsets: ['latin'],
-  weights: [400, 700],
-  display: 'swap',
-});
 const Provider = dynamic(
   () => import('react-redux').then((mod) => mod.Provider),
   {
     ssr: false,
   }
 );
+
+import { store } from '../lib/store';
+
+const inter = Inter({
+  subsets: ['latin'],
+  weights: [400, 700],
+  display: 'swap',
+  preload: true,
+});
+
 export default function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
   const [pageKey, setPageKey] = useState(0);
   const router = useRouter();
   const MIN_LOADING_DURATION = 500;
-  const timeoutIdRef = useRef(null);
-  const isMountedRef = useRef(true);
 
   useEffect(() => {
-    isMountedRef.current = true;
-
+    let timeoutId;
     const handleStart = () => {
-      if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
+      if (timeoutId) clearTimeout(timeoutId);
       setLoading(true);
     };
 
     const handleComplete = () => {
       const startTime = Date.now();
-      const elapsed = () => Date.now() - startTime;
-      if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
-      timeoutIdRef.current = setTimeout(
+      timeoutId = setTimeout(
         () => {
-          if (isMountedRef.current) {
-            setLoading(false);
-            setPageKey((prev) => prev + 1);
-          }
+          setLoading(false);
+          setPageKey((prev) => prev + 1);
         },
-        Math.max(0, MIN_LOADING_DURATION - elapsed())
+        Math.max(0, MIN_LOADING_DURATION - (Date.now() - startTime))
       );
     };
 
-    const handleError = () => {
-      if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
-      if (isMountedRef.current) {
-        setLoading(false);
-        setPageKey((prev) => prev + 1);
-      }
-    };
+    const handleError = handleComplete;
 
     router.events.on('routeChangeStart', handleStart);
     router.events.on('routeChangeComplete', handleComplete);
     router.events.on('routeChangeError', handleError);
 
     return () => {
-      isMountedRef.current = false;
       router.events.off('routeChangeStart', handleStart);
       router.events.off('routeChangeComplete', handleComplete);
       router.events.off('routeChangeError', handleError);
+      if (timeoutId) clearTimeout(timeoutId);
     };
   }, [router]);
 
@@ -106,13 +99,21 @@ export default function MyApp({ Component, pageProps }) {
         ]}
       />
 
-      <script
+      <Head>
+        <link
+          rel="preload"
+          href="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
+          as="script"
+        />
+      </Head>
+
+      <Script
         strategy="afterInteractive"
         defer
         src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
+        data-cache="true"
       />
-
-      <script
+      <Script
         id="google-analytics"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
@@ -128,12 +129,12 @@ export default function MyApp({ Component, pageProps }) {
       />
 
       <Layout loading={loading}>
-        <Component
+        <main
           style={{ display: loading ? 'none' : 'block' }}
           className={inter.className}
-          {...pageProps}
-          key={pageKey}
-        />
+        >
+          <Component {...pageProps} key={pageKey} />
+        </main>
       </Layout>
     </Provider>
   );

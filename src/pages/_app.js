@@ -4,7 +4,6 @@ import Layout from '@/components/Layout';
 import '../styles/globals.css';
 import { Provider } from 'react-redux';
 import { store } from '../lib/store';
-import Head from 'next/head';
 import { Inter } from 'next/font/google';
 import { DefaultSeo } from 'next-seo';
 
@@ -102,21 +101,12 @@ export default function MyApp({ Component, pageProps }) {
         ]}
       />
 
-      <Head>
-        <link
-          rel="preload"
-          href="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
-          as="script"
-        />
-      </Head>
-
       <script
         strategy="afterInteractive"
         defer
         src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
-        
       />
-      
+
       <script
         id="google-analytics"
         strategy="afterInteractive"

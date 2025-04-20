@@ -95,21 +95,7 @@ export default function Hero() {
           </p>
           <p className="leading-relaxed">
             As a Master’s student in Informatics at Ostfalia University, I bring
-            expertise in full-stack development and DevOps. Explore my{' '}
-            <Link
-              href="#projects"
-              className="text-accent underline hover:text-accent/80 transition"
-            >
-              portfolio
-            </Link>{' '}
-            or{' '}
-            <Link
-              href="/contact"
-              className="text-accent underline hover:text-accent/80 transition"
-            >
-              contact me
-            </Link>{' '}
-            for collaboration opportunities.
+            expertise in full-stack development and DevOps.
           </p>
         </div>
         <div className="flex justify-center md:justify-start gap-4 mb-6">

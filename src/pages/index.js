@@ -9,7 +9,6 @@ import {
 import Hero from '../components/Hero';
 import Link from 'next/link';
 import Head from 'next/head';
-import WelcomeSection from '@/components/WelcomeSection';
 const ScanServiceSection = dynamic(
   () => import('@/components/ScanServiceSection'),
   {
@@ -26,7 +25,9 @@ const ProjectCard = dynamic(() => import('../components/ProjectCard'), {
   ssr: false,
   loading: () => <SkeletonProjectCard />,
 });
-
+const WelcomeSection = dynamic(() => import('@/components/WelcomeSection'), {
+  ssr: false,
+});
 export default function Home({ projects }) {
   const featuredProject = projects[0];
 

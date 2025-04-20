@@ -8,7 +8,6 @@ const nextConfig = {
   async headers() {
     return [
       {
-        // Cache static assets in /public and .next/static
         source: '/:path*.(jpg|jpeg|png|gif|svg|ico|css|js|woff|woff2|json)',
         headers: [
           {
@@ -18,7 +17,6 @@ const nextConfig = {
         ],
       },
       {
-        // Cache SSG pages for 1 hour
         source: '/:path(|contact|website-scan)',
         headers: [
           {
@@ -29,12 +27,12 @@ const nextConfig = {
       },
     ];
   },
-  webpack(config) {
+  webpack(config, { isServer }) {
     config.optimization.splitChunks = {
       chunks: 'all',
       cacheGroups: {
         vendors: {
-          test: /[\\/]node_modules[\\/]/,
+          test: /[\\/]node_modules[\\/](react|react-dom|framer-motion|react-redux|@reduxjs\/toolkit)/,
           name: 'vendors',
           chunks: 'all',
           priority: -10,
@@ -46,8 +44,21 @@ const nextConfig = {
         },
       },
     };
+
+    config.optimization.usedExports = true;
+
+    if (process.env.ANALYZE === 'true') {
+      config.plugins.push(
+        new withBundleAnalyzer({
+          analyzerMode: 'static',
+          reportFilename: isServer ? '../analyze/server.html' : './analyze/client.html',
+        })
+      );
+    }
+
     return config;
   },
+  target: 'server',
 };
 
 export default nextConfig;

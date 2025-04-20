@@ -1,12 +1,21 @@
 import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import { projects } from '@/data/project';
-import ScanServiceSection from '@/components/ScanServiceSection';
-import { SkeletonProjectCard } from '@/components/skeleton/Skeleton';
+
+import {
+  SkeletonProjectCard,
+  SkeletonScanServiceSection,
+} from '@/components/skeleton/Skeleton';
 import Hero from '../components/Hero';
 import Link from 'next/link';
 import Head from 'next/head';
-
+const ScanServiceSection = dynamic(
+  () => import('@/components/ScanServiceSection'),
+  {
+    ssr: false,
+    loading: () => <SkeletonScanServiceSection />,
+  }
+);
 const Section = dynamic(() => import('../components/Section'), { ssr: true });
 const FeaturedProjectCard = dynamic(() => import('../components/ProjectCard'), {
   ssr: true,

@@ -1,7 +1,6 @@
-// components/Skeleton.jsx
 export function SkeletonProjectCard() {
   return (
-    <div className="bg-gray-800 p-6 rounded-lg shadow-md ">
+    <div className="bg-gray-800 p-6 rounded-lg shadow-md">
       {/* Image placeholder */}
       <div className="w-full h-48 bg-gray-700 rounded-md mb-4"></div>
       {/* Title placeholder */}
@@ -38,6 +37,27 @@ export function SkeletonHero() {
           </div>
           <div className="h-10 w-32 bg-gray-300 animate-pulse mt-6 rounded mx-auto md:mx-0"></div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+export function SkeletonScanServiceSection() {
+  return (
+    <section className="bg-secondary overflow-hidden py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[600px] sm:min-h-[650px]">
+      <div className="relative max-w-4xl mx-auto text-center">
+        {/* Icon placeholder */}
+        <div className="mb-6 flex justify-center items-center h-16 w-16 mx-auto bg-gray-700 rounded-full animate-pulse"></div>
+        {/* Heading placeholder */}
+        <div className="h-10 bg-gray-700 rounded w-3/4 mx-auto mb-4 animate-pulse"></div>
+        {/* Text paragraphs placeholders */}
+        <div className="text-lg space-y-4 mb-8 min-h-[250px] sm:min-h-[300px]">
+          <div className="h-16 bg-gray-700 rounded animate-pulse"></div>
+          <div className="h-16 bg-gray-700 rounded animate-pulse"></div>
+          <div className="h-16 bg-gray-700 rounded animate-pulse"></div>
+        </div>
+        {/* Button placeholder */}
+        <div className="h-12 w-48 bg-gray-700 rounded-lg mx-auto animate-pulse"></div>
       </div>
     </section>
   );

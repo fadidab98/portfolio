@@ -14,7 +14,10 @@ const MotionSection = dynamic(
 );
 
 export default function Hero() {
-  const isMobile = useSelector((state) => state.setting.setting.isMobile);
+  // Fallback for isMobile if Redux store is not yet available
+  const isMobile =
+    useSelector((state) => state?.setting?.setting?.isMobile) ??
+    (typeof window !== 'undefined' && window.innerWidth < 768);
   const [isImageLoading, setIsImageLoading] = useState(true);
 
   useEffect(() => {

@@ -3,8 +3,6 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     optimizeCss: true,
-    // Optional: Enable if using Next.js 14+
-    // optimizeScripts: true,
   },
   async headers() {
     return [
@@ -31,6 +29,7 @@ const nextConfig = {
   webpack(config, { isServer }) {
     config.optimization.splitChunks = {
       chunks: 'all',
+      maxInitialRequests: 25,
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/](react|react-dom|framer-motion|react-redux|@reduxjs\/toolkit)/,
@@ -38,7 +37,8 @@ const nextConfig = {
           chunks: 'all',
           priority: -10,
         },
-        default: {
+        commons: {
+          name: 'commons',
           minChunks: 2,
           priority: -20,
           reuseExistingChunk: true,
@@ -48,7 +48,7 @@ const nextConfig = {
 
     config.optimization.usedExports = true;
 
-    
+
 
     return config;
   },

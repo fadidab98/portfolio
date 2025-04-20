@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic';
 import { DefaultSeo } from 'next-seo';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
+import Head from 'next/head'; // Added for preload
 
 // Dynamically import Redux Provider with ssr: false
 const Provider = dynamic(
@@ -112,14 +113,25 @@ export default function MyApp({ Component, pageProps }) {
         ]}
       />
 
+      {/* Preload GTM script to prioritize fetching */}
+      <Head>
+        <link
+          rel="preload"
+          href="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
+          as="script"
+        />
+      </Head>
+
+      {/* GTM script with defer and afterInteractive strategy */}
       <Script
-        strategy="lazyOnload"
+        strategy="afterInteractive"
+        defer
         src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
         data-cache="true"
       />
       <Script
         id="google-analytics"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

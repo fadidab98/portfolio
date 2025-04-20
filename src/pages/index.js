@@ -97,7 +97,7 @@ export default function Home({ projects }) {
       <NextSeo
         title="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic"
         description="Discover Fadi Dabboura’s portfolio: Expert DevOps, web development, and a free website scan tool to optimize your site’s performance and SEO at FadiLogic."
-        canonical="https://fadilogic.serp24.online/"
+        canonical="https://fadilogic.serp24.online/" // Correct canonical URL
         openGraph={{
           url: 'https://fadilogic.serp24.online/',
           title: 'Fadi Dabboura - Portfolio & Website Scan | FadiLogic',
@@ -125,13 +125,12 @@ export default function Home({ projects }) {
         }}
         additionalMetaTags={[
           {
-            name: 'keywords',
-            content:
-              'fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio, devops engineer, full-stack developer',
-          },
-          {
             name: 'author',
             content: 'Fadi Dabboura',
+          },
+          {
+            name: 'theme-color',
+            content: '#1a202c', // Added theme-color
           },
         ]}
       />

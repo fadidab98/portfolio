@@ -29,7 +29,6 @@ export default function Document() {
           href="/apple-touch-icon.png"
         />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="robots" content="index, follow" />
       </Head>
       <body>
         <Main />

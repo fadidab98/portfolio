@@ -58,6 +58,7 @@ export default function Hero() {
             <Image
               src="/images/project1.webp"
               alt="Fadi Dabboura - DevOps Engineer and Web Developer"
+              title="Fadi Dabboura - DevOps Engineer and Web Developer" // Added title
               width={250}
               height={350}
               priority

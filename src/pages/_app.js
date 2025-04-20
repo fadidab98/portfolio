@@ -76,7 +76,7 @@ export default function MyApp({ Component, pageProps }) {
         titleTemplate="%s | FadiLogic"
         defaultTitle="FadiLogic - DevOps & Web Development"
         description="FadiLogic by Fadi Dabboura: Portfolio, free website scan tool, and expert DevOps and web development services."
-        canonical="https://fadilogic.serp24.online/"
+        canonical="https://fadilogic.serp24.online/" // Correct canonical URL
         openGraph={{
           type: 'website',
           locale: 'en_US',
@@ -104,6 +104,10 @@ export default function MyApp({ Component, pageProps }) {
             name: 'author',
             content: 'Fadi Dabboura',
           },
+          {
+            name: 'theme-color',
+            content: '#1a202c', // Added theme-color
+          },
         ]}
       />
 
@@ -112,7 +116,7 @@ export default function MyApp({ Component, pageProps }) {
         defer
         src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
         data-cache="true"
-      />
+      ></script>
       <script
         id="google-analytics"
         strategy="afterInteractive"
@@ -126,7 +130,7 @@ export default function MyApp({ Component, pageProps }) {
             }, 1000);
           `,
         }}
-      />
+      ></script>
 
       <Layout loading={loading}>
         <Component

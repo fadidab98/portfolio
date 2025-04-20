@@ -16,7 +16,7 @@ const ScanServiceSection = dynamic(
     loading: () => <SkeletonScanServiceSection />,
   }
 );
-const Section = dynamic(() => import('../components/Section'), { ssr: true });
+const Section = dynamic(() => import('../components/Section'), { ssr: false });
 const FeaturedProjectCard = dynamic(() => import('../components/ProjectCard'), {
   ssr: false,
   loading: () => <SkeletonProjectCard />,

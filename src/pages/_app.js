@@ -127,12 +127,12 @@ export default function MyApp({ Component, pageProps }) {
       />
 
       <Layout loading={loading}>
-        <main
+        <Component
           style={{ display: loading ? 'none' : 'block' }}
           className={inter.className}
-        >
-          <Component {...pageProps} key={pageKey} />
-        </main>
+          {...pageProps}
+          key={pageKey}
+        />
       </Layout>
     </Provider>
   );

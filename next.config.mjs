@@ -1,9 +1,10 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
     optimizeCss: true,
+    // Optional: Enable if using Next.js 14+
+    // optimizeScripts: true,
   },
   async headers() {
     return [
@@ -47,14 +48,7 @@ const nextConfig = {
 
     config.optimization.usedExports = true;
 
-    if (process.env.ANALYZE === 'true') {
-      config.plugins.push(
-        new withBundleAnalyzer({
-          analyzerMode: 'static',
-          reportFilename: isServer ? '../analyze/server.html' : './analyze/client.html',
-        })
-      );
-    }
+    
 
     return config;
   },

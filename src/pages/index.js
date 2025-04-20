@@ -90,6 +90,57 @@ export default function Home({ projects }) {
 
   return (
     <>
+      <Head>
+        {/* Fallback meta tags for crawlers */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="description"
+          content="Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic."
+        />
+        <meta
+          property="og:title"
+          content="Fadi Dabboura - Portfolio & Website Scan | FadiLogic"
+        />
+        <meta
+          property="og:description"
+          content="Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise."
+        />
+        <meta
+          property="og:image"
+          content="https://fadilogic.serp24.online/images/FadiLogic.png"
+        />
+        <meta property="og:url" content="https://fadilogic.serp24.online/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="FadiLogic" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic"
+        />
+        <meta
+          name="twitter:description"
+          content="Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise."
+        />
+        <meta
+          name="twitter:image"
+          content="https://fadilogic.serp24.online/images/FadiLogic.png"
+        />
+        <meta name="author" content="Fadi Dabboura" />
+        <meta name="theme-color" content="#1a202c" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+        <link
+          rel="preload"
+          href="/images/project1.webp"
+          as="image"
+          fetchPriority="high"
+        />
+      </Head>
       <NextSeo
         title="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic"
         description="Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic."
@@ -130,35 +181,6 @@ export default function Home({ projects }) {
           },
         ]}
       />
-      <Head>
-        <meta
-          property="og:title"
-          content="Fadi Dabboura - Portfolio & Website Scan | FadiLogic"
-        />
-        <meta
-          property="og:description"
-          content="Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise."
-        />
-        <meta
-          property="og:image"
-          content="https://fadilogic.serp24.online/images/FadiLogic.png"
-        />
-        <meta property="og:url" content="https://fadilogic.serp24.online/" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
-        />
-        <link
-          rel="preload"
-          href="/images/project1.webp"
-          as="image"
-          fetchPriority="high"
-        />
-      </Head>
 
       <Hero />
       <Section id="welcome">
@@ -199,9 +221,16 @@ export default function Home({ projects }) {
           </p>
         </div>
       </Section>
-      <ScanServiceSection />
+      <Section id="website-scan">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
+          Free Website Scan Tool by FadiLogic
+        </h2>
+        <ScanServiceSection />
+      </Section>
       <Section id="projects">
-        <h2 className="text-4xl mb-8 text-center">Projects by Fadi Dabboura</h2>
+        <h2 className="text-4xl mb-8 text-center">
+          DevOps Engineer Portfolio by Fadi Dabboura
+        </h2>
         <div className="mb-8 p-4 bg-yellow-100 text-yellow-800 rounded-lg text-center">
           <p className="font-semibold">
             Real projects coming soon! Discover my expertise in{' '}

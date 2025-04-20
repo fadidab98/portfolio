@@ -71,6 +71,45 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
+      <Head>
+        {/* Fallback meta tags for all pages */}
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="description"
+          content="Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services."
+        />
+        <meta
+          property="og:title"
+          content="FadiLogic - DevOps & Web Development"
+        />
+        <meta
+          property="og:description"
+          content="Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services."
+        />
+        <meta
+          property="og:image"
+          content="https://fadilogic.serp24.online/images/FadiLogic.png"
+        />
+        <meta property="og:url" content="https://fadilogic.serp24.online/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="FadiLogic" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="FadiLogic - DevOps & Web Development"
+        />
+        <meta
+          name="twitter:description"
+          content="Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services."
+        />
+        <meta
+          name="twitter:image"
+          content="https://fadilogic.serp24.online/images/FadiLogic.png"
+        />
+        <meta name="author" content="Fadi Dabboura" />
+        <meta name="theme-color" content="#1a202c" />
+      </Head>
       <DefaultSeo
         titleTemplate="%s | FadiLogic"
         defaultTitle="FadiLogic - DevOps & Web Development"
@@ -103,10 +142,6 @@ export default function MyApp({ Component, pageProps }) {
         }}
         additionalMetaTags={[
           {
-            name: 'viewport',
-            content: 'width=device-width, initial-scale=1.0',
-          },
-          {
             name: 'author',
             content: 'Fadi Dabboura',
           },
@@ -116,23 +151,6 @@ export default function MyApp({ Component, pageProps }) {
           },
         ]}
       />
-      <Head>
-        <meta
-          property="og:title"
-          content="FadiLogic - DevOps & Web Development"
-        />
-        <meta
-          property="og:description"
-          content="Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services."
-        />
-        <meta
-          property="og:image"
-          content="https://fadilogic.serp24.online/images/FadiLogic.png"
-        />
-        <meta property="og:url" content="https://fadilogic.serp24.online/" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
 
       <script
         strategy="afterInteractive"

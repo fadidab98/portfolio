@@ -6,12 +6,11 @@ import { store } from '../lib/store';
 import { Inter } from 'next/font/google';
 import { DefaultSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
 
 const Provider = dynamic(
   () => import('react-redux').then((mod) => mod.Provider),
-  {
-    ssr: false,
-  }
+  { ssr: false }
 );
 const inter = Inter({
   subsets: ['latin'],
@@ -75,13 +74,16 @@ export default function MyApp({ Component, pageProps }) {
       <DefaultSeo
         titleTemplate="%s | FadiLogic"
         defaultTitle="FadiLogic - DevOps & Web Development"
-        description="FadiLogic by Fadi Dabboura: Portfolio, free website scan tool, and expert DevOps and web development services."
-        canonical="https://fadilogic.serp24.online/" // Correct canonical URL
+        description="Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services."
+        canonical="https://fadilogic.serp24.online/"
         openGraph={{
           type: 'website',
           locale: 'en_US',
           url: 'https://fadilogic.serp24.online/',
           siteName: 'FadiLogic',
+          title: 'FadiLogic - DevOps & Web Development',
+          description:
+            'Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services.',
           images: [
             {
               url: 'https://fadilogic.serp24.online/images/FadiLogic.png',
@@ -94,6 +96,10 @@ export default function MyApp({ Component, pageProps }) {
         }}
         twitter={{
           cardType: 'summary_large_image',
+          title: 'FadiLogic - DevOps & Web Development',
+          description:
+            'Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services.',
+          image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
         }}
         additionalMetaTags={[
           {
@@ -106,10 +112,27 @@ export default function MyApp({ Component, pageProps }) {
           },
           {
             name: 'theme-color',
-            content: '#1a202c', // Added theme-color
+            content: '#1a202c',
           },
         ]}
       />
+      <Head>
+        <meta
+          property="og:title"
+          content="FadiLogic - DevOps & Web Development"
+        />
+        <meta
+          property="og:description"
+          content="Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services."
+        />
+        <meta
+          property="og:image"
+          content="https://fadilogic.serp24.online/images/FadiLogic.png"
+        />
+        <meta property="og:url" content="https://fadilogic.serp24.online/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
 
       <script
         strategy="afterInteractive"

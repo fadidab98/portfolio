@@ -1,7 +1,6 @@
 import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import { projects } from '@/data/project';
-
 import {
   SkeletonProjectCard,
   SkeletonScanServiceSection,
@@ -9,12 +8,10 @@ import {
 import Hero from '../components/Hero';
 import Link from 'next/link';
 import Head from 'next/head';
+
 const ScanServiceSection = dynamic(
   () => import('@/components/ScanServiceSection'),
-  {
-    ssr: false,
-    loading: () => <SkeletonScanServiceSection />,
-  }
+  { ssr: false, loading: () => <SkeletonScanServiceSection /> }
 );
 const Section = dynamic(() => import('../components/Section'), { ssr: true });
 const FeaturedProjectCard = dynamic(() => import('../components/ProjectCard'), {
@@ -29,7 +26,6 @@ const ProjectCard = dynamic(() => import('../components/ProjectCard'), {
 export default function Home({ projects }) {
   const featuredProject = projects[0];
 
-  // Structured data prioritizing website
   const structuredData = [
     {
       '@context': 'https://schema.org',
@@ -96,8 +92,8 @@ export default function Home({ projects }) {
     <>
       <NextSeo
         title="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic"
-        description="Discover Fadi Dabboura’s portfolio: Expert DevOps, web development, and a free website scan tool to optimize your site’s performance and SEO at FadiLogic."
-        canonical="https://fadilogic.serp24.online/" // Correct canonical URL
+        description="Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic."
+        canonical="https://fadilogic.serp24.online/"
         openGraph={{
           url: 'https://fadilogic.serp24.online/',
           title: 'Fadi Dabboura - Portfolio & Website Scan | FadiLogic',
@@ -130,12 +126,26 @@ export default function Home({ projects }) {
           },
           {
             name: 'theme-color',
-            content: '#1a202c', // Added theme-color
+            content: '#1a202c',
           },
         ]}
       />
-
       <Head>
+        <meta
+          property="og:title"
+          content="Fadi Dabboura - Portfolio & Website Scan | FadiLogic"
+        />
+        <meta
+          property="og:description"
+          content="Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise."
+        />
+        <meta
+          property="og:image"
+          content="https://fadilogic.serp24.online/images/FadiLogic.png"
+        />
+        <meta property="og:url" content="https://fadilogic.serp24.online/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -150,7 +160,7 @@ export default function Home({ projects }) {
         />
       </Head>
 
-      <div className="">
+      
         <Hero />
         <Section id="welcome">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
@@ -158,11 +168,11 @@ export default function Home({ projects }) {
           </h2>
           <div className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center space-y-4">
             <p>
-              I’m Fadi Dabboura, a dedicated <strong>DevOps Engineer</strong>{' '}
-              and <strong>Web Developer</strong> with a passion for building
+              I’m Fadi Dabboura, a dedicated <strong>DevOps Engineer</strong> and{' '}
+              <strong>Web Developer</strong> with a passion for building
               high-performance, scalable web solutions. My expertise spans CI/CD
-              pipelines, cloud infrastructure, full-stack development, and
-              website optimization.
+              pipelines, cloud infrastructure, full-stack development, and website
+              optimization.
             </p>
             <p>
               Explore my portfolio to see projects showcasing my skills in{' '}
@@ -184,9 +194,9 @@ export default function Home({ projects }) {
               to collaborate on your next project.
             </p>
             <p>
-              As a Master’s student in Informatics at Ostfalia University, I
-              bring cutting-edge knowledge to every project, ensuring robust,
-              modern solutions.
+              As a Master’s student in Informatics at Ostfalia University, I bring
+              cutting-edge knowledge to every project, ensuring robust, modern
+              solutions.
             </p>
           </div>
         </Section>
@@ -230,8 +240,8 @@ export default function Home({ projects }) {
               >
                 free website scan tool
               </Link>{' '}
-              to uncover performance issues, SEO gaps, and errors. Get
-              actionable insights to boost your site’s success.
+              to uncover performance issues, SEO gaps, and errors. Get actionable
+              insights to boost your site’s success.
             </p>
             <p>
               Need custom <strong>DevOps</strong> or{' '}
@@ -247,7 +257,7 @@ export default function Home({ projects }) {
             </p>
           </div>
         </Section>
-      </div>
+      
     </>
   );
 }

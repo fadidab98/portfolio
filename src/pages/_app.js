@@ -2,17 +2,22 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import '../styles/globals.css';
-import { Provider } from 'react-redux';
 import { store } from '../lib/store';
 import { Inter } from 'next/font/google';
 import { DefaultSeo } from 'next-seo';
+import dynamic from 'next/dynamic';
 
 const inter = Inter({
   subsets: ['latin'],
   weights: [400, 700],
   display: 'swap',
 });
-
+const Provider = dynamic(
+  () => import('react-redux').then((mod) => mod.Provider),
+  {
+    ssr: false,
+  }
+);
 export default function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
   const [pageKey, setPageKey] = useState(0);

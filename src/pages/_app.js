@@ -1,27 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '@/components/Layout';
 import '../styles/globals.css';
-import dynamic from 'next/dynamic';
-import { DefaultSeo } from 'next-seo';
-import { Inter } from 'next/font/google';
-import Script from 'next/script';
-import Head from 'next/head';
-
-const Provider = dynamic(
-  () => import('react-redux').then((mod) => mod.Provider),
-  {
-    ssr: false,
-  }
-);
-
+import { Provider } from 'react-redux';
 import { store } from '../lib/store';
+import Head from 'next/head';
+import { Inter } from 'next/font/google';
+import { DefaultSeo } from 'next-seo';
 
 const inter = Inter({
   subsets: ['latin'],
   weights: [400, 700],
   display: 'swap',
-  preload: true,
 });
 
 export default function MyApp({ Component, pageProps }) {
@@ -29,36 +19,49 @@ export default function MyApp({ Component, pageProps }) {
   const [pageKey, setPageKey] = useState(0);
   const router = useRouter();
   const MIN_LOADING_DURATION = 500;
+  const timeoutIdRef = useRef(null);
+  const isMountedRef = useRef(true);
 
   useEffect(() => {
-    let timeoutId;
+    isMountedRef.current = true;
+
     const handleStart = () => {
-      if (timeoutId) clearTimeout(timeoutId);
+      if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
       setLoading(true);
     };
 
     const handleComplete = () => {
       const startTime = Date.now();
-      timeoutId = setTimeout(
+      const elapsed = () => Date.now() - startTime;
+      if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
+      timeoutIdRef.current = setTimeout(
         () => {
-          setLoading(false);
-          setPageKey((prev) => prev + 1);
+          if (isMountedRef.current) {
+            setLoading(false);
+            setPageKey((prev) => prev + 1);
+          }
         },
-        Math.max(0, MIN_LOADING_DURATION - (Date.now() - startTime))
+        Math.max(0, MIN_LOADING_DURATION - elapsed())
       );
     };
 
-    const handleError = handleComplete;
+    const handleError = () => {
+      if (timeoutIdRef.current) clearTimeout(timeoutIdRef.current);
+      if (isMountedRef.current) {
+        setLoading(false);
+        setPageKey((prev) => prev + 1);
+      }
+    };
 
     router.events.on('routeChangeStart', handleStart);
     router.events.on('routeChangeComplete', handleComplete);
     router.events.on('routeChangeError', handleError);
 
     return () => {
+      isMountedRef.current = false;
       router.events.off('routeChangeStart', handleStart);
       router.events.off('routeChangeComplete', handleComplete);
       router.events.off('routeChangeError', handleError);
-      if (timeoutId) clearTimeout(timeoutId);
     };
   }, [router]);
 
@@ -107,24 +110,19 @@ export default function MyApp({ Component, pageProps }) {
         />
       </Head>
 
-      <Script
-        strategy="afterInteractive"
+      <script
+        async
         defer
         src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
-        data-cache="true"
-      />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
+      ></script>
+      <script
         dangerouslySetInnerHTML={{
           __html: `
-            setTimeout(() => {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-FZDKPTV5X5');
-            }, 1000);
-          `,
+            `,
         }}
       />
 

@@ -2,20 +2,12 @@ import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import { projects } from '@/data/project';
 
-import {
-  SkeletonProjectCard,
-  SkeletonScanServiceSection,
-} from '@/components/skeleton/Skeleton';
+import { SkeletonProjectCard } from '@/components/skeleton/Skeleton';
 import Hero from '../components/Hero';
 import Link from 'next/link';
 import Head from 'next/head';
-const ScanServiceSection = dynamic(
-  () => import('@/components/ScanServiceSection'),
-  {
-    ssr: false,
-    loading: () => <SkeletonScanServiceSection />,
-  }
-);
+import ScanServiceSection from '@/components/ScanServiceSection';
+
 const Section = dynamic(() => import('../components/Section'), { ssr: true });
 const FeaturedProjectCard = dynamic(() => import('../components/ProjectCard'), {
   ssr: true,
@@ -151,7 +143,7 @@ export default function Home({ projects }) {
         />
       </Head>
 
-      <div className="">
+      <>
         <Hero />
         <Section id="welcome">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
@@ -248,7 +240,7 @@ export default function Home({ projects }) {
             </p>
           </div>
         </Section>
-      </div>
+      </>
     </>
   );
 }

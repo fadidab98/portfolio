@@ -4,7 +4,6 @@ import Layout from '@/components/Layout';
 import '../styles/globals.css';
 import { store } from '../lib/store';
 import { Inter } from 'next/font/google';
-import Script from 'next/script';
 import { DefaultSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 
@@ -108,13 +107,13 @@ export default function MyApp({ Component, pageProps }) {
         ]}
       />
 
-      <Script
+      <script
         strategy="afterInteractive"
         defer
         src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
         data-cache="true"
       />
-      <Script
+      <script
         id="google-analytics"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{

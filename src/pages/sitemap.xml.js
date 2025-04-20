@@ -2,9 +2,19 @@ function generateSitemap() {
   const baseUrl = 'https://fadilogic.serp24.online';
   const lastModified = new Date().toISOString(); // Use the current date dynamically
   const pages = [
-    { url: '/', lastmod: lastModified, priority: '1.0' },
-    { url: '/website-scan', lastmod: lastModified, priority: '1.0' },
-    { url: '/contact', lastmod: lastModified, priority: '0.8' },
+    { url: '/', lastmod: lastModified, priority: '1.0', changefreq: 'monthly' },
+    {
+      url: '/website-scan',
+      lastmod: lastModified,
+      priority: '1.0',
+      changefreq: 'monthly',
+    },
+    {
+      url: '/contact',
+      lastmod: lastModified,
+      priority: '0.8',
+      changefreq: 'weekly',
+    },
   ];
 
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -15,7 +25,7 @@ function generateSitemap() {
             <url>
               <loc>${baseUrl}${page.url}</loc>
               <lastmod>${page.lastmod}</lastmod>
-              <changefreq>weekly</changefreq>
+              <changefreq>${page.changefreq}</changefreq>
               <priority>${page.priority}</priority>
             </url>
           `

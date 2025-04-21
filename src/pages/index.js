@@ -8,53 +8,6 @@ import Hero from '../components/Hero';
 import Link from 'next/link';
 import Head from 'next/head';
 
-/** @type {import("next").Metadata} */
-export const metadata = {
-  title: 'Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic',
-  description:
-    'Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic.',
-  metadataBase: new URL('https://fadilogic.serp24.online'),
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    title: 'Fadi Dabboura - Portfolio & Website Scan | FadiLogic',
-    description:
-      'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
-    url: 'https://fadilogic.serp24.online/',
-    siteName: 'FadiLogic',
-    images: [
-      {
-        url: '/images/FadiLogic.png',
-        width: 1200,
-        height: 630,
-        alt: 'Fadi Dabboura Website Scan and Portfolio',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic',
-    description:
-      'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
-    images: ['/images/FadiLogic.png'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-  },
-  manifest: '/manifest.json',
-  authors: [{ name: 'Fadi Dabboura' }],
-  themeColor: '#1a202c',
-};
-
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -137,6 +90,77 @@ export default function Home({ projects }) {
   return (
     <>
       <Head>
+        <title>
+          Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic
+        </title>
+        <meta
+          name="description"
+          content="Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic."
+        />
+        <meta name="author" content="Fadi Dabboura" />
+        <meta name="theme-color" content="#1a202c" />
+        <meta name="robots" content="index, follow" />
+        <meta
+          property="og:title"
+          content="Fadi Dabboura - Portfolio & Website Scan | FadiLogic"
+        />
+        <meta
+          property="og:description"
+          content="Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise."
+        />
+        <meta
+          property="og:image"
+          content="https://fadilogic.serp24.online/images/FadiLogic.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="Fadi Dabboura Website Scan and Portfolio"
+        />
+        <meta property="og:url" content="https://fadilogic.serp24.online/" />
+        <meta property="og:site_name" content="FadiLogic" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic"
+        />
+        <meta
+          name="twitter:description"
+          content="Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise."
+        />
+        <meta
+          name="twitter:image"
+          content="https://fadilogic.serp24.online/images/FadiLogic.png"
+        />
+        <link rel="canonical" href="https://fadilogic.serp24.online/" />
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="64x64"
+          href="/favicon-64x64.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/manifest.json" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

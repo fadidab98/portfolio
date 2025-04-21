@@ -26,7 +26,7 @@ const nextConfig = {
       },
     ];
   },
-  webpack(config, { isServer }) {
+  webpack(config) {
     config.optimization.splitChunks = {
       chunks: 'all',
       maxInitialRequests: 25,

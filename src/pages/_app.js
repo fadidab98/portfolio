@@ -5,7 +5,6 @@ import '../styles/globals.css';
 import { store } from '../lib/store';
 import { Inter } from 'next/font/google';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
 
 const Provider = dynamic(
   () => import('react-redux').then((mod) => mod.Provider),
@@ -70,49 +69,6 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <Head>
-        <title>FadiLogic - DevOps & Web Development</title>
-        <meta
-          name="description"
-          content="Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services."
-        />
-        <meta name="author" content="Fadi Dabboura" />
-        <meta name="theme-color" content="#1a202c" />
-        <meta name="robots" content="index, follow" />
-        <meta
-          property="og:title"
-          content="FadiLogic - DevOps & Web Development"
-        />
-        <meta
-          property="og:description"
-          content="Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services."
-        />
-        <meta
-          property="og:image"
-          content="https://fadilogic.serp24.online/images/FadiLogic.png"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="FadiLogic by Fadi Dabboura" />
-        <meta property="og:url" content="https://fadilogic.serp24.online/" />
-        <meta property="og:site_name" content="FadiLogic" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="FadiLogic - DevOps & Web Development"
-        />
-        <meta
-          name="twitter:description"
-          content="Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services."
-        />
-        <meta
-          name="twitter:image"
-          content="https://fadilogic.serp24.online/images/FadiLogic.png"
-        />
-        <link rel="canonical" href="https://fadilogic.serp24.online/" />
-      </Head>
       <script
         strategy="afterInteractive"
         defer

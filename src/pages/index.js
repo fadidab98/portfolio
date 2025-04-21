@@ -1,4 +1,3 @@
-import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import { projects } from '@/data/project';
 import {
@@ -26,118 +25,57 @@ const ProjectCard = dynamic(() => import('../components/ProjectCard'), {
 export default function Home({ projects }) {
   const featuredProject = projects[0];
 
-  const structuredData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: 'Fadi Dabboura',
-      url: 'https://fadilogic.serp24.online',
-      jobTitle: 'DevOps Engineer & Web Developer',
-      sameAs: [
-        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-        'https://github.com/fadidab98',
-        'https://www.facebook.com/fadi.dabboura.73',
-        'https://www.instagram.com/dabbourafadi',
-      ],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'FadiLogic',
-      url: 'https://fadilogic.serp24.online',
-      sameAs: [
-        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-        'https://github.com/fadidab98',
-        'https://www.facebook.com/fadi.dabboura.73',
-        'https://www.instagram.com/dabbourafadi',
-      ],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebSite',
-      url: 'https://fadilogic.serp24.online',
-      name: 'FadiLogic',
-      potentialAction: [
-        {
-          '@type': 'SearchAction',
-          target: {
-            '@type': 'EntryPoint',
-            urlTemplate: 'https://fadilogic.serp24.online/website-scan',
-          },
-          'query-input': {
-            '@type': 'PropertyValueSpecification',
-            valueRequired: true,
-            valueName: 'website_url',
-          },
-          description:
-            'Scan your website for performance and errors using FadiLogic’s free website scan tool.',
-        },
-      ],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Home',
-          item: 'https://fadilogic.serp24.online',
-        },
-      ],
-    },
-  ];
-
   return (
     <>
-      <NextSeo
-        title="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic"
-        description="Discover Fadi Dabboura’s portfolio: Expert DevOps, web development, and a free website scan tool to optimize your site’s performance and SEO at FadiLogic."
-        canonical="https://fadilogic.serp24.online/"
-        openGraph={{
-          url: 'https://fadilogic.serp24.online/',
-          title: 'Fadi Dabboura - Portfolio & Website Scan | FadiLogic',
-          description:
-            'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
-          images: [
-            {
-              url: 'https://fadilogic.serp24.online/images/FadiLogic.png',
-              width: 1200,
-              height: 630,
-              alt: 'Fadi Dabboura Website Scan and Portfolio',
-              type: 'image/png',
-            },
-          ],
-          siteName: 'FadiLogic',
-          locale: 'en_US',
-          type: 'website',
-        }}
-        twitter={{
-          cardType: 'summary_large_image',
-          title: 'Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic',
-          description:
-            'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
-          image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
-        }}
-        additionalMetaTags={[
-          {
-            name: 'keywords',
-            content:
-              'fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio, devops engineer, full-stack developer',
-          },
-          {
-            name: 'author',
-            content: 'Fadi Dabboura',
-          },
-        ]}
-      />
-
       <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
+        <title>
+          Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic
+        </title>
+        <meta
+          name="description"
+          content="Discover Fadi Dabboura’s portfolio: Expert DevOps, web development, and a free website scan tool to optimize your site at FadiLogic."
+        />
+        <meta
+          name="keywords"
+          content="fadi, dabboura, fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio"
+        />
+        <meta name="author" content="Fadi Dabboura" />
+        <link rel="canonical" href="https://fadilogic.serp24.online/" />
+        <meta
+          property="og:title"
+          content="Fadi Dabboura - Portfolio & Website Scan | FadiLogic"
+        />
+        <meta
+          property="og:description"
+          content="Check out Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps and web projects!"
+        />
+        <meta property="og:url" content="https://fadilogic.serp24.online/" />
+        <meta
+          property="og:image"
+          content="https://fadilogic.serp24.online/images/FadiLogic.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="Fadi Dabboura Website Scan and Portfolio"
+        />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="FadiLogic" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic"
+        />
+        <meta
+          name="twitter:description"
+          content="Check out Fadi Dabboura’s FadiLogic: Free webscan tool and portfolio of DevOps and web projects!"
+        />
+        <meta
+          name="twitter:image"
+          content="https://fadilogic.serp24.online/images/FadiLogic.png"
         />
         <link
           rel="preload"
@@ -145,11 +83,89 @@ export default function Home({ projects }) {
           as="image"
           fetchPriority="high"
         />
-
-        <link
-          rel="preload"
-          href="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
-          as="script"
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                '@context': 'https://schema.org',
+                '@type': 'Person',
+                name: 'Fadi Dabboura',
+                url: 'https://fadilogic.serp24.online',
+                sameAs: [
+                  'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+                  'https://www.instagram.com/dabbourafadi',
+                  'https://www.facebook.com/fadi.dabboura.73',
+                ],
+                jobTitle: 'DevOps Engineer & Web Developer',
+                brand: { '@type': 'Brand', name: 'FadiLogic' },
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  {
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Home',
+                    item: 'https://fadilogic.serp24.online',
+                  },
+                ],
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'Organization',
+                name: 'FadiLogic',
+                url: 'https://fadilogic.serp24.online',
+                sameAs: [
+                  'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+                  'https://www.instagram.com/dabbourafadi',
+                  'https://www.facebook.com/fadi.dabboura.73',
+                ],
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                url: 'https://fadilogic.serp24.online',
+                name: 'FadiLogic',
+                potentialAction: [
+                  {
+                    '@type': 'SearchAction',
+                    target: {
+                      '@type': 'EntryPoint',
+                      urlTemplate:
+                        'https://fadilogic.serp24.online/website-scan',
+                    },
+                    'query-input': {
+                      '@type': 'PropertyValueSpecification',
+                      valueRequired: true,
+                      valueName: 'website_url',
+                    },
+                    description:
+                      'Scan your website for performance and errors using FadiLogic’s free website scan tool.',
+                  },
+                ],
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'ContactPage',
+                name: 'Contact Fadi Dabboura',
+                url: 'https://fadilogic.serp24.online/contact',
+                description:
+                  'Contact with Fadi Dabboura for DevOps and web development inquiries.',
+                mainEntity: {
+                  '@type': 'Person',
+                  name: 'Fadi Dabboura',
+                  email: 'mailto:fadi@serp24.online',
+                  sameAs: [
+                    'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+                    'https://www.facebook.com/fadi.dabboura.73',
+                    'https://github.com/fadidab98',
+                  ],
+                },
+              },
+            ]),
+          }}
         />
       </Head>
 

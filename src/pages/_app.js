@@ -4,9 +4,9 @@ import Layout from '@/components/Layout';
 import '../styles/globals.css';
 import { store } from '../lib/store';
 import { Inter } from 'next/font/google';
-import { DefaultSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import Script from 'next/script';
+import Head from 'next/head';
 
 const Provider = dynamic(
   () => import('react-redux').then((mod) => mod.Provider),
@@ -71,62 +71,24 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <DefaultSeo
-        titleTemplate="%s | FadiLogic"
-        defaultTitle="FadiLogic - DevOps & Web Development"
-        description="FadiLogic by Fadi Dabboura: Portfolio, free website scan tool, and expert DevOps and web development services."
-        canonical="https://fadilogic.serp24.online/"
-        openGraph={{
-          type: 'website',
-          locale: 'en_US',
-          url: 'https://fadilogic.serp24.online/',
-          siteName: 'FadiLogic',
-          images: [
-            {
-              url: 'https://fadilogic.serp24.online/images/FadiLogic.png',
-              width: 1200,
-              height: 630,
-              alt: 'FadiLogic by Fadi Dabboura',
-              type: 'image/png',
-            },
-          ],
-        }}
-        twitter={{
-          cardType: 'summary_large_image',
-        }}
-        additionalMetaTags={[
-          {
-            name: 'viewport',
-            content: 'width=device-width, initial-scale=1.0',
-          },
-          {
-            name: 'author',
-            content: 'Fadi Dabboura',
-          },
-        ]}
-      />
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <Script
-        strategy="afterInteractive"
-        defer
-        src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
-        data-cache="true"
-      />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            setTimeout(() => {
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-FZDKPTV5X5');
-            }, 1000);
-          `,
-        }}
-      />
-
+            `,
+          }}
+        />
+      </Head>
       <Layout loading={loading}>
         <Component
           style={{ display: loading ? 'none' : 'block' }}

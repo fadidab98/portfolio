@@ -1,3 +1,5 @@
+'use client';
+
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
@@ -5,16 +7,13 @@ import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-// Dynamically import Framer Motion's motion component with ssr: false
+// Dynamically import Framer Motion's motion component
 const MotionSection = dynamic(
   () => import('framer-motion').then((mod) => mod.motion.section),
-  {
-    ssr: false,
-  }
+  { ssr: false }
 );
 
 export default function Hero() {
-  // Fallback for isMobile if Redux store is not yet available
   const isMobile =
     useSelector((state) => state?.setting?.setting?.isMobile) ??
     (typeof window !== 'undefined' && window.innerWidth < 768);
@@ -51,27 +50,27 @@ export default function Hero() {
   const heroContent = (
     <div className="flex flex-col md:flex-row items-center justify-between gap-8 min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
       <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
-        {isImageLoading ? (
-          <div className="aspect-[250/350] w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] bg-gray-300 animate-pulse rounded-full"></div>
-        ) : (
-          <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] h-[210px] sm:h-[280px] md:h-[350px] lg:h-[420px]">
+        <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] aspect-[5/7]">
+          {isImageLoading ? (
+            <div className="w-full min-h-[210px] sm:min-h-[280px] md:min-h-[350px] lg:min-h-[420px] bg-gray-300 animate-pulse rounded-full" />
+          ) : (
             <Image
               src="/images/project1.webp"
               alt="Fadi Dabboura - DevOps Engineer and Web Developer"
-              title="Fadi Dabboura - DevOps Engineer and Web Developer" // Added title
-              width={250}
-              height={350}
+              title="Fadi Dabboura - DevOps Engineer and Web Developer"
+              width={300}
+              height={420}
               priority
               fetchPriority="high"
               placeholder="blur"
               blurDataURL="data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoBAAEAAQAcJaACdLoB+AA/an7gAAA="
-              className="rounded-full border-4 border-accent shadow-lg object-cover"
+              className="w-full h-full object-cover rounded-full border-4 border-accent shadow-lg"
               sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, (max-width: 1024px) 250px, 300px"
             />
-            <div className="absolute -top-6 -left-6 w-28 h-28 bg-accent rounded-full opacity-20 z-[-1]"></div>
-            <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent rounded-full opacity-20 z-[-1]"></div>
-          </div>
-        )}
+          )}
+          <div className="absolute -top-6 -left-6 w-28 h-28 bg-accent rounded-full opacity-20 z-[-1]"></div>
+          <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent rounded-full opacity-20 z-[-1]"></div>
+        </div>
       </div>
       <div className="w-full md:w-1/2 text-center md:text-left">
         <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4">Fadi Dabboura</h1>

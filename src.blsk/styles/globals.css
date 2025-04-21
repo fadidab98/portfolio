@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* styles/globals.css */
+a {
+  text-decoration: none !important;
+  border: none !important;
+}
+
+a:hover,
+a:focus,
+a:active {
+  border: none !important;
+}

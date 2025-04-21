@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSubmitContactFormMutation } from '@/lib/contactApi';
+import { useSubmitContactFormMutation } from '../lib/contactApi';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({

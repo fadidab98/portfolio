@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic';
-import WebsitescanText from '@/components/WebsitescanText';
+import WebsitescanText from '../components/WebsitescanText';
 import Link from 'next/link';
-import Section from '@/components/Section';
+import Section from '../components/Section';
 import Head from 'next/head';
-import { createMetaConfig } from '@/lib/metaConfig';
+import { createMetaConfig } from '../lib/metaConfig';
 
 const WebsiteScanForm = dynamic(() => import('../components/WebsiteScanForm'), {
   ssr: false,

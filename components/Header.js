@@ -1,13 +1,20 @@
+'use client';
+
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
+  const pathname = usePathname();
 
-  const isActive = (path) => router.asPath === path;
+  const isActive = (path) => {
+    // Handle hash links (e.g., /#about) by checking the base path
+    const basePath = path.split('#')[0] || '/';
+    const currentBasePath = pathname.split('#')[0] || '/';
+    return basePath === currentBasePath;
+  };
 
   useEffect(() => {
     if (isOpen) {

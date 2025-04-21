@@ -1,3 +1,4 @@
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -7,20 +8,12 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/:path*.(jpg|jpeg|png|gif|svg|ico|css|js|woff|woff2|json)',
+        // Match static assets in /public and .next/static
+        source: '/:path*.(jpg|jpeg|png|gif|svg|ico|css|js|woff|woff2)',
         headers: [
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        source: '/:path(|contact|website-scan)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=60, must-revalidate', // Reduced to 60 seconds for testing
           },
         ],
       },
@@ -29,28 +22,22 @@ const nextConfig = {
   webpack(config) {
     config.optimization.splitChunks = {
       chunks: 'all',
-      maxInitialRequests: 25,
       cacheGroups: {
         vendors: {
-          test: /[\\/]node_modules[\\/](react|react-dom|framer-motion|react-redux|@reduxjs\/toolkit)/,
+          test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all',
           priority: -10,
         },
-        commons: {
-          name: 'commons',
+        default: {
           minChunks: 2,
           priority: -20,
           reuseExistingChunk: true,
         },
       },
     };
-
-    config.optimization.usedExports = true;
-
     return config;
   },
-  target: 'server',
 };
 
 export default nextConfig;

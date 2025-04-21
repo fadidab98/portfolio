@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
-import Layout from '@/components/Layout';
+import Layout from '../components/Layout';
 import '../styles/globals.css';
 import { store } from '../lib/store';
 import { Inter } from 'next/font/google';
@@ -69,26 +69,6 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <script
-        strategy="afterInteractive"
-        defer
-        src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
-        data-cache="true"
-      ></script>
-      <script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            setTimeout(() => {
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-FZDKPTV5X5');
-            }, 1000);
-          `,
-        }}
-      ></script>
       <Layout loading={loading}>
         <Component
           style={{ display: loading ? 'none' : 'block' }}

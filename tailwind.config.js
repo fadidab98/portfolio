@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx}', // Scans pages for Tailwind classes
-    './src/**/*.{js,ts,jsx,tsx}', // Scans all files in src (e.g., components, styles)
-  ],
+  content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -38,4 +35,11 @@ module.exports = {
       });
     },
   ],
+  purge: {
+    enabled: process.env.NODE_ENV === 'production',
+    content: [
+      './app/**/*.{js,jsx,ts,tsx}',
+      './components/**/*.{js,jsx,ts,tsx}',
+    ],
+  },
 };

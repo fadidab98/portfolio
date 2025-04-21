@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
-import Section from '@/components/Section';
-import ContactText from '@/components/contact/ContactText';
+import Section from '../components/Section';
+import ContactText from '../components/contact/ContactText';
 import Head from 'next/head';
-import { createMetaConfig } from '@/lib/metaConfig';
+import { createMetaConfig } from '../lib/metaConfig';
 
 const ContactForm = dynamic(() => import('../components/ContactForm'), {
   ssr: false,

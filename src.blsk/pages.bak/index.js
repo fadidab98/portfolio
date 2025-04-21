@@ -1,16 +1,16 @@
 import dynamic from 'next/dynamic';
-import { projects } from '@/data/project';
+import { projects } from '../data/project';
 import {
   SkeletonProjectCard,
   SkeletonScanServiceSection,
-} from '@/components/skeleton/Skeleton';
+} from '../components/skeleton/Skeleton';
 import Hero from '../components/Hero';
 import Link from 'next/link';
 import Head from 'next/head';
-import { createMetaConfig } from '@/lib/metaConfig';
+import { createMetaConfig } from '../lib/metaConfig';
 
 const ScanServiceSection = dynamic(
-  () => import('@/components/ScanServiceSection'),
+  () => import('../components/ScanServiceSection'),
   { ssr: false, loading: () => <SkeletonScanServiceSection /> }
 );
 const Section = dynamic(() => import('../components/Section'), { ssr: true });

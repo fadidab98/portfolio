@@ -5,6 +5,16 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
   },
+  async redirects() {
+    return [];
+  },
+  async rewrites() {
+    return [];
+  },
+  // Optional: Ensure the sitemap is generated during build
+  generateBuildId: async () => {
+    return 'build-id';
+  },
   async headers() {
     return [
       {

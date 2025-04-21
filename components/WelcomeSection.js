@@ -1,9 +1,24 @@
 import Link from 'next/link';
 import Section from './Section';
 
-function WelcomeSection() {
+export function SkeletonWelcomeSection() {
   return (
-    <Section id="welcome">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px]">
+      <div className="text-center">
+        <div className="h-10 bg-gray-700 rounded w-1/2 mx-auto mb-6 animate-pulse"></div>
+        <div className="text-lg space-y-4 min-h-[200px]">
+          <div className="h-16 bg-gray-700 rounded animate-pulse"></div>
+          <div className="h-16 bg-gray-700 rounded animate-pulse"></div>
+          <div className="h-16 bg-gray-700 rounded animate-pulse"></div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default function WelcomeSection() {
+  return (
+    <Section id="welcome" className="min-h-[400px]">
       <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
         Welcome to <span className="text-accent">FadiLogic</span>
       </h2>
@@ -43,5 +58,3 @@ function WelcomeSection() {
     </Section>
   );
 }
-
-export default WelcomeSection;

@@ -63,10 +63,6 @@ export const metadata = {
     images: ['https://fadilogic.serp24.online/images/FadiLogic.png'],
   },
   robots: 'index, follow',
-  other: {
-    'theme-color': '#1a202c',
-    'script:application/ld+json': JSON.stringify(globalStructuredData),
-  },
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -79,15 +75,43 @@ export const metadata = {
   manifest: '/manifest.json',
 };
 
+// Inline critical CSS (example, adjust as needed)
+const criticalCSS = `
+  body {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .relative {
+    position: relative;
+  }
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .text-accent {
+    color: #facc15; /* Replace with your accent color */
+  }
+`;
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
       <head>
+        {/* Inline critical CSS */}
+        <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
+        {/* Preload critical image */}
         <link
           rel="preload"
           href="/images/project1.webp"
           as="image"
           fetchPriority="high"
+        />
+        {/* Structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(globalStructuredData),
+          }}
         />
       </head>
       <body>

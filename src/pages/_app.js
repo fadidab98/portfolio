@@ -6,7 +6,7 @@ import { store } from '../lib/store';
 import { Inter } from 'next/font/google';
 import { DefaultSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
+import Script from 'next/script';
 
 const Provider = dynamic(
   () => import('react-redux').then((mod) => mod.Provider),
@@ -105,14 +105,6 @@ export default function MyApp({ Component, pageProps }) {
           },
         ]}
       />
-
-      <Head>
-        <link
-          rel="preload"
-          href="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
-          as="script"
-        />
-      </Head>
 
       <Script
         strategy="afterInteractive"

@@ -6,7 +6,6 @@ import { store } from '../lib/store';
 import { Inter } from 'next/font/google';
 import dynamic from 'next/dynamic';
 import Script from 'next/script';
-import Head from 'next/head';
 
 const Provider = dynamic(
   () => import('react-redux').then((mod) => mod.Provider),
@@ -71,24 +70,20 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-FZDKPTV5X5');
             `,
-          }}
-        />
-      </Head>
+        }}
+      />
       <Layout loading={loading}>
         <Component
           style={{ display: loading ? 'none' : 'block' }}

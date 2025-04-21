@@ -89,7 +89,6 @@ export default function MyApp({ Component, pageProps }) {
           `,
         }}
       ></script>
-
       <Layout loading={loading}>
         <Component
           style={{ display: loading ? 'none' : 'block' }}

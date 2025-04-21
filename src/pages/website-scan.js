@@ -3,121 +3,107 @@ import WebsitescanText from '@/components/WebsitescanText';
 import Link from 'next/link';
 import Section from '@/components/Section';
 import Head from 'next/head';
+import { createMetaConfig } from '@/lib/metaConfig';
 
 const WebsiteScanForm = dynamic(() => import('../components/WebsiteScanForm'), {
   ssr: false,
 });
 
-export default function Webscan() {
-  // Structured data prioritizing website with enhanced SoftwareApplication schema
+// Page-specific JSON-LD
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'FadiLogic Website Scan Tool',
+    description: 'A free tool to analyze website performance and errors.',
+    url: 'https://fadilogic.serp24.online/website-scan',
+    author: {
+      '@type': 'Person',
+      name: 'Fadi Dabboura',
+      sameAs: [
+        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+        'https://www.facebook.com/fadi.dabboura.73',
+        'https://github.com/fadidab98',
+      ],
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://fadilogic.serp24.online',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Website Scan Tool',
+        item: 'https://fadilogic.serp24.online/website-scan',
+      },
+    ],
+  },
+];
 
+// Meta tags configuration using createMetaConfig
+const metaConfig = createMetaConfig({
+  title: 'Fadi Dabboura Website Scan Tool | FadiLogic',
+  description:
+    'Use Fadi Dabboura’s free website scan tool to analyze your site’s performance, speed, and errors. Optimize your web development today!',
+  keywords:
+    'fadi dabboura, website scan tool, free webscan, website performance tool, web development, devops, site speed test, website error checker',
+  canonical: 'https://fadilogic.serp24.online/website-scan',
+  og: {
+    title: 'Fadi Dabboura - Website Scan Tool | FadiLogic',
+    description:
+      'Fadi Dabboura’s FadiLogic: Free webscan tool to check website performance and errors.',
+    image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
+    imageWidth: '1200',
+    imageHeight: '630',
+    imageAlt: 'Fadi Dabboura Website Scan Tool',
+    imageType: 'image/png',
+    url: 'https://fadilogic.serp24.online/website-scan',
+  },
+  twitter: {
+    title: 'Fadi Dabboura Website Scan Tool | FadiLogic',
+    description:
+      'Use Fadi Dabboura’s free website scan tool to analyze your site’s performance and errors.',
+    image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
+  },
+});
+
+export default function Webscan() {
   return (
     <>
       <Head>
-        <title>Fadi Dabboura Website Scan Tool | FadiLogic</title>
-        <meta
-          name="description"
-          content="Use Fadi Dabboura’s free website scan tool to analyze your site’s performance, speed, and errors. Optimize your web development today!"
-        />
-        <meta
-          name="keywords"
-          content="fadi dabboura, website scan tool, free webscan, website performance tool, web development, devops, site speed test, website error checker"
-        />
-        <meta name="author" content="Fadi Dabboura" />
-        <link
-          rel="canonical"
-          href="https://fadilogic.serp24.online/website-scan"
-        />
-        <meta
-          property="og:title"
-          content="Fadi Dabboura - Website Scan Tool | FadiLogic"
-        />
-        <meta
-          property="og:description"
-          content="Fadi Dabboura’s FadiLogic: Free webscan tool to check website performance and errors."
-        />
-        <meta
-          property="og:image"
-          content="https://fadilogic.serp24.online/images/FadiLogic.png"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-          property="og:image:alt"
-          content="Fadi Dabboura Website Scan Tool"
-        />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="FadiLogic" />
-        <meta property="og:locale" content="en_US" />
-        <meta
-          property="og:url"
-          content="https://fadilogic.serp24.online/website-scan"
-        />
-        <meta
-          name="twitter:title"
-          content="Fadi Dabboura Website Scan Tool | FadiLogic"
-        />
+        <title>{metaConfig.title}</title>
+        <meta name="description" content={metaConfig.description} />
+        <meta name="keywords" content={metaConfig.keywords} />
+        <meta property="og:title" content={metaConfig.og.title} />
+        <meta property="og:description" content={metaConfig.og.description} />
+        <meta property="og:image" content={metaConfig.og.image} />
+        <meta property="og:image:width" content={metaConfig.og.imageWidth} />
+        <meta property="og:image:height" content={metaConfig.og.imageHeight} />
+        <meta property="og:image:alt" content={metaConfig.og.imageAlt} />
+        <meta property="og:image:type" content={metaConfig.og.imageType} />
+        <meta property="og:url" content={metaConfig.og.url} />
+        <meta property="og:site_name" content={metaConfig.og.siteName} />
+        <meta property="og:locale" content={metaConfig.og.locale} />
+        <meta property="og:type" content={metaConfig.og.type} />
+        <meta name="twitter:card" content={metaConfig.twitter.card} />
+        <meta name="twitter:title" content={metaConfig.twitter.title} />
         <meta
           name="twitter:description"
-          content="Use Fadi Dabboura’s free website scan tool to analyze your site’s performance and errors."
+          content={metaConfig.twitter.description}
         />
-        <meta
-          name="twitter:image"
-          content="https://fadilogic.serp24.online/images/FadiLogic.png"
-        />
+        <meta name="twitter:image" content={metaConfig.twitter.image} />
+        <link rel="canonical" href={metaConfig.canonical} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                '@context': 'https://schema.org',
-                '@type': 'SoftwareApplication',
-                name: 'FadiLogic Website Scan Tool',
-                description:
-                  'A free tool to analyze website performance and errors.',
-                url: 'https://fadilogic.serp24.online/website-scan',
-                author: {
-                  '@type': 'Person',
-                  name: 'Fadi Dabboura',
-                  sameAs: [
-                    'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-                    'https://www.facebook.com/fadi.dabboura.73',
-                    'https://github.com/fadidab98',
-                  ],
-                },
-              },
-              {
-                '@context': 'https://schema.org',
-                '@type': 'Person',
-                name: 'Fadi Dabboura',
-                jobTitle: 'DevOps & Web Developer',
-                url: 'https://fadilogic.serp24.online',
-                sameAs: [
-                  'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-                  'https://www.facebook.com/fadi.dabboura.73',
-                  'https://github.com/fadidab98',
-                ],
-              },
-              {
-                '@context': 'https://schema.org',
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  {
-                    '@type': 'ListItem',
-                    position: 1,
-                    name: 'Home',
-                    item: 'https://fadilogic.serp24.online',
-                  },
-                  {
-                    '@type': 'ListItem',
-                    position: 2,
-                    name: 'Website Scan Tool',
-                    item: 'https://fadilogic.serp24.online/website-scan',
-                  },
-                ],
-              },
-            ]),
+            __html: JSON.stringify(structuredData),
           }}
         />
       </Head>

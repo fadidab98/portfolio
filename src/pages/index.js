@@ -7,33 +7,24 @@ import {
 import Hero from '../components/Hero';
 import Link from 'next/link';
 import Head from 'next/head';
+import { createMetaConfig } from '@/lib/metaConfig';
 
+const ScanServiceSection = dynamic(
+  () => import('@/components/ScanServiceSection'),
+  { ssr: false, loading: () => <SkeletonScanServiceSection /> }
+);
+const Section = dynamic(() => import('../components/Section'), { ssr: true });
+const FeaturedProjectCard = dynamic(() => import('../components/ProjectCard'), {
+  ssr: true,
+  loading: () => <SkeletonProjectCard />,
+});
+const ProjectCard = dynamic(() => import('../components/ProjectCard'), {
+  ssr: true,
+  loading: () => <SkeletonProjectCard />,
+});
+
+// Page-specific JSON-LD
 const structuredData = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Fadi Dabboura',
-    url: 'https://fadilogic.serp24.online',
-    jobTitle: 'DevOps Engineer & Web Developer',
-    sameAs: [
-      'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-      'https://github.com/fadidab98',
-      'https://www.facebook.com/fadi.dabboura.73',
-      'https://www.instagram.com/dabbourafadi',
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'FadiLogic',
-    url: 'https://fadilogic.serp24.online',
-    sameAs: [
-      'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-      'https://github.com/fadidab98',
-      'https://www.facebook.com/fadi.dabboura.73',
-      'https://www.instagram.com/dabbourafadi',
-    ],
-  },
   {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -70,18 +61,28 @@ const structuredData = [
   },
 ];
 
-const ScanServiceSection = dynamic(
-  () => import('@/components/ScanServiceSection'),
-  { ssr: false, loading: () => <SkeletonScanServiceSection /> }
-);
-const Section = dynamic(() => import('../components/Section'), { ssr: true });
-const FeaturedProjectCard = dynamic(() => import('../components/ProjectCard'), {
-  ssr: true,
-  loading: () => <SkeletonProjectCard />,
-});
-const ProjectCard = dynamic(() => import('../components/ProjectCard'), {
-  ssr: true,
-  loading: () => <SkeletonProjectCard />,
+// Meta tags configuration using createMetaConfig
+const metaConfig = createMetaConfig({
+  title: 'Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic',
+  description:
+    'Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic.',
+  canonical: 'https://fadilogic.serp24.online/',
+  og: {
+    title: 'Fadi Dabboura - Portfolio & Website Scan | FadiLogic',
+    description:
+      'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
+    image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
+    imageWidth: '1200',
+    imageHeight: '630',
+    imageAlt: 'Fadi Dabboura Website Scan and Portfolio',
+    url: 'https://fadilogic.serp24.online/',
+  },
+  twitter: {
+    title: 'Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic',
+    description:
+      'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
+    image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
+  },
 });
 
 export default function Home({ projects }) {
@@ -90,77 +91,26 @@ export default function Home({ projects }) {
   return (
     <>
       <Head>
-        <title>
-          Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic
-        </title>
-        <meta
-          name="description"
-          content="Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic."
-        />
-        <meta name="author" content="Fadi Dabboura" />
-        <meta name="theme-color" content="#1a202c" />
-        <meta name="robots" content="index, follow" />
-        <meta
-          property="og:title"
-          content="Fadi Dabboura - Portfolio & Website Scan | FadiLogic"
-        />
-        <meta
-          property="og:description"
-          content="Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise."
-        />
-        <meta
-          property="og:image"
-          content="https://fadilogic.serp24.online/images/FadiLogic.png"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-          property="og:image:alt"
-          content="Fadi Dabboura Website Scan and Portfolio"
-        />
-        <meta property="og:url" content="https://fadilogic.serp24.online/" />
-        <meta property="og:site_name" content="FadiLogic" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic"
-        />
+        <title>{metaConfig.title}</title>
+        <meta name="description" content={metaConfig.description} />
+        <meta property="og:title" content={metaConfig.og.title} />
+        <meta property="og:description" content={metaConfig.og.description} />
+        <meta property="og:image" content={metaConfig.og.image} />
+        <meta property="og:image:width" content={metaConfig.og.imageWidth} />
+        <meta property="og:image:height" content={metaConfig.og.imageHeight} />
+        <meta property="og:image:alt" content={metaConfig.og.imageAlt} />
+        <meta property="og:url" content={metaConfig.og.url} />
+        <meta property="og:site_name" content={metaConfig.og.siteName} />
+        <meta property="og:locale" content={metaConfig.og.locale} />
+        <meta property="og:type" content={metaConfig.og.type} />
+        <meta name="twitter:card" content={metaConfig.twitter.card} />
+        <meta name="twitter:title" content={metaConfig.twitter.title} />
         <meta
           name="twitter:description"
-          content="Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise."
+          content={metaConfig.twitter.description}
         />
-        <meta
-          name="twitter:image"
-          content="https://fadilogic.serp24.online/images/FadiLogic.png"
-        />
-        <link rel="canonical" href="https://fadilogic.serp24.online/" />
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="64x64"
-          href="/favicon-64x64.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link rel="manifest" href="/manifest.json" />
+        <meta name="twitter:image" content={metaConfig.twitter.image} />
+        <link rel="canonical" href={metaConfig.canonical} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

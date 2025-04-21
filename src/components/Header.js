@@ -23,7 +23,7 @@ export default function Header() {
   return (
     <header className="relative z-50 bg-secondary text-white shadow-md">
       <div className="max-w-5xl mx-auto flex justify-between items-center py-6 px-4 sm:px-6 lg:px-8 relative z-50">
-        <h2 className="text-2xl font-bold text-accent">FadiLogic</h2>
+        <span className="text-2xl font-bold text-accent">FadiLogic</span>
         <button
           className="md:hidden text-accent text-2xl p-2 focus:outline-none rounded-md"
           onClick={() => setIsOpen(!isOpen)}

@@ -71,17 +71,12 @@ const metaConfig = createMetaConfig({
     title: 'Fadi Dabboura - Portfolio & Website Scan | FadiLogic',
     description:
       'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
-    image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
-    imageWidth: '1200',
-    imageHeight: '630',
-    imageAlt: 'Fadi Dabboura Website Scan and Portfolio',
     url: 'https://fadilogic.serp24.online/',
   },
   twitter: {
     title: 'Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic',
     description:
       'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
-    image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
   },
 });
 
@@ -91,9 +86,7 @@ export default function Home({ projects }) {
   return (
     <>
       <Head>
-        <title>
-          Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic
-        </title>
+        <title>{metaConfig.title}</title>
         <meta name="description" content={metaConfig.description} />
         <meta property="og:title" content={metaConfig.og.title} />
         <meta property="og:description" content={metaConfig.og.description} />
@@ -101,6 +94,7 @@ export default function Home({ projects }) {
         <meta property="og:image:width" content={metaConfig.og.imageWidth} />
         <meta property="og:image:height" content={metaConfig.og.imageHeight} />
         <meta property="og:image:alt" content={metaConfig.og.imageAlt} />
+        <meta property="og:image:type" content={metaConfig.og.imageType} />
         <meta property="og:url" content={metaConfig.og.url} />
         <meta property="og:site_name" content={metaConfig.og.siteName} />
         <meta property="og:locale" content={metaConfig.og.locale} />

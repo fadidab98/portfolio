@@ -83,18 +83,12 @@ const metaConfig = createMetaConfig({
     title: 'Fadi Dabboura - Contact | FadiLogic',
     description:
       'Contact with Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
-    image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
-    imageWidth: '1200',
-    imageHeight: '630',
-    imageAlt: 'Fadi Dabboura Contact Page',
-    imageType: 'image/png',
     url: 'https://fadilogic.serp24.online/contact',
   },
   twitter: {
     title: 'Fadi Dabboura | Contact Me - FadiLogic',
     description:
       'Contact Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
-    image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
   },
 });
 

@@ -59,18 +59,12 @@ const metaConfig = createMetaConfig({
     title: 'Fadi Dabboura - Website Scan Tool | FadiLogic',
     description:
       'Fadi Dabboura’s FadiLogic: Free webscan tool to check website performance and errors.',
-    image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
-    imageWidth: '1200',
-    imageHeight: '630',
-    imageAlt: 'Fadi Dabboura Website Scan Tool',
-    imageType: 'image/png',
     url: 'https://fadilogic.serp24.online/website-scan',
   },
   twitter: {
     title: 'Fadi Dabboura Website Scan Tool | FadiLogic',
     description:
       'Use Fadi Dabboura’s free website scan tool to analyze your site’s performance and errors.',
-    image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
   },
 });
 

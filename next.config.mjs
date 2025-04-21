@@ -20,7 +20,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=3600, must-revalidate',
+            value: 'public, max-age=60, must-revalidate', // Reduced to 60 seconds for testing
           },
         ],
       },
@@ -47,8 +47,6 @@ const nextConfig = {
     };
 
     config.optimization.usedExports = true;
-
-
 
     return config;
   },

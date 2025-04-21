@@ -91,7 +91,7 @@ export default function Home({ projects }) {
   return (
     <>
       <Head>
-        <title>{metaConfig.title}</title>
+        <title>Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic</title>
         <meta name="description" content={metaConfig.description} />
         <meta property="og:title" content={metaConfig.og.title} />
         <meta property="og:description" content={metaConfig.og.description} />

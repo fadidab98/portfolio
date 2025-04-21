@@ -71,57 +71,16 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="description"
-          content="Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services."
-        />
-        <meta
-          property="og:title"
-          content="FadiLogic - DevOps & Web Development"
-        />
-        <meta
-          property="og:description"
-          content="Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services."
-        />
-        <meta
-          property="og:image"
-          content="https://fadilogic.serp24.online/images/FadiLogic.png"
-        />
-        <meta property="og:url" content="https://fadilogic.serp24.online/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="FadiLogic" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="FadiLogic - DevOps & Web Development"
-        />
-        <meta
-          name="twitter:description"
-          content="Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services."
-        />
-        <meta
-          name="twitter:image"
-          content="https://fadilogic.serp24.online/images/FadiLogic.png"
-        />
-        <meta name="author" content="Fadi Dabboura" />
-        <meta name="theme-color" content="#1a202c" />
-      </Head>
       <DefaultSeo
         titleTemplate="%s | FadiLogic"
         defaultTitle="FadiLogic - DevOps & Web Development"
-        description="Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services."
+        description="FadiLogic by Fadi Dabboura: Portfolio, free website scan tool, and expert DevOps and web development services."
         canonical="https://fadilogic.serp24.online/"
         openGraph={{
           type: 'website',
           locale: 'en_US',
           url: 'https://fadilogic.serp24.online/',
           siteName: 'FadiLogic',
-          title: 'FadiLogic - DevOps & Web Development',
-          description:
-            'Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services.',
           images: [
             {
               url: 'https://fadilogic.serp24.online/images/FadiLogic.png',
@@ -134,30 +93,34 @@ export default function MyApp({ Component, pageProps }) {
         }}
         twitter={{
           cardType: 'summary_large_image',
-          title: 'FadiLogic - DevOps & Web Development',
-          description:
-            'Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services.',
-          image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
         }}
         additionalMetaTags={[
+          {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1.0',
+          },
           {
             name: 'author',
             content: 'Fadi Dabboura',
           },
-          {
-            name: 'theme-color',
-            content: '#1a202c',
-          },
         ]}
       />
 
-      <script
+      <Head>
+        <link
+          rel="preload"
+          href="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
+          as="script"
+        />
+      </Head>
+
+      <Script
         strategy="afterInteractive"
         defer
         src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
         data-cache="true"
-      ></script>
-      <script
+      />
+      <Script
         id="google-analytics"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
@@ -170,7 +133,7 @@ export default function MyApp({ Component, pageProps }) {
             }, 1000);
           `,
         }}
-      ></script>
+      />
 
       <Layout loading={loading}>
         <Component

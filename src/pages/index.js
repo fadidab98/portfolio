@@ -90,84 +90,9 @@ export default function Home({ projects }) {
 
   return (
     <>
-      <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-          name="description"
-          content="Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic."
-        />
-        <meta
-          property="og:title"
-          content="Fadi Dabboura - Portfolio & Website Scan | FadiLogic"
-        />
-        <meta
-          property="og:description"
-          content="Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise."
-        />
-        <meta
-          property="og:image"
-          content="https://fadilogic.serp24.online/images/FadiLogic.png"
-        />
-        <meta property="og:url" content="https://fadilogic.serp24.online/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="FadiLogic" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic"
-        />
-        <meta
-          name="twitter:description"
-          content="Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise."
-        />
-        <meta
-          name="twitter:image"
-          content="https://fadilogic.serp24.online/images/FadiLogic.png"
-        />
-        <meta name="author" content="Fadi Dabboura" />
-        <meta name="theme-color" content="#1a202c" />
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="64x64"
-          href="/favicon-64x64.png"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link rel="manifest" href="/manifest.json" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
-        />
-        <link
-          rel="preload"
-          href="/images/project1.webp"
-          as="image"
-          fetchPriority="high"
-        />
-      </Head>
       <NextSeo
         title="Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic"
-        description="Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic."
+        description="Discover Fadi Dabboura’s portfolio: Expert DevOps, web development, and a free website scan tool to optimize your site’s performance and SEO at FadiLogic."
         canonical="https://fadilogic.serp24.online/"
         openGraph={{
           url: 'https://fadilogic.serp24.online/',
@@ -196,15 +121,31 @@ export default function Home({ projects }) {
         }}
         additionalMetaTags={[
           {
+            name: 'keywords',
+            content:
+              'fadi dabboura, website scan, webscan, web scan tool, website performance, web development, devops, portfolio, fadi dabboura portfolio, devops engineer, full-stack developer',
+          },
+          {
             name: 'author',
             content: 'Fadi Dabboura',
           },
-          {
-            name: 'theme-color',
-            content: '#1a202c',
-          },
         ]}
       />
+
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+        <link
+          rel="preload"
+          href="/images/project1.webp"
+          as="image"
+          fetchPriority="high"
+        />
+      </Head>
 
       <Hero />
       <Section id="welcome">

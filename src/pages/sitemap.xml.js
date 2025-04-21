@@ -3,7 +3,7 @@ function generateSitemap() {
   const lastModified = new Date().toISOString(); // Use the current date dynamically
   const pages = [
     { url: '/', lastmod: lastModified, priority: '1.0' },
-    { url: '/website-scan', lastmod: lastModified, priority: '9.0' },
+    { url: '/website-scan', lastmod: lastModified, priority: '0.9' },
     { url: '/contact', lastmod: lastModified, priority: '0.8' },
   ];
 

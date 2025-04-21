@@ -6,6 +6,50 @@ import { store } from '../lib/store';
 import { Inter } from 'next/font/google';
 import dynamic from 'next/dynamic';
 
+/** @type {import("next").Metadata} */
+export const metadata = {
+  title: {
+    template: '%s | FadiLogic',
+    default: 'FadiLogic - DevOps & Web Development',
+  },
+  description:
+    'Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services.',
+  metadataBase: new URL('https://fadilogic.serp24.online'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'FadiLogic - DevOps & Web Development',
+    description:
+      'Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services.',
+    url: 'https://fadilogic.serp24.online/',
+    siteName: 'FadiLogic',
+    images: [
+      {
+        url: '/images/FadiLogic.png',
+        width: 1200,
+        height: 630,
+        alt: 'FadiLogic by Fadi Dabboura',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'FadiLogic - DevOps & Web Development',
+    description:
+      'Explore Fadi Dabboura’s FadiLogic: Portfolio, free website scan tool, and expert DevOps and web development services.',
+    images: ['/images/FadiLogic.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  authors: [{ name: 'Fadi Dabboura' }],
+  themeColor: '#1a202c',
+};
+
 const Provider = dynamic(
   () => import('react-redux').then((mod) => mod.Provider),
   { ssr: false }
@@ -71,18 +115,25 @@ export default function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <script
         strategy="afterInteractive"
+        defer
         src="https://www.googletagmanager.com/gtag/js?id=G-FZDKPTV5X5"
+        data-cache="true"
       ></script>
       <script
+        id="google-analytics"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
+            setTimeout(() => {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-FZDKPTV5X5');
-            `,
+            }, 1000);
+          `,
         }}
       ></script>
+
       <Layout loading={loading}>
         <Component
           style={{ display: loading ? 'none' : 'block' }}

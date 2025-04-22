@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import ClientContact from './ClientContact';
 
-// Consolidated JSON-LD Structured Data
+// Page-specific JSON-LD
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -9,7 +9,7 @@ const structuredData = [
     name: 'Contact Fadi Dabboura',
     url: 'https://fadilogic.serp24.online/contact',
     description:
-      'Contact Fadi Dabboura for DevOps and web development inquiries.',
+      'Contact with Fadi Dabboura for DevOps and web development inquiries.',
     mainEntity: {
       '@type': 'Person',
       name: 'Fadi Dabboura',
@@ -61,31 +61,6 @@ const structuredData = [
       },
     ],
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Fadi Dabboura',
-    url: 'https://fadilogic.serp24.online',
-    jobTitle: 'DevOps Engineer & Web Developer',
-    sameAs: [
-      'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-      'https://github.com/fadidab98',
-      'https://www.facebook.com/fadi.dabboura.73',
-      'https://www.instagram.com/dabbourafadi',
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'FadiLogic',
-    url: 'https://fadilogic.serp24.online',
-    sameAs: [
-      'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-      'https://github.com/fadidab98',
-      'https://www.facebook.com/fadi.dabboura.73',
-      'https://www.instagram.com/dabbourafadi',
-    ],
-  },
 ];
 
 export const metadata = {
@@ -94,6 +69,7 @@ export const metadata = {
     'Contact Fadi Dabboura for collaborations, inquiries, or to discuss DevOps and web development projects at FadiLogic.',
   keywords:
     'fadi dabboura, contact, devops, web development, website scan, fadilogic',
+  robots: 'index, follow',
   openGraph: {
     title: 'Fadi Dabboura - Contact | FadiLogic',
     description:
@@ -122,6 +98,7 @@ export const metadata = {
   alternates: {
     canonical: 'https://fadilogic.serp24.online/contact',
   },
+  manifest: '/manifest.json',
 };
 
 export default function Contact() {

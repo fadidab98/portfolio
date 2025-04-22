@@ -8,30 +8,8 @@ const inter = Inter({
   display: 'swap',
 });
 
-// Global JSON-LD Structured Data
+// Global JSON-LD Structured Data (Person and Organization only)
 const globalStructuredData = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    url: 'https://fadilogic.serp24.online',
-    name: 'FadiLogic',
-    potentialAction: [
-      {
-        '@type': 'SearchAction',
-        target: {
-          '@type': 'EntryPoint',
-          urlTemplate: 'https://fadilogic.serp24.online/website-scan',
-        },
-        'query-input': {
-          '@type': 'PropertyValueSpecification',
-          valueRequired: true,
-          valueName: 'website_url',
-        },
-        description:
-          'Scan your website for performance and errors using FadiLogic’s free website scan tool.',
-      },
-    ],
-  },
   {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -59,6 +37,7 @@ const globalStructuredData = [
   },
 ];
 
+// Global metadata for SEO and social sharing
 export const metadata = {
   title: {
     default: 'Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic',
@@ -103,12 +82,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
       <head>
+        <meta charSet="utf-8" />
+        {/* Preload hero image (replace with actual hero image) */}
         <link
           rel="preload"
-          href="/images/project1.webp"
+          href="/images/project1.webp" // Update to actual hero image
           as="image"
           fetchPriority="high"
         />
+        {/* Global structured data for Person and Organization */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

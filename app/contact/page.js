@@ -1,7 +1,7 @@
-import Head from 'next/head';
+// app/contact/page.js
 import ClientContact from './ClientContact';
 
-// Page-specific JSON-LD
+// Page-specific JSON-LD structured data
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -9,7 +9,7 @@ const structuredData = [
     name: 'Contact Fadi Dabboura',
     url: 'https://fadilogic.serp24.online/contact',
     description:
-      'Contact with Fadi Dabboura for DevOps and web development inquiries.',
+      'Contact Fadi Dabboura for DevOps and web development inquiries.',
     mainEntity: {
       '@type': 'Person',
       name: 'Fadi Dabboura',
@@ -63,6 +63,7 @@ const structuredData = [
   },
 ];
 
+// Page-specific metadata
 export const metadata = {
   title: 'Fadi Dabboura | Contact Me - FadiLogic',
   description:
@@ -73,7 +74,7 @@ export const metadata = {
   openGraph: {
     title: 'Fadi Dabboura - Contact | FadiLogic',
     description:
-      'Contact with Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
+      'Contact Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
     url: 'https://fadilogic.serp24.online/contact',
     siteName: 'FadiLogic',
     locale: 'en_US',
@@ -98,20 +99,18 @@ export const metadata = {
   alternates: {
     canonical: 'https://fadilogic.serp24.online/contact',
   },
-  manifest: '/manifest.json',
 };
 
 export default function Contact() {
   return (
     <>
-      <Head>
+      <head>
+        {/* Page-specific structured data */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-      </Head>
+      </head>
       <ClientContact />
     </>
   );

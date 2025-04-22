@@ -1,7 +1,7 @@
+// next.config.mjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   experimental: {
     optimizeCss: true,
   },
@@ -11,14 +11,12 @@ const nextConfig = {
   async rewrites() {
     return [];
   },
-  // Optional: Ensure the sitemap is generated during build
   generateBuildId: async () => {
     return 'build-id';
   },
   async headers() {
     return [
       {
-        // Match static assets in /public and .next/static
         source: '/:path*.(jpg|jpeg|png|gif|svg|ico|css|js|woff|woff2)',
         headers: [
           {

@@ -1,9 +1,10 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import Hero from '@/components/Hero';
 import Link from 'next/link';
 import Section from '@/components/Section';
+import WelcomeSection from '../components/WelcomeSection';
+import { SkeletonHero } from '@/components/skeleton/Skeleton';
 
 // Sample projects data (replace with your actual data fetching)
 const sampleProjects = [
@@ -17,15 +18,13 @@ const sampleProjects = [
     id: 2,
     title: 'Project 2',
     description: 'Description',
-    image: '/images/project2.webp',
-  },
-  {
-    id: 3,
-    title: 'Project 3',
-    description: 'Description',
-    image: '/images/project3.webp',
+    image: '/images/project1.webp',
   },
 ];
+const Hero = dynamic(() => import('@/components/Hero'), {
+  ssr: false,
+  loading: () => <SkeletonHero />,
+});
 
 const ScanServiceSection = dynamic(
   () => import('@/components/ScanServiceSection'),
@@ -55,50 +54,10 @@ export default function ClientHome({ projects = sampleProjects }) {
   return (
     <>
       <Hero />
-      <Section id="welcome" className="min-h-[400px]">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
-          Welcome to <span className="text-accent">FadiLogic</span>
-        </h2>
-        <div className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center space-y-4">
-          <p>
-            I’m Fadi Dabboura, a dedicated <strong>DevOps Engineer</strong> and{' '}
-            <strong>Web Developer</strong> with a passion for building
-            high-performance, scalable web solutions. My expertise spans CI/CD
-            pipelines, cloud infrastructure, full-stack development, and website
-            optimization.
-          </p>
-          <p>
-            Explore my portfolio to see projects showcasing my skills in{' '}
-            <strong>DevOps</strong>, <strong>web development</strong>, and
-            performance tuning. Try my{' '}
-            <Link
-              href="/website-scan"
-              className="text-accent underline hover:text-accent/80 transition"
-            >
-              free website scan tool
-            </Link>{' '}
-            to analyze your site’s speed, SEO, and errors, or{' '}
-            <Link
-              href="/contact"
-              className="text-accent underline hover:text-accent/80 transition"
-            >
-              contact me
-            </Link>{' '}
-            to collaborate on your next project.
-          </p>
-          <p>
-            As a Master’s student in Informatics at Ostfalia University, I bring
-            cutting-edge knowledge to every project, ensuring robust, modern
-            solutions.
-          </p>
-        </div>
-      </Section>
-      <Section id="website-scan" className="min-h-[700px]">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
-          Free Website Scan Tool by FadiLogic
-        </h2>
-        <ScanServiceSection />
-      </Section>
+      <WelcomeSection />
+
+      <ScanServiceSection />
+
       <Section
         id="projects"
         className="min-h-[1000px] border border-accent/20 m-12 rounded-md"

@@ -1,6 +1,7 @@
+import Head from 'next/head';
 import ClientContact from './ClientContact';
 
-// Page-specific JSON-LD
+// Consolidated JSON-LD Structured Data
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -8,7 +9,7 @@ const structuredData = [
     name: 'Contact Fadi Dabboura',
     url: 'https://fadilogic.serp24.online/contact',
     description:
-      'Contact with Fadi Dabboura for DevOps and web development inquiries.',
+      'Contact Fadi Dabboura for DevOps and web development inquiries.',
     mainEntity: {
       '@type': 'Person',
       name: 'Fadi Dabboura',
@@ -60,6 +61,31 @@ const structuredData = [
       },
     ],
   },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Fadi Dabboura',
+    url: 'https://fadilogic.serp24.online',
+    jobTitle: 'DevOps Engineer & Web Developer',
+    sameAs: [
+      'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+      'https://github.com/fadidab98',
+      'https://www.facebook.com/fadi.dabboura.73',
+      'https://www.instagram.com/dabbourafadi',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'FadiLogic',
+    url: 'https://fadilogic.serp24.online',
+    sameAs: [
+      'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+      'https://github.com/fadidab98',
+      'https://www.facebook.com/fadi.dabboura.73',
+      'https://www.instagram.com/dabbourafadi',
+    ],
+  },
 ];
 
 export const metadata = {
@@ -73,14 +99,25 @@ export const metadata = {
     description:
       'Contact with Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
     url: 'https://fadilogic.serp24.online/contact',
+    siteName: 'FadiLogic',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: 'https://fadilogic.serp24.online/images/FadiLogic.png',
+        width: 1200,
+        height: 630,
+        alt: 'FadiLogic',
+        type: 'image/png',
+      },
+    ],
   },
   twitter: {
+    card: 'summary_large_image',
     title: 'Fadi Dabboura | Contact Me - FadiLogic',
     description:
       'Contact Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
-  },
-  other: {
-    'script:application/ld+json': JSON.stringify(structuredData),
+    images: ['https://fadilogic.serp24.online/images/FadiLogic.png'],
   },
   alternates: {
     canonical: 'https://fadilogic.serp24.online/contact',
@@ -88,5 +125,17 @@ export const metadata = {
 };
 
 export default function Contact() {
-  return <ClientContact />;
+  return (
+    <>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+      </Head>
+      <ClientContact />
+    </>
+  );
 }

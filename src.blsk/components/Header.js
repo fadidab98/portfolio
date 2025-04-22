@@ -10,10 +10,13 @@ export default function Header() {
   const pathname = usePathname();
 
   const isActive = (path) => {
-    // Handle hash links (e.g., /#about) by checking the base path
-    const basePath = path.split('#')[0] || '/';
-    const currentBasePath = pathname.split('#')[0] || '/';
-    return basePath === currentBasePath;
+    // Exact match for path including hash
+    if (path === '/') {
+      // For Home, only active if pathname is exactly '/' or empty
+      return pathname === '/' || pathname === '';
+    }
+    // For other links, match the full path (base + hash)
+    return pathname === path;
   };
 
   useEffect(() => {

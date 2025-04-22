@@ -8,8 +8,30 @@ const inter = Inter({
   display: 'swap',
 });
 
-// Global JSON-LD
+// Global JSON-LD Structured Data
 const globalStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: 'https://fadilogic.serp24.online',
+    name: 'FadiLogic',
+    potentialAction: [
+      {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: 'https://fadilogic.serp24.online/website-scan',
+        },
+        'query-input': {
+          '@type': 'PropertyValueSpecification',
+          valueRequired: true,
+          valueName: 'website_url',
+        },
+        description:
+          'Scan your website for performance and errors using FadiLogic’s free website scan tool.',
+      },
+    ],
+  },
   {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -44,6 +66,9 @@ export const metadata = {
   },
   description:
     'Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic.',
+  keywords:
+    'fadi dabboura, devops, web developer, website scan, portfolio, fadilogic',
+  robots: 'index, follow',
   openGraph: {
     siteName: 'FadiLogic',
     locale: 'en_US',
@@ -62,7 +87,6 @@ export const metadata = {
     card: 'summary_large_image',
     images: ['https://fadilogic.serp24.online/images/FadiLogic.png'],
   },
-  robots: 'index, follow',
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -75,38 +99,16 @@ export const metadata = {
   manifest: '/manifest.json',
 };
 
-// Inline critical CSS (example, adjust as needed)
-const criticalCSS = `
-  body {
-    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  .relative {
-    position: relative;
-  }
-  .min-h-screen {
-    min-height: 100vh;
-  }
-  .text-accent {
-    color: #facc15; /* Replace with your accent color */
-  }
-`;
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
       <head>
-        {/* Inline critical CSS */}
-        <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
-        {/* Preload critical image */}
         <link
           rel="preload"
           href="/images/project1.webp"
           as="image"
           fetchPriority="high"
         />
-        {/* Structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -53,7 +53,7 @@ const metaConfig = createMetaConfig({
   description:
     'Use Fadi Dabboura’s free website scan tool to analyze your site’s performance, speed, and errors. Optimize your web development today!',
   keywords:
-    'fadi dabboura, website scan tool, free webscan, website performance tool, web development, devops, site speed test, website error checker',
+    'fadi, dabboura, fadi dabboura, website scan tool, free webscan, website performance tool, web development, devops, site speed test, website error checker',
   canonical: 'https://fadilogic.serp24.online/website-scan',
   og: {
     title: 'Fadi Dabboura - Website Scan Tool | FadiLogic',

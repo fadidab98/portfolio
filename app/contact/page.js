@@ -69,7 +69,7 @@ export const metadata = {
   description:
     'Contact Fadi Dabboura for collaborations, inquiries, or to discuss DevOps and web development projects at FadiLogic.',
   keywords:
-    'fadi dabboura, contact, devops, web development, website scan, fadilogic',
+    'fadi, dabboura, fadi dabboura, contact, devops, web development, website scan, fadilogic',
   robots: 'index, follow',
   openGraph: {
     title: 'Fadi Dabboura - Contact | FadiLogic',

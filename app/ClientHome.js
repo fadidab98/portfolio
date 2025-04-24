@@ -127,6 +127,6 @@ export async function getStaticProps() {
   const projects = sampleProjects;
   return {
     props: { projects },
-    revalidate: 60, // Regenerate every 60 seconds
+    revalidate: 86400, // Regenerate every 60 seconds
   };
 }

@@ -14,6 +14,8 @@ const globalStructuredData = [
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Fadi Dabboura',
+    givenName: 'Fadi',
+    familyName: 'Dabboura',
     url: 'https://fadilogic.serp24.online',
     jobTitle: 'DevOps Engineer & Web Developer',
     sameAs: [
@@ -46,7 +48,7 @@ export const metadata = {
   description:
     'Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic.',
   keywords:
-    'fadi dabboura, devops, web developer, website scan, portfolio, fadilogic',
+    'fadi, dabboura, fadi dabboura, devops, web developer, website scan, portfolio, fadilogic',
   robots: 'index, follow',
   openGraph: {
     siteName: 'FadiLogic',

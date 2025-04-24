@@ -77,7 +77,7 @@ const metaConfig = createMetaConfig({
   description:
     'Contact Fadi Dabboura for collaborations, inquiries, or to discuss DevOps and web development projects at FadiLogic.',
   keywords:
-    'fadi dabboura, contact, devops, web development, website scan, fadilogic',
+    'fadi, dabboura, fadi dabboura, contact, devops, web development, website scan, fadilogic',
   canonical: 'https://fadilogic.serp24.online/contact',
   og: {
     title: 'Fadi Dabboura - Contact | FadiLogic',

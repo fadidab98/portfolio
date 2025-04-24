@@ -1,8 +1,7 @@
 // scripts/generate-critical.js
 import { writeFileSync, readFileSync } from 'fs';
-import { join } from 'path';
+import { join, normalize } from 'path';
 import { readdirSync, existsSync } from 'fs';
-import Critters from 'critters';
 
 async function generateCritical() {
   // Base directory for Next.js App Router output
@@ -20,36 +19,49 @@ async function generateCritical() {
     console.warn('CSS directory not found:', cssDir);
   }
 
-  // Configure Critters with dynamic CSS files
-  const critters = new Critters({
-    external: join(process.cwd(), 'app', 'globals.css'), // Main stylesheet
-    additionalStylesheets: cssFiles.map((file) => join(cssDir, file)), // Include all generated CSS
-    inlineThreshold: 10000, // Inline up to 10KB
-    minimumExternalSize: 4096, // Defer non-critical CSS >4KB
-    preload: 'swap', // Preload non-critical CSS
-    paths: ['/', '/website-scan', '/contact'], // Pages for critical CSS extraction
-    logLevel: 'debug', // Detailed logs
-    inlineFonts: true, // Inline font-related CSS
-  });
+  // Read the target CSS file
+  const cssFilePath = normalize(join(cssDir, 'faee608d96b31f31.css'));
+  let cssContent = '';
+  if (existsSync(cssFilePath)) {
+    cssContent = readFileSync(cssFilePath, 'utf-8');
+    console.log(`Read CSS file: ${cssFilePath}`);
+  } else {
+    console.error(`CSS file not found: ${cssFilePath}`);
+    return;
+  }
 
-  // Dynamically find HTML files
+  // Find HTML files
   const getHtmlFiles = (dir) => {
     const files = [];
     const readDir = (path, relativePath = '') => {
+      console.log(`Scanning directory: ${path}`);
       readdirSync(path, { withFileTypes: true }).forEach((entry) => {
-        const fullPath = join(path, entry.name);
+        const fullPath = normalize(join(path, entry.name));
         const relPath = relativePath
           ? join(relativePath, entry.name)
           : entry.name;
         if (entry.isDirectory()) {
           readDir(fullPath, relPath);
-        } else if (['index.html', 'page.html'].includes(entry.name)) {
-          const route =
-            relPath
-              .replace(/\\/g, '/')
-              .replace(/(index|page)\.html$/, '')
-              .replace(/\/$/, '') || '/';
-          files.push({ fullPath, route });
+        } else {
+          console.log(`Found file: ${fullPath}`);
+          if (fullPath.endsWith('.html')) {
+            // Map filename to route
+            let route;
+            if (entry.name === 'index.html') {
+              route = '/';
+            } else if (entry.name === 'contact.html') {
+              route = '/contact';
+            } else if (entry.name === 'website-scan.html') {
+              route = '/website-scan';
+            } else if (entry.name === '_not-found.html') {
+              route = '/_not-found';
+            } else {
+              // Fallback: derive route from filename
+              route = `/${entry.name.replace(/\.html$/, '')}`;
+            }
+            console.log(`Processing HTML file: ${fullPath} (route: ${route})`);
+            files.push({ fullPath, route });
+          }
         }
       });
     };
@@ -58,7 +70,6 @@ async function generateCritical() {
   };
 
   const htmlFiles = getHtmlFiles(buildDir);
-
   if (htmlFiles.length === 0) {
     console.error('No HTML files found in', buildDir);
     return;
@@ -76,7 +87,7 @@ async function generateCritical() {
     }, []);
 
   console.log(
-    'Found HTML files:',
+    'Found HTML files for processing:',
     uniqueFiles.map((f) => ({ route: f.route, path: f.fullPath }))
   );
 
@@ -87,10 +98,26 @@ async function generateCritical() {
     }
 
     try {
-      const html = readFileSync(fullPath, 'utf-8');
-      const optimizedHtml = await critters.process(html);
-      writeFileSync(fullPath, optimizedHtml);
-      console.log(`Critical CSS inlined for ${route}`);
+      let html = readFileSync(fullPath, 'utf-8');
+      console.log(
+        `Processing ${route}: Original HTML contains CSS link: ${html.includes('faee608d96b31f31.css')}`
+      );
+      // Remove existing CSS link (robust regex)
+      html = html.replace(
+        /<link\s+rel="stylesheet"\s+href="\/_next\/static\/css\/faee608d96b31f31\.css"[^>]*>/i,
+        ''
+      );
+      // Inject CSS into head
+      html = html.replace(/<\/head>/i, `<style>${cssContent}</style></head>`);
+      writeFileSync(fullPath, html);
+      console.log(
+        `CSS inlined for ${route}: CSS link removed, style tag added`
+      );
+      // Verify the output
+      const updatedHtml = readFileSync(fullPath, 'utf-8');
+      console.log(
+        `Verification for ${route}: CSS link removed: ${!updatedHtml.includes('faee608d96b31f31.css')}, Style tag added: ${updatedHtml.includes(`<style>${cssContent}</style>`)}`
+      );
     } catch (error) {
       console.error(`Error processing ${route}:`, error);
     }

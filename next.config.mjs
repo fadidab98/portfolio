@@ -1,4 +1,5 @@
 // next.config.mjs
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -28,6 +29,8 @@ const nextConfig = {
     ];
   },
   webpack(config) {
+ 
+    // Fine-tune splitChunks for better optimization
     config.optimization.splitChunks = {
       chunks: 'all',
       cacheGroups: {
@@ -36,6 +39,19 @@ const nextConfig = {
           name: 'vendors',
           chunks: 'all',
           priority: -10,
+        },
+        // Example: Split large libraries into separate chunks
+        framerMotion: {
+          test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
+          name: 'framer-motion',
+          chunks: 'all',
+          priority: 20,
+        },
+        reactRedux: {
+          test: /[\\/]node_modules[\\/]react-redux[\\/]/,
+          name: 'react-redux',
+          chunks: 'all',
+          priority: 20,
         },
         default: {
           minChunks: 2,

@@ -1,23 +1,20 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-
-// Dynamically import Framer Motion's motion component
-const MotionSection = dynamic(
-  () => import('framer-motion').then((mod) => mod.motion.section),
+import dynamic from 'next/dynamic';
+const Motiondev = dynamic(
+  () => import('framer-motion').then((mod) => mod.motion.dev),
   { ssr: false }
 );
-
 export default function Hero() {
   const isMobile =
-    useSelector((state) => state?.setting?.setting?.isMobile) ??
-    (typeof window !== 'undefined' && window.innerWidth < 768);
+    useSelector((state) => state?.setting?.setting?.isMobile) ?? false;
   const [isImageLoading, setIsImageLoading] = useState(true);
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
     const img = new window.Image();
@@ -25,7 +22,9 @@ export default function Hero() {
     img.onload = () => setIsImageLoading(false);
     img.onerror = () => setIsImageLoading(false);
   }, []);
-
+  useEffect(() => {
+    setHydrated(true); // Runs after initial render, post-hydration
+  }, []);
   const socialLinks = [
     {
       name: 'Facebook',
@@ -52,7 +51,7 @@ export default function Hero() {
       <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
         <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] aspect-[5/7]">
           {isImageLoading ? (
-            <div className="w-full min-h-[210px] sm:min-h-[280px] md:min-h-[350px] lg:min-h-[420px] bg-gray-300 animate-pulse rounded-full" />
+            <div className="w-full h-full bg-gray-300 animate-pulse rounded-full" />
           ) : (
             <Image
               src="/images/project1.webp"
@@ -136,19 +135,22 @@ export default function Hero() {
     </div>
   );
 
-  return isMobile ? (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
-      {heroContent}
-    </section>
-  ) : (
-    <MotionSection
+  return (
+    <section
       id="home"
       className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px] sm:min-h-[450px] md:min-h-[500px]"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
     >
-      {heroContent}
-    </MotionSection>
+      {hydrated ? (
+        <Motiondev
+          initial={{ opacity: isMobile ? 1 : 0, y: isMobile ? 0 : 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: isMobile ? 0 : 0.8 }}
+        >
+          {heroContent}
+        </Motiondev>
+      ) : (
+        <>{heroContent}</>
+      )}
+    </section>
   );
 }

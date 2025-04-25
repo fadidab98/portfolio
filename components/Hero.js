@@ -1,18 +1,12 @@
 // components/Hero.jsx (Client-Komponente)
 'use client';
 
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useMediaQuery } from 'react-responsive';
 import HeroServer from './HeroServer';
-
+import { motion } from 'framer-motion';
 // Korrigierte Imports für react-icons
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
-
-const Motiondiv = dynamic(
-  () => import('framer-motion').then((mod) => mod.motion.div), // Korrigierter Import (motion.div statt motion.dev)
-  { ssr: false }
-);
 
 export default function Hero() {
   // Ersetze Redux durch useMediaQuery
@@ -67,12 +61,12 @@ export default function Hero() {
   return isMobile ? (
     <HeroServer>{socialContent}</HeroServer>
   ) : (
-    <Motiondiv
+    <motion.dev
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
     >
       <HeroServer>{socialContent}</HeroServer>
-    </Motiondiv>
+    </motion.dev>
   );
 }

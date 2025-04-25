@@ -92,6 +92,7 @@ export default function RootLayout({ children }) {
           as="image"
           fetchPriority="high"
         />
+
         {/* Global structured data for Person and Organization */}
         <script
           type="application/ld+json"

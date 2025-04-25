@@ -25,7 +25,7 @@ const sampleProjects = [
   },
 ];
 const Hero = dynamic(() => import('@/components/Hero'), {
-  ssr: false,
+  ssr: true,
   loading: () => <SkeletonHero />,
 });
 const WelcomeSection = dynamic(() => import('../components/WelcomeSection'), {

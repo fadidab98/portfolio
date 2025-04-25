@@ -6,6 +6,10 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
   },
+  images: {
+    formats: ['image/webp'],
+    domains: ['fadilogic.serp24.online'],
+  },
   async redirects() {
     return [];
   },

@@ -42,22 +42,25 @@ export function SkeletonHero() {
   );
 }
 
-export function SkeletonScanServiceSection() {
+export function SkeletonWelcomeSection() {
   return (
-    <section className="bg-secondary overflow-hidden py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[600px] sm:min-h-[650px]">
-      <div className="relative max-w-4xl mx-auto text-center">
-        {/* Icon placeholder */}
-        <div className="mb-6 flex justify-center items-center h-16 w-16 mx-auto bg-gray-700 rounded-full animate-pulse"></div>
-        {/* Heading placeholder */}
-        <div className="h-10 bg-gray-700 rounded w-3/4 mx-auto mb-4 animate-pulse"></div>
-        {/* Text paragraphs placeholders */}
-        <div className="text-lg space-y-4 mb-8 min-h-[250px] sm:min-h-[300px]">
-          <div className="h-16 bg-gray-700 rounded animate-pulse"></div>
-          <div className="h-16 bg-gray-700 rounded animate-pulse"></div>
-          <div className="h-16 bg-gray-700 rounded animate-pulse"></div>
+    <section
+      id="welcome"
+      className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px] border border-accent/20 m-12 rounded-md"
+    >
+      {/* Heading placeholder for h2 (text-3xl sm:text-4xl) */}
+      <div className="h-10 sm:h-12 bg-gray-300 rounded w-3/4 mx-auto mb-6 animate-pulse"></div>
+      {/* Paragraphs container matching text-lg sm:text-xl */}
+      <div className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center space-y-4">
+        {/* First paragraph */}
+        <div className="h-20 bg-gray-300 rounded w-full animate-pulse"></div>
+        {/* Second paragraph with inline links */}
+        <div className="h-28 bg-gray-300 rounded w-full animate-pulse flex items-center justify-center space-x-2">
+          <div className="h-5 w-24 bg-gray-300 rounded inline-block"></div>
+          <div className="h-5 w-20 bg-gray-300 rounded inline-block"></div>
         </div>
-        {/* Button placeholder */}
-        <div className="h-12 w-48 bg-gray-700 rounded-lg mx-auto animate-pulse"></div>
+        {/* Third paragraph (LCP element) */}
+        <div className="h-16 bg-gray-300 rounded w-2/3 mx-auto animate-pulse"></div>
       </div>
     </section>
   );

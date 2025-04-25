@@ -68,9 +68,9 @@ export function SkeletonWelcomeSection() {
       id="welcome"
       className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px]"
     >
-      {/* Heading placeholder */}
+      {/* Heading placeholder matching h2 (text-3xl or text-4xl) */}
       <div className="h-10 sm:h-12 bg-gray-300 rounded w-3/4 mx-auto mb-6 animate-pulse"></div>
-      {/* Paragraphs placeholders */}
+      {/* Paragraphs placeholder matching text-lg or text-xl */}
       <div className="text-lg sm:text-xl space-y-4 min-h-[200px] sm:min-h-[250px]">
         <div className="h-16 bg-gray-300 rounded w-full mx-auto animate-pulse"></div>
         <div className="h-24 bg-gray-300 rounded w-full mx-auto animate-pulse"></div>

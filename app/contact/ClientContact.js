@@ -6,7 +6,7 @@ import Section from '@/components/Section';
 import ContactText from '@/components/contact/ContactText';
 
 const ContactForm = dynamic(() => import('@/components/ContactForm'), {
-  ssr: false,
+  ssr: true,
 });
 
 export default function ClientContact() {

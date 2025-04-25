@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Section from '@/components/Section';
 
 const WebsiteScanForm = dynamic(() => import('@/components/WebsiteScanForm'), {
-  ssr: false,
+  ssr: true,
 });
 
 export default function ClientWebscan() {

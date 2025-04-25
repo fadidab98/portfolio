@@ -11,8 +11,8 @@ const AnimatePresence = dynamic(
   () => import('framer-motion').then((mod) => mod.AnimatePresence),
   { ssr: false }
 );
-const Footer = dynamic(() => import('./Footer'), { ssr: false });
-const Loading = dynamic(() => import('./loading'), { ssr: false });
+const Footer = dynamic(() => import('./Footer'), { ssr: true });
+const Loading = dynamic(() => import('./loading'), { ssr: true });
 
 export default function Layout({ children, loading }) {
   const dispatch = useDispatch();

@@ -8,7 +8,8 @@
     "build": "next build && node scripts/generate-critical.js",
     "start": "next start",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "analyze": "ANALYZE=true next build"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

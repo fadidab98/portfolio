@@ -29,24 +29,24 @@ const Hero = dynamic(() => import('@/components/Hero'), {
   loading: () => <SkeletonHero />,
 });
 const WelcomeSection = dynamic(() => import('../components/WelcomeSection'), {
-  ssr: false,
+  ssr: true,
   loading: () => <SkeletonWelcomeSection />,
 });
 const ScanServiceSection = dynamic(
   () => import('@/components/ScanServiceSection'),
   {
-    ssr: false,
+    ssr: true,
     loading: () => <SkeletonScanServiceSection />,
   }
 );
 const FeaturedProjectCard = dynamic(() => import('@/components/ProjectCard'), {
-  ssr: false,
+  ssr: true,
   loading: () => (
     <div className="relative w-full min-h-[300px] bg-gray-700 rounded-md animate-pulse" /> // Adjusted to typical card height
   ),
 });
 const ProjectCard = dynamic(() => import('@/components/ProjectCard'), {
-  ssr: false,
+  ssr: true,
   loading: () => (
     <div className="relative w-full min-h-[300px] bg-gray-700 rounded-md animate-pulse" />
   ),

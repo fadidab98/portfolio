@@ -48,7 +48,7 @@ export const metadata = {
   description:
     'Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic.',
   keywords:
-    'fadi, dabboura, fadi dabboura, devops, web developer, website scan, portfolio, fadilogic',
+    'fadi dabboura, devops, web developer, website scan, portfolio, fadilogic',
   robots: 'index, follow',
   openGraph: {
     siteName: 'FadiLogic',

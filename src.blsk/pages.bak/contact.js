@@ -21,6 +21,8 @@ const structuredData = [
     mainEntity: {
       '@type': 'Person',
       name: 'Fadi Dabboura',
+      givenName: 'Fadi',
+      familyName: 'Dabboura',
       email: 'mailto:fadi@serp24.online',
       sameAs: [
         'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
@@ -77,7 +79,7 @@ const metaConfig = createMetaConfig({
   description:
     'Contact Fadi Dabboura for collaborations, inquiries, or to discuss DevOps and web development projects at FadiLogic.',
   keywords:
-    'fadi, dabboura, fadi dabboura, contact, devops, web development, website scan, fadilogic',
+    'fadi dabboura, contact, devops, web development, website scan, fadilogic',
   canonical: 'https://fadilogic.serp24.online/contact',
   og: {
     title: 'Fadi Dabboura - Contact | FadiLogic',

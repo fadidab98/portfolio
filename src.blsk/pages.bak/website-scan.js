@@ -20,6 +20,8 @@ const structuredData = [
     author: {
       '@type': 'Person',
       name: 'Fadi Dabboura',
+      givenName: 'Fadi',
+      familyName: 'Dabboura',
       sameAs: [
         'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
         'https://www.facebook.com/fadi.dabboura.73',
@@ -53,7 +55,7 @@ const metaConfig = createMetaConfig({
   description:
     'Use Fadi Dabboura’s free website scan tool to analyze your site’s performance, speed, and errors. Optimize your web development today!',
   keywords:
-    'fadi, dabboura, fadi dabboura, website scan tool, free webscan, website performance tool, web development, devops, site speed test, website error checker',
+    'fadi dabboura, website scan tool, free webscan, website performance tool, web development, devops, site speed test, website error checker',
   canonical: 'https://fadilogic.serp24.online/website-scan',
   og: {
     title: 'Fadi Dabboura - Website Scan Tool | FadiLogic',

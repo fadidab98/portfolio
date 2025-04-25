@@ -3,8 +3,11 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Section from '@/components/Section';
-import WelcomeSection from '../components/WelcomeSection';
 import { SkeletonHero } from '@/components/skeleton/Skeleton';
+import {
+  SkeletonScanServiceSection,
+  SkeletonWelcomeSection,
+} from '../components/skeleton/Skeleton';
 
 // Sample projects data (replace with your actual data fetching)
 const sampleProjects = [
@@ -25,14 +28,15 @@ const Hero = dynamic(() => import('@/components/Hero'), {
   ssr: false,
   loading: () => <SkeletonHero />,
 });
-
+const WelcomeSection = dynamic(() => import('../components/WelcomeSection'), {
+  ssr: false,
+  loading: () => <SkeletonWelcomeSection />,
+});
 const ScanServiceSection = dynamic(
   () => import('@/components/ScanServiceSection'),
   {
     ssr: false,
-    loading: () => (
-      <div className="relative w-full min-h-[650px] bg-gray-700 rounded-md animate-pulse" />
-    ),
+    loading: () => <SkeletonScanServiceSection />,
   }
 );
 const FeaturedProjectCard = dynamic(() => import('@/components/ProjectCard'), {

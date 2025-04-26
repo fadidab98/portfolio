@@ -1,4 +1,3 @@
-// components/HeroServer.jsx (Server-Komponente)
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,7 +11,7 @@ export default function HeroServer({ children }) {
         <div className="relative w-full md:w-1/2 flex justify-center md:justify-start">
           <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] aspect-[5/7]">
             <Image
-              src="/images/project1.webp"
+              src="/images/project1.webp" // Replace with actual hero image path
               alt="Fadi Dabboura - DevOps Engineer and Web Developer"
               title="Fadi Dabboura - DevOps Engineer and Web Developer"
               width={300}

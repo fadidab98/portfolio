@@ -1,15 +1,11 @@
-// components/Hero.jsx (Client-Komponente)
 'use client';
 
 import Link from 'next/link';
 import { useMediaQuery } from 'react-responsive';
 import HeroServer from './HeroServer';
-import { motion } from 'framer-motion';
-// Korrigierte Imports für react-icons
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
 export default function Hero() {
-  // Ersetze Redux durch useMediaQuery
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   const socialLinks = [
@@ -49,24 +45,20 @@ export default function Hero() {
           </Link>
         ))}
       </div>
-      <Link
-        href="/contact"
-        className="inline-block bg-accent text-background py-2 px-4 sm:py-3 sm:px-6 rounded-lg text-base sm:text-lg hover:bg-yellow-600 hover:scale-105 transition duration-300 shadow-md"
-      >
-        Contact Me
-      </Link>
+      <div>
+        <Link
+          href="/contact"
+          className="inline-block bg-accent text-background py-2 px-4 sm:py-3 sm:px-6 rounded-lg text-base sm:text-lg hover:bg-yellow-600 hover:scale-105 transition duration-300 shadow-md"
+        >
+          Contact Me
+        </Link>
+      </div>
     </>
   );
 
   return isMobile ? (
     <HeroServer>{socialContent}</HeroServer>
   ) : (
-    <motion.dev
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-    >
-      <HeroServer>{socialContent}</HeroServer>
-    </motion.dev>
+    <HeroServer>{socialContent}</HeroServer>
   );
 }

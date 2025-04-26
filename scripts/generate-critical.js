@@ -20,7 +20,7 @@ async function generateCritical() {
   }
 
   // Read the target CSS file
-  const cssFilePath = normalize(join(cssDir, 'faee608d96b31f31.css'));
+  const cssFilePath = normalize(join(cssDir, '511edabfa52cd738.css'));
   let cssContent = '';
   if (existsSync(cssFilePath)) {
     cssContent = readFileSync(cssFilePath, 'utf-8');
@@ -53,8 +53,6 @@ async function generateCritical() {
               route = '/contact';
             } else if (entry.name === 'website-scan.html') {
               route = '/website-scan';
-            } else if (entry.name === '_not-found.html') {
-              route = '/_not-found';
             } else {
               // Fallback: derive route from filename
               route = `/${entry.name.replace(/\.html$/, '')}`;

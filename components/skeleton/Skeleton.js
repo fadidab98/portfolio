@@ -1,17 +1,12 @@
 export function SkeletonProjectCard() {
   return (
     <div className="bg-gray-800 p-6 rounded-lg shadow-md">
-      {/* Image placeholder */}
       <div className="w-full h-48 bg-gray-700 rounded-md mb-4"></div>
-      {/* Title placeholder */}
       <div className="h-6 bg-gray-700 rounded w-3/4 mb-2"></div>
-      {/* Description placeholders */}
       <div className="h-4 bg-gray-700 rounded w-full mb-1"></div>
       <div className="h-4 bg-gray-700 rounded w-full mb-1"></div>
       <div className="h-4 bg-gray-700 rounded w-2/3 mb-4"></div>
-      {/* Technologies placeholder */}
       <div className="h-4 bg-gray-700 rounded w-1/2 mb-4"></div>
-      {/* Links placeholders */}
       <div className="flex space-x-4">
         <div className="h-4 bg-gray-700 rounded w-16"></div>
         <div className="h-4 bg-gray-700 rounded w-16"></div>
@@ -46,31 +41,26 @@ export function SkeletonScanServiceSection() {
   return (
     <section className="bg-secondary overflow-hidden py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[600px] sm:min-h-[650px]">
       <div className="relative max-w-4xl mx-auto text-center">
-        {/* Icon placeholder */}
         <div className="mb-6 flex justify-center items-center h-16 w-16 mx-auto bg-gray-300 rounded-full animate-pulse"></div>
-        {/* Heading placeholder */}
         <div className="h-10 bg-gray-300 rounded w-3/4 mx-auto mb-4 animate-pulse"></div>
-        {/* Text paragraphs placeholders */}
         <div className="text-lg space-y-4 mb-8 min-h-[250px] sm:min-h-[300px]">
           <div className="h-16 bg-gray-300 rounded animate-pulse"></div>
           <div className="h-16 bg-gray-300 rounded animate-pulse"></div>
           <div className="h-16 bg-gray-300 rounded animate-pulse"></div>
         </div>
-        {/* Button placeholder */}
         <div className="h-12 w-48 bg-gray-300 rounded-lg mx-auto animate-pulse"></div>
       </div>
     </section>
   );
 }
+
 export function SkeletonWelcomeSection() {
   return (
     <section
       id="welcome"
       className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto min-h-[400px]"
     >
-      {/* Heading placeholder matching h2 (text-3xl or text-4xl) */}
       <div className="h-10 sm:h-12 bg-gray-300 rounded w-3/4 mx-auto mb-6 animate-pulse"></div>
-      {/* Paragraphs placeholder matching text-lg or text-xl */}
       <div className="text-lg sm:text-xl space-y-4 min-h-[200px] sm:min-h-[250px]">
         <div className="h-16 bg-gray-300 rounded w-full mx-auto animate-pulse"></div>
         <div className="h-24 bg-gray-300 rounded w-full mx-auto animate-pulse"></div>

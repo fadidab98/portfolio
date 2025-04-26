@@ -3,8 +3,8 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Section from '@/components/Section';
-import { SkeletonHero } from '@/components/skeleton/Skeleton';
 import {
+  SkeletonHero,
   SkeletonScanServiceSection,
   SkeletonWelcomeSection,
 } from '../components/skeleton/Skeleton';
@@ -24,14 +24,17 @@ const sampleProjects = [
     image: '/images/project1.webp',
   },
 ];
+
 const Hero = dynamic(() => import('@/components/Hero'), {
   ssr: true,
   loading: () => <SkeletonHero />,
 });
+
 const WelcomeSection = dynamic(() => import('../components/WelcomeSection'), {
   ssr: true,
   loading: () => <SkeletonWelcomeSection />,
 });
+
 const ScanServiceSection = dynamic(
   () => import('@/components/ScanServiceSection'),
   {
@@ -39,12 +42,14 @@ const ScanServiceSection = dynamic(
     loading: () => <SkeletonScanServiceSection />,
   }
 );
+
 const FeaturedProjectCard = dynamic(() => import('@/components/ProjectCard'), {
   ssr: true,
   loading: () => (
-    <div className="relative w-full min-h-[300px] bg-gray-700 rounded-md animate-pulse" /> // Adjusted to typical card height
+    <div className="relative w-full min-h-[300px] bg-gray-700 rounded-md animate-pulse" />
   ),
 });
+
 const ProjectCard = dynamic(() => import('@/components/ProjectCard'), {
   ssr: true,
   loading: () => (
@@ -59,9 +64,7 @@ export default function ClientHome({ projects = sampleProjects }) {
     <>
       <Hero />
       <WelcomeSection />
-
       <ScanServiceSection />
-
       <Section
         id="projects"
         className="min-h-[1000px] border border-accent/20 m-12 rounded-md"
@@ -127,10 +130,9 @@ export default function ClientHome({ projects = sampleProjects }) {
 }
 
 export async function getStaticProps() {
-  // Replace with your actual data fetching logic
   const projects = sampleProjects;
   return {
     props: { projects },
-    revalidate: 86400, // Regenerate every 60 seconds
+    revalidate: 86400, // Regenerate every 24 hours
   };
 }

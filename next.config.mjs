@@ -8,7 +8,12 @@ const nextConfig = {
   },
   images: {
     formats: ['image/webp'],
-    domains: ['fadilogic.serp24.online'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'fadilogic.serp24.online',
+      },
+    ],
   },
   async redirects() {
     return [];
@@ -64,6 +69,8 @@ const nextConfig = {
         },
       },
     };
+    config.optimization.minimize = true; // Enable minification
+    config.optimization.usedExports = true;
     return config;
   },
 };

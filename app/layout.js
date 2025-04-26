@@ -8,7 +8,6 @@ const inter = Inter({
   display: 'swap',
 });
 
-// Global JSON-LD Structured Data (Person and Organization only)
 const globalStructuredData = [
   {
     '@context': 'https://schema.org',
@@ -39,7 +38,6 @@ const globalStructuredData = [
   },
 ];
 
-// Global metadata for SEO and social sharing
 export const metadata = {
   title: {
     default: 'Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic',
@@ -84,16 +82,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
       <head>
-        <meta charSet="utf-8" />
-        {/* Preload hero image (replace with actual hero image) */}
-        <link
-          rel="preload"
-          href="/images/project1.webp" // Update to actual hero image
-          as="image"
-          fetchPriority="high"
-        />
-
-        {/* Global structured data for Person and Organization */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

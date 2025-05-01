@@ -107,6 +107,7 @@ export const metadata = {
   },
   manifest: '/manifest.json',
 };
+export const dynamic = 'force-static';
 
 export default function Webscan() {
   return (

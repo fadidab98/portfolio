@@ -45,20 +45,20 @@ const projects = [
     description:
       'A real-time dashboard built with Next.js and TensorFlow for data visualization.',
     technologies: ['Next.js', 'TensorFlow', 'Tailwind CSS'],
-    image: '/images/project1.webp', // Replace with actual image
+    image: '/images/project1.webp',
     alt: 'Machine Learning Dashboard Screenshot',
-    liveLink: 'https://ml-dashboard.fadilogic.serp24.online', // Replace with real link
-    githubLink: 'https://github.com/fadidab98', // Replace with real link
+    liveLink: 'https://ml-dashboard.fadilogic.serp24.online',
+    githubLink: 'https://github.com/fadidab98',
   },
   {
     title: 'Portfolio Site',
     description:
       'A responsive portfolio showcasing DevOps and web development expertise.',
     technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
-    image: '/images/project1.webp', // Replace with actual image
+    image: '/images/project1.webp',
     alt: 'FadiLogic Portfolio Site Screenshot',
     liveLink: 'https://fadilogic.serp24.online',
-    githubLink: 'https://github.com/fadidab98', // Replace with real link
+    githubLink: 'https://github.com/fadidab98',
   },
 ];
 
@@ -82,6 +82,9 @@ export const metadata = {
     canonical: 'https://fadilogic.serp24.online/',
   },
 };
+
+// Force static generation for this page
+export const dynamic = 'force-static';
 
 export default async function Home() {
   return (

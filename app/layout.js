@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import ClientLayout from './ClientLayout';
 import './globals.css';
+import Script from 'next/script';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -82,7 +83,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
       <head>
-        <script
+        <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(globalStructuredData),

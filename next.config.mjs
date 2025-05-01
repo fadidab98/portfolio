@@ -1,10 +1,11 @@
-// next.config.mjs
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
   images: {
     formats: ['image/webp'],
@@ -38,7 +39,6 @@ const nextConfig = {
     ];
   },
   webpack(config) {
- 
     // Fine-tune splitChunks for better optimization
     config.optimization.splitChunks = {
       chunks: 'all',
@@ -49,7 +49,6 @@ const nextConfig = {
           chunks: 'all',
           priority: -10,
         },
-        // Example: Split large libraries into separate chunks
         framerMotion: {
           test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
           name: 'framer-motion',

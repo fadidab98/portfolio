@@ -24,7 +24,6 @@ const sampleProjects = [
     image: '/images/project1.webp',
   },
 ];
-
 const Hero = dynamic(() => import('@/components/Hero'), {
   ssr: true,
   loading: () => <SkeletonHero />,

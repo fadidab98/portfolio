@@ -102,6 +102,7 @@ export const metadata = {
     canonical: 'https://fadilogic.serp24.online/contact',
   },
 };
+export const dynamic = 'force-static';
 
 export default function Contact() {
   return (

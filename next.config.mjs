@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false, // Re-enabled; set to false if critters error reappears
   },
   eslint: {
     ignoreDuringBuilds: true,

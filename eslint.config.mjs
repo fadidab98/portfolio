@@ -39,7 +39,7 @@ export default [
       'react/jsx-uses-react': 'off',
       'react/jsx-uses-vars': 'error',
       'no-unused-vars': [
-        'error', // Stricter now that project is clean
+        'error',
         {
           vars: 'all',
           args: 'after-used',
@@ -51,7 +51,7 @@ export default [
     },
   },
   {
-    files: ['tailwind.config.js', 'src/pages/api/**/*.js'],
+    files: ['tailwind.config.js', 'app/api/**/*.js'],
     languageOptions: {
       globals: {
         node: true,

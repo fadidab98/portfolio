@@ -2,20 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Ensure images are responsive */
-img {
-  max-width: 100%;
-  height: auto;
+/* Fallback for Inter font */
+@font-face {
+  font-family: 'Inter Fallback';
+  src: local('Arial'), local('Helvetica'), sans-serif;
 }
 
-/* styles/globals.css */
-a {
-  text-decoration: none !important;
-  border: none !important;
-}
-
-a:hover,
-a:focus,
-a:active {
-  border: none !important;
+/* Ensure Inter font for __className_9b822d */
+.__className_9b822d {
+  font-family: 'Inter', 'Inter Fallback', sans-serif;
+  font-style: normal;
 }

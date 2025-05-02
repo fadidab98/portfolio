@@ -1,4 +1,5 @@
 import ClientHome from './ClientHome';
+import Script from 'next/script';
 
 // Page-specific JSON-LD structured data
 const structuredData = [
@@ -91,7 +92,7 @@ export default async function Home() {
     <>
       <head>
         {/* Page-specific structured data */}
-        <script
+        <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />

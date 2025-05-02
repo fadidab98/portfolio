@@ -1,14 +1,9 @@
 import { Inter } from 'next/font/google';
 import ClientLayout from './ClientLayout';
 import './globals.css';
-import Script from 'next/script';
 
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap',
-});
-
+// Optional global structured data (uncomment if needed for SEO)
+/*
 const globalStructuredData = [
   {
     '@context': 'https://schema.org',
@@ -38,6 +33,13 @@ const globalStructuredData = [
     ],
   },
 ];
+*/
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+});
 
 export const metadata = {
   title: {
@@ -82,14 +84,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
+      {/*
       <head>
         <Script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(globalStructuredData),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(globalStructuredData) }}
         />
       </head>
+      */}
       <body>
         <ClientLayout>{children}</ClientLayout>
       </body>

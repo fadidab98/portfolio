@@ -44,7 +44,7 @@ const projects = [
   {
     title: 'Machine Learning Dashboard',
     description:
-      'A real-time dashboard built with Next.js and TensorFlow for data visualization.',
+'time dashboard built with Next.js and TensorFlow for data visualization.',
     technologies: ['Next.js', 'TensorFlow', 'Tailwind CSS'],
     image: '/images/project1.webp',
     alt: 'Machine Learning Dashboard Screenshot',

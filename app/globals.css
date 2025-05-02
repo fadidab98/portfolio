@@ -2,10 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fallback for Inter font */
+/* Fallback for Inter font with adjusted metrics */
 @font-face {
   font-family: 'Inter Fallback';
   src: local('Arial'), local('Helvetica'), sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
 }
 
 /* Ensure Inter font for __className_9b822d */

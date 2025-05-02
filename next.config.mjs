@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    optimizeCss: true
+    optimizeCss: true,
   },
   eslint: {
     ignoreDuringBuilds: true,
@@ -39,7 +39,6 @@ const nextConfig = {
     ];
   },
   webpack(config) {
-    // Fine-tune splitChunks for better optimization
     config.optimization.splitChunks = {
       chunks: 'all',
       cacheGroups: {
@@ -68,7 +67,7 @@ const nextConfig = {
         },
       },
     };
-    config.optimization.minimize = true; // Enable minification
+    config.optimization.minimize = true;
     config.optimization.usedExports = true;
     return config;
   },

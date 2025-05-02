@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { motion } from 'framer-motion'; // Import only needed module
 import Section from '@/components/Section';
 import {
   SkeletonHero,
@@ -24,6 +25,7 @@ const sampleProjects = [
     image: '/images/project1.webp',
   },
 ];
+
 const Hero = dynamic(() => import('@/components/Hero'), {
   ssr: true,
   loading: () => <SkeletonHero />,
@@ -68,9 +70,14 @@ export default function ClientHome({ projects = sampleProjects }) {
         id="projects"
         className="min-h-[1000px] border border-accent/20 m-12 rounded-md"
       >
-        <h2 className="text-4xl mb-8 text-center">
+        <motion.h2
+          className="text-4xl mb-8 text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           DevOps Engineer Portfolio by Fadi Dabboura
-        </h2>
+        </motion.h2>
         <div
           className="mb-8 p-4 bg-yellow-100 text-yellow-800 rounded-lg text-center"
           style={{ minHeight: '100px' }}
@@ -83,11 +90,25 @@ export default function ClientHome({ projects = sampleProjects }) {
             studies and live demos.
           </p>
         </div>
-        <h2 className="text-4xl mb-8 text-center">Featured Project Preview</h2>
+        <motion.h2
+          className="text-4xl mb-8 text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          Featured Project Preview
+        </motion.h2>
         <div className="max-w-2xl mx-auto">
           <FeaturedProjectCard project={featuredProject} />
         </div>
-        <h2 className="text-4xl mt-12 mb-8 text-center">More Projects</h2>
+        <motion.h2
+          className="text-4xl mt-12 mb-8 text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          More Projects
+        </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.slice(1).map((project, index) => (
             <ProjectCard key={index} project={project} />
@@ -95,9 +116,14 @@ export default function ClientHome({ projects = sampleProjects }) {
         </div>
       </Section>
       <Section id="cta" className="min-h-[400px]">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
+        <motion.h2
+          className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           Ready to Elevate Your Project?
-        </h2>
+        </motion.h2>
         <div className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center space-y-4">
           <p>
             Optimize your website with my{' '}
@@ -126,12 +152,4 @@ export default function ClientHome({ projects = sampleProjects }) {
       </Section>
     </>
   );
-}
-
-export async function getStaticProps() {
-  const projects = sampleProjects;
-  return {
-    props: { projects },
-    revalidate: 86400, // Regenerate every 24 hours
-  };
 }

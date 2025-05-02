@@ -115,7 +115,9 @@ export default function RootLayout({ children }) {
         {/* Global structured data */}
         <Script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(globalStructuredData) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(globalStructuredData),
+          }}
         />
         {/* Explicit viewport meta tag */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />

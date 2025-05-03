@@ -1,37 +1,6 @@
 import { Inter } from 'next/font/google';
 import ClientLayout from './ClientLayout';
 import './globals.css';
-import Script from 'next/script';
-
-const globalStructuredData = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Fadi Dabboura',
-    givenName: 'Fadi',
-    familyName: 'Dabboura',
-    url: 'https://fadilogic.serp24.online',
-    jobTitle: 'DevOps Engineer & Web Developer',
-    sameAs: [
-      'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-      'https://github.com/fadidab98',
-      'https://www.facebook.com/fadi.dabboura.73',
-      'https://www.instagram.com/dabbourafadi',
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'FadiLogic',
-    url: 'https://fadilogic.serp24.online',
-    sameAs: [
-      'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-      'https://github.com/fadidab98',
-      'https://www.facebook.com/fadi.dabboura.73',
-      'https://www.instagram.com/dabbourafadi',
-    ],
-  },
-];
 
 export const metadata = {
   title: {
@@ -112,13 +81,7 @@ export default function RootLayout({ children }) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        {/* Global structured data */}
-        <Script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(globalStructuredData),
-          }}
-        />
+
         {/* Explicit viewport meta tag */}
       </head>
       <body>

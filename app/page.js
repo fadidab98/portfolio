@@ -5,6 +5,33 @@ import Script from 'next/script';
 const structuredData = [
   {
     '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Fadi Dabboura',
+    givenName: 'Fadi',
+    familyName: 'Dabboura',
+    url: 'https://fadilogic.serp24.online',
+    jobTitle: 'DevOps Engineer & Web Developer',
+    sameAs: [
+      'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+      'https://github.com/fadidab98',
+      'https://www.facebook.com/fadi.dabboura.73',
+      'https://www.instagram.com/dabbourafadi',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'FadiLogic',
+    url: 'https://fadilogic.serp24.online',
+    sameAs: [
+      'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+      'https://github.com/fadidab98',
+      'https://www.facebook.com/fadi.dabboura.73',
+      'https://www.instagram.com/dabbourafadi',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
     '@type': 'WebSite',
     url: 'https://fadilogic.serp24.online',
     name: 'FadiLogic',

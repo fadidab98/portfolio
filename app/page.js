@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import ClientHome from './ClientHome';
 import Script from 'next/script';
 
@@ -117,13 +118,13 @@ export const dynamic = 'force-static';
 export default async function Home() {
   return (
     <>
-      <head>
+      <Head>
         {/* Page-specific structured data */}
         <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-      </head>
+      </Head>
       <ClientHome projects={projects} />
     </>
   );

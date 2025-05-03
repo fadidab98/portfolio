@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import ClientWebscan from './ClientWebscan';
 import Script from 'next/script';
 
@@ -113,14 +112,14 @@ export const dynamic = 'force-static';
 export default function Webscan() {
   return (
     <>
-      <Head>
+      <head>
         <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(structuredData),
           }}
         />
-      </Head>
+      </head>
       <ClientWebscan />
     </>
   );

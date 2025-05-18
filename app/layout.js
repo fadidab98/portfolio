@@ -2,6 +2,78 @@ import { Inter } from 'next/font/google';
 import ClientLayout from './ClientLayout';
 import './globals.css';
 
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+});
+
+// Structured data (moved from page.jsx)
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Fadi Dabboura',
+    givenName: 'Fadi',
+    familyName: 'Dabboura',
+    url: 'https://fadilogic.serp24.online',
+    jobTitle: 'DevOps Engineer & Web Developer',
+    image: 'https://fadilogic.serp24.online/images/FadiLogic.png', // Added image
+    sameAs: [
+      'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+      'https://github.com/fadidab98',
+      'https://www.facebook.com/fadi.dabboura.73',
+      'https://www.instagram.com/dabbourafadi',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'FadiLogic',
+    url: 'https://fadilogic.serp24.online',
+    sameAs: [
+      'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+      'https://github.com/fadidab98',
+      'https://www.facebook.com/fadi.dabboura.73',
+      'https://www.instagram.com/dabbourafadi',
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: 'https://fadilogic.serp24.online',
+    name: 'FadiLogic',
+    potentialAction: [
+      {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: 'https://fadilogic.serp24.online/website-scan',
+        },
+        'query-input': {
+          '@type': 'PropertyValueSpecification',
+          valueRequired: true,
+          valueName: 'website_url',
+        },
+        description:
+          'Scan your website for performance and errors using FadiLogic’s free website scan tool.',
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://fadilogic.serp24.online',
+      },
+    ],
+  },
+];
+
 export const metadata = {
   title: {
     default: 'Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic',
@@ -42,47 +114,16 @@ export const metadata = {
   manifest: '/manifest.json',
 };
 
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap',
-});
-
-// Inline critical CSS for above-the-fold content
-const criticalCSS = `
-  html, body { margin: 0; padding: 0; font-family: 'Inter', 'Inter Fallback', sans-serif; background-color: #1a1a1a; color: #ffffff; }
-  .text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
-  .text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
-  .text-xl { font-size: 1.25rem; line-height: 1.75rem; }
-  .text-base { font-size: 1rem; line-height: 1.5rem; }
-  .leading-relaxed { line-height: 1.625; }
-  .bg-secondary { background-color: rgb(45 45 45); }
-  .text-accent { color: rgb(212 175 55); }
-  .text-white { color: rgb(255 255 255); }
-  .text-gray-300 { color: rgb(209 213 219); }
-  .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
-  .px-4 { padding-left: 1rem; padding-right: 1rem; }
-  .max-w-5xl { max-width: 64rem; }
-  .mx-auto { margin-left: auto; margin-right: auto; }
-  .min-h-[400px] { min-height: 400px; }
-`;
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
       <head>
-        {/* Inline critical CSS */}
-        <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
-        {/* Preload Inter font */}
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* Structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-
-        {/* Explicit viewport meta tag */}
       </head>
       <body>
         <ClientLayout>{children}</ClientLayout>

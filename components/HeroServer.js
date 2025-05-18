@@ -12,8 +12,8 @@ export default function HeroServer({ children }) {
       <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] aspect-[5/7]">
         <Image
           src="/images/project1.webp"
-          alt="Fadi Dabboura - DevOps Engineer and Web Developer"
-          title="Fadi Dabboura - DevOps Engineer and Web Developer"
+          alt="Fadi Dabboura Profile"
+          title="Fadi Dabboura"
           width={300}
           height={420}
           priority

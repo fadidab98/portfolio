@@ -1,5 +1,4 @@
 import ClientWebscan from './ClientWebscan';
-import Script from 'next/script';
 
 // Consolidated JSON-LD Structured Data
 const structuredData = [
@@ -113,7 +112,7 @@ export default function Webscan() {
   return (
     <>
       <head>
-        <Script
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(structuredData),

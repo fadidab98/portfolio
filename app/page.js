@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import ClientHome from './ClientHome';
 
 // Static project data (replace with API call if needed)
@@ -25,57 +24,8 @@ const projects = [
   },
 ];
 
-// Structured data for SEO
+// Page-specific structured data
 const structuredData = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Fadi Dabboura',
-    givenName: 'Fadi',
-    familyName: 'Dabboura',
-    url: 'https://fadilogic.serp24.online',
-    jobTitle: 'DevOps Engineer & Web Developer',
-    sameAs: [
-      'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-      'https://github.com/fadidab98',
-      'https://www.facebook.com/fadi.dabboura.73',
-      'https://www.instagram.com/dabbourafadi',
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'FadiLogic',
-    url: 'https://fadilogic.serp24.online',
-    sameAs: [
-      'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-      'https://github.com/fadidab98',
-      'https://www.facebook.com/fadi.dabboura.73',
-      'https://www.instagram.com/dabbourafadi',
-    ],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    url: 'https://fadilogic.serp24.online',
-    name: 'FadiLogic',
-    potentialAction: [
-      {
-        '@type': 'SearchAction',
-        target: {
-          '@type': 'EntryPoint',
-          urlTemplate: 'https://fadilogic.serp24.online/website-scan',
-        },
-        'query-input': {
-          '@type': 'PropertyValueSpecification',
-          valueRequired: true,
-          valueName: 'website_url',
-        },
-        description:
-          'Scan your website for performance and errors using FadiLogic’s free website scan tool.',
-      },
-    ],
-  },
   {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -91,7 +41,7 @@ const structuredData = [
 ];
 
 export const metadata = {
-  title: 'Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic',
+  title: 'Fadi Dabboura - DevOps & Web Developer | FadiLogic',
   description:
     'Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic.',
   openGraph: {
@@ -109,7 +59,7 @@ export const metadata = {
     ],
   },
   twitter: {
-    title: 'Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic',
+    title: 'Fadi Dabboura - DevOps & Web Developer | FadiLogic',
     description:
       'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
     images: ['https://fadilogic.serp24.online/images/FadiLogic.png'],
@@ -126,13 +76,12 @@ export const revalidate = 86400;
 export const dynamic = 'force-static';
 
 export default async function Home() {
-  // If fetching from an API, you can do it here (Server Component)
-  // Example:
-  // const projects = await fetch('https://api.example.com/projects').then(res => res.json());
-
   return (
     <>
-     
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <ClientHome projects={projects} />
     </>
   );

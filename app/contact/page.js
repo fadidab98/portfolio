@@ -1,8 +1,6 @@
-// app/contact/page.js
-import Script from 'next/script';
 import ClientContact from './ClientContact';
 
-// Page-specific JSON-LD structured data
+// Page-specific structured data
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -66,13 +64,10 @@ const structuredData = [
   },
 ];
 
-// Page-specific metadata
 export const metadata = {
-  title: 'Fadi Dabboura | Contact Me - FadiLogic',
+  title: 'Contact Fadi Dabboura - FadiLogic',
   description:
-    'Contact Fadi Dabboura for collaborations, inquiries, or to discuss DevOps and web development projects at FadiLogic.',
-  keywords:
-    'fadi dabboura, contact, devops, web development, website scan, fadilogic',
+    'Contact Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
   robots: 'index, follow',
   openGraph: {
     title: 'Fadi Dabboura - Contact | FadiLogic',
@@ -94,7 +89,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fadi Dabboura | Contact Me - FadiLogic',
+    title: 'Fadi Dabboura - Contact | FadiLogic',
     description:
       'Contact Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
     images: ['https://fadilogic.serp24.online/images/FadiLogic.png'],
@@ -103,18 +98,20 @@ export const metadata = {
     canonical: 'https://fadilogic.serp24.online/contact',
   },
 };
+
+// Enable Incremental Static Regeneration (ISR) - regenerate every 24 hours
+export const revalidate = 86400;
+
+// Force static generation
 export const dynamic = 'force-static';
 
 export default function Contact() {
   return (
     <>
-      <head>
-        {/* Page-specific structured data */}
-        <Script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-      </head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <ClientContact />
     </>
   );

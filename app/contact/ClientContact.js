@@ -12,7 +12,7 @@ const ContactForm = dynamic(() => import('@/components/ContactForm'), {
 export default function ClientContact() {
   return (
     <div className="max-w-4xl mx-auto my-5">
-      <Section className="text-center mb-12">
+      <Section className="text-center mb-12 border border-accent/20 m-12 rounded-md">
         <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-white tracking-tight">
           Contact <span className="text-accent">Fadi Dabboura</span>
         </h1>

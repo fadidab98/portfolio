@@ -8,7 +8,7 @@ const inter = Inter({
   display: 'swap',
 });
 
-// Structured data (moved from page.jsx)
+// Global structured data (applies to all pages)
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -18,7 +18,7 @@ const structuredData = [
     familyName: 'Dabboura',
     url: 'https://fadilogic.serp24.online',
     jobTitle: 'DevOps Engineer & Web Developer',
-    image: 'https://fadilogic.serp24.online/images/FadiLogic.png', // Added image
+    image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
     sameAs: [
       'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
       'https://github.com/fadidab98',
@@ -60,29 +60,15 @@ const structuredData = [
       },
     ],
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://fadilogic.serp24.online',
-      },
-    ],
-  },
 ];
 
 export const metadata = {
   title: {
-    default: 'Fadi Dabboura | DevOps & Web Developer Portfolio - FadiLogic',
+    default: 'Fadi Dabboura - DevOps & Web Developer | FadiLogic',
     template: '%s | FadiLogic',
   },
   description:
     'Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic.',
-  keywords:
-    'fadi dabboura, devops, web developer, website scan, portfolio, fadilogic',
   robots: 'index, follow',
   openGraph: {
     siteName: 'FadiLogic',
@@ -118,8 +104,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* Structured data */}
+        <meta charset="utf-8" />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

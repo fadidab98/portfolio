@@ -49,7 +49,7 @@ export default function Header() {
               : 'hidden'
           } md:block md:static md:bg-transparent md:top-auto md:left-auto md:right-auto md:bottom-auto md:mt-0 transition-all duration-500 ease-in-out overflow-hidden`}
         >
-          <ul className="flex flex-col md:flex-row md:space-x-6 h-full justify-between items-center p-2 md:p-0 text-white">
+          <ul className="flex flex-col md:flex-row md:space-x-6 h-full justify-center items-center p-2 md:p-0 text-white">
             <li className="w-full md:w-auto">
               <Link
                 href="/"

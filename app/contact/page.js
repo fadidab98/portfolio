@@ -12,7 +12,8 @@ const structuredData = [
     mainEntity: {
       '@type': 'Person',
       name: 'Fadi Dabboura',
-      
+      givenName: 'Fadi',
+      familyName: 'Dabboura',
       email: 'mailto:fadi@serp24.online',
       sameAs: [
         'https://www.linkedin.com/in/fadi-dabboura-8300bb211',

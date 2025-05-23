@@ -11,7 +11,8 @@ const structuredData = [
     author: {
       '@type': 'Person',
       name: 'Fadi Dabboura',
-      
+      givenName: 'Fadi',
+      familyName: 'Dabboura',
       sameAs: [
         'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
         'https://www.facebook.com/fadi.dabboura.73',

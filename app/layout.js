@@ -14,7 +14,8 @@ const structuredData = [
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Fadi Dabboura',
-    
+    givenName: 'Fadi',
+    familyName: 'Dabboura',
     url: 'https://fadilogic.serp24.online',
     jobTitle: 'DevOps Engineer & Web Developer',
     image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
@@ -95,7 +96,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={inter.className}>
       <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
         <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import ClientContact from './ClientContact';
 
 // Page-specific structured data
@@ -237,10 +238,13 @@ export const dynamic = 'force-static';
 export default function Contact() {
   return (
     <>
-      <script
+    <Head>
+    <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+    </Head>
+     
       <ClientContact />
     </>
   );

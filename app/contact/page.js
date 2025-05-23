@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import ClientContact from './ClientContact';
+import Script from 'next/script';
 
 // Page-specific structured data
 const structuredData = [
@@ -239,7 +240,7 @@ export default function Contact() {
   return (
     <>
     <Head>
-    <script
+    <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />

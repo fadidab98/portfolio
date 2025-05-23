@@ -1,6 +1,6 @@
 import ClientContact from './ClientContact';
 
-// Page-specific structured data (consolidated FAQ and Review schemas)
+// Page-specific structured data
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -92,48 +92,72 @@ const structuredData = [
     '@type': 'Review',
     itemReviewed: {
       '@type': 'Service',
-      name: 'DevOps and Web Development by FadiLogic',
+      name: 'DevOps Consulting by FadiLogic',
+      sameAs: 'https://fadilogic.serp24.online/#devops',
       provider: {
         '@type': 'Organization',
         name: 'FadiLogic',
         url: 'https://fadilogic.serp24.online',
+        sameAs: [
+          'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+          'https://github.com/fadidab98',
+        ],
       },
     },
     reviewRating: {
       '@type': 'Rating',
       ratingValue: 5,
       bestRating: 5,
+      worstRating: 1, // Added for completeness
     },
     author: {
       '@type': 'Person',
       name: 'Jane Smith',
     },
+    publisher: {
+      '@type': 'Organization',
+      name: 'FadiLogic',
+      url: 'https://fadilogic.serp24.online',
+    },
     reviewBody: 'Fadi Dabboura helped me set up a CI/CD pipeline that reduced our deployment time by 50%. His expertise in DevOps and web development is unmatched!',
-    datePublished: '2025-01-15',
+    datePublished: '2025-01-15T08:00:00Z', // ISO 8601 format
+    description: 'A review of Fadi Dabboura’s DevOps consulting services, focusing on CI/CD pipeline optimization.',
   },
   {
     '@context': 'https://schema.org',
     '@type': 'Review',
     itemReviewed: {
       '@type': 'Service',
-      name: 'DevOps and Web Development by FadiLogic',
+      name: 'Website Performance Optimization by FadiLogic',
+      sameAs: 'https://fadilogic.serp24.online/website-scan',
       provider: {
         '@type': 'Organization',
         name: 'FadiLogic',
         url: 'https://fadilogic.serp24.online',
+        sameAs: [
+          'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+          'https://github.com/fadidab98',
+        ],
       },
     },
     reviewRating: {
       '@type': 'Rating',
       ratingValue: 5,
       bestRating: 5,
+      worstRating: 1,
     },
     author: {
       '@type': 'Person',
       name: 'Mark Johnson',
     },
+    publisher: {
+      '@type': 'Organization',
+      name: 'FadiLogic',
+      url: 'https://fadilogic.serp24.online',
+    },
     reviewBody: 'Working with Fadi was a game-changer. His website scan tool identified critical SEO issues, and his solutions boosted our site’s ranking significantly.',
-    datePublished: '2025-02-10',
+    datePublished: '2025-02-10T08:00:00Z',
+    description: 'A review of Fadi Dabboura’s website performance optimization services, including SEO and speed improvements.',
   },
 ];
 

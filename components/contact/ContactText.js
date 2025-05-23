@@ -12,7 +12,7 @@ export default function ContactText() {
         <div className="flex flex-col md:flex-row gap-8">
           <div className="md:w-1/2">
             <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6">
-              After submitting the form, I’ll review your inquiry and respond within 24-48 hours with personalized solutions. Whether you need <strong>DevOps workflows</strong>, custom <strong>web apps</strong>, or a performance boost via my{' '}
+              Once you submit the form, I’ll review your inquiry and respond within 24-48 hours with customized solutions. Whether you need <strong>DevOps automation</strong>, bespoke <strong>web applications</strong>, or insights from my{' '}
               <Link
                 href="/website-scan"
                 className="text-accent underline hover:text-accent/80 transition"
@@ -20,7 +20,7 @@ export default function ContactText() {
               >
                 free website scan tool
               </Link>
-              , I’m committed to your success. Visit my{' '}
+              , I’m dedicated to your success. Visit my{' '}
               <Link
                 href="/"
                 className="text-accent underline hover:text-accent/80 transition"
@@ -30,13 +30,13 @@ export default function ContactText() {
               </Link>{' '}
               or{' '}
               <Link
-                href="/#projects"
+                href="/#about"
                 className="text-accent underline hover:text-accent/80 transition"
-                aria-label="View Fadi Dabboura’s portfolio"
+                aria-label="Learn more about Fadi Dabboura"
               >
-                portfolio
+                about page
               </Link>{' '}
-              to see my expertise in action.
+              to explore my expertise.
             </p>
           </div>
           <div className="md:w-1/2">
@@ -75,7 +75,7 @@ export default function ContactText() {
               />
             </svg>
             <span>
-              Streamlined <strong>DevOps automation</strong> for cloud infrastructure and CI/CD pipelines to enhance scalability.
+              Advanced <strong>DevOps automation</strong> for cloud infrastructure and CI/CD pipelines to maximize scalability and efficiency.
             </span>
           </li>
           <li className="flex items-start">
@@ -95,7 +95,7 @@ export default function ContactText() {
               />
             </svg>
             <span>
-              Custom <strong>web development</strong> focused on speed, accessibility, and top-tier SEO performance.
+              Custom <strong>web development</strong> prioritizing speed, accessibility, and top-tier SEO performance.
             </span>
           </li>
           <li className="flex items-start">
@@ -115,7 +115,7 @@ export default function ContactText() {
               />
             </svg>
             <span>
-              Advanced <strong>website optimization</strong> with my free scan tool to improve user experience and search rankings.
+              Comprehensive <strong>website optimization</strong> using my free scan tool to enhance user experience and search rankings.
             </span>
           </li>
         </ul>
@@ -163,7 +163,7 @@ export default function ContactText() {
               What is the process for starting a project?
             </h3>
             <p className="text-lg sm:text-xl text-gray-300">
-              We begin with a consultation to understand your needs, followed by planning, implementation, and ongoing support to ensure your project’s success.
+              We begin with a consultation to define your goals, followed by strategic planning, implementation, and ongoing support to ensure success.
             </p>
           </div>
         </div>
@@ -187,15 +187,15 @@ export default function ContactText() {
             </p>
           </blockquote>
           <p className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center">
-            Ready to start your project?{' '}
+            Ready to transform your project?{' '}
             <Link
               href="/#projects"
               className="text-accent underline hover:text-accent/80 transition"
               aria-label="View Fadi Dabboura’s portfolio"
             >
-              See my work
+              Explore my work
             </Link>{' '}
-            or fill out the form below!
+            or contact me below!
           </p>
         </div>
       </Section>

@@ -78,6 +78,19 @@ export default function Header() {
             </li>
             <li className="w-full md:w-auto">
               <Link
+                href="/website-scan"
+                className={`block py-3 md:py-2 px-4 md:px-6 text-lg md:text-base font-semibold transition duration-300 w-full text-center md:text-left no-underline ${
+                  isActive('/website-scan')
+                    ? 'text-accent bg-accent/20 md:rounded-md'
+                    : 'hover:text-accent hover:bg-accent/20 md:hover:rounded-md'
+                } focus:outline-none `}
+                onClick={() => setIsOpen(false)}
+              >
+                Website Scanner
+              </Link>
+            </li>
+            <li className="w-full md:w-auto">
+              <Link
                 href="/#projects"
                 className={`block py-3 md:py-2 px-4 md:px-6 text-lg md:text-base font-semibold transition duration-300 w-full text-center md:text-left no-underline ${
                   isActive('/#projects')

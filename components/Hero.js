@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useMediaQuery } from 'react-responsive';
 import HeroServer from './HeroServer';
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
@@ -33,32 +32,29 @@ export default function Hero() {
     <>
       <div className="flex justify-center md:justify-start gap-4 mb-6">
         {socialLinks.map((link) => (
-          <Link
+          <a
             key={link.name}
             href={link.url}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer me"
             className={`text-gray-300 ${link.color} transition-colors duration-300 transform hover:scale-110`}
-            aria-label={link.name}
+            aria-label={`Visit Fadi Dabboura’s ${link.name} profile`}
           >
             <span className="text-2xl">{link.icon}</span>
-          </Link>
+          </a>
         ))}
       </div>
       <div>
-        <Link
+        <a
           href="/contact"
           className="inline-block bg-accent text-background py-2 px-4 sm:py-3 sm:px-6 rounded-lg text-base sm:text-lg hover:bg-yellow-600 hover:scale-105 transition duration-300 shadow-md"
+          aria-label="Contact Fadi Dabboura"
         >
           Contact Me
-        </Link>
+        </a>
       </div>
     </>
   );
 
-  return isMobile ? (
-    <HeroServer>{socialContent}</HeroServer>
-  ) : (
-    <HeroServer>{socialContent}</HeroServer>
-  );
+  return isMobile ? <HeroServer>{socialContent}</HeroServer> : <HeroServer>{socialContent}</HeroServer>;
 }

@@ -5,6 +5,12 @@ export default function Footer() {
         © {new Date().getFullYear()} Fadi Dabboura. All rights reserved.
       </p>
       <div className="mt-4 flex justify-center space-x-4">
+      <Link href="/contact" className="hover:text-accent" aria-label="Contact Fadi Dabboura">
+          Contact
+        </Link>
+        <Link href="/website-scan" className="hover:text-accent" aria-label="Try FadiLogic’s website scan tool">
+          Website Scan
+        </Link>
         <a
           href="https://www.linkedin.com/in/fadi-dabboura-8300bb211"
           target="_blank"

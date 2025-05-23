@@ -1,11 +1,11 @@
 import ClientHome from './ClientHome';
 
-// Static project data (replace with API call if needed)
+// Static project data
 const projects = [
   {
     title: 'Machine Learning Dashboard',
     description:
-      'A real-time dashboard for visualizing ML model performance, built with Next.js and TensorFlow.',
+      'A real-time dashboard for visualizing ML model performance, built with Next.js and TensorFlow. Features include live data updates and responsive design.',
     technologies: ['Next.js', 'TensorFlow', 'Tailwind CSS'],
     image: '/images/ml-dashboard.avif',
     alt: 'Machine Learning Dashboard Screenshot',
@@ -15,7 +15,7 @@ const projects = [
   {
     title: 'Portfolio Site',
     description:
-      'A responsive portfolio showcasing DevOps and web development expertise.',
+      'A responsive portfolio showcasing DevOps and web development expertise, optimized for SEO and performance.',
     technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
     image: '/images/FadiLogic-web.webp',
     alt: 'FadiLogic Portfolio Site Screenshot',
@@ -26,6 +26,25 @@ const projects = [
 
 // Page-specific structured data
 const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Fadi Dabboura Portfolio',
+    url: 'https://fadilogic.serp24.online',
+    description:
+      'Portfolio of Fadi Dabboura, showcasing DevOps and web development projects, including a free website scan tool.',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: projects.map((project, index) => ({
+        '@type': 'CreativeWork',
+        name: project.title,
+        description: project.description,
+        url: project.liveLink,
+        image: project.image,
+        position: index + 1,
+      })),
+    },
+  },
   {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -44,6 +63,7 @@ export const metadata = {
   title: 'Fadi Dabboura - DevOps & Web Developer | FadiLogic',
   description:
     'Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic.',
+  robots: 'index, follow',
   openGraph: {
     title: 'Fadi Dabboura - Portfolio & Website Scan | FadiLogic',
     description:
@@ -54,7 +74,7 @@ export const metadata = {
         url: 'https://fadilogic.serp24.online/images/FadiLogic.png',
         width: 1200,
         height: 630,
-        alt: 'FadiLogic',
+        alt: 'FadiLogic - DevOps and Web Development',
       },
     ],
   },

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+
 export function SkeletonProjectCard() {
   return (
     <div className="bg-gray-800 p-6 rounded-lg shadow-md">
@@ -22,7 +23,7 @@ export default function ProjectCard({ project }) {
     <div className="bg-gray-800 p-6 rounded-lg shadow-md">
       <Image
         src={project.image}
-        alt={project.title}
+        alt={project.alt}
         width={400}
         height={192}
         placeholder="blur"
@@ -30,7 +31,27 @@ export default function ProjectCard({ project }) {
         className="w-full h-48 object-cover rounded-md mb-4"
       />
       <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-      <p className="text-gray-300">{project.description}</p>
+      <p className="text-gray-300 mb-4">{project.description}</p>
+      <div className="flex space-x-4">
+        <a
+          href={project.liveLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent underline hover:text-accent/80 transition"
+          aria-label={`View live demo of ${project.title}`}
+        >
+          Live Demo
+        </a>
+        <a
+          href={project.githubLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-accent underline hover:text-accent/80 transition"
+          aria-label={`View ${project.title} source code on GitHub`}
+        >
+          GitHub
+        </a>
+      </div>
     </div>
   );
 }

@@ -51,25 +51,41 @@ export default function ClientHome({ projects }) {
             <ProjectCard key={index} project={project} />
           ))}
         </div>
+        <p className="text-center text-lg text-gray-300 mt-8">
+          Want to collaborate on a project?{' '}
+          <Link href="/contact" className="text-accent underline hover:text-accent/80 transition">
+            Contact me
+          </Link>{' '}
+          to discuss your ideas!
+        </p>
       </Section>
-      <Section id="cta" className="min-h-[400px]">
+      <Section id="cta" className="min-h-[400px] border border-accent/20 m-12 rounded-md">
         <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
           Ready to Elevate Your Project?
         </h2>
         <div className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center space-y-4">
           <p>
-            Optimize your website with my{' '}
-            <Link href="/website-scan" className="text-accent underline hover:text-accent/80 transition">
+            Boost your website’s performance with my{' '}
+            <Link
+              href="/website-scan"
+              className="text-accent underline hover:text-accent/80 transition"
+              aria-label="Try FadiLogic's free website scan tool"
+            >
               free website scan tool
-            </Link>{' '}
-            to uncover performance issues, SEO gaps, and errors. Get actionable insights to boost your site’s success.
+            </Link>
+            . Get insights into speed, SEO, and security to ensure your site stands out.
           </p>
           <p>
-            Need custom <strong>DevOps</strong> or <strong>web development</strong> solutions?{' '}
-            <Link href="/contact" className="text-accent underline hover:text-accent/80 transition">
+            Looking for tailored <strong>DevOps</strong> or <strong>web development</strong>{' '}
+            solutions?{' '}
+            <Link
+              href="/contact"
+              className="text-accent underline hover:text-accent/80 transition"
+              aria-label="Contact Fadi Dabboura for project inquiries"
+            >
               Contact me
             </Link>{' '}
-            to discuss your needs, from CI/CD pipelines to scalable web applications. Let’s build something extraordinary together!
+            to build scalable CI/CD pipelines, cloud infrastructure, or high-performance web apps.
           </p>
         </div>
       </Section>

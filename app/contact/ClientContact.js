@@ -5,8 +5,10 @@ import dynamic from 'next/dynamic';
 import Section from '@/components/Section';
 import ContactText from '@/components/contact/ContactText';
 
+// Dynamic import with fallback for better rendering
 const ContactForm = dynamic(() => import('@/components/ContactForm'), {
   ssr: true,
+  loading: () => <p>Loading contact form...</p>,
 });
 
 export default function ClientContact() {
@@ -17,11 +19,11 @@ export default function ClientContact() {
           Contact <span className="text-accent">Fadi Dabboura</span>
         </h1>
         <p className="mt-4 text-lg sm:text-xl text-gray-300 leading-relaxed">
-          Whether you have a question, a project idea, or seek to collaborate on
-          innovative DevOps and web development solutions, I’m here to help.{' '}
+          I’m a DevOps Engineer and Web Developer passionate about building scalable solutions and optimizing website performance. Whether you need help with CI/CD pipelines, web development, or a free website scan, I’m here to assist.{' '}
           <Link
             href="/"
             className="text-accent underline hover:text-accent/80 transition"
+            aria-label="Explore Fadi Dabboura's portfolio"
           >
             Explore my portfolio
           </Link>{' '}
@@ -29,13 +31,33 @@ export default function ClientContact() {
           <Link
             href="/website-scan"
             className="text-accent underline hover:text-accent/80 transition"
+            aria-label="Try FadiLogic's free website scan tool"
           >
             website scan tool
           </Link>{' '}
           to analyze your site’s performance.
         </p>
       </Section>
+      
+      {/* New Section: Case Study or Success Story */}
+      <Section className="bg-secondary rounded-lg shadow-xl p-8 sm:p-12 mb-12 border border-accent/20 m-12 rounded-md">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-white tracking-tight">
+          Why Work With Me?
+        </h2>
+        <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6">
+          I recently helped a startup reduce deployment times by 50% through a custom CI/CD pipeline. My expertise in DevOps and web development ensures your project is efficient, scalable, and optimized for performance. Let’s bring your vision to life!{' '}
+          <Link
+            href="/#projects"
+            className="text-accent underline hover:text-accent/80 transition"
+            aria-label="View Fadi Dabboura's projects"
+          >
+            See my projects
+          </Link>
+        </p>
+      </Section>
+
       <ContactText />
+
       <Section className="w-full max-w-2xl mx-auto bg-secondary rounded-xl shadow-2xl p-8 sm:p-12 border border-accent/20 hover:shadow-accent/20 transition-all duration-300">
         <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
           Get in Touch
@@ -46,6 +68,7 @@ export default function ClientContact() {
           <a
             href="mailto:fadi@serp24.online"
             className="text-accent hover:underline transition"
+            aria-label="Email Fadi Dabboura"
           >
             fadi@serp24.online
           </a>
@@ -53,6 +76,7 @@ export default function ClientContact() {
           <Link
             href="/website-scan"
             className="text-accent underline hover:text-accent/80 transition"
+            aria-label="Try FadiLogic's free website scan tool"
           >
             free website scan tool
           </Link>{' '}

@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { useSubmitContactFormMutation } from '../lib/contactApi';
 
@@ -39,7 +41,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <form className="space-y-6" onSubmit={handleSubmit}>
+      <form className="space-y-6" onSubmit={handleSubmit} aria-label="Contact Fadi Dabboura">
         <div>
           <label htmlFor="name" className="block text-lg text-white mb-1">
             Name
@@ -53,11 +55,13 @@ export default function ContactForm() {
             onChange={handleChange}
             className="w-full p-2 bg-secondary border border-accent rounded text-text focus:outline-none focus:ring-2 focus:ring-accent"
             required
+            aria-label="Your Name"
           />
         </div>
         <div>
           <label htmlFor="email" className="block text-lg text-white mb-1">
             Email
+ Stuart
           </label>
           <input
             type="email"
@@ -68,6 +72,7 @@ export default function ContactForm() {
             onChange={handleChange}
             className="w-full p-2 bg-secondary border border-accent rounded text-text focus:outline-none focus:ring-2 focus:ring-accent"
             required
+            aria-label="Your Email"
           />
         </div>
         <div>
@@ -82,12 +87,14 @@ export default function ContactForm() {
             onChange={handleChange}
             className="w-full p-2 bg-secondary border border-accent rounded text-text h-32 focus:outline-none focus:ring-2 focus:ring-accent"
             required
+            aria-label="Your Message"
           />
         </div>
         <button
           type="submit"
           disabled={isLoading}
           className="w-full p-2 bg-accent text-background rounded hover:bg-opacity-80 transition duration-300 disabled:opacity-50"
+          aria-label={isLoading ? 'Sending message' : 'Send message'}
         >
           {isLoading ? 'Sending...' : 'Send'}
         </button>

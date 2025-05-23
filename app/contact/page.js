@@ -1,6 +1,8 @@
+// app/contact/page.js
+import Head from 'next/head';
 import ClientContact from './ClientContact';
 
-// Page-specific structured data
+// Page-specific JSON-LD structured data
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -8,7 +10,7 @@ const structuredData = [
     name: 'Contact Fadi Dabboura',
     url: 'https://fadilogic.serp24.online/contact',
     description:
-      'Contact Fadi Dabboura for expert DevOps, web development, and website performance optimization services. Get personalized solutions and try my free website scan tool.',
+      'Contact Fadi Dabboura for DevOps and web development inquiries.',
     mainEntity: {
       '@type': 'Person',
       name: 'Fadi Dabboura',
@@ -20,15 +22,6 @@ const structuredData = [
         'https://www.facebook.com/fadi.dabboura.73',
         'https://github.com/fadidab98',
       ],
-    },
-    potentialAction: {
-      '@type': 'CommunicateAction',
-      target: 'https://fadilogic.serp24.online/contact',
-      recipient: {
-        '@type': 'Person',
-        email: 'fadi@serp24.online',
-      },
-      description: 'Submit a contact form to reach Fadi Dabboura for DevOps, web development, or performance optimization inquiries.',
     },
   },
   {
@@ -66,142 +59,25 @@ const structuredData = [
         name: 'What types of projects do you work on?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'I specialize in DevOps, web development, and website performance optimization, including CI/CD pipelines, scalable web applications, and SEO enhancements.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Can you help with existing website issues?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes, I can analyze your website using my free website scan tool to identify issues like slow load times, broken links, or SEO gaps, and provide actionable solutions.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'What is the process for starting a project?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'We begin with a consultation to define your goals, followed by strategic planning, implementation, and ongoing support to ensure your project’s success.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Do you offer ongoing support after project completion?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes, I provide maintenance and support services to ensure your DevOps pipelines or website remain optimized and up-to-date.',
+          text: 'I specialize in DevOps, web development, and website performance optimization, including CI/CD pipelines, scalable web apps, and SEO improvements.',
         },
       },
     ],
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Review',
-    itemReviewed: {
-      '@type': 'Organization',
-      name: 'FadiLogic',
-      url: 'https://fadilogic.serp24.online',
-      sameAs: [
-        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-        'https://github.com/fadidab98',
-      ],
-      description: 'FadiLogic provides expert DevOps and web development services, including CI/CD pipeline automation and website performance optimization.',
-    },
-    reviewRating: {
-      '@type': 'Rating',
-      ratingValue: 5,
-      bestRating: 5,
-      worstRating: 1,
-    },
-    author: {
-      '@type': 'Person',
-      name: 'Jane Smith',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'FadiLogic',
-      url: 'https://fadilogic.serp24.online',
-    },
-    reviewBody: 'Fadi Dabboura helped me set up a CI/CD pipeline that reduced our deployment time by 50%. His expertise in DevOps is unmatched!',
-    datePublished: '2025-01-15T08:00:00Z',
-    description: 'A review of FadiLogic’s DevOps consulting services, focusing on CI/CD pipeline optimization.',
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Review',
-    itemReviewed: {
-      '@type': 'Organization',
-      name: 'FadiLogic',
-      url: 'https://fadilogic.serp24.online',
-      sameAs: [
-        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-        'https://github.com/fadidab98',
-      ],
-      description: 'FadiLogic provides expert DevOps and web development services, including CI/CD pipeline automation and website performance optimization.',
-    },
-    reviewRating: {
-      '@type': 'Rating',
-      ratingValue: 5,
-      bestRating: 5,
-      worstRating: 1,
-    },
-    author: {
-      '@type': 'Person',
-      name: 'Mark Johnson',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'FadiLogic',
-      url: 'https://fadilogic.serp24.online',
-    },
-    reviewBody: 'Fadi’s website scan tool identified critical SEO issues, and his solutions boosted our site’s ranking significantly. A game-changer!',
-    datePublished: '2025-02-10T08:00:00Z',
-    description: 'A review of FadiLogic’s website performance optimization services, including SEO and speed improvements.',
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Review',
-    itemReviewed: {
-      '@type': 'Organization',
-      name: 'FadiLogic',
-      url: 'https://fadilogic.serp24.online',
-      sameAs: [
-        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-        'https://github.com/fadidab98',
-      ],
-      description: 'FadiLogic provides expert DevOps and web development services, including CI/CD pipeline automation and website performance optimization.',
-    },
-    reviewRating: {
-      '@type': 'Rating',
-      ratingValue: 5,
-      bestRating: 5,
-      worstRating: 1,
-    },
-    author: {
-      '@type': 'Person',
-      name: 'Sarah Lee',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'FadiLogic',
-      url: 'https://fadilogic.serp24.online',
-    },
-    reviewBody: 'Fadi built a responsive web app for my business that’s fast and user-friendly. His attention to detail and SEO expertise are exceptional!',
-    datePublished: '2025-03-01T08:00:00Z',
-    description: 'A review of FadiLogic’s web development services, focusing on responsive design and SEO.',
-  },
 ];
 
+// Page-specific metadata
 export const metadata = {
-  title: 'Contact Fadi Dabboura - DevOps & Web Development | FadiLogic',
+  title: 'Fadi Dabboura | Contact Me - FadiLogic',
   description:
-    'Reach out to Fadi Dabboura for expert DevOps, web development, and website performance optimization services. Try my free website scan tool at FadiLogic.',
+    'Contact Fadi Dabboura for collaborations, inquiries, or to discuss DevOps and web development projects at FadiLogic.',
+  keywords:
+    'fadi dabboura, contact, devops, web development, website scan, fadilogic',
   robots: 'index, follow',
   openGraph: {
-    title: 'Contact Fadi Dabboura - DevOps & Web Development | FadiLogic',
+    title: 'Fadi Dabboura - Contact | FadiLogic',
     description:
-      'Reach out to Fadi Dabboura for expert DevOps, web development, and website performance optimization services. Try my free website scan tool at FadiLogic.',
+      'Contact Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
     url: 'https://fadilogic.serp24.online/contact',
     siteName: 'FadiLogic',
     locale: 'en_US',
@@ -211,16 +87,16 @@ export const metadata = {
         url: 'https://fadilogic.serp24.online/images/FadiLogic.png',
         width: 1200,
         height: 630,
-        alt: 'FadiLogic - DevOps and Web Development',
+        alt: 'FadiLogic',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact Fadi Dabboura - DevOps & Web Development | FadiLogic',
+    title: 'Fadi Dabboura | Contact Me - FadiLogic',
     description:
-      'Reach out to Fadi Dabboura for expert DevOps, web development, and website performance optimization services. Try my free website scan tool at FadiLogic.',
+      'Contact Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
     images: ['https://fadilogic.serp24.online/images/FadiLogic.png'],
   },
   alternates: {
@@ -228,19 +104,16 @@ export const metadata = {
   },
 };
 
-// Enable Incremental Static Regeneration (ISR) - regenerate every 24 hours
-export const revalidate = 86400;
-
-// Force static generation
-export const dynamic = 'force-static';
-
 export default function Contact() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+      <Head>
+        {/* Page-specific structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </Head>
       <ClientContact />
     </>
   );

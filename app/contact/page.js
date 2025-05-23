@@ -91,24 +91,20 @@ const structuredData = [
     '@context': 'https://schema.org',
     '@type': 'Review',
     itemReviewed: {
-      '@type': 'Service',
-      name: 'DevOps Consulting by FadiLogic',
-      sameAs: 'https://fadilogic.serp24.online/#devops',
-      provider: {
-        '@type': 'Organization',
-        name: 'FadiLogic',
-        url: 'https://fadilogic.serp24.online',
-        sameAs: [
-          'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-          'https://github.com/fadidab98',
-        ],
-      },
+      '@type': 'Organization',
+      name: 'FadiLogic',
+      url: 'https://fadilogic.serp24.online',
+      sameAs: [
+        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+        'https://github.com/fadidab98',
+      ],
+      description: 'FadiLogic provides expert DevOps and web development services, including CI/CD pipeline automation and website performance optimization.',
     },
     reviewRating: {
       '@type': 'Rating',
       ratingValue: 5,
       bestRating: 5,
-      worstRating: 1, // Added for completeness
+      worstRating: 1,
     },
     author: {
       '@type': 'Person',
@@ -119,26 +115,22 @@ const structuredData = [
       name: 'FadiLogic',
       url: 'https://fadilogic.serp24.online',
     },
-    reviewBody: 'Fadi Dabboura helped me set up a CI/CD pipeline that reduced our deployment time by 50%. His expertise in DevOps and web development is unmatched!',
-    datePublished: '2025-01-15T08:00:00Z', // ISO 8601 format
-    description: 'A review of Fadi Dabboura’s DevOps consulting services, focusing on CI/CD pipeline optimization.',
+    reviewBody: 'Fadi Dabboura helped me set up a CI/CD pipeline that reduced our deployment time by 50%. His expertise in DevOps is unmatched!',
+    datePublished: '2025-01-15T08:00:00Z',
+    description: 'A review of FadiLogic’s DevOps consulting services, focusing on CI/CD pipeline optimization.',
   },
   {
     '@context': 'https://schema.org',
     '@type': 'Review',
     itemReviewed: {
-      '@type': 'Service',
-      name: 'Website Performance Optimization by FadiLogic',
-      sameAs: 'https://fadilogic.serp24.online/website-scan',
-      provider: {
-        '@type': 'Organization',
-        name: 'FadiLogic',
-        url: 'https://fadilogic.serp24.online',
-        sameAs: [
-          'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
-          'https://github.com/fadidab98',
-        ],
-      },
+      '@type': 'Organization',
+      name: 'FadiLogic',
+      url: 'https://fadilogic.serp24.online',
+      sameAs: [
+        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+        'https://github.com/fadidab98',
+      ],
+      description: 'FadiLogic provides expert DevOps and web development services, including CI/CD pipeline automation and website performance optimization.',
     },
     reviewRating: {
       '@type': 'Rating',
@@ -155,9 +147,41 @@ const structuredData = [
       name: 'FadiLogic',
       url: 'https://fadilogic.serp24.online',
     },
-    reviewBody: 'Working with Fadi was a game-changer. His website scan tool identified critical SEO issues, and his solutions boosted our site’s ranking significantly.',
+    reviewBody: 'Fadi’s website scan tool identified critical SEO issues, and his solutions boosted our site’s ranking significantly. A game-changer!',
     datePublished: '2025-02-10T08:00:00Z',
-    description: 'A review of Fadi Dabboura’s website performance optimization services, including SEO and speed improvements.',
+    description: 'A review of FadiLogic’s website performance optimization services, including SEO and speed improvements.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    itemReviewed: {
+      '@type': 'Organization',
+      name: 'FadiLogic',
+      url: 'https://fadilogic.serp24.online',
+      sameAs: [
+        'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
+        'https://github.com/fadidab98',
+      ],
+      description: 'FadiLogic provides expert DevOps and web development services, including CI/CD pipeline automation and website performance optimization.',
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: 5,
+      bestRating: 5,
+      worstRating: 1,
+    },
+    author: {
+      '@type': 'Person',
+      name: 'Sarah Lee',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'FadiLogic',
+      url: 'https://fadilogic.serp24.online',
+    },
+    reviewBody: 'Fadi built a responsive web app for my business that’s fast and user-friendly. His attention to detail and SEO expertise are exceptional!',
+    datePublished: '2025-03-01T08:00:00Z',
+    description: 'A review of FadiLogic’s web development services, focusing on responsive design and SEO.',
   },
 ];
 

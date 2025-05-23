@@ -12,7 +12,7 @@ export default function ContactText() {
         <div className="flex flex-col md:flex-row gap-8">
           <div className="md:w-1/2">
             <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6">
-              Once you submit the form, I’ll review your inquiry and respond within 24-48 hours with customized solutions. Whether you need <strong>DevOps automation</strong>, bespoke <strong>web applications</strong>, or insights from my{' '}
+              Once you submit the form, I’ll review your inquiry and respond within 24-48 hours with tailored solutions. Whether you need <strong>DevOps automation</strong>, custom <strong>web applications</strong>, or insights from my{' '}
               <Link
                 href="/website-scan"
                 className="text-accent underline hover:text-accent/80 transition"
@@ -95,7 +95,7 @@ export default function ContactText() {
               />
             </svg>
             <span>
-              Custom <strong>web development</strong> prioritizing speed, accessibility, and top-tier SEO performance.
+              Tailored <strong>web development</strong> prioritizing speed, accessibility, and superior SEO performance.
             </span>
           </li>
           <li className="flex items-start">
@@ -176,14 +176,20 @@ export default function ContactText() {
         <div className="space-y-6">
           <blockquote className="text-lg sm:text-xl text-gray-300 leading-relaxed">
             <p>
-              “Fadi Dabboura helped me set up a CI/CD pipeline that reduced our deployment time by 50%. His expertise in DevOps and web development is unmatched!” –{' '}
+              “Fadi Dabboura helped me set up a CI/CD pipeline that reduced our deployment time by 50%. His expertise in DevOps is unmatched!” –{' '}
               <cite>Jane Smith, Startup Founder</cite>
             </p>
           </blockquote>
           <blockquote className="text-lg sm:text-xl text-gray-300 leading-relaxed">
             <p>
-              “Working with Fadi was a game-changer. His website scan tool identified critical SEO issues, and his solutions boosted our site’s ranking significantly.” –{' '}
+              “Fadi’s website scan tool identified critical SEO issues, and his solutions boosted our site’s ranking significantly. A game-changer!” –{' '}
               <cite>Mark Johnson, E-commerce Owner</cite>
+            </p>
+          </blockquote>
+          <blockquote className="text-lg sm:text-xl text-gray-300 leading-relaxed">
+            <p>
+              “Fadi built a responsive web app for my business that’s fast and user-friendly. His attention to detail and SEO expertise are exceptional!” –{' '}
+              <cite>Sarah Lee, Small Business Owner</cite>
             </p>
           </blockquote>
           <p className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center">

@@ -60,7 +60,7 @@ export default function ClientContact() {
           My Approach to Your Success
         </h2>
         <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6">
-          Every project begins with understanding your unique needs. I combine technical expertise with a client-focused approach to deliver solutions that drive results, from automated DevOps pipelines to SEO-optimized websites. Learn more about my process on my{' '}
+          Every project starts with a deep understanding of your goals. I blend technical expertise with a client-centric approach to deliver solutions that drive results, from automated DevOps pipelines to SEO-optimized websites. Learn more on my{' '}
           <Link
             href="/#about"
             className="text-accent underline hover:text-accent/80 transition"
@@ -76,7 +76,7 @@ export default function ClientContact() {
           >
             scan your site
           </Link>{' '}
-          to identify opportunities for improvement.
+          to uncover opportunities for improvement.
         </p>
       </Section>
 

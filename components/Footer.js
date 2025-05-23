@@ -6,6 +6,7 @@ export default function Footer() {
       <p className="text-white">
         © {new Date().getFullYear()} Fadi Dabboura. All rights reserved.
       </p>
+      
       <div className="mt-4 flex justify-center space-x-4">
       <Link href="/contact" className="hover:text-accent" aria-label="Contact Fadi Dabboura">
           Contact

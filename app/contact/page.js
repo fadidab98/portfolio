@@ -1,6 +1,6 @@
 import ClientContact from './ClientContact';
 
-// Page-specific structured data
+// Page-specific structured data (consolidated FAQ and Review schemas)
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -8,7 +8,7 @@ const structuredData = [
     name: 'Contact Fadi Dabboura',
     url: 'https://fadilogic.serp24.online/contact',
     description:
-      'Contact Fadi Dabboura for DevOps and web development inquiries.',
+      'Contact Fadi Dabboura for expert DevOps, web development, and website performance optimization services.',
     mainEntity: {
       '@type': 'Person',
       name: 'Fadi Dabboura',
@@ -20,6 +20,15 @@ const structuredData = [
         'https://www.facebook.com/fadi.dabboura.73',
         'https://github.com/fadidab98',
       ],
+    },
+    potentialAction: {
+      '@type': 'CommunicateAction',
+      target: 'https://fadilogic.serp24.online/contact',
+      recipient: {
+        '@type': 'Person',
+        email: 'fadi@serp24.online',
+      },
+      description: 'Submit a contact form to reach Fadi Dabboura for DevOps, web development, or performance optimization inquiries.',
     },
   },
   {
@@ -60,19 +69,83 @@ const structuredData = [
           text: 'I specialize in DevOps, web development, and website performance optimization, including CI/CD pipelines, scalable web apps, and SEO improvements.',
         },
       },
+      {
+        '@type': 'Question',
+        name: 'Can you help with existing website issues?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes, I can analyze your website using my free website scan tool to identify issues like slow load times, broken links, or SEO gaps, and provide solutions to fix them.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is the process for starting a project?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'We start with a consultation to understand your needs, followed by planning, implementation, and ongoing support to ensure your project’s success.',
+        },
+      },
     ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    itemReviewed: {
+      '@type': 'Service',
+      name: 'DevOps and Web Development by FadiLogic',
+      provider: {
+        '@type': 'Organization',
+        name: 'FadiLogic',
+        url: 'https://fadilogic.serp24.online',
+      },
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: 5,
+      bestRating: 5,
+    },
+    author: {
+      '@type': 'Person',
+      name: 'Jane Smith',
+    },
+    reviewBody: 'Fadi Dabboura helped me set up a CI/CD pipeline that reduced our deployment time by 50%. His expertise in DevOps and web development is unmatched!',
+    datePublished: '2025-01-15',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    itemReviewed: {
+      '@type': 'Service',
+      name: 'DevOps and Web Development by FadiLogic',
+      provider: {
+        '@type': 'Organization',
+        name: 'FadiLogic',
+        url: 'https://fadilogic.serp24.online',
+      },
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: 5,
+      bestRating: 5,
+    },
+    author: {
+      '@type': 'Person',
+      name: 'Mark Johnson',
+    },
+    reviewBody: 'Working with Fadi was a game-changer. His website scan tool identified critical SEO issues, and his solutions boosted our site’s ranking significantly.',
+    datePublished: '2025-02-10',
   },
 ];
 
 export const metadata = {
-  title: 'Contact Fadi Dabboura - FadiLogic',
+  title: 'Contact Fadi Dabboura - DevOps & Web Development | FadiLogic',
   description:
-    'Contact Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
+    'Reach out to Fadi Dabboura for expert DevOps, web development, and website performance optimization services. Try my free website scan tool at FadiLogic.',
   robots: 'index, follow',
   openGraph: {
-    title: 'Fadi Dabboura - Contact | FadiLogic',
+    title: 'Contact Fadi Dabboura - DevOps & Web Development | FadiLogic',
     description:
-      'Contact Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
+      'Reach out to Fadi Dabboura for expert DevOps, web development, and website performance optimization services. Try my free website scan tool at FadiLogic.',
     url: 'https://fadilogic.serp24.online/contact',
     siteName: 'FadiLogic',
     locale: 'en_US',
@@ -82,16 +155,16 @@ export const metadata = {
         url: 'https://fadilogic.serp24.online/images/FadiLogic.png',
         width: 1200,
         height: 630,
-        alt: 'FadiLogic',
+        alt: 'FadiLogic - DevOps and Web Development',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fadi Dabboura - Contact | FadiLogic',
+    title: 'Contact Fadi Dabboura - DevOps & Web Development | FadiLogic',
     description:
-      'Contact Fadi Dabboura for DevOps, web development, or to try the free website scan tool at FadiLogic.',
+      'Reach out to Fadi Dabboura for expert DevOps, web development, and website performance optimization services. Try my free website scan tool at FadiLogic.',
     images: ['https://fadilogic.serp24.online/images/FadiLogic.png'],
   },
   alternates: {

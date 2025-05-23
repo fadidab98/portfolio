@@ -239,12 +239,12 @@ export const dynamic = 'force-static';
 export default function Contact() {
   return (
     <>
-    <Head>
+    
     <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-    </Head>
+    
      
       <ClientContact />
     </>

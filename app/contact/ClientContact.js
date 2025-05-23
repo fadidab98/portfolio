@@ -19,7 +19,7 @@ export default function ClientContact() {
           Contact <span className="text-accent">Fadi Dabboura</span>
         </h1>
         <p className="mt-4 text-lg sm:text-xl text-gray-300 leading-relaxed">
-          I’m a DevOps Engineer and Web Developer committed to delivering scalable solutions and optimizing website performance. Need CI/CD pipelines, custom web apps, or a free website scan? I’m ready to assist.{' '}
+          I’m a DevOps Engineer and Web Developer passionate about delivering scalable solutions and optimizing website performance. Need CI/CD pipelines, custom web apps, or a free website scan? I’m here to help.{' '}
           <Link
             href="/"
             className="text-accent underline hover:text-accent/80 transition"
@@ -44,7 +44,7 @@ export default function ClientContact() {
           Why Work With Me?
         </h2>
         <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6">
-          I transformed a startup’s workflow by cutting deployment times by 50% with a tailored CI/CD pipeline. My expertise in DevOps and web development delivers efficient, scalable, and high-performing solutions. Ready to elevate your project?{' '}
+          I transformed a startup’s workflow by cutting deployment times by 50% with a tailored CI/CD pipeline. My expertise in DevOps and web development ensures efficient, scalable, and high-performing solutions. Ready to elevate your project?{' '}
           <Link
             href="/#projects"
             className="text-accent underline hover:text-accent/80 transition"
@@ -57,26 +57,26 @@ export default function ClientContact() {
 
       <Section className="bg-secondary rounded-lg shadow-xl p-8 sm:p-12 mb-12 border border-accent/20">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-white text-center tracking-tight">
-          My Approach to Your Success
+          Case Study: Optimizing a Startup’s Workflow
         </h2>
         <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6">
-          Every project starts with a deep understanding of your goals. I blend technical expertise with a client-centric approach to deliver solutions that drive results, from automated DevOps pipelines to SEO-optimized websites. Learn more on my{' '}
-          <Link
-            href="/#about"
-            className="text-accent underline hover:text-accent/80 transition"
-            aria-label="Learn more about Fadi Dabboura"
-          >
-            about page
-          </Link>{' '}
-          or{' '}
+          For a tech startup, I designed a custom CI/CD pipeline using Jenkins and AWS, reducing deployment times from hours to minutes. This allowed their team to focus on innovation while maintaining a robust, scalable infrastructure. I also optimized their website, improving load times by 40% and boosting SEO rankings. Curious how I can help you?{' '}
           <Link
             href="/website-scan"
             className="text-accent underline hover:text-accent/80 transition"
             aria-label="Try FadiLogic's free website scan tool"
           >
-            scan your site
+            Scan your site
           </Link>{' '}
-          to uncover opportunities for improvement.
+          or{' '}
+          <Link
+            href="/#about"
+            className="text-accent underline hover:text-accent/80 transition"
+            aria-label="Learn more about Fadi Dabboura"
+          >
+            learn about my approach
+          </Link>{' '}
+          to tailored solutions.
         </p>
       </Section>
 

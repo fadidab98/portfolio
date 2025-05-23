@@ -8,7 +8,7 @@ const structuredData = [
     name: 'Contact Fadi Dabboura',
     url: 'https://fadilogic.serp24.online/contact',
     description:
-      'Contact Fadi Dabboura for expert DevOps, web development, and website performance optimization services.',
+      'Contact Fadi Dabboura for expert DevOps, web development, and website performance optimization services. Get personalized solutions and try my free website scan tool.',
     mainEntity: {
       '@type': 'Person',
       name: 'Fadi Dabboura',
@@ -66,7 +66,7 @@ const structuredData = [
         name: 'What types of projects do you work on?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'I specialize in DevOps, web development, and website performance optimization, including CI/CD pipelines, scalable web apps, and SEO improvements.',
+          text: 'I specialize in DevOps, web development, and website performance optimization, including CI/CD pipelines, scalable web applications, and SEO enhancements.',
         },
       },
       {
@@ -74,7 +74,7 @@ const structuredData = [
         name: 'Can you help with existing website issues?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes, I can analyze your website using my free website scan tool to identify issues like slow load times, broken links, or SEO gaps, and provide solutions to fix them.',
+          text: 'Yes, I can analyze your website using my free website scan tool to identify issues like slow load times, broken links, or SEO gaps, and provide actionable solutions.',
         },
       },
       {
@@ -82,7 +82,15 @@ const structuredData = [
         name: 'What is the process for starting a project?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'We start with a consultation to understand your needs, followed by planning, implementation, and ongoing support to ensure your project’s success.',
+          text: 'We begin with a consultation to define your goals, followed by strategic planning, implementation, and ongoing support to ensure your project’s success.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do you offer ongoing support after project completion?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes, I provide maintenance and support services to ensure your DevOps pipelines or website remain optimized and up-to-date.',
         },
       },
     ],

@@ -12,7 +12,7 @@ export default function ContactText() {
         <div className="flex flex-col md:flex-row gap-8">
           <div className="md:w-1/2">
             <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6">
-              Once you submit the form, I’ll review your inquiry and respond within 24-48 hours with tailored solutions. Whether you need <strong>DevOps automation</strong>, custom <strong>web applications</strong>, or insights from my{' '}
+              After submitting the form, I’ll review your inquiry and respond within 24-48 hours with tailored solutions. Whether you need <strong>DevOps automation</strong>, custom <strong>web applications</strong>, or insights from my{' '}
               <Link
                 href="/website-scan"
                 className="text-accent underline hover:text-accent/80 transition"
@@ -20,7 +20,7 @@ export default function ContactText() {
               >
                 free website scan tool
               </Link>
-              , I’m dedicated to your success. Visit my{' '}
+              , I’m committed to your success. Visit my{' '}
               <Link
                 href="/"
                 className="text-accent underline hover:text-accent/80 transition"
@@ -36,7 +36,7 @@ export default function ContactText() {
               >
                 about page
               </Link>{' '}
-              to explore my expertise.
+              to discover my expertise.
             </p>
           </div>
           <div className="md:w-1/2">
@@ -75,7 +75,7 @@ export default function ContactText() {
               />
             </svg>
             <span>
-              Advanced <strong>DevOps automation</strong> for cloud infrastructure and CI/CD pipelines to maximize scalability and efficiency.
+              Cutting-edge <strong>DevOps automation</strong> for cloud infrastructure and CI/CD pipelines to ensure scalability and efficiency.
             </span>
           </li>
           <li className="flex items-start">
@@ -95,7 +95,7 @@ export default function ContactText() {
               />
             </svg>
             <span>
-              Tailored <strong>web development</strong> prioritizing speed, accessibility, and superior SEO performance.
+              Bespoke <strong>web development</strong> focused on speed, accessibility, and exceptional SEO performance.
             </span>
           </li>
           <li className="flex items-start">
@@ -115,7 +115,7 @@ export default function ContactText() {
               />
             </svg>
             <span>
-              Comprehensive <strong>website optimization</strong> using my free scan tool to enhance user experience and search rankings.
+              In-depth <strong>website optimization</strong> using my free scan tool to boost user experience and search engine rankings.
             </span>
           </li>
         </ul>
@@ -139,7 +139,7 @@ export default function ContactText() {
               What types of projects do you work on?
             </h3>
             <p className="text-lg sm:text-xl text-gray-300">
-              I specialize in DevOps, web development, and website performance optimization, including CI/CD pipelines, scalable web apps, and SEO improvements.
+              I specialize in DevOps, web development, and website performance optimization, including CI/CD pipelines, scalable web applications, and SEO enhancements.
             </p>
           </div>
           <div className="border-l-4 border-accent pl-4">
@@ -155,7 +155,7 @@ export default function ContactText() {
               >
                 free website scan tool
               </Link>{' '}
-              to identify issues like slow load times, broken links, or SEO gaps, and provide solutions to fix them.
+              to identify issues like slow load times, broken links, or SEO gaps, and provide actionable solutions.
             </p>
           </div>
           <div className="border-l-4 border-accent pl-4">
@@ -164,6 +164,14 @@ export default function ContactText() {
             </h3>
             <p className="text-lg sm:text-xl text-gray-300">
               We begin with a consultation to define your goals, followed by strategic planning, implementation, and ongoing support to ensure success.
+            </p>
+          </div>
+          <div className="border-l-4 border-accent pl-4">
+            <h3 className="text-lg sm:text-xl font-semibold text-accent mb-2">
+              Do you offer ongoing support after project completion?
+            </h3>
+            <p className="text-lg sm:text-xl text-gray-300">
+              Yes, I provide maintenance and support services to keep your DevOps pipelines or website optimized and up-to-date.
             </p>
           </div>
         </div>

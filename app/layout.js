@@ -14,8 +14,7 @@ const structuredData = [
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Fadi Dabboura',
-    givenName: 'Fadi',
-    familyName: 'Dabboura',
+    
     url: 'https://fadilogic.serp24.online',
     jobTitle: 'DevOps Engineer & Web Developer',
     image: 'https://fadilogic.serp24.online/images/FadiLogic.png',

@@ -11,14 +11,14 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true, // Optional, adjust as needed
   },
   images: {
-    formats: ['image/avif', 'image/webp'], // Only AVIF and WebP
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'fadidabboura.com',
       },
     ],
-    deviceSizes: [150, 200, 250, 300, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    deviceSizes: [150, 200, 250, 300, 640, 750, 828, 1080, 1200, 1920, 2048, 3840], // Ensure 300 is included
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   async redirects() {
@@ -45,9 +45,7 @@ const nextConfig: NextConfig = {
   },
   webpack(config: Configuration, { isServer }: { isServer: boolean }) {
     if (!isServer) {
-      // Initialize optimization if undefined
       config.optimization = config.optimization || {};
-      // Optimize client-side bundles
       config.optimization.splitChunks = {
         chunks: 'all',
         cacheGroups: {

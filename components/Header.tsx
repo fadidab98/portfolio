@@ -44,7 +44,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen, pathname }: HeaderPr
         </button>
         <nav
           className={`mobile-hidden md:block md:static md:bg-transparent md:top-auto md:left-auto md:right-auto md:bottom-auto md:mt-0 transition-all duration-500 ease-in-out overflow-hidden ${
-            isMenuOpen ? 'fixed top-[80px] left-0 right-0 bottom-0 bg-secondary z-40' : 'hidden'
+            isMenuOpen ? 'fixed top-[80px] left-0 right-0 bottom-0 bg-secondary z-70' : 'hidden'
           }`}
         >
           <ul className="flex flex-col md:flex-row md:space-x-6 h-full justify-center items-center p-2 md:p-0 text-white">

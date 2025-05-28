@@ -1,19 +1,21 @@
+import type { NextConfig } from 'next';
+import type { Configuration } from 'webpack';
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   experimental: {
     optimizeCss: false, // Disable if critters error occurs
-    modern: true, // Enable modern build for Baseline browsers
   },
   eslint: {
-    ignoreDuringBuilds: true, // Ignore ESLint during builds (optional, adjust as needed)
+    ignoreDuringBuilds: true, // Optional, adjust as needed
   },
   images: {
-    formats: ['image/avif', 'image/webp', 'image/jpg', 'image/png'], // Support AVIF and WebP
+    formats: ['image/avif', 'image/webp'], // Only AVIF and WebP
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'fadidabboura.com', // Updated to your domain
+        hostname: 'fadidabboura.com',
       },
     ],
     deviceSizes: [150, 200, 250, 300, 640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -26,7 +28,7 @@ const nextConfig = {
     return [];
   },
   generateBuildId: async () => {
-    return 'build-id'; // Consistent build ID
+    return 'build-id';
   },
   async headers() {
     return [
@@ -41,8 +43,10 @@ const nextConfig = {
       },
     ];
   },
-  webpack(config, { isServer }) {
+  webpack(config: Configuration, { isServer }: { isServer: boolean }) {
     if (!isServer) {
+      // Initialize optimization if undefined
+      config.optimization = config.optimization || {};
       // Optimize client-side bundles
       config.optimization.splitChunks = {
         chunks: 'all',

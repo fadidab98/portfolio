@@ -83,14 +83,14 @@ export const metadata: Metadata = MergeMetadata(rootMetadata, {
   openGraph: {
     title: 'Fadi Dabboura - Portfolio & Website Scan | FadiLogic',
     description: 'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
-    url: '/',
+    url: 'https://fadidabboura.com',
   },
   twitter: {
     title: 'Fadi Dabboura - DevOps & Web Developer | FadiLogic',
     description: 'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
   },
   alternates: {
-    canonical: '/',
+    canonical: 'https://fadidabboura.com',
   },
 });
 

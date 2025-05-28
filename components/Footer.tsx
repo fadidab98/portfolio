@@ -1,43 +1,68 @@
 import Link from 'next/link';
+import { FaLinkedin, FaGithub, FaFacebook } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary py-6 px-4 sm:px-6 lg:px-8 text-center border-t border-accent min-h-[100px]">
-      <p className="text-white">
-        © {new Date().getFullYear()} Fadi Dabboura. All rights reserved.
-      </p>
-      
-      <div className="mt-4 flex justify-center space-x-4">
-        <Link href="/contact" className="hover:text-accent" aria-label="Contact Fadi Dabboura">
-          Contact
-        </Link>
-        <Link href="/website-scan" className="hover:text-accent" aria-label="Try FadiLogic’s website scan tool">
-          Website Scan
-        </Link>
-        <a
-          href="https://www.linkedin.com/in/fadi-dabboura-8300bb211"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-accent"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="https://github.com/fadidab98"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-accent"
-        >
-          GitHub
-        </a>
-        <a
-          href="https://www.facebook.com/fadi.dabboura.73"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-accent"
-        >
-          Facebook
-        </a>
+    <footer className="bg-secondary py-10 px-4 sm:px-6 lg:px-8 border-t border-gray-700 text-center min-h-[150px] text-white"  style={{ borderColor: '#d4af37' }}>
+      <div className="max-w-7xl mx-auto">
+        {/* Branding and Copyright */}
+        <div className="mb-6">
+          <h3 className="text-2xl font-bold tracking-tight">
+            Fadi Dabboura
+          </h3>
+          <p className="mt-2 text-sm text-gray-300">
+            © {new Date().getFullYear()} Fadi Dabboura. All rights reserved.
+          </p>
+        </div>
+
+        {/* Navigation Links */}
+        <div className="flex flex-wrap justify-center gap-6 mb-6">
+          <Link
+            href="/contact"
+            className="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-300 ease-in-out"
+            aria-label="Contact Fadi Dabboura"
+          >
+            Contact
+          </Link>
+          <Link
+            href="/website-scan"
+            className="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-300 ease-in-out"
+            aria-label="Try FadiLogic’s website scan tool"
+          >
+            Website Scan
+          </Link>
+        </div>
+
+        {/* Social Links */}
+        <div className="flex justify-center space-x-6">
+          <a
+            href="https://www.linkedin.com/in/fadi-dabboura-8300bb211"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-white transition-colors duration-300 ease-in-out"
+            aria-label="Fadi Dabboura on LinkedIn"
+          >
+            <FaLinkedin className="w-6 h-6" />
+          </a>
+          <a
+            href="https://github.com/fadidab98"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-white transition-colors duration-300 ease-in-out"
+            aria-label="Fadi Dabboura on GitHub"
+          >
+            <FaGithub className="w-6 h-6" />
+          </a>
+          <a
+            href="https://www.facebook.com/fadi.dabboura.73"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-300 hover:text-white transition-colors duration-300 ease-in-out"
+            aria-label="Fadi Dabboura on Facebook"
+          >
+            <FaFacebook className="w-6 h-6" />
+          </a>
+        </div>
       </div>
     </footer>
   );

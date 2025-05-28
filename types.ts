@@ -20,6 +20,7 @@ export interface Project {
   }
   
   export interface Metadata {
+    
     metadataBase?: URL;
     title: string | { default: string; template: string };
     description: string;
@@ -53,6 +54,7 @@ export interface Project {
     };
     alternates?: {
       canonical?: string;
+      types?: Record<string, string>;
     };
     globalStructuredData?: StructuredData[];
   }

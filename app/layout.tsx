@@ -71,9 +71,16 @@ export const metadata: Metadata = {
     default: 'Fadi Dabboura - DevOps & Web Developer | FadiLogic',
     template: '%s | FadiLogic',
   },
-  description: 'Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic.',
+  description:
+    'Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic.',
   keywords: 'fadi dabboura, devops, web development, website scan, seo, ci/cd, cloud infrastructure',
   robots: 'index, follow',
+  alternates: {
+    canonical: 'https://fadidabboura.com',
+    types: {
+      'application/xml': 'https://fadidabboura.com/sitemap.xml',
+    },
+  },
   openGraph: {
     siteName: 'FadiLogic',
     locale: 'en_US',

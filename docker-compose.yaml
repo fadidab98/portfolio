@@ -1,9 +1,7 @@
 version: '3.8'
 services:
   app:
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/fadidab98/portfolio:latest
     ports:
       - '3003:3000'
     environment:

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://fadilogic.serp24.online';
+  const baseUrl = 'https://fadidabboura.com';
 
   // Static routes
   const staticRoutes = [

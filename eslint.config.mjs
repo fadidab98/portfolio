@@ -1,61 +1,56 @@
-import react from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
-import next from '@next/eslint-plugin-next';
-import prettier from 'eslint-plugin-prettier';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
+import typescriptPlugin from '@typescript-eslint/eslint-plugin';
+import typescriptParser from '@typescript-eslint/parser';
 
-export default [
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
+
+const config = [
   {
-    ignores: ['.next/**', 'node_modules/**'],
-    files: ['**/*.{js,jsx,ts,tsx}'],
-    plugins: {
-      react,
-      'react-hooks': reactHooks,
-      '@next/next': next,
-      prettier,
-    },
+    files: ['**/*.ts', '**/*.tsx'],
+    ignores: [
+      '.next/**',
+      'node_modules/**',
+      'dist/**',
+      'build/**',
+      '**/*.js',
+      '**/*.mjs',
+      '**/*.cjs',
+    ],
     languageOptions: {
-      ecmaVersion: 2021,
+      parser: typescriptParser,
       sourceType: 'module',
-      globals: {
-        browser: true,
-        node: true,
-        es2021: true,
-      },
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-        sourceType: 'module',
-      },
     },
-    settings: {
-      react: {
-        version: 'detect',
-      },
+    plugins: {
+      '@typescript-eslint': typescriptPlugin,
     },
     rules: {
-      'react/react-in-jsx-scope': 'off',
-      'react/prop-types': 'off',
-      'react/jsx-uses-react': 'off',
-      'react/jsx-uses-vars': 'error',
-      'no-unused-vars': [
-        'error',
-        {
-          vars: 'all',
-          args: 'after-used',
-          ignoreRestSiblings: true,
-          caughtErrors: 'none',
-        },
-      ],
-      'prettier/prettier': 'error',
+      '@typescript-eslint/no-unused-expressions': 'error',
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-this-alias': 'error',
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-wrapper-object-types': 'warn',
+      '@typescript-eslint/no-unsafe-function-type': 'warn',
+      '@typescript-eslint/no-empty-object-type': 'warn',
     },
   },
   {
-    files: ['tailwind.config.js', 'app/api/**/*.js'],
-    languageOptions: {
-      globals: {
-        node: true,
-      },
+    files: ['.next/types/**/*.ts'],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-wrapper-object-types': 'off',
+      '@typescript-eslint/no-unsafe-function-type': 'off',
+      '@typescript-eslint/no-empty-object-type': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
     },
   },
+  ...compat.extends('next/core-web-vitals', 'plugin:@typescript-eslint/recommended'),
 ];
+
+export default config;

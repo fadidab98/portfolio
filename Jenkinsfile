@@ -89,13 +89,13 @@ pipeline {
                                     docker-compose logs nginx-config-fadilogic; \
                                     ls -l /etc/nginx/sites-available/ || echo 'sites-available empty'; \
                                     ls -l /etc/nginx/sites-enabled/ || echo 'sites-enabled empty'; \
-                                    readlink /etc/nginx/sites-enabled/fadilogic.serp24.online || echo 'symlink missing'; \
+                                    readlink /etc/nginx/sites-enabled/fadidabboura.com || echo 'symlink missing'; \
                                     sudo nginx -t && \
                                     sudo systemctl restart nginx && \
                                     echo 'Deployment completed' || \
                                     { echo 'Nginx test failed, attempting direct copy'; \
-                                    sudo cp nginx.conf /etc/nginx/sites-available/fadilogic.serp24.online && \
-                                    sudo ln -sf /etc/nginx/sites-available/fadilogic.serp24.online /etc/nginx/sites-enabled/fadilogic.serp24.online && \
+                                    sudo cp nginx.conf /etc/nginx/sites-available/fadidabboura.com && \
+                                    sudo ln -sf /etc/nginx/sites-available/fadidabboura.com /etc/nginx/sites-enabled/fadidabboura.com && \
                                     sudo nginx -t && \
                                     sudo systemctl restart nginx && \
                                     echo 'Direct copy succeeded'; }"

@@ -16,9 +16,9 @@ export const globalStructuredData: StructuredData[] = [
     name: 'Fadi Dabboura',
     givenName: 'Fadi',
     familyName: 'Dabboura',
-    url: 'https://fadilogic.serp24.online',
+    url: 'https://fadidabboura.com',
     jobTitle: 'DevOps Engineer & Web Developer',
-    image: 'https://fadilogic.serp24.online/images/FadiLogic.png',
+    image: 'https://fadidabboura.com/images/FadiLogic.png',
     sameAs: [
       'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
       'https://github.com/fadidab98',
@@ -30,7 +30,7 @@ export const globalStructuredData: StructuredData[] = [
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'FadiLogic',
-    url: 'https://fadilogic.serp24.online',
+    url: 'https://fadidabboura.com',
     sameAs: [
       'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
       'https://github.com/fadidab98',
@@ -41,7 +41,7 @@ export const globalStructuredData: StructuredData[] = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    url: 'https://fadilogic.serp24.online',
+    url: 'https://fadidabboura.com',
     name: 'FadiLogic',
     potentialAction: [
       {
@@ -50,7 +50,7 @@ export const globalStructuredData: StructuredData[] = [
         target: {
           '@context': 'https://schema.org',
           '@type': 'EntryPoint',
-          urlTemplate: 'https://fadilogic.serp24.online/website-scan',
+          urlTemplate: 'https://fadidabboura.com/website-scan',
         },
         'query-input': {
           '@context': 'https://schema.org',
@@ -66,7 +66,7 @@ export const globalStructuredData: StructuredData[] = [
 
 export const metadata: Metadata = {
   globalStructuredData,
-  metadataBase: new URL('https://fadilogic.serp24.online'),
+  metadataBase: new URL('https://fadidabboura.com'),
   title: {
     default: 'Fadi Dabboura - DevOps & Web Developer | FadiLogic',
     template: '%s | FadiLogic',

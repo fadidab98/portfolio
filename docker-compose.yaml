@@ -1,7 +1,9 @@
 version: '3.8'
 services:
   app:
-    image: ghcr.io/fadidab98/portfolio:latest
+    build: 
+      context: .
+      dockerfile: Dockerfile
     ports:
       - '3003:3000'
     environment:
@@ -24,7 +26,7 @@ services:
       - /etc/nginx/sites-enabled:/sites-enabled
     command: >
       sh -c "mkdir -p /sites-available /sites-enabled && 
-             cp -f /nginx.conf /sites-available/fadilogic.serp24.online &&
-             ln -sf /etc/nginx/sites-available/fadilogic.serp24.online /sites-enabled/fadilogic.serp24.online &&
-             ls -l /sites-available/fadilogic.serp24.online &&
-             ls -l /sites-enabled/fadilogic.serp24.online"
+             cp -f /nginx.conf /sites-available/fadidabboura.com &&
+             ln -sf /etc/nginx/sites-available/fadidabboura.com /sites-enabled/fadidabboura.com &&
+             ls -l /sites-available/fadidabboura.com &&
+             ls -l /sites-enabled/fadidabboura.com"

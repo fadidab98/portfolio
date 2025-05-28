@@ -9,7 +9,7 @@ const pageStructuredData: StructuredData[] = [
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
     name: 'Contact Fadi Dabboura',
-    url: 'https://fadilogic.serp24.online/contact',
+    url: 'https://fadidabboura.com/contact',
     description: 'Contact Fadi Dabboura for expert DevOps and web development services.',
     mainEntity: {
       '@context': 'https://schema.org',
@@ -27,14 +27,14 @@ const pageStructuredData: StructuredData[] = [
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://fadilogic.serp24.online',
+        item: 'https://fadidabboura.com',
       },
       {
         '@context': 'https://schema.org',
         '@type': 'ListItem',
         position: 2,
         name: 'Contact',
-        item: 'https://fadilogic.serp24.online/contact',
+        item: 'https://fadidabboura.com/contact',
       },
     ],
   },
@@ -46,14 +46,14 @@ export const metadata: Metadata = MergeMetadata(rootMetadata, {
   openGraph: {
     title: 'Contact Fadi Dabboura - DevOps & Web Development | FadiLogic',
     description: 'Reach out to Fadi Dabboura for expert DevOps and web development services.',
-    url: 'https://fadilogic.serp24.online/contact',
+    url: 'https://fadidabboura.com/contact',
   },
   twitter: {
     title: 'Contact Fadi Dabboura - DevOps & Web Development | FadiLogic',
     description: 'Reach out to Fadi Dabboura for expert DevOps and web development services.',
   },
   alternates: {
-    canonical: 'https://fadilogic.serp24.online/contact',
+    canonical: 'https://fadidabboura.com/contact',
   },
 });
 

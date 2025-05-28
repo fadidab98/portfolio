@@ -25,7 +25,7 @@ const projects: Project[] = [
     technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
     image: '/images/FadiLogic-web.webp',
     alt: 'FadiLogic Portfolio Site Screenshot',
-    liveLink: 'https://fadilogic.serp24.online',
+    liveLink: 'https://fadidabboura.com',
     githubLink: 'https://github.com/fadidab98/portfolio',
     author: {
       '@type': 'Person',
@@ -40,7 +40,7 @@ const pageStructuredData: StructuredData[] = [
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: 'Fadi Dabboura Portfolio',
-    url: 'https://fadilogic.serp24.online',
+    url: 'https://fadidabboura.com',
     description: 'Portfolio of Fadi Dabboura, showcasing DevOps and web development projects, including a free website scan tool.',
     mainEntity: {
       '@context': 'https://schema.org',
@@ -71,7 +71,7 @@ const pageStructuredData: StructuredData[] = [
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://fadilogic.serp24.online',
+        item: 'https://fadidabboura.com',
       },
     ],
   },

@@ -1,24 +1,20 @@
-// tailwind.config.ts
-import type { Config } from 'tailwindcss';
+/** @type {import('tailwindcss').Config} */
+import type { PluginAPI } from 'tailwindcss/types/config';
 
-export default {
-  content: [
-    './app/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    
-  ],
+module.exports = {
+  content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
-        background: '#1a1a1a',
-        text: '#ffffff',
-        accent: '#d4af37',
-        secondary: '#2d2d2d',
+        background: '#1a1a1a', // Dark gray
+        text: '#ffffff', // White
+        accent: '#d4af37', // Gold
+        secondary: '#2d2d2d', // Lighter gray for cards
       },
     },
   },
   plugins: [
-    function ({ addBase }: { addBase: (styles: Record<string, string | Record<string, any>>) => void }) {
+    function ({ addBase }: PluginAPI) {
       addBase({
         body: {
           backgroundColor: '#1a1a1a',
@@ -40,4 +36,4 @@ export default {
       });
     },
   ],
-} satisfies Config;
+};

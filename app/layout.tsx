@@ -2,6 +2,9 @@ import { Inter } from 'next/font/google';
 import ClientLayout from './ClientLayout';
 import './globals.css';
 import { StructuredData, Metadata } from '../types';
+import { promises as fs } from 'fs';
+import path from 'path';
+import { headers } from 'next/headers';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -18,7 +21,6 @@ export const globalStructuredData: StructuredData[] = [
     familyName: 'Dabboura',
     url: 'https://fadidabboura.com',
     jobTitle: 'DevOps Engineer & Web Developer',
-    
     image: 'https://fadidabboura.com/images/FadiLogic-profile.webp',
     sameAs: [
       'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
@@ -76,7 +78,6 @@ export const metadata: Metadata = {
   description:
     'Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic.',
   keywords: 'fadi dabboura, devops, web development, website scan, seo, ci/cd, cloud infrastructure',
-  
   robots: 'index, follow',
   alternates: {
     canonical: 'https://fadidabboura.com',
@@ -114,10 +115,42 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }): React.JSX.Element {
+async function getMainCSSFile(): Promise<string | null> {
+  const cssDir = path.join(process.cwd(), '.next/static/css');
+  try {
+    const files = await fs.readdir(cssDir);
+    const cssFiles = files.filter(file => file.endsWith('.css') && !file.includes('critical'));
+    if (cssFiles.length === 0) {
+      console.warn('No main CSS files found in .next/static/css');
+      return null;
+    }
+    const latestFile = await Promise.all(
+      cssFiles.map(async file => {
+        const stats = await fs.stat(path.join(cssDir, file));
+        return { file, mtime: stats.mtime };
+      })
+    ).then(files => files.sort((a, b) => b.mtime.getTime() - a.mtime.getTime())[0].file);
+    console.log(`Selected main CSS file: ${latestFile}`);
+    return `/next/static/css/${latestFile}`;
+  } catch (error) {
+    console.error('Error finding main CSS file:', error);
+    return null;
+  }
+}
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const mainCSS = await getMainCSSFile();
+
   return (
     <html lang="en" className={inter.className}>
-      <head />
+      <head>
+        {mainCSS && (
+          <link
+            rel="stylesheet"
+            href={mainCSS}
+          />
+        )}
+      </head>
       <body>
         <ClientLayout>{children}</ClientLayout>
       </body>

@@ -76,8 +76,8 @@ export const metadata: Metadata = {
     template: '%s | FadiLogic',
   },
   description:
-    'Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic.',
-  keywords: 'fadi dabboura, devops, web development, website scan, seo, ci/cd, cloud infrastructure',
+    'Fadi Dabboura’s FadiLogic offers expert DevOps engineering, web development, and a free website scan tool to boost your site’s SEO and performance. Contact Fadi for scalable CI/CD and cloud solutions.',
+  keywords: 'fadi, dabboura, fadi dabboura, devops, web development, website scan, seo, ci/cd, cloud infrastructure',
   robots: 'index, follow',
   alternates: {
     canonical: 'https://fadidabboura.com',

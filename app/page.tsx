@@ -43,6 +43,7 @@ const pageStructuredData: StructuredData[] = [
     url: 'https://fadidabboura.com',
     image: 'https://fadidabboura.com/images/FadiLogic-profile.webp',
     description: 'Portfolio of Fadi Dabboura, showcasing DevOps and web development projects, including a free website scan tool.',
+    keywords: 'fadi, dabboura, fadi dabboura, devops, web development, website scan, seo',
     mainEntity: {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
@@ -80,7 +81,8 @@ const pageStructuredData: StructuredData[] = [
 
 export const metadata: Metadata = MergeMetadata(rootMetadata, {
   title: 'Fadi Dabboura - DevOps & Web Developer | FadiLogic',
-  description: 'Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic.',
+  description: 'Fadi Dabboura’s FadiLogic portfolio: Expert DevOps engineer and web developer. Use Fadi’s free website scan tool to boost SEO and performance.',
+  keywords: 'fadi, dabboura, fadi dabboura, devops, web development, website scan, seo, ci/cd, cloud infrastructure',
   openGraph: {
     title: 'Fadi Dabboura - Portfolio & Website Scan | FadiLogic',
     description: 'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',

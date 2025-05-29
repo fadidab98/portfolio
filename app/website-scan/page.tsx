@@ -9,7 +9,8 @@ const pageStructuredData: StructuredData[] = [
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     name: 'FadiLogic Website Scan Tool',
-    description: 'A free tool to analyze website performance and errors.',
+    description: 'Fadi Dabboura’s free website scan tool analyzes performance, speed, SEO, and errors, providing actionable insights for optimization.',
+    keywords: 'fadi, dabboura, fadi dabboura, website scan, web performance, seo, devops',
     image: 'https://fadidabboura.com/images/FadiLogic-profile.webp',
     url: 'https://fadidabboura.com/website-scan',
     author: {
@@ -61,21 +62,31 @@ const pageStructuredData: StructuredData[] = [
       {
         '@context': 'https://schema.org',
         '@type': 'Question',
-        name: 'What does the FadiLogic Website Scan Tool do?',
+        name: 'What does Fadi Dabboura’s Website Scan Tool do?',
         acceptedAnswer: {
           '@context': 'https://schema.org',
           '@type': 'Answer',
-          text: 'The FadiLogic Website Scan Tool analyzes your website’s performance, speed, SEO, and errors, providing actionable insights to optimize your site.',
+          text: 'Fadi Dabboura’s Website Scan Tool analyzes your website’s performance, speed, SEO, accessibility, and errors, offering actionable recommendations to enhance user experience and search rankings.',
         },
       },
       {
         '@context': 'https://schema.org',
         '@type': 'Question',
-        name: 'Is the website scan tool free to use?',
+        name: 'Is Fadi Dabboura’s website scan tool free to use?',
         acceptedAnswer: {
           '@context': 'https://schema.org',
           '@type': 'Answer',
-          text: 'Yes, the FadiLogic Website Scan Tool is completely free. Simply visit https://fadidabboura.com/website-scan and enter your website URL to start.',
+          text: 'Yes, Fadi Dabboura’s Website Scan Tool is completely free. Visit https://fadidabboura.com/website-scan, enter your website URL, and get a detailed performance report.',
+        },
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Question',
+        name: 'How can I improve my website based on the scan results?',
+        acceptedAnswer: {
+          '@context': 'https://schema.org',
+          '@type': 'Answer',
+          text: 'Follow the tool’s recommendations, such as optimizing images, fixing broken links, or improving SEO. Contact Fadi Dabboura for expert DevOps and web development support.',
         },
       },
     ],
@@ -84,16 +95,16 @@ const pageStructuredData: StructuredData[] = [
 
 export const metadata: Metadata = MergeMetadata(rootMetadata, {
   title: 'Fadi Dabboura Website Scan Tool | FadiLogic',
-  description: 'Use Fadi Dabboura’s free website scan tool to analyze your site’s performance, speed, and errors. Optimize your web development today!',
-  keywords: 'fadi dabboura, website scan tool, free webscan, website performance tool, web development, devops, site speed test, website error checker',
+  description: 'Fadi Dabboura’s free website scan tool by Fadi analyzes performance, speed, SEO, and errors. Optimize your site with FadiLogic’s expert insights.',
+  keywords: 'fadi, dabboura, fadi dabboura, website scan tool, free webscan, website performance, seo, devops, site speed test, website error checker',
   openGraph: {
     title: 'Fadi Dabboura - Website Scan Tool | FadiLogic',
-    description: 'Fadi Dabboura’s FadiLogic: Free webscan tool to check website performance and errors.',
+    description: 'Fadi Dabboura’s FadiLogic: Free website scan tool by Fadi to analyze performance, SEO, and errors for optimal web development.',
     url: 'https://fadidabboura.com/website-scan',
   },
   twitter: {
     title: 'Fadi Dabboura Website Scan Tool | FadiLogic',
-    description: 'Use Fadi Dabboura’s free website scan tool to analyze your site’s performance and errors.',
+    description: 'Fadi Dabboura’s free website scan tool at FadiLogic: Check your site’s performance, SEO, and errors with Fadi’s expertise.',
   },
   alternates: {
     canonical: 'https://fadidabboura.com/website-scan',

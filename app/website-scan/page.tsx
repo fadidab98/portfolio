@@ -10,6 +10,7 @@ const pageStructuredData: StructuredData[] = [
     '@type': 'SoftwareApplication',
     name: 'FadiLogic Website Scan Tool',
     description: 'A free tool to analyze website performance and errors.',
+    image: 'https://fadidabboura.com/images/FadiLogic-profile.webp',
     url: 'https://fadidabboura.com/website-scan',
     author: {
       '@context': 'https://schema.org',
@@ -17,6 +18,7 @@ const pageStructuredData: StructuredData[] = [
       name: 'Fadi Dabboura',
       givenName: 'Fadi',
       familyName: 'Dabboura',
+      image: 'https://fadidabboura.com/images/FadiLogic-profile.webp',
       sameAs: [
         'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
         'https://www.facebook.com/fadi.dabboura.73',

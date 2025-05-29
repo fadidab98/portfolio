@@ -41,6 +41,7 @@ const pageStructuredData: StructuredData[] = [
     '@type': 'WebPage',
     name: 'Fadi Dabboura Portfolio',
     url: 'https://fadidabboura.com',
+    image: 'https://fadidabboura.com/images/FadiLogic-profile.webp',
     description: 'Portfolio of Fadi Dabboura, showcasing DevOps and web development projects, including a free website scan tool.',
     mainEntity: {
       '@context': 'https://schema.org',

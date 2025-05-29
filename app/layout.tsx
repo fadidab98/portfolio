@@ -18,7 +18,8 @@ export const globalStructuredData: StructuredData[] = [
     familyName: 'Dabboura',
     url: 'https://fadidabboura.com',
     jobTitle: 'DevOps Engineer & Web Developer',
-    image: 'https://fadidabboura.com/images/FadiLogic.png',
+    
+    image: 'https://fadidabboura.com/images/FadiLogic-profile.webp',
     sameAs: [
       'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
       'https://github.com/fadidab98',
@@ -31,6 +32,7 @@ export const globalStructuredData: StructuredData[] = [
     '@type': 'Organization',
     name: 'FadiLogic',
     url: 'https://fadidabboura.com',
+    logo: 'https://fadidabboura.com/favicon-192x192.png',
     sameAs: [
       'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
       'https://github.com/fadidab98',
@@ -74,6 +76,7 @@ export const metadata: Metadata = {
   description:
     'Explore Fadi Dabboura’s portfolio: Expert DevOps engineer, web developer, and free website scan tool to boost your site’s SEO and performance at FadiLogic.',
   keywords: 'fadi dabboura, devops, web development, website scan, seo, ci/cd, cloud infrastructure',
+  
   robots: 'index, follow',
   alternates: {
     canonical: 'https://fadidabboura.com',

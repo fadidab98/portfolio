@@ -30,19 +30,7 @@ const nextConfig: NextConfig = {
   generateBuildId: async () => {
     return 'build-id';
   },
-  async headers() {
-    return [
-      {
-        source: '/:path*.(jpg|jpeg|png|gif|svg|ico|css|js|woff|woff2)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-    ];
-  },
+
   webpack(config: Configuration, { isServer }: { isServer: boolean }) {
     if (!isServer) {
       config.optimization = config.optimization || {};

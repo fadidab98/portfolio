@@ -49,6 +49,8 @@ export default function Hero() {
         <a
           href="/contact"
           className="inline-block bg-accent text-background py-2 px-4 sm:py-3 sm:px-6 rounded-lg text-base sm:text-lg hover:bg-yellow-600 hover:scale-105 transition duration-300 shadow-md"
+         
+         style={{backgroundColor:'#d4af37'}}
           aria-label="Contact Fadi Dabboura"
         >
           Contact Me

@@ -39,9 +39,9 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className={`text-gray-300 ${link.color} transition-colors duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-current focus:ring-opacity-50 w-8 h-8 flex items-center justify-center`}
-            aria-label={`Visit Fadi Dabboura's ${link.name} profile`}
           >
-            <span className="text-xl">{link.icon}</span>
+            <span className="sr-only">Visit Fadi Dabboura's {link.name} profile</span>
+            <span aria-hidden="true" className="text-xl">{link.icon}</span>
           </a>
         ))}
       </div>

@@ -37,7 +37,7 @@ export default function Hero() {
             key={link.name}
             href={link.url}
             target="_blank"
-            rel="noopener noreferrer me"
+            rel="noopener noreferrer"
             className={`text-gray-300 ${link.color} transition-colors duration-300 transform hover:scale-110`}
             aria-label={`Visit Fadi Dabboura’s ${link.name} profile`}
           >

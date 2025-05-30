@@ -42,6 +42,7 @@ export default function Footer() {
             className="text-gray-300 hover:text-white transition-colors duration-300 ease-in-out"
             aria-label="Fadi Dabboura on LinkedIn"
           >
+            <span className="sr-only">Visit Fadi Dabboura's on LinkedIn profile</span>
             <FaLinkedin className="w-6 h-6" />
           </a>
           <a
@@ -51,6 +52,7 @@ export default function Footer() {
             className="text-gray-300 hover:text-white transition-colors duration-300 ease-in-out"
             aria-label="Fadi Dabboura on GitHub"
           >
+            <span className="sr-only">Visit Fadi Dabboura's on GitHub profile</span>
             <FaGithub className="w-6 h-6" />
           </a>
           <a
@@ -60,6 +62,7 @@ export default function Footer() {
             className="text-gray-300 hover:text-white transition-colors duration-300 ease-in-out"
             aria-label="Fadi Dabboura on Facebook"
           >
+            <span className="sr-only">Visit Fadi Dabboura's on Facebook profile</span>
             <FaFacebook className="w-6 h-6" />
           </a>
         </div>

@@ -38,19 +38,17 @@ export default function Hero() {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-gray-300 ${link.color} transition-colors duration-300 transform hover:scale-110`}
-            aria-label={`Visit Fadi Dabboura’s ${link.name} profile`}
+            className={`text-gray-300 ${link.color} transition-colors duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-current focus:ring-opacity-50 w-8 h-8 flex items-center justify-center`}
+            aria-label={`Visit Fadi Dabboura's ${link.name} profile`}
           >
-            <span className="text-2xl">{link.icon}</span>
+            <span className="text-xl">{link.icon}</span>
           </a>
         ))}
       </div>
       <div>
         <a
           href="/contact"
-          className="inline-block bg-accent text-background py-2 px-4 sm:py-3 sm:px-6 rounded-lg text-base sm:text-lg hover:bg-yellow-600 hover:scale-105 transition duration-300 shadow-md"
-         
-         style={{backgroundColor:'#d4af37'}}
+          className="inline-block bg-[#d4af37] text-background py-2 px-4 sm:py-3 sm:px-6 rounded-lg text-base sm:text-lg hover:bg-yellow-600 hover:scale-105 transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:ring-opacity-50"
           aria-label="Contact Fadi Dabboura"
         >
           Contact Me

@@ -2,9 +2,6 @@ import { Inter } from 'next/font/google';
 import ClientLayout from './ClientLayout';
 import './globals.css';
 import { StructuredData, Metadata } from '../types';
-import { promises as fs } from 'fs';
-import path from 'path';
-import { headers } from 'next/headers';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -115,42 +112,10 @@ export const metadata: Metadata = {
   },
 };
 
-async function getMainCSSFile(): Promise<string | null> {
-  const cssDir = path.join(process.cwd(), '.next/static/css');
-  try {
-    const files = await fs.readdir(cssDir);
-    const cssFiles = files.filter(file => file.endsWith('.css') && !file.includes('critical'));
-    if (cssFiles.length === 0) {
-      console.warn('No main CSS files found in .next/static/css');
-      return null;
-    }
-    const latestFile = await Promise.all(
-      cssFiles.map(async file => {
-        const stats = await fs.stat(path.join(cssDir, file));
-        return { file, mtime: stats.mtime };
-      })
-    ).then(files => files.sort((a, b) => b.mtime.getTime() - a.mtime.getTime())[0].file);
-    console.log(`Selected main CSS file: ${latestFile}`);
-    return `/next/static/css/${latestFile}`;
-  } catch (error) {
-    console.error('Error finding main CSS file:', error);
-    return null;
-  }
-}
-
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const mainCSS = await getMainCSSFile();
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.className}>
-      <head>
-        {mainCSS && (
-          <link
-            rel="stylesheet"
-            href={mainCSS}
-          />
-        )}
-      </head>
+      <head />
       <body>
         <ClientLayout>{children}</ClientLayout>
       </body>

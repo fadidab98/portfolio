@@ -229,7 +229,8 @@ export default function WebsiteScanForm(): React.JSX.Element {
       {/* Issues Section */}
       <div className="space-y-12">
         {/* Performance Errors */}
-        <div>
+        {parsedData?.data?.performance?.errors?.length==0?(
+          <div>
           <h3 className="text-2xl font-bold text-accent mb-6" style={{ color: '#d4af37' }}>
             Performance Errors
           </h3>
@@ -298,221 +299,232 @@ export default function WebsiteScanForm(): React.JSX.Element {
             <p className="text-gray-300 text-center">No performance errors found.</p>
           )}
         </div>
+        ):""}
+        
 
         {/* Performance Alerts */}
-        <div>
-          <h3 className="text-2xl font-bold text-accent mb-6" style={{ color: '#d4af37' }}>
-            Performance Alerts
-          </h3>
-          {parsedData?.data?.performance?.alerts?.length > 0 ? (
-            <ul className="space-y-4">
-              {parsedData?.data?.performance?.alerts?.map((alert: AlertItem, index: number) => (
-                <li
-                  key={`perf-alert-${index}`}
-                  className="bg-secondary p-6 rounded-xl shadow-md border-l-4 border-accent"
-                  style={{ borderColor: '#d4af37' }}
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      <svg
-                        className="w-6 h-6 text-accent mr-2"
-                        fill="none"
-                        stroke="#d4af37"
-                        viewBox="0 0 24 24"
+       { parsedData?.data?.performance?.alerts?.length == 0 ?(
+                <div>
+                <h3 className="text-2xl font-bold text-accent mb-6" style={{ color: '#d4af37' }}>
+                  Performance Alerts
+                </h3>
+                {parsedData?.data?.performance?.alerts?.length > 0 ? (
+                  <ul className="space-y-4">
+                    {parsedData?.data?.performance?.alerts?.map((alert: AlertItem, index: number) => (
+                      <li
+                        key={`perf-alert-${index}`}
+                        className="bg-secondary p-6 rounded-xl shadow-md border-l-4 border-accent"
+                        style={{ borderColor: '#d4af37' }}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                      <h4 className="text-xl font-semibold text-white">{alert.title}</h4>
-                    </div>
-                    {alert.element !== 'N/A' && (
-                      <button
-                        onClick={() => toggleElement(`perf-alert-${index}`)}
-                        className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-all duration-300"
-                      >
-                        {showElements[`perf-alert-${index}`] ? 'Hide Element' : 'Show Element'}
-                      </button>
-                    )}
-                  </div>
-                  <p className="text-gray-300 pl-7 text-left mb-2">{alert.description}</p>
-                  <p className="text-gray-300 pl-7 text-left mb-2">
-                    <strong className="text-white">Score:</strong> {alert.score}
-                  </p>
-                  <p className="text-gray-300 pl-7 text-left">
-                    <strong className="text-white">Suggestion:</strong> {alert.suggestion}
-                  </p>
-                  <AnimatePresence>
-                    {showElements[`perf-alert-${index}`] && alert.element !== 'N/A' && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mt-4 overflow-hidden"
-                      >
-                        <p className="text-gray-300">
-                          <strong className="text-white">Element:</strong>
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center">
+                            <svg
+                              className="w-6 h-6 text-accent mr-2"
+                              fill="none"
+                              stroke="#d4af37"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                              />
+                            </svg>
+                            <h4 className="text-xl font-semibold text-white">{alert.title}</h4>
+                          </div>
+                          {alert.element !== 'N/A' && (
+                            <button
+                              onClick={() => toggleElement(`perf-alert-${index}`)}
+                              className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-all duration-300"
+                            >
+                              {showElements[`perf-alert-${index}`] ? 'Hide Element' : 'Show Element'}
+                            </button>
+                          )}
+                        </div>
+                        <p className="text-gray-300 pl-7 text-left mb-2">{alert.description}</p>
+                        <p className="text-gray-300 pl-7 text-left mb-2">
+                          <strong className="text-white">Score:</strong> {alert.score}
                         </p>
-                        <pre className="bg-[#2a2a2a] p-4 rounded-lg mt-2 text-sm text-gray-300 font-mono overflow-x-auto border border-gray-600">
-                          {alert.element}
-                        </pre>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-gray-300 text-center">No performance alerts found.</p>
-          )}
-        </div>
+                        <p className="text-gray-300 pl-7 text-left">
+                          <strong className="text-white">Suggestion:</strong> {alert.suggestion}
+                        </p>
+                        <AnimatePresence>
+                          {showElements[`perf-alert-${index}`] && alert.element !== 'N/A' && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="mt-4 overflow-hidden"
+                            >
+                              <p className="text-gray-300">
+                                <strong className="text-white">Element:</strong>
+                              </p>
+                              <pre className="bg-[#2a2a2a] p-4 rounded-lg mt-2 text-sm text-gray-300 font-mono overflow-x-auto border border-gray-600">
+                                {alert.element}
+                              </pre>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-gray-300 text-center">No performance alerts found.</p>
+                )}
+              </div>
+       ):""}
+
 
         {/* Accessibility Errors */}
-        <div>
-          <h3 className="text-2xl font-bold text-accent mb-6" style={{ color: '#d4af37' }}>
-            Accessibility Errors
-          </h3>
-          {parsedData?.data?.accessibility?.errors?.length > 0 ? (
-            <ul className="space-y-4">
-              {parsedData?.data?.accessibility?.errors?.map((error: ErrorItem, index: number) => (
-                <li
-                  key={`acc-error-${index}`}
-                  className="bg-secondary p-6 rounded-xl shadow-md border-l-4 border-red-400"
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      <svg
-                        className="w-6 h-6 text-red-400 mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                      <h4 className="text-xl font-semibold text-white">{error.title}</h4>
-                    </div>
-                    {error.element !== 'N/A' && (
-                      <button
-                        onClick={() => toggleElement(`acc-error-${index}`)}
-                        className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-all duration-300"
-                      >
-                        {showElements[`acc-error-${index}`] ? 'Hide Element' : 'Show Element'}
-                      </button>
-                    )}
-                  </div>
-                  <p className="text-gray-300 pl-7 text-left mb-2">{error.description}</p>
-                  <p className="text-gray-300 pl-7 text-left mb-2">
-                    <strong className="text-white">Value:</strong> {error.value}
-                  </p>
-                  <p className="text-gray-300 pl-7 text-left">
-                    <strong className="text-white">Suggestion:</strong> {error.suggestion}
-                  </p>
-                  <AnimatePresence>
-                    {showElements[`acc-error-${index}`] && error.element !== 'N/A' && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mt-4 overflow-hidden"
-                      >
-                        <p className="text-gray-300">
-                          <strong className="text-white">Element:</strong>
-                        </p>
-                        <pre className="bg-[#2a2a2a] p-4 rounded-lg mt-2 text-sm text-gray-300 font-mono overflow-x-auto border border-gray-600">
-                          {error.element}
-                        </pre>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-gray-300 text-center">No accessibility errors found.</p>
-          )}
-        </div>
+        {parsedData?.data?.accessibility?.errors?.length==0?(
+                  <div>
+                  <h3 className="text-2xl font-bold text-accent mb-6" style={{ color: '#d4af37' }}>
+                    Accessibility Errors
+                  </h3>
+                  {parsedData?.data?.accessibility?.errors?.length > 0 ? (
+                    <ul className="space-y-4">
+                      {parsedData?.data?.accessibility?.errors?.map((error: ErrorItem, index: number) => (
+                        <li
+                          key={`acc-error-${index}`}
+                          className="bg-secondary p-6 rounded-xl shadow-md border-l-4 border-red-400"
+                        >
+                          <div className="flex items-center justify-between mb-4">
+                            <div className="flex items-center">
+                              <svg
+                                className="w-6 h-6 text-red-400 mr-2"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                />
+                              </svg>
+                              <h4 className="text-xl font-semibold text-white">{error.title}</h4>
+                            </div>
+                            {error.element !== 'N/A' && (
+                              <button
+                                onClick={() => toggleElement(`acc-error-${index}`)}
+                                className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-all duration-300"
+                              >
+                                {showElements[`acc-error-${index}`] ? 'Hide Element' : 'Show Element'}
+                              </button>
+                            )}
+                          </div>
+                          <p className="text-gray-300 pl-7 text-left mb-2">{error.description}</p>
+                          <p className="text-gray-300 pl-7 text-left mb-2">
+                            <strong className="text-white">Value:</strong> {error.value}
+                          </p>
+                          <p className="text-gray-300 pl-7 text-left">
+                            <strong className="text-white">Suggestion:</strong> {error.suggestion}
+                          </p>
+                          <AnimatePresence>
+                            {showElements[`acc-error-${index}`] && error.element !== 'N/A' && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="mt-4 overflow-hidden"
+                              >
+                                <p className="text-gray-300">
+                                  <strong className="text-white">Element:</strong>
+                                </p>
+                                <pre className="bg-[#2a2a2a] p-4 rounded-lg mt-2 text-sm text-gray-300 font-mono overflow-x-auto border border-gray-600">
+                                  {error.element}
+                                </pre>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-gray-300 text-center">No accessibility errors found.</p>
+                  )}
+                </div>
+        ):""}
+
 
         {/* Accessibility Alerts */}
-        <div>
-          <h3 className="text-2xl font-bold text-accent mb-6" style={{ color: '#d4af37' }}>
-            Accessibility Alerts
-          </h3>
-          {parsedData?.data?.accessibility?.alerts?.length > 0 ? (
-            <ul className="space-y-4">
-              {parsedData?.data?.accessibility?.alerts?.map((alert: AlertItem, index: number) => (
-                <li
-                  key={`acc-alert-${index}`}
-                  className="bg-secondary p-6 rounded-xl shadow-md border-l-4 border-accent"
-                  style={{ borderColor: '#d4af37' }}
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center">
-                      <svg
-                        className="w-6 h-6 text-accent mr-2"
-                        fill="none"
-                        stroke="#d4af37"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                      <h4 className="text-xl font-semibold text-white">{alert.title}</h4>
-                    </div>
-                    {alert.element !== 'N/A' && (
-                      <button
-                        onClick={() => toggleElement(`acc-alert-${index}`)}
-                        className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-all duration-300"
-                      >
-                        {showElements[`acc-alert-${index}`] ? 'Hide Element' : 'Show Element'}
-                      </button>
-                    )}
-                  </div>
-                  <p className="text-gray-300 pl-7 text-left mb-2">{alert.description}</p>
-                  <p className="text-gray-300 pl-7 text-left mb-2">
-                    <strong className="text-white">Score:</strong> {alert.score}
-                  </p>
-                  <p className="text-gray-300 pl-7 text-left">
-                    <strong className="text-white">Suggestion:</strong> {alert.suggestion}
-                  </p>
-                  <AnimatePresence>
-                    {showElements[`acc-alert-${index}`] && alert.element !== 'N/A' && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="mt-4 overflow-hidden"
-                      >
-                        <p className="text-gray-300">
-                          <strong className="text-white">Element:</strong>
-                        </p>
-                        <pre className="bg-[#2a2a2a] p-4 rounded-lg mt-2 text-sm text-gray-300 font-mono overflow-x-auto border border-gray-600">
-                          {alert.element}
-                        </pre>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-gray-300 text-center">No accessibility alerts found.</p>
-          )}
-        </div>
+        {parsedData?.data?.accessibility?.alerts?.length==0?(
+                  <div>
+                  <h3 className="text-2xl font-bold text-accent mb-6" style={{ color: '#d4af37' }}>
+                    Accessibility Alerts
+                  </h3>
+                  {parsedData?.data?.accessibility?.alerts?.length > 0 ? (
+                    <ul className="space-y-4">
+                      {parsedData?.data?.accessibility?.alerts?.map((alert: AlertItem, index: number) => (
+                        <li
+                          key={`acc-alert-${index}`}
+                          className="bg-secondary p-6 rounded-xl shadow-md border-l-4 border-accent"
+                          style={{ borderColor: '#d4af37' }}
+                        >
+                          <div className="flex items-center justify-between mb-4">
+                            <div className="flex items-center">
+                              <svg
+                                className="w-6 h-6 text-accent mr-2"
+                                fill="none"
+                                stroke="#d4af37"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                />
+                              </svg>
+                              <h4 className="text-xl font-semibold text-white">{alert.title}</h4>
+                            </div>
+                            {alert.element !== 'N/A' && (
+                              <button
+                                onClick={() => toggleElement(`acc-alert-${index}`)}
+                                className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-all duration-300"
+                              >
+                                {showElements[`acc-alert-${index}`] ? 'Hide Element' : 'Show Element'}
+                              </button>
+                            )}
+                          </div>
+                          <p className="text-gray-300 pl-7 text-left mb-2">{alert.description}</p>
+                          <p className="text-gray-300 pl-7 text-left mb-2">
+                            <strong className="text-white">Score:</strong> {alert.score}
+                          </p>
+                          <p className="text-gray-300 pl-7 text-left">
+                            <strong className="text-white">Suggestion:</strong> {alert.suggestion}
+                          </p>
+                          <AnimatePresence>
+                            {showElements[`acc-alert-${index}`] && alert.element !== 'N/A' && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="mt-4 overflow-hidden"
+                              >
+                                <p className="text-gray-300">
+                                  <strong className="text-white">Element:</strong>
+                                </p>
+                                <pre className="bg-[#2a2a2a] p-4 rounded-lg mt-2 text-sm text-gray-300 font-mono overflow-x-auto border border-gray-600">
+                                  {alert.element}
+                                </pre>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-gray-300 text-center">No accessibility alerts found.</p>
+                  )}
+                </div>
+        ):""}
+
       </div>
     </div>
   );

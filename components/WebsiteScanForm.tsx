@@ -229,7 +229,7 @@ export default function WebsiteScanForm(): React.JSX.Element {
       {/* Issues Section */}
       <div className="space-y-12">
         {/* Performance Errors */}
-        {parsedData?.data?.performance?.errors?.length === 0?(
+        {parsedData?.data?.performance?.errors?.length !== 0?(
           <div>
           <h3 className="text-2xl font-bold text-accent mb-6" style={{ color: '#d4af37' }}>
             Performance Errors
@@ -303,7 +303,7 @@ export default function WebsiteScanForm(): React.JSX.Element {
         
 
         {/* Performance Alerts */}
-       { parsedData?.data?.performance?.alerts?.length === 0 ?(
+       { parsedData?.data?.performance?.alerts?.length !== 0 ?(
                 <div>
                 <h3 className="text-2xl font-bold text-accent mb-6" style={{ color: '#d4af37' }}>
                   Performance Alerts
@@ -378,7 +378,7 @@ export default function WebsiteScanForm(): React.JSX.Element {
 
 
         {/* Accessibility Errors */}
-        {parsedData?.data?.accessibility?.errors?.length === 0?(
+        {parsedData?.data?.accessibility?.errors?.length !== 0?(
                   <div>
                   <h3 className="text-2xl font-bold text-accent mb-6" style={{ color: '#d4af37' }}>
                     Accessibility Errors
@@ -452,7 +452,7 @@ export default function WebsiteScanForm(): React.JSX.Element {
 
 
         {/* Accessibility Alerts */}
-        {parsedData?.data?.accessibility?.alerts?.length === 0?(
+        {parsedData?.data?.accessibility?.alerts?.length !== 0?(
                   <div>
                   <h3 className="text-2xl font-bold text-accent mb-6" style={{ color: '#d4af37' }}>
                     Accessibility Alerts

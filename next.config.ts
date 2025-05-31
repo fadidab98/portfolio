@@ -1,14 +1,20 @@
 import type { NextConfig } from 'next';
 import type { Configuration } from 'webpack';
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+  openAnalyzer: true, // Automatically open browser
+});
+
 
 /** @type {import('next').NextConfig} */
-const nextConfig: NextConfig = {
+const nextConfig = {
   reactStrictMode: true,
+  compress: true,
   experimental: {
-    optimizeCss: false, // Disable if critters error occurs
+    optimizeCss: false,
   },
   eslint: {
-    ignoreDuringBuilds: true, // Optional, adjust as needed
+    ignoreDuringBuilds: true,
   },
   images: {
     formats: ['image/webp'],
@@ -18,7 +24,6 @@ const nextConfig: NextConfig = {
         hostname: 'fadidabboura.com',
       },
     ],
- 
   },
   async redirects() {
     return [];
@@ -42,6 +47,7 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  trailingSlash: false,
   webpack(config: Configuration, { isServer }: { isServer: boolean }) {
     if (!isServer) {
       config.optimization = config.optimization || {};
@@ -60,11 +66,17 @@ const nextConfig: NextConfig = {
             chunks: 'all',
             priority: 20,
           },
-          reactRedux: {
-            test: /[\\/]node_modules[\\/]react-redux[\\/]/,
-            name: 'react-redux',
+          redux: {
+            test: /[\\/]node_modules[\\/](react-redux|@reduxjs\/toolkit)[\\/]/,
+            name: 'redux',
             chunks: 'all',
             priority: 20,
+          },
+          reduxToolkit: {
+            test: /[\\/]node_modules[\\/]@reduxjs\/toolkit[\\/]/,
+            name: 'redux-toolkit',
+            chunks: 'all',
+            priority: 25,
           },
           polyfills: {
             test: /[\\/]node_modules[\\/](core-js|babel-polyfill)[\\/]/,
@@ -87,4 +99,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);

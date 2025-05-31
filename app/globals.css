@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.leading-relaxed {
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+  }

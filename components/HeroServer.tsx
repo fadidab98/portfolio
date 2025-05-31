@@ -37,7 +37,7 @@ export default function HeroServer({ children }: HeroServerProps) {
             DevOps Engineer & Web Developer
           </h2>
           <div className="text-base text-gray-300 space-y-3 mb-6 min-h-[150px]">
-            <p className="leading-relaxed">
+            <p className="leading-relaxed" suppressHydrationWarning>
               I’m Fadi Dabboura, an expert <strong>DevOps Engineer</strong> and{' '}
               <strong>Web Developer</strong> focused on CI/CD pipelines, cloud infrastructure, and
               high-performance web applications.

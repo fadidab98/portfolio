@@ -30,7 +30,7 @@ interface ClientHomeProps {
 }
 
 export default function ClientHome({ projects }: ClientHomeProps): React.JSX.Element {
-      const featuredProject = projects[0];
+  const featuredProject = projects[0];
   return (
     <>
       <Hero />
@@ -48,7 +48,7 @@ export default function ClientHome({ projects }: ClientHomeProps): React.JSX.Ele
             <ProjectCard key={index} project={project} />
           ))}
         </div>
-        <p className="text-center text-lg text-gray-300 mt-8">
+        <p className="text-center text-lg text-gray-300 mt-8" suppressHydrationWarning>
           Want to collaborate on a project?{' '}
           <Link href="/contact" className="text-accent underline hover:text-accent/80 transition">
             Contact me

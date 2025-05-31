@@ -1,13 +1,10 @@
 'use client';
 
-import { useMediaQuery } from 'react-responsive';
 import HeroServer from './HeroServer';
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { SocialLink } from '../types';
 
 export default function Hero() {
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-
   const socialLinks: SocialLink[] = [
     {
       name: 'Facebook',
@@ -31,7 +28,7 @@ export default function Hero() {
 
   const socialContent = (
     <>
-      <div className="flex justify-center md:justify-start gap-4 mb-6">
+      <div className="flex justify-center gap-4 mb-6">
         {socialLinks.map((link) => (
           <a
             key={link.name}
@@ -57,5 +54,5 @@ export default function Hero() {
     </>
   );
 
-  return isMobile ? <HeroServer>{socialContent}</HeroServer> : <HeroServer>{socialContent}</HeroServer>;
+  return <HeroServer>{socialContent}</HeroServer>;
 }

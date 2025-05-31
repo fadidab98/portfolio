@@ -1,12 +1,16 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Provider } from 'react-redux';
-import { usePathname } from 'next/navigation';
-import { store } from '@/lib/store';
+import dynamic from 'next/dynamic';
 import Loading from '@/components/Loading';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { store } from '@/lib/store';
+import { usePathname } from 'next/navigation';
+
+const Provider = dynamic(() => import('react-redux').then(mod => mod.Provider), {
+  ssr: false,
+});
 
 interface ClientLayoutProps {
   children: React.ReactNode;
@@ -35,6 +39,9 @@ export default function ClientLayout({ children }: ClientLayoutProps): React.JSX
       <Footer />
       <noscript>
         <style>{`.hidden { display: block !important; }`}</style>
+        <div className="text-center p-4 bg-red-500 text-white">
+          JavaScript is disabled. Some features may not work.
+        </div>
       </noscript>
     </Provider>
   );

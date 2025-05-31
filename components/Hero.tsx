@@ -1,25 +1,9 @@
-'use client';
-
-import { useState, useEffect } from 'react';
+// Hero.tsx
 import HeroServer from './HeroServer';
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { SocialLink } from '../types';
 
-export default function Hero() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
-    setIsMobile(mediaQuery.matches);
-
-    const handleResize = (e: MediaQueryListEvent) => {
-      setIsMobile(e.matches);
-    };
-
-    mediaQuery.addEventListener('change', handleResize);
-    return () => mediaQuery.removeEventListener('change', handleResize);
-  }, []);
-
+export default async function Hero() {
   const socialLinks: SocialLink[] = [
     {
       name: 'Facebook',
@@ -42,8 +26,8 @@ export default function Hero() {
   ];
 
   const socialContent = (
-    <>
-      <div className="flex justify-center md:justify-start gap-4 mb-6">
+    <div className="flex flex-col items-center md:items-start gap-4">
+      <div className="flex gap-4">
         {socialLinks.map((link) => (
           <a
             key={link.name}
@@ -57,16 +41,14 @@ export default function Hero() {
           </a>
         ))}
       </div>
-      <div>
-        <a
-          href="/contact"
-          className="inline-block bg-[#d4af37] text-background py-2 px-4 sm:py-3 sm:px-6 rounded-lg text-base sm:text-lg hover:bg-yellow-600 hover:scale-105 transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:ring-opacity-50"
-          aria-label="Contact Fadi Dabboura"
-        >
-          Contact Me
-        </a>
-      </div>
-    </>
+      <a
+        href="/contact"
+        className="inline-block bg-[#d4af37] text-background py-2 px-4 rounded-lg text-base hover:bg-yellow-600 hover:scale-105 transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-[#d4af37] focus:ring-opacity-50"
+        aria-label="Contact Fadi Dabboura"
+      >
+        Contact Me
+      </a>
+    </div>
   );
 
   return <HeroServer>{socialContent}</HeroServer>;

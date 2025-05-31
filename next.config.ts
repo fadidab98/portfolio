@@ -1,13 +1,14 @@
 import type { NextConfig } from 'next';
 import type { Configuration } from 'webpack';
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   experimental: {
     optimizeCss: false, // Disable if critters error occurs
   },
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true, // Optional, adjust as needed
   },
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -40,7 +41,7 @@ const nextConfig = {
       },
     ];
   },
-   webpack(config: Configuration, { isServer }: { isServer: boolean }) {
+  webpack(config: Configuration, { isServer }: { isServer: boolean }) {
     if (!isServer) {
       config.optimization = config.optimization || {};
       config.optimization.splitChunks = {

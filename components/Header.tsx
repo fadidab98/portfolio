@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Dispatch, SetStateAction } from 'react';
-import { style } from 'framer-motion/client';
+
 
 interface HeaderProps {
   isMenuOpen: boolean;

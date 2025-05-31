@@ -83,7 +83,9 @@ pipeline {
                                     cd ${env.REMOTE_DIR} && \
                                     ls -l nginx.conf docker-compose.yaml; \
                                     echo '${CR_PASS}' | docker login ghcr.io -u '${CR_USER}' --password-stdin && \
-                                    docker-compose -f docker-compose.yaml down || true && \
+                                    docker image rm ghcr.io/${env.IMAGE_NAMESPACE}/${env.IMAGE_NAME}:${env.IMAGE_TAG} && \
+                                    
+                                    docker-compose -f docker-compose.yaml down  && \
                                     docker-compose -f docker-compose.yaml up -d && \
                                     sleep 5 && \
                                     docker-compose logs nginx-config-fadilogic; \

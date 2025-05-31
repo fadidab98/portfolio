@@ -65,6 +65,8 @@ const nextConfig = {
             name: 'framer-motion',
             chunks: 'all',
             priority: 20,
+            enforce: true, 
+
           },
           redux: {
             test: /[\\/]node_modules[\\/](react-redux|@reduxjs\/toolkit)[\\/]/,

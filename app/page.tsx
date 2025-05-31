@@ -111,6 +111,7 @@ export default function Home(): React.JSX.Element {
       <Script
         id="structured-data-home"
         type="application/ld+json"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedStructuredData) }}
       />
       <ClientHome projects={projects} />

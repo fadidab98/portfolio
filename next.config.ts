@@ -1,24 +1,22 @@
 import type { NextConfig } from 'next';
 import type { Configuration } from 'webpack';
-
 /** @type {import('next').NextConfig} */
-const nextConfig: NextConfig = {
+const nextConfig = {
   reactStrictMode: true,
   experimental: {
     optimizeCss: false, // Disable if critters error occurs
   },
   eslint: {
-    ignoreDuringBuilds: true, // Optional, adjust as needed
+    ignoreDuringBuilds: true,
   },
   images: {
-    formats: ['image/webp'],
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'fadidabboura.com',
       },
     ],
- 
   },
   async redirects() {
     return [];
@@ -32,7 +30,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: '/:path*.(jpg|jpeg|png|gif|svg|ico|css|js|woff|woff2)',
+        source: '/:path*.(jpg|jpeg|png|gif|svg|ico|css|js|woff|woff2|ttf|eot|pdf|mp4|webm)',
         headers: [
           {
             key: 'Cache-Control',
@@ -42,7 +40,7 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  webpack(config: Configuration, { isServer }: { isServer: boolean }) {
+   webpack(config: Configuration, { isServer }: { isServer: boolean }) {
     if (!isServer) {
       config.optimization = config.optimization || {};
       config.optimization.splitChunks = {

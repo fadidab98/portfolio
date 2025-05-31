@@ -1,20 +1,14 @@
 import type { NextConfig } from 'next';
 import type { Configuration } from 'webpack';
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-  openAnalyzer: true, // Automatically open browser
-});
-
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
-  compress: true,
   experimental: {
-    optimizeCss: false,
+    optimizeCss: false, // Disable if critters error occurs
   },
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true, // Optional, adjust as needed
   },
   images: {
     formats: ['image/webp'],
@@ -24,6 +18,7 @@ const nextConfig = {
         hostname: 'fadidabboura.com',
       },
     ],
+ 
   },
   async redirects() {
     return [];
@@ -47,7 +42,6 @@ const nextConfig = {
       },
     ];
   },
-  trailingSlash: false,
   webpack(config: Configuration, { isServer }: { isServer: boolean }) {
     if (!isServer) {
       config.optimization = config.optimization || {};
@@ -65,20 +59,12 @@ const nextConfig = {
             name: 'framer-motion',
             chunks: 'all',
             priority: 20,
-            enforce: true, 
-
           },
-          redux: {
-            test: /[\\/]node_modules[\\/](react-redux|@reduxjs\/toolkit)[\\/]/,
-            name: 'redux',
+          reactRedux: {
+            test: /[\\/]node_modules[\\/]react-redux[\\/]/,
+            name: 'react-redux',
             chunks: 'all',
             priority: 20,
-          },
-          reduxToolkit: {
-            test: /[\\/]node_modules[\\/]@reduxjs\/toolkit[\\/]/,
-            name: 'redux-toolkit',
-            chunks: 'all',
-            priority: 25,
           },
           polyfills: {
             test: /[\\/]node_modules[\\/](core-js|babel-polyfill)[\\/]/,
@@ -101,4 +87,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withBundleAnalyzer(nextConfig);
+export default nextConfig;

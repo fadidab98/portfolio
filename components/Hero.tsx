@@ -1,12 +1,24 @@
 'use client';
 
-import { useMediaQuery } from 'react-responsive';
+import { useState, useEffect } from 'react';
 import HeroServer from './HeroServer';
 import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { SocialLink } from '../types';
 
 export default function Hero() {
-  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mediaQuery.matches);
+
+    const handleResize = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleResize);
+    return () => mediaQuery.removeEventListener('change', handleResize);
+  }, []);
 
   const socialLinks: SocialLink[] = [
     {
@@ -57,5 +69,5 @@ export default function Hero() {
     </>
   );
 
-  return isMobile ? <HeroServer>{socialContent}</HeroServer> : <HeroServer>{socialContent}</HeroServer>;
+  return <HeroServer>{socialContent}</HeroServer>;
 }

@@ -125,7 +125,6 @@ export default function Webscan(): React.JSX.Element {
       <Script
         id="structured-data-webscan"
         type="application/ld+json"
-        strategy="lazyOnload"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedStructuredData) }}
       />
       <ClientWebscan />

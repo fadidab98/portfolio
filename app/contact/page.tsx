@@ -71,7 +71,6 @@ export default function Contact(): React.JSX.Element {
       <Script
         id="structured-data-contact"
         type="application/ld+json"
-        strategy="lazyOnload"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(combinedStructuredData) }}
       />
       <ClientContact />

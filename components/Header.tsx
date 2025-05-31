@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Dispatch, SetStateAction } from 'react';
+import { style } from 'framer-motion/client';
 
 interface HeaderProps {
   isMenuOpen: boolean;
@@ -31,7 +32,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen, pathname }: HeaderPr
   }, [isMenuOpen]);
 
   return (
-    <header className="relative z-50 bg-secondary text-white shadow-md" style={{ backgroundColor: "#2d2d2d" }}>
+    <header className="relative z-50 bg-secondary text-white shadow-md" style={{backgroundColor:"#2d2d2d"}}>
       <div className="max-w-5xl mx-auto flex justify-between items-center py-6 px-4 sm:px-6 lg:px-8 relative z-50">
         <span className="text-2xl font-bold text-accent">FadiLogic</span>
         <button
@@ -45,8 +46,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen, pathname }: HeaderPr
         <nav
           className={`mobile-hidden md:block md:static md:bg-transparent md:top-auto md:left-auto md:right-auto md:bottom-auto md:mt-0 transition-all duration-500 ease-in-out overflow-hidden ${
             isMenuOpen ? 'fixed top-[80px] left-0 right-0 bottom-0 bg-secondary z-50' : 'hidden'
-          }`}
-          style={{ backgroundColor: "#2d2d2d" }}
+          }` } style={{backgroundColor:"#2d2d2d"}}
         >
           <ul className="flex flex-col md:flex-row md:space-x-6 h-full justify-center items-center p-2 md:p-0 text-white">
             <li className="w-full md:w-auto">
@@ -73,6 +73,7 @@ export default function Header({ isMenuOpen, setIsMenuOpen, pathname }: HeaderPr
                 About
               </Link>
             </li>
+            
             <li className="w-full md:w-auto">
               <Link
                 href="/#projects"

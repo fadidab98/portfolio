@@ -60,6 +60,14 @@ const nextConfig = {
             chunks: 'all',
             priority: -10,
           },
+          framerMotion: {
+            test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
+            name: 'framer-motion',
+            chunks: 'all',
+            priority: 20,
+            enforce: true, 
+
+          },
           redux: {
             test: /[\\/]node_modules[\\/](react-redux|@reduxjs\/toolkit)[\\/]/,
             name: 'redux',

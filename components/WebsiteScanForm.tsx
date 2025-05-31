@@ -2,8 +2,22 @@
 
 import { useState, useEffect } from 'react';
 import { useScanWebsiteMutation } from '@/lib/scanApi';
-import { motion, AnimatePresence } from 'framer-motion';
+import dynamic from 'next/dynamic';
 import { ScanResult, ErrorItem, AlertItem } from '@/types';
+
+// Dynamically import framer-motion components
+const MotionPath = dynamic(
+  () => import('framer-motion').then((mod) => mod.motion.path),
+  { ssr: false }
+);
+const MotionDiv = dynamic(
+  () => import('framer-motion').then((mod) => mod.motion.div),
+  { ssr: false }
+);
+const MotionAnimatePresence = dynamic(
+  () => import('framer-motion').then((mod) => mod.AnimatePresence),
+  { ssr: false }
+);
 
 interface PerformanceLabel {
   label: string;
@@ -172,7 +186,7 @@ export default function WebsiteScanForm(): React.JSX.Element {
                 stroke="currentColor"
                 strokeWidth="2"
               />
-              <motion.path
+              <MotionPath
                 className="text-accent"
                 d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                 fill="none"
@@ -186,14 +200,14 @@ export default function WebsiteScanForm(): React.JSX.Element {
               />
             </svg>
             <div className="absolute text-center">
-              <motion.div
+              <MotionDiv
                 className={`text-4xl font-semibold ${performanceLabel.color}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
                 {displayScore}%
-              </motion.div>
+              </MotionDiv>
               <p className={`mt-2 text-lg ${performanceLabel.color}`}>
                 {performanceLabel.label}
               </p>
@@ -274,9 +288,9 @@ export default function WebsiteScanForm(): React.JSX.Element {
                     <p className="text-gray-300 pl-7 text-left">
                       <strong className="text-white">Suggestion:</strong> {error.suggestion}
                     </p>
-                    <AnimatePresence>
+                    <MotionAnimatePresence>
                       {showElements[`perf-error-${index}`] && error.element !== 'N/A' && (
-                        <motion.div
+                        <MotionDiv
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
@@ -289,9 +303,9 @@ export default function WebsiteScanForm(): React.JSX.Element {
                           <pre className="bg-[#2a2a2a] p-4 rounded-lg mt-2 text-sm text-gray-300 font-mono overflow-x-auto border border-gray-600">
                             {error.element}
                           </pre>
-                        </motion.div>
+                        </MotionDiv>
                       )}
-                    </AnimatePresence>
+                    </MotionAnimatePresence>
                   </li>
                 ))}
               </ul>
@@ -348,9 +362,9 @@ export default function WebsiteScanForm(): React.JSX.Element {
                     <p className="text-gray-300 pl-7 text-left">
                       <strong className="text-white">Suggestion:</strong> {alert.suggestion}
                     </p>
-                    <AnimatePresence>
+                    <MotionAnimatePresence>
                       {showElements[`perf-alert-${index}`] && alert.element !== 'N/A' && (
-                        <motion.div
+                        <MotionDiv
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
@@ -363,9 +377,9 @@ export default function WebsiteScanForm(): React.JSX.Element {
                           <pre className="bg-[#2a2a2a] p-4 rounded-lg mt-2 text-sm text-gray-300 font-mono overflow-x-auto border border-gray-600">
                             {alert.element}
                           </pre>
-                        </motion.div>
+                        </MotionDiv>
                       )}
-                    </AnimatePresence>
+                    </MotionAnimatePresence>
                   </li>
                 ))}
               </ul>
@@ -421,9 +435,9 @@ export default function WebsiteScanForm(): React.JSX.Element {
                     <p className="text-gray-300 pl-7 text-left">
                       <strong className="text-white">Suggestion:</strong> {error.suggestion}
                     </p>
-                    <AnimatePresence>
+                    <MotionAnimatePresence>
                       {showElements[`acc-error-${index}`] && error.element !== 'N/A' && (
-                        <motion.div
+                        <MotionDiv
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
@@ -436,9 +450,9 @@ export default function WebsiteScanForm(): React.JSX.Element {
                           <pre className="bg-[#2a2a2a] p-4 rounded-lg mt-2 text-sm text-gray-300 font-mono overflow-x-auto border border-gray-600">
                             {error.element}
                           </pre>
-                        </motion.div>
+                        </MotionDiv>
                       )}
-                    </AnimatePresence>
+                    </MotionAnimatePresence>
                   </li>
                 ))}
               </ul>
@@ -495,9 +509,9 @@ export default function WebsiteScanForm(): React.JSX.Element {
                     <p className="text-gray-300 pl-7 text-left">
                       <strong className="text-white">Suggestion:</strong> {alert.suggestion}
                     </p>
-                    <AnimatePresence>
+                    <MotionAnimatePresence>
                       {showElements[`acc-alert-${index}`] && alert.element !== 'N/A' && (
-                        <motion.div
+                        <MotionDiv
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
@@ -510,9 +524,9 @@ export default function WebsiteScanForm(): React.JSX.Element {
                           <pre className="bg-[#2a2a2a] p-4 rounded-lg mt-2 text-sm text-gray-300 font-mono overflow-x-auto border border-gray-600">
                             {alert.element}
                           </pre>
-                        </motion.div>
+                        </MotionDiv>
                       )}
-                    </AnimatePresence>
+                    </MotionAnimatePresence>
                   </li>
                 ))}
               </ul>

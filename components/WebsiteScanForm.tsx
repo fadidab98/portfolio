@@ -5,19 +5,29 @@ import { useScanWebsiteMutation } from '@/lib/scanApi';
 import dynamic from 'next/dynamic';
 import { ScanResult, ErrorItem, AlertItem } from '@/types';
 
-// Dynamically import framer-motion components
-const MotionPath = dynamic(
-  () => import('framer-motion').then((mod) => mod.motion.path),
-  { ssr: false }
-);
-const MotionDiv = dynamic(
-  () => import('framer-motion').then((mod) => mod.motion.div),
-  { ssr: false }
-);
-const MotionAnimatePresence = dynamic(
-  () => import('framer-motion').then((mod) => mod.AnimatePresence),
-  { ssr: false }
-);
+// Dynamically import framer-motion components with error handling
+const loadFramerMotion = async () => {
+  try {
+    const mod = await import('framer-motion');
+    return {
+      MotionPath: mod.motion.path,
+      MotionDiv: mod.motion.div,
+      MotionAnimatePresence: mod.AnimatePresence,
+    };
+  } catch (error) {
+    console.error('Failed to load framer-motion:', error);
+    const FallbackComponent = ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) => <div {...props}>{children}</div>;
+    return {
+      MotionPath: FallbackComponent,
+      MotionDiv: FallbackComponent,
+      MotionAnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+    };
+  }
+};
+
+const MotionPath = dynamic(() => loadFramerMotion().then((mod) => mod.MotionPath), { ssr: false });
+const MotionDiv = dynamic(() => loadFramerMotion().then((mod) => mod.MotionDiv), { ssr: false });
+const MotionAnimatePresence = dynamic(() => loadFramerMotion().then((mod) => mod.MotionAnimatePresence), { ssr: false });
 
 interface PerformanceLabel {
   label: string;

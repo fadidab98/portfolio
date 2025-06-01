@@ -7,11 +7,16 @@ import { store } from '@/lib/store';
 import Loading from '@/components/Loading';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-
+import dynamic from 'next/dynamic';
 interface ClientLayoutProps {
   children: React.ReactNode;
 }
-
+const DynamicProvider = dynamic(
+  () => import('react-redux').then((mod) => mod.Provider),
+  {
+    ssr: false
+  }
+);
 export default function ClientLayout({ children }: ClientLayoutProps): React.JSX.Element {
   const [loading, setLoading] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -29,13 +34,13 @@ export default function ClientLayout({ children }: ClientLayoutProps): React.JSX
   }, [pathname]);
 
   return (
-    <Provider store={store}>
+    <DynamicProvider store={store}>
       <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} pathname={pathname} />
       <main>{loading ? <Loading /> : children}</main>
       <Footer />
       <noscript>
         <style>{`.hidden { display: block !important; }`}</style>
       </noscript>
-    </Provider>
+    </DynamicProvider>
   );
 }

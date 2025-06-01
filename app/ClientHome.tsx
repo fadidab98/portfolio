@@ -4,25 +4,26 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Section from '@/components/Section';
 import { Project } from '../types';
+import { SkeletonHero, SkeletonProjectCard, SkeletonScanServiceSection, SkeletonWelcomeSection } from '@/components/skeleton/Skeleton';
 
 const Hero = dynamic(() => import('@/components/Hero'), {
   ssr: true,
-  loading: () => <div className="h-[500px] bg-gray-700 animate-pulse" />,
+  loading: () =>  <SkeletonHero/>,
 });
 
 const WelcomeSection = dynamic(() => import('@/components/WelcomeSection'), {
   ssr: true,
-  loading: () => <div className="h-[400px] bg-gray-700 animate-pulse" />,
+  loading: () => <SkeletonWelcomeSection/>,
 });
 
 const ScanServiceSection = dynamic(() => import('@/components/ScanServiceSection'), {
   ssr: true,
-  loading: () => <div className="h-[600px] bg-gray-700 animate-pulse" />,
+  loading: () => <SkeletonScanServiceSection/>,
 });
 
 const ProjectCard = dynamic(() => import('@/components/ProjectCard'), {
   ssr: true,
-  loading: () => <div className="relative w-full min-h-[300px] bg-gray-700 rounded-md animate-pulse" />,
+  loading: () => <SkeletonProjectCard/>,
 });
 
 interface ClientHomeProps {

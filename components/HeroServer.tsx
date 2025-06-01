@@ -15,6 +15,7 @@ export default function HeroServer({ children }: HeroServerProps) {
       <div className="flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="w-full md:w-1/2 flex justify-center md:justify-start">
           <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] aspect-[5/7]">
+            <div className='relative z-20'>
             <Image
               src="/images/FadiLogic-profile.webp"
               alt="Fadi Dabboura, DevOps Engineer and Web Developer"
@@ -27,12 +28,13 @@ export default function HeroServer({ children }: HeroServerProps) {
               className="w-full h-full object-cover rounded-full border-4 border-accent shadow-lg"
               sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, (max-width: 1024px) 250px, 300px"
             />
+            </div>
             <div
-              className="absolute -top-6 -left-6 w-28 h-28 bg-accent rounded-full opacity-20"
+              className="absolute -top-6 -left-6 w-28 h-28 bg-accent rounded-full opacity-20 z-10"
               style={{ backgroundColor: '#d4af37' }}
             />
             <div
-              className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent rounded-full opacity-20"
+              className="absolute -bottom-6 -right-6 w-16 h-16 bg-accent rounded-full opacity-20 z-10"
               style={{ backgroundColor: '#d4af37' }}
             />
           </div>

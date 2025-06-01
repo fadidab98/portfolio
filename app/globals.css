@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.leading-relaxed {
+  line-height: 1.625;
+}

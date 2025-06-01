@@ -29,7 +29,7 @@ export const globalStructuredData: StructuredData[] = [
   {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'FadiLogic',
+    name: 'FadiLogic by Fadi Dabboura', // Added "by Fadi Dabboura"
     url: 'https://fadidabboura.com',
     logo: 'https://fadidabboura.com/favicon-192x192.png',
     sameAs: [
@@ -43,7 +43,7 @@ export const globalStructuredData: StructuredData[] = [
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     url: 'https://fadidabboura.com',
-    name: 'FadiLogic',
+    name: 'FadiLogic by Fadi Dabboura', // Added "by Fadi Dabboura"
     potentialAction: [
       {
         '@context': 'https://schema.org',
@@ -59,7 +59,7 @@ export const globalStructuredData: StructuredData[] = [
           valueRequired: true,
           valueName: 'website_url',
         },
-        description: 'Scan your website for performance and errors using FadiLogic’s free website scan tool.',
+        description: 'Scan your website for performance and errors using Fadi Dabboura’s free website scan tool at FadiLogic.',
       },
     ],
   },
@@ -69,12 +69,12 @@ export const metadata: Metadata = {
   globalStructuredData,
   metadataBase: new URL('https://fadidabboura.com'),
   title: {
-    default: 'Fadi Dabboura - DevOps & Web Developer | FadiLogic',
-    template: '%s | FadiLogic',
+    default: 'Fadi Dabboura - DevOps & Web Developer | FadiLogic', // Already includes "Dabboura"
+    template: '%s | Fadi Dabboura’s FadiLogic', // Added "Dabboura"
   },
   description:
-    'Fadi Dabboura’s FadiLogic offers expert DevOps engineering, web development, and a free website scan tool to boost your site’s SEO and performance. Contact Fadi for scalable CI/CD and cloud solutions.',
-  keywords: 'fadi, dabboura, fadi dabboura, devops, web development, website scan, seo, ci/cd, cloud infrastructure',
+    'Fadi Dabboura’s FadiLogic offers expert DevOps engineering, web development, and a free website scan tool to boost your site’s SEO and performance. Contact Fadi Dabboura for scalable CI/CD and cloud solutions.',
+  keywords: 'fadi dabboura, dabboura, devops, web development, website scan, seo, ci/cd, cloud infrastructure', // Added "dabboura"
   robots: 'index, follow',
   alternates: {
     canonical: 'https://fadidabboura.com',
@@ -83,7 +83,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    siteName: 'FadiLogic',
+    siteName: 'FadiLogic by Fadi Dabboura', // Added "by Fadi Dabboura"
     locale: 'en_US',
     type: 'website',
     images: [
@@ -91,7 +91,7 @@ export const metadata: Metadata = {
         url: '/images/FadiLogic.png',
         width: 1200,
         height: 630,
-        alt: 'FadiLogic - DevOps and Web Development',
+        alt: 'Fadi Dabboura’s FadiLogic - DevOps and Web Development', // Added "Dabboura"
         type: 'image/png',
       },
     ],
@@ -111,7 +111,7 @@ export const metadata: Metadata = {
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
   },
 };
- 
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.className}>

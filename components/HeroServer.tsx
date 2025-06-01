@@ -1,4 +1,3 @@
-// HeroServer.tsx
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -15,19 +14,20 @@ export default function HeroServer({ children }: HeroServerProps) {
       <div className="flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="w-full md:w-1/2 flex justify-center md:justify-start">
           <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] aspect-[5/7]">
-            <div className='relative z-20'>
-            <Image
-              src="/images/FadiLogic-profile.webp"
-              alt="Fadi Dabboura, DevOps Engineer and Web Developer"
-              width={300}
-              height={420}
-              priority
-              fetchPriority="high"
-              placeholder="blur"
-              blurDataURL="data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoBAAEAAQAcJaACdLoB+AA/an7gAAA="
-              className="w-full h-full object-cover rounded-full border-4 border-accent shadow-lg"
-              sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, (max-width: 1024px) 250px, 300px"
-            />
+            <div className="relative z-20">
+              <Image
+                src="/images/FadiLogic-profile.webp"
+                alt="Fadi Dabboura, DevOps Engineer and Web Developer at FadiLogic"
+                title="Fadi Dabboura Profile Image" // Added title attribute
+                width={300}
+                height={420}
+                priority
+                fetchPriority="high"
+                placeholder="blur"
+                blurDataURL="data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoBAAEAAQAcJaACdLoB+AA/an7gAAA="
+                className="w-full h-full object-cover rounded-full border-4 border-accent shadow-lg"
+                sizes="(max-width: 640px) 150px, (max-width: 768px) 200px, (max-width: 1024px) 250px, 300px"
+              />
             </div>
             <div
               className="absolute -top-6 -left-6 w-28 h-28 bg-accent rounded-full opacity-20 z-10"
@@ -40,29 +40,29 @@ export default function HeroServer({ children }: HeroServerProps) {
           </div>
         </div>
         <div className="w-full md:w-1/2 text-center md:text-left">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4">Fadi Dabboura</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4">Fadi Dabboura’s FadiLogic</h1>
           <h2 className="text-xl sm:text-2xl text-white mb-4 leading-relaxed">
             DevOps Engineer & Web Developer
           </h2>
           <div className="text-base text-gray-300 space-y-3 mb-6">
             <p className="leading-relaxed">
-              I’m Fadi Dabboura, an expert <strong>DevOps Engineer</strong> and{' '}
+              I’m <strong>Fadi Dabboura</strong>, an expert <strong>DevOps Engineer</strong> and{' '}
               <strong>Web Developer</strong> focused on CI/CD pipelines, cloud infrastructure, and
               high-performance web applications.
             </p>
             <p className="leading-relaxed">
-              Use my{' '}
+              Use <strong>Fadi Dabboura</strong>’s{' '}
               <Link
                 href="/website-scan"
                 className="text-accent underline hover:text-accent/80 transition"
-                aria-label="Try FadiLogic's free website scan tool"
+                aria-label="Try Fadi Dabboura’s free website scan tool"
               >
                 free website scan tool
               </Link>{' '}
               to optimize your site’s performance, SEO, and user experience.
             </p>
             <p className="leading-relaxed">
-              As a Master’s student in Informatics at Ostfalia University, I deliver cutting-edge
+              As a Master’s student in Informatics at Ostfalia University, <strong>Fadi Dabboura</strong> delivers cutting-edge
               solutions. Explore my{' '}
               <Link
                 href="#projects"
@@ -77,7 +77,7 @@ export default function HeroServer({ children }: HeroServerProps) {
                 className="text-accent underline hover:text-accent/80 transition"
                 aria-label="Contact Fadi Dabboura"
               >
-                contact me
+                contact Fadi Dabboura
               </Link>{' '}
               to start your next project.
             </p>

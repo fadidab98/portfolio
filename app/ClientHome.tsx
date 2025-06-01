@@ -8,22 +8,22 @@ import { SkeletonHero, SkeletonProjectCard, SkeletonScanServiceSection, Skeleton
 
 const Hero = dynamic(() => import('@/components/Hero'), {
   ssr: true,
-  loading: () =>  <SkeletonHero/>,
+  loading: () => <SkeletonHero />,
 });
 
 const WelcomeSection = dynamic(() => import('@/components/WelcomeSection'), {
   ssr: true,
-  loading: () => <SkeletonWelcomeSection/>,
+  loading: () => <SkeletonWelcomeSection />,
 });
 
 const ScanServiceSection = dynamic(() => import('@/components/ScanServiceSection'), {
   ssr: true,
-  loading: () => <SkeletonScanServiceSection/>,
+  loading: () => <SkeletonScanServiceSection />,
 });
 
 const ProjectCard = dynamic(() => import('@/components/ProjectCard'), {
   ssr: true,
-  loading: () => <SkeletonProjectCard/>,
+  loading: () => <SkeletonProjectCard />,
 });
 
 interface ClientHomeProps {
@@ -31,7 +31,7 @@ interface ClientHomeProps {
 }
 
 export default function ClientHome({ projects }: ClientHomeProps): React.JSX.Element {
-      const featuredProject = projects[0];
+  const featuredProject = projects[0];
   return (
     <>
       <Hero />
@@ -39,35 +39,35 @@ export default function ClientHome({ projects }: ClientHomeProps): React.JSX.Ele
       <ScanServiceSection />
       <Section id="projects" className="section-container">
         <h2 className="text-4xl mb-8 text-center">DevOps Engineer Portfolio by Fadi Dabboura</h2>
-        <h2 className="text-4xl mb-8 text-center">Featured Project</h2>
+        <h2 className="text-4xl mb-8 text-center">Featured Project by Fadi Dabboura</h2>
         <div className="max-w-2xl mx-auto">
           <ProjectCard project={featuredProject} />
         </div>
-        <h2 className="text-4xl mt-12 mb-8 text-center">More Projects</h2>
+        <h2 className="text-4xl mt-12 mb-8 text-center">More Projects by Fadi Dabboura</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.slice(1).map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}
         </div>
         <p className="text-center text-lg text-gray-300 mt-8">
-          Want to collaborate on a project?{' '}
+          Want to collaborate on a project with <strong>Fadi Dabboura</strong>?{' '}
           <Link href="/contact" className="text-accent underline hover:text-accent/80 transition">
-            Contact me
+            Contact Fadi Dabboura
           </Link>{' '}
           to discuss your ideas!
         </p>
       </Section>
       <Section id="cta" className="section-container">
         <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
-          Ready to Elevate Your Project?
+          Ready to Elevate Your Project with Fadi Dabboura?
         </h2>
         <div className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center">
           <p>
-            Boost your website’s performance with my{' '}
+            Boost your website’s performance with <strong>Fadi Dabboura</strong>’s{' '}
             <Link
               href="/website-scan"
               className="text-accent underline hover-text transition"
-              aria-label="Try FadiLogic's free website scan tool"
+              aria-label="Try Fadi Dabboura’s free website scan tool"
             >
               free website scan tool
             </Link>
@@ -75,13 +75,13 @@ export default function ClientHome({ projects }: ClientHomeProps): React.JSX.Ele
           </p>
           <p>
             Looking for tailored <strong>DevOps</strong> or <strong>web development</strong>{' '}
-            solutions?{' '}
+            solutions by <strong>Fadi Dabboura</strong>?{' '}
             <Link
               href="/contact"
               className="text-accent underline hover-text transition"
               aria-label="Contact Fadi Dabboura for project inquiries"
             >
-              Contact me
+              Contact Fadi Dabboura
             </Link>{' '}
             to build scalable CI/CD pipelines or web apps.
           </p>

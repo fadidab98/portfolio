@@ -6,11 +6,11 @@ import { Project, StructuredData, Metadata } from '../types';
 
 const projects: Project[] = [
   {
-    title: 'Machine Learning Dashboard',
-    description: 'A real-time dashboard for visualizing ML model performance, built with Next.js and TensorFlow. Features include live data updates and responsive design.',
+    title: 'Machine Learning Dashboard by Fadi Dabboura', // Added "by Fadi Dabboura"
+    description: 'A real-time dashboard for visualizing ML model performance, built by Fadi Dabboura with Next.js and TensorFlow. Features include live data updates and responsive design.',
     technologies: ['Next.js', 'TensorFlow', 'Tailwind CSS'],
     image: '/images/ml-dashboard.avif',
-    alt: 'Machine Learning Dashboard Screenshot',
+    alt: 'Machine Learning Dashboard by Fadi Dabboura', // Added "by Fadi Dabboura"
     liveLink: 'https://ml-dashboard.example.com',
     githubLink: 'https://github.com/fadidab98/ml-dashboard',
     author: {
@@ -20,11 +20,11 @@ const projects: Project[] = [
     datePublished: '2024-06-01',
   },
   {
-    title: 'Portfolio Site',
-    description: 'A responsive portfolio showcasing DevOps and web development expertise, optimized for SEO and performance.',
+    title: 'Fadi Dabboura’s Portfolio Site', // Added "Fadi Dabboura’s"
+    description: 'A responsive portfolio by Fadi Dabboura showcasing DevOps and web development expertise, optimized for SEO and performance.',
     technologies: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
     image: '/images/FadiLogic-web.webp',
-    alt: 'FadiLogic Portfolio Site Screenshot',
+    alt: 'Fadi Dabboura’s Portfolio Site Screenshot', // Added "Fadi Dabboura’s"
     liveLink: 'https://fadidabboura.com',
     githubLink: 'https://github.com/fadidab98/portfolio',
     author: {
@@ -39,11 +39,11 @@ const pageStructuredData: StructuredData[] = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Fadi Dabboura Portfolio',
+    name: 'Fadi Dabboura’s Portfolio', // Added "Dabboura’s"
     url: 'https://fadidabboura.com',
     image: 'https://fadidabboura.com/images/FadiLogic-profile.webp',
-    description: 'Portfolio of Fadi Dabboura, showcasing DevOps and web development projects, including a free website scan tool.',
-    keywords: 'fadi, dabboura, fadi dabboura, devops, web development, website scan, seo',
+    description: 'Portfolio of Fadi Dabboura, showcasing DevOps and web development projects, including a free website scan tool by Fadi Dabboura.',
+    keywords: 'fadi dabboura, dabboura, devops, web development, website scan, seo', // Added "dabboura"
     mainEntity: {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
@@ -72,7 +72,7 @@ const pageStructuredData: StructuredData[] = [
         '@context': 'https://schema.org',
         '@type': 'ListItem',
         position: 1,
-        name: 'Home',
+        name: 'Fadi Dabboura’s Home', // Added "Dabboura’s"
         item: 'https://fadidabboura.com',
       },
     ],
@@ -81,8 +81,8 @@ const pageStructuredData: StructuredData[] = [
 
 export const metadata: Metadata = MergeMetadata(rootMetadata, {
   title: 'Fadi Dabboura - DevOps & Web Developer | FadiLogic',
-  description: 'Fadi Dabboura’s FadiLogic portfolio: Expert DevOps engineer and web developer. Use Fadi’s free website scan tool to boost SEO and performance.',
-  keywords: 'fadi, dabboura, fadi dabboura, devops, web development, website scan, seo, ci/cd, cloud infrastructure',
+  description: 'Fadi Dabboura’s FadiLogic portfolio: Expert DevOps engineer and web developer. Use Fadi Dabboura’s free website scan tool to boost SEO and performance.',
+  keywords: 'fadi dabboura, dabboura, devops, web development, website scan, seo, ci/cd, cloud infrastructure', // Added "dabboura"
   openGraph: {
     title: 'Fadi Dabboura - Portfolio & Website Scan | FadiLogic',
     description: 'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',

@@ -1,3 +1,4 @@
+// HeroServer.tsx
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -16,9 +17,9 @@ export default function HeroServer({ children }: HeroServerProps) {
           <div className="relative w-[150px] sm:w-[200px] md:w-[250px] lg:w-[300px] aspect-[5/7]">
             <div className="relative z-20">
               <Image
-                src="/images/FadiLogic-profile.webp"
+                src="/images/fadi-dabboura-profile.webp" // Updated image name
                 alt="Fadi Dabboura, DevOps Engineer and Web Developer at FadiLogic"
-                title="Fadi Dabboura Profile Image" // Added title attribute
+                title="Fadi Dabboura Profile Image"
                 width={300}
                 height={420}
                 priority

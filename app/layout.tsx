@@ -18,7 +18,7 @@ export const globalStructuredData: StructuredData[] = [
     familyName: 'Dabboura',
     url: 'https://fadidabboura.com',
     jobTitle: 'DevOps Engineer & Web Developer',
-    image: 'https://fadidabboura.com/images/FadiLogic-profile.webp',
+    image: 'https://fadidabboura.com/images/fadi-dabboura-profile.webp',
     sameAs: [
       'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
       'https://github.com/fadidab98',
@@ -115,7 +115,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.className}>
-      <head />
+      
+        <head/>
       <body>
         <ClientLayout>{children}</ClientLayout>
       </body>

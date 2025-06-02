@@ -39,11 +39,11 @@ const pageStructuredData: StructuredData[] = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Fadi Dabboura’s Portfolio', // Added "Dabboura’s"
+    name: 'Fadi Dabboura’s Portfolio',
     url: 'https://fadidabboura.com',
-    image: 'https://fadidabboura.com/images/FadiLogic-profile.webp',
+    image: 'https://fadidabboura.com/images/fadi-dabboura-profile.webp', // Updated image name
     description: 'Portfolio of Fadi Dabboura, showcasing DevOps and web development projects, including a free website scan tool by Fadi Dabboura.',
-    keywords: 'fadi dabboura, dabboura, devops, web development, website scan, seo', // Added "dabboura"
+    keywords: 'fadi dabboura, dabboura, fadi, devops, web development, website scan, seo',
     mainEntity: {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
@@ -72,25 +72,57 @@ const pageStructuredData: StructuredData[] = [
         '@context': 'https://schema.org',
         '@type': 'ListItem',
         position: 1,
-        name: 'Fadi Dabboura’s Home', // Added "Dabboura’s"
+        name: 'Fadi Dabboura’s Home',
         item: 'https://fadidabboura.com',
+      },
+    ],
+  },
+  // New FAQ Schema
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Who is Fadi Dabboura?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Fadi Dabboura is a DevOps Engineer and Web Developer at FadiLogic, specializing in CI/CD, cloud infrastructure, and SEO optimization.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What services does Fadi Dabboura offer?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Fadi Dabboura offers DevOps engineering, web development, and a free website scan tool to improve SEO and performance.',
+        },
       },
     ],
   },
 ];
 
 export const metadata: Metadata = MergeMetadata(rootMetadata, {
-  title: 'Fadi Dabboura - DevOps & Web Developer | FadiLogic',
-  description: 'Fadi Dabboura’s FadiLogic portfolio: Expert DevOps engineer and web developer. Use Fadi Dabboura’s free website scan tool to boost SEO and performance.',
-  keywords: 'fadi dabboura, dabboura, devops, web development, website scan, seo, ci/cd, cloud infrastructure', // Added "dabboura"
+  title: 'Fadi Dabboura | DevOps & Web Developer - FadiLogic',
+  description: 'Fadi Dabboura’s FadiLogic: Expert DevOps and web development services. Use Fadi Dabboura’s free website scan tool to optimize SEO and performance.',
+  keywords: 'fadi dabboura, dabboura, fadi, devops engineer, web developer, website scan, seo, ci/cd, cloud infrastructure',
   openGraph: {
-    title: 'Fadi Dabboura - Portfolio & Website Scan | FadiLogic',
+    title: 'Fadi Dabboura | Portfolio & Website Scan - FadiLogic',
     description: 'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
     url: 'https://fadidabboura.com',
+    images: [
+      {
+        url: '/images/fadi-dabboura-profile.webp', // Updated image name
+        width: 1200,
+        height: 630,
+        alt: 'Fadi Dabboura’s FadiLogic Portfolio',
+      },
+    ],
   },
   twitter: {
-    title: 'Fadi Dabboura - DevOps & Web Developer | FadiLogic',
+    title: 'Fadi Dabboura | DevOps & Web Developer - FadiLogic',
     description: 'Explore Fadi Dabboura’s FadiLogic: Free website scan tool and portfolio showcasing DevOps and web development expertise.',
+    images: ['/images/fadi-dabboura-profile.webp'], // Updated image name
   },
   alternates: {
     canonical: 'https://fadidabboura.com',

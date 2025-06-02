@@ -1,3 +1,4 @@
+// ClientHome.tsx
 'use client';
 
 import dynamic from 'next/dynamic';
@@ -73,7 +74,7 @@ export default function ClientHome({ projects }: ClientHomeProps): React.JSX.Ele
             </Link>
             . Get insights into speed, performance, and security.
           </p>
-          <p>
+          <p className="mt-4">
             Looking for tailored <strong>DevOps</strong> or <strong>web development</strong>{' '}
             solutions by <strong>Fadi Dabboura</strong>?{' '}
             <Link
@@ -85,6 +86,15 @@ export default function ClientHome({ projects }: ClientHomeProps): React.JSX.Ele
             </Link>{' '}
             to build scalable CI/CD pipelines or web apps.
           </p>
+        </div>
+        <div className="mt-8 text-center">
+          <Link
+            href="/website-scan"
+            className="inline-block bg-accent text-background py-4 px-8 rounded-lg text-xl font-bold hover:bg-yellow-600 transition duration-300 shadow-lg"
+            aria-label="Start Fadi Dabboura’s free website scan"
+          >
+            Scan Your Website with Fadi Dabboura Now
+          </Link>
         </div>
       </Section>
     </>

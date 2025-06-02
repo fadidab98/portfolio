@@ -11,7 +11,7 @@ const pageStructuredData: StructuredData[] = [
     name: 'FadiLogic Website Scan Tool',
     description: 'Fadi Dabboura’s free website scan tool analyzes performance, speed, SEO, and errors, providing actionable insights for optimization.',
     keywords: 'fadi, dabboura, fadi dabboura, website scan, web performance, seo, devops',
-    image: 'https://fadidabboura.com/images/FadiLogic-profile.webp',
+    image: 'https://fadidabboura.com/images/fadi-dabboura-profile.webp',
     url: 'https://fadidabboura.com/website-scan',
     author: {
       '@context': 'https://schema.org',
@@ -19,7 +19,7 @@ const pageStructuredData: StructuredData[] = [
       name: 'Fadi Dabboura',
       givenName: 'Fadi',
       familyName: 'Dabboura',
-      image: 'https://fadidabboura.com/images/FadiLogic-profile.webp',
+      image: 'https://fadidabboura.com/images/fadi-dabboura-profile.webp',
       sameAs: [
         'https://www.linkedin.com/in/fadi-dabboura-8300bb211',
         'https://www.facebook.com/fadi.dabboura.73',

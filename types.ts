@@ -1,3 +1,4 @@
+// types.ts
 export interface Project {
   title: string;
   description: string;
@@ -53,7 +54,7 @@ export interface Metadata {
   };
   alternates?: {
     canonical?: string;
-    types?: Record<string, string>;
+    types?: Record<string, Array<{ url: string; title?: string }>>;
   };
   globalStructuredData?: StructuredData[];
 }

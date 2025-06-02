@@ -79,7 +79,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://fadidabboura.com',
     types: {
-      'application/xml': 'https://fadidabboura.com/sitemap.xml',
+      'application/xml': [
+        { url: 'https://fadidabboura.com/sitemap.xml', title: 'URL Sitemap' },
+        { url: 'https://fadidabboura.com/sitemap-images.xml', title: 'Image Sitemap' },
+      ],
     },
   },
   openGraph: {

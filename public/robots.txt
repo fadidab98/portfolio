@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://fadidabboura.com/sitemap.xml
+Sitemap: https://fadidabboura.com/sitemap-image.xml

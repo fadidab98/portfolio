@@ -4,12 +4,14 @@
   <url>
     <loc>https://fadidabboura.com</loc>
     <image:image>
+      <image:loc>https://fadidabboura.com/images/fadi-dabboura-profile.webp</image:loc>
+      <image:title>Fadi Dabboura Profile Image</image:title>
+      <image:caption>Fadi Dabboura, DevOps Engineer and Web Developer at FadiLogic</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://fadidabboura.com/images/FadiLogic.png</image:loc>
       <image:title>FadiLogic Logo</image:title>
       <image:caption>Fadi Dabboura - DevOps and Web Development</image:caption>
     </image:image>
-
-    
   </url>
-  
 </urlset>

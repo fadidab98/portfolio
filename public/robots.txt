@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Disallow /cdn-cgi/
+
 Sitemap: https://fadidabboura.com/sitemap.xml

@@ -82,13 +82,15 @@ pipeline {
                                     mkdir -p ${env.REMOTE_DIR} && \
                                     cd ${env.REMOTE_DIR} && \
                                     ls -l nginx.conf docker-compose.yaml; \
-                                    echo '${CR_PASS}' | docker login ghcr.io -u '${CR_USER}' --password-stdin && \
-                                    docker image rm ghcr.io/${env.IMAGE_NAMESPACE}/${env.IMAGE_NAME}:${env.IMAGE_TAG} && \
-                                    
-                                    docker-compose -f docker-compose.yaml down  && \
-                                    docker-compose -f docker-compose.yaml up -d && \
+                                    echo '${CR_PASS}' | docker login ghcr.io -u '${CR_USER}' --password-stdin || { echo 'Docker login failed'; exit 1; } && \
+                                    docker ps -a -q --filter ancestor=ghcr.io/${env.IMAGE_NAMESPACE}/${env.IMAGE_NAME}:${env.IMAGE_TAG} | xargs -r docker rm -f; \
+                                    docker image rm -f ghcr.io/${env.IMAGE_NAMESPACE}/${env.IMAGE_NAME}:${env.IMAGE_TAG} || echo 'Image removal failed or not found'; \
+                                    docker-compose -f docker-compose.yaml down --volumes || { echo 'Docker Compose down failed'; exit 1; } && \
+                                    docker-compose -f docker-compose.yaml pull || { echo 'Docker Compose pull failed'; exit 1; } && \
+                                    docker-compose -f docker-compose.yaml up -d || { echo 'Docker Compose up failed'; exit 1; } && \
                                     sleep 5 && \
                                     docker-compose logs nginx-config-fadilogic; \
+                                    docker inspect \$(docker-compose ps -q nginx-config-fadilogic) | grep Image; \
                                     ls -l /etc/nginx/sites-available/ || echo 'sites-available empty'; \
                                     ls -l /etc/nginx/sites-enabled/ || echo 'sites-enabled empty'; \
                                     readlink /etc/nginx/sites-enabled/fadidabboura.com || echo 'symlink missing'; \

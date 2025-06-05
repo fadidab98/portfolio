@@ -39,36 +39,36 @@ export default function ClientHome({ projects }: ClientHomeProps): React.JSX.Ele
       <WelcomeSection />
       <ScanServiceSection />
       <Section id="projects" className="section-container">
-        <h2 className="text-4xl mb-8 text-center">DevOps Engineer Portfolio by Fadi Dabboura</h2>
-        <h2 className="text-4xl mb-8 text-center">Featured Project by Fadi Dabboura</h2>
-        <div className="max-w-2xl mx-auto">
-          <ProjectCard project={featuredProject} />
-        </div>
-        <h2 className="text-4xl mt-12 mb-8 text-center">More Projects by Fadi Dabboura</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.slice(1).map((project, index) => (
-            <ProjectCard key={index} project={project} />
-          ))}
-        </div>
-        <p className="text-center text-lg text-gray-300 mt-8">
-          Want to collaborate on a project with <strong>Fadi Dabboura</strong>?{' '}
-          <Link href="/contact" className="text-accent underline hover:text-accent/80 transition">
-            Contact Fadi Dabboura
-          </Link>{' '}
-          to discuss your ideas!
-        </p>
+  <h2 className="text-4xl mb-8 text-center">DevOps Engineer Portfolio</h2> {/* Removed "by Fadi Dabboura" */}
+  <h2 className="text-4xl mb-8 text-center">Featured Project</h2> {/* Removed "by Fadi Dabboura" */}
+  <div className="max-w-2xl mx-auto">
+    <ProjectCard project={featuredProject} />
+  </div>
+  <h2 className="text-4xl mt-12 mb-8 text-center">More Projects</h2> {/* Removed "by Fadi Dabboura" */}
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {projects.slice(1).map((project, index) => (
+      <ProjectCard key={index} project={project} />
+    ))}
+  </div>
+  <p className="text-center text-lg text-gray-300 mt-8">
+    Want to collaborate on a project?{' '}
+    <Link href="/contact" className="text-accent underline hover:text-accent/80 transition">
+      Contact Me
+    </Link>{' '}
+    to discuss your ideas!
+  </p>
       </Section>
       <Section id="cta" className="section-container">
         <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white text-center tracking-tight">
-          Ready to Elevate Your Project with Fadi Dabboura?
-        </h2>
+          Ready to Elevate Your Project?
+        </h2> {/* Removed "with Fadi Dabboura" */}
         <div className="text-lg sm:text-xl text-gray-300 leading-relaxed text-center">
           <p>
-            Boost your website’s performance with <strong>Fadi Dabboura</strong>’s{' '}
+            Boost your website’s performance with my{' '}
             <Link
               href="/website-scan"
               className="text-accent underline hover-text transition"
-              aria-label="Try Fadi Dabboura’s free website scan tool"
+              aria-label="Try the free website scan tool"
             >
               free website scan tool
             </Link>
@@ -76,13 +76,13 @@ export default function ClientHome({ projects }: ClientHomeProps): React.JSX.Ele
           </p>
           <p className="mt-4">
             Looking for tailored <strong>DevOps</strong> or <strong>web development</strong>{' '}
-            solutions by <strong>Fadi Dabboura</strong>?{' '}
+            solutions?{' '}
             <Link
               href="/contact"
               className="text-accent underline hover-text transition"
-              aria-label="Contact Fadi Dabboura for project inquiries"
+              aria-label="Contact for project inquiries"
             >
-              Contact Fadi Dabboura
+              Contact Me
             </Link>{' '}
             to build scalable CI/CD pipelines or web apps.
           </p>
@@ -91,9 +91,9 @@ export default function ClientHome({ projects }: ClientHomeProps): React.JSX.Ele
           <Link
             href="/website-scan"
             className="inline-block bg-accent text-background py-4 px-8 rounded-lg text-xl font-bold hover:bg-yellow-600 transition duration-300 shadow-lg"
-            aria-label="Start Fadi Dabboura’s free website scan"
+            aria-label="Start your free website scan"
           >
-            Scan Your Website with Fadi Dabboura Now
+            Scan Your Website Now
           </Link>
         </div>
       </Section>
